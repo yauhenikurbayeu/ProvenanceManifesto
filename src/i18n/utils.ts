@@ -32,6 +32,9 @@ export function useTranslations(lang: SupportedLang) {
 
 export function getLocalizedPath(lang: SupportedLang, route: RouteKey = 'manifesto') {
 	const baseUrl = getBaseUrl();
+	if (route === 'manifesto' && lang === defaultLang) {
+		return `${baseUrl}/`;
+	}
 	const slug = routeMap[lang]?.[route] ?? '';
 	return `${baseUrl}/${lang}${slug ? `/${slug}` : ''}`;
 }

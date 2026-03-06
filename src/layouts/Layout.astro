@@ -47,6 +47,7 @@ const baseUrl = import.meta.env.BASE_URL || '/';
                         <a href={getLocalizedPath('fr')} class={lang === 'fr' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>FR</a>
                         <a href={getLocalizedPath('ru')} class={lang === 'ru' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>RU</a>
                         <a href={getLocalizedPath('de')} class={lang === 'de' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>DE</a>
+                        <a href={getLocalizedPath('pl')} class={lang === 'pl' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>PL</a>
                     </div>
                 </nav>
                 
@@ -68,9 +69,20 @@ const baseUrl = import.meta.env.BASE_URL || '/';
                     <span class="text-lg font-bold tracking-tight">Provenance Manifesto</span>
                 </div>
 
-                <p class="text-sm text-slate-500 dark:text-slate-400">
-                    © 2024 Provenance Manifesto. {t('footer.rights')}
-                </p>
+                <a
+                    href="https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#1152d4] transition-colors"
+                >
+                    {t('footer.linkedin')}
+                </a>
+
+                <div class="flex flex-col items-end gap-2 text-right">
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                        © 2024 Provenance Manifesto. {t('footer.rights')}
+                    </p>
+                </div>
             </div>
         </footer>
 	</body>

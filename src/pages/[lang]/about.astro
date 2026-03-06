@@ -6,6 +6,7 @@ import contentEs from '../../i18n/es/content.json';
 import contentFr from '../../i18n/fr/content.json';
 import contentRu from '../../i18n/ru/content.json';
 import contentDe from '../../i18n/de/content.json';
+import contentPl from '../../i18n/pl/content.json';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -17,7 +18,8 @@ const contentMap = {
   es: contentEs,
   fr: contentFr,
   ru: contentRu,
-  de: contentDe
+  de: contentDe,
+  pl: contentPl
 };
 const content = contentMap[lang as keyof typeof contentMap].about;
 ---
@@ -52,19 +54,6 @@ const content = contentMap[lang as keyof typeof contentMap].about;
                 ))}
             </div>
             
-            <hr class="border-slate-200 dark:border-slate-800 my-16"/>
-            
-            <section class="flex flex-col md:flex-row gap-12 items-start pb-24">
-                <div class="flex-1">
-                    <h2 class="text-slate-900 dark:text-white text-3xl font-bold mb-6 font-display">{content.author.title}</h2>
-                    <p class="mb-4">
-                        {content.author.description}
-                    </p>
-                </div>
-                <div class="w-full md:w-48 aspect-square rounded-full overflow-hidden flex-shrink-0 border-4 border-[#1152d4]/20">
-                    <img alt="Author portrait" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJdUxsVuANY9uvqRjL4p-nP0Ny6aBU5UYICV1OAEJ7Vrh9tdf7E3bdGDx7uyK3dvW3uXbBEoj8m3eqtCZbh_ZEW8X9UeiK0a8Ce_XjufZR9PIi6gwdRFg2dPphyQxM2uNmEAQNtKqFc_gaQ8NgO5f48JE9KjisLMbhfA4DSWI2uK8bIwB2tDzbRimTNDSFGkAqAaeY3R-vij4ctMCAHnZvsT-lQc3pNCeqSEwo_rNqRc4BWmVFkf2Ux8eqAJyX7Mm2OS2zRIYeO8w"/>
-                </div>
-            </section>
         </article>
     </div>
 </Layout>

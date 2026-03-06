@@ -1,140 +1,140 @@
 {
-    "landing": {
-        "hero_title_prefix": "The",
-        "hero_title_highlight": "Provenance",
-        "hero_title_suffix": "Manifesto",
-        "hero_description": "We are discovering better ways of building software and operating organizations in the age of artificial intelligence by preserving, governing, and evolving the provenance of decisions that shape our systems.",
-        "values_title": "Through this work we have come to value:",
-        "values": [
-            {
-                "icon": "verified_user",
-                "left": "Traceable decisions with context",
-                "right": "undocumented intuition"
-            },
-            {
-                "icon": "history_edu",
-                "left": "Institutional memory",
-                "right": "repeated rediscovery"
-            },
-            {
-                "icon": "gavel",
-                "left": "Transparent reasoning",
-                "right": "hidden assumptions"
-            },
-            {
-                "icon": "timeline",
-                "left": "Evolution of decisions",
-                "right": "static documentation"
-            },
-            {
-                "icon": "person",
-                "left": "Accountable decision ownership",
-                "right": "anonymous outputs"
-            },
-            {
-                "icon": "smart_toy",
-                "left": "Governed collaboration between humans and AI",
-                "right": "uncontrolled automation"
-            }
-        ],
-        "disclaimer": "While there is value in the items on the right, we value the items on the left more.",
-        "quote": "\"The history of every decision is the architecture of our future.\""
+  "landing": {
+    "hero_title_prefix": "Le",
+    "hero_title_highlight": "Provenance",
+    "hero_title_suffix": "Manifeste",
+    "hero_description": "Nous découvrons de meilleures façons de construire des logiciels et de faire fonctionner des organisations à l’ère de l’intelligence artificielle en préservant, gouvernant et faisant évoluer la provenance des décisions qui façonnent nos systèmes.",
+    "values_title": "À travers ce travail, nous en sommes venus à valoriser :",
+    "values": [
+      {
+        "icon": "verified_user",
+        "left": "Des décisions traçables avec leur contexte",
+        "right": "l’intuition non documentée"
+      },
+      {
+        "icon": "history_edu",
+        "left": "La mémoire institutionnelle",
+        "right": "la redécouverte répétée"
+      },
+      {
+        "icon": "gavel",
+        "left": "Un raisonnement transparent",
+        "right": "des hypothèses cachées"
+      },
+      {
+        "icon": "timeline",
+        "left": "L’évolution des décisions",
+        "right": "une documentation statique"
+      },
+      {
+        "icon": "person",
+        "left": "La responsabilité des décisions",
+        "right": "des résultats anonymes"
+      },
+      {
+        "icon": "smart_toy",
+        "left": "Une collaboration gouvernée entre humains et IA",
+        "right": "une automatisation incontrôlée"
+      }
+    ],
+    "disclaimer": "Bien que les éléments de droite aient aussi de la valeur, nous valorisons davantage ceux de gauche.",
+    "quote": "\"L’histoire de chaque décision est l’architecture de notre avenir.\""
+  },
+  "principles": {
+    "title": "Principes derrière le Manifeste Provenance",
+    "description": "Les piliers fondamentaux de la gouvernance moderne des décisions. Traiter la mémoire organisationnelle comme un actif stratégique grâce à la transparence et à la responsabilité.",
+    "items": [
+      {
+        "title": "Les décisions sont des artefacts de première classe",
+        "content": "Chaque architecture, comportement produit, processus opérationnel et réponse à un incident trouve son origine dans des décisions. Les organisations devraient traiter les décisions avec la même rigueur que le code source."
+      },
+      {
+        "title": "Les décisions doivent porter leur contexte",
+        "content": "Une décision sans ses hypothèses, alternatives, risques et raisonnement est incomplète. Le contexte transforme une décision d’une simple affirmation en connaissance."
+      },
+      {
+        "title": "Les décisions évoluent mais ne sont jamais effacées",
+        "content": "Les décisions peuvent être révisées, remplacées ou dérivées, mais leur histoire doit être préservée. L’intelligence organisationnelle grandit par l’évolution du raisonnement, et non par la réécriture de l’histoire."
+      },
+      {
+        "title": "Les décisions doivent être interrogeables",
+        "content": "Les organisations devraient pouvoir demander : pourquoi ce système a-t-il été conçu ainsi ? Quelles hypothèses ont justifié cette décision ? Quels risques ont été acceptés ? La mémoire institutionnelle doit être structurée de manière à permettre de retrouver ces réponses instantanément."
+      },
+      {
+        "title": "Les décisions doivent être attribuables",
+        "content": "Toute décision significative doit avoir un responsable. La responsabilité permet la confiance, la gouvernance et un changement responsable."
+      },
+      {
+        "title": "L’IA doit opérer dans un cadre de gouvernance des décisions",
+        "content": "L’intelligence artificielle peut générer du code, des architectures et des solutions. Mais elle doit fonctionner dans un cadre décisionnel traçable où les raisonnements, hypothèses et validations restent visibles. L’IA accélère l’exécution. Provenance préserve la responsabilité."
+      },
+      {
+        "title": "La mémoire institutionnelle est un actif stratégique",
+        "content": "Les organisations qui préservent le raisonnement derrière leurs systèmes avancent plus vite, évitent de répéter les erreurs et prennent de meilleures décisions. La mémoire s’accumule. Pour les organisations modernes, la provenance des décisions devient un capital intellectuel."
+      }
+    ]
+  },
+  "about": {
+    "title": "À propos",
+    "subtitle": "Répondre à l’amnésie du contexte organisationnel grâce à l’art de la provenance.",
+    "author": {
+      "title": "Auteur",
+      "description": "Je suis chercheur et architecte de systèmes, fasciné par la manière dont les groupes de personnes construisent des choses ensemble. Mon parcours en archivistique et en ingénierie logicielle m’a amené à réaliser que nos outils numériques sont excellents pour enregistrer ce que nous faisons, mais très mauvais pour capturer pourquoi nous le faisons."
     },
-    "principles": {
-        "title": "Principles Behind the Provenance Manifesto",
-        "description": "The foundational pillars for modern decision governance. Treating corporate memory as a strategic asset through transparency and accountability.",
-        "items": [
-            {
-                "title": "Decisions are first-class artifacts",
-                "content": "Every architecture, product behavior, operational process, and incident response originates from decisions. Organizations should treat decisions with the same rigor as source code."
-            },
-            {
-                "title": "Decisions must carry context",
-                "content": "A decision without its assumptions, alternatives, risks, and reasoning is incomplete. Context transforms a decision from a statement into knowledge."
-            },
-            {
-                "title": "Decisions evolve but are never erased",
-                "content": "Decisions may be revised, superseded, or branched, but their history must remain preserved. Organizational intelligence grows through the evolution of reasoning, not through rewriting history."
-            },
-            {
-                "title": "Decisions must be queryable",
-                "content": "Organizations should be able to ask: Why was this system designed this way? What assumptions justified this decision? Which risks were accepted? Institutional memory must be structured so that these answers can be retrieved instantly."
-            },
-            {
-                "title": "Decisions must be attributable",
-                "content": "Every meaningful decision must have ownership. Accountability enables trust, governance, and responsible change."
-            },
-            {
-                "title": "AI must operate within decision governance",
-                "content": "Artificial intelligence can generate code, architecture, and solutions. But it must operate within a traceable decision framework where reasoning, assumptions, and approvals remain visible. AI accelerates execution. Provenance preserves accountability."
-            },
-            {
-                "title": "Institutional memory is a strategic asset",
-                "content": "Organizations that preserve the reasoning behind their systems move faster, avoid repeating mistakes, and make better decisions. Memory compounds. For modern organizations, decision provenance becomes intellectual capital."
-            }
+    "sections": [
+      {
+        "title": "Amnésie du contexte organisationnel",
+        "content": [
+          "La plupart des organisations souffrent d’une perte silencieuse de connaissances. Les équipes changent. Le contexte disparaît. La documentation devient obsolète. Les ingénieurs sont contraints de redécouvrir des décisions déjà prises il y a longtemps.",
+          "Après avoir passé des années à diriger des équipes d’ingénierie et de grandes initiatives SaaS, j’ai commencé à voir le même schéma partout : les organisations construisent des systèmes, mais ne préservent pas le raisonnement qui les sous-tend. Le résultat est ce que j’appelle l’amnésie du contexte organisationnel."
         ]
-    },
-    "about": {
-        "title": "About",
-        "subtitle": "Addressing organizational context amnesia through the art of provenance.",
-        "author": {
-            "title": "Auteur",
-            "description": "Je suis un chercheur et architecte système obsédé par la façon dont les groupes de personnes construisent des choses ensemble. Mon expérience en archivistique et en génie logiciel m'a amené à réaliser que nos outils numériques sont excellents pour stocker *ce que* nous faisons, mais terribles pour capturer *pourquoi* nous le faisons."
-        },
-        "sections": [
-            {
-                "title": "Organizational Context Amnesia",
-                "content": [
-                    "Most organizations suffer from a silent drain of knowledge. Teams change. Context is lost. Documentation becomes outdated. Engineers are forced to rediscover decisions that were already made long ago.",
-                    "After spending years leading engineering teams and large-scale SaaS initiatives, I began to see the same pattern everywhere: Organizations build systems, but they do not preserve the reasoning behind them. The result is what I call organizational context amnesia."
-                ]
-            },
-            {
-                "title": "Why Provenance Exists",
-                "content": [
-                    "In the age of artificial intelligence this problem becomes even more critical. AI systems can generate code, architecture, and solutions at unprecedented speed. But without traceable reasoning and governance, organizations risk losing visibility into why systems behave the way they do.",
-                    "Provenance explores a new idea: Decisions should be treated as first-class artifacts of the Software Development Lifecycle. Instead of disappearing in meetings, chats, or documents, decisions can be captured, connected, versioned, and queried — forming a living memory of how systems evolve."
-                ]
-            },
-            {
-                "title": "The Idea Behind Provenance",
-                "content": [
-                    "Provenance proposes that engineering organizations should preserve decision history the same way they preserve source code. This means capturing: decisions, assumptions, risks, questions, actions, ownership, and connecting them into a graph of reasoning that evolves over time."
-                ]
-            },
-            {
-                "title": "Why This Matters Now",
-                "content": [
-                    "Software development is entering a new phase. AI is dramatically accelerating the generation of code and solutions. But this acceleration also increases the number of decisions that shape systems.",
-                    "Without preserving the provenance of those decisions, complexity grows faster than understanding. Provenance explores how organizations can maintain governance, accountability, and institutional memory in an AI-driven engineering world."
-                ]
-            },
-            {
-                "title": "About Me",
-                "content": [
-                    "I am a software engineering leader with decades of experience building and operating complex systems and managing large engineering teams.",
-                    "Throughout my career I have worked on enterprise platforms, large-scale SaaS products, and distributed engineering organizations. Over time, I became increasingly interested not only in how systems are built, but in how decisions that shape those systems are made, preserved, and evolved. Provenance is an exploration of that idea."
-                ]
-            },
-            {
-                "title": "An Open Exploration",
-                "content": [
-                    "Provenance is not a finished product. It is a concept, research direction, and ongoing conversation about how engineering organizations can evolve their development lifecycle for the age of artificial intelligence. If these ideas resonate with you, I invite you to explore the manifesto, the principles, and the architecture behind Provenance."
-                ]
-            }
+      },
+      {
+        "title": "Pourquoi Provenance existe",
+        "content": [
+          "À l’ère de l’intelligence artificielle, ce problème devient encore plus critique. Les systèmes d’IA peuvent générer du code, des architectures et des solutions à une vitesse sans précédent. Mais sans raisonnement traçable et sans gouvernance, les organisations risquent de perdre la compréhension de pourquoi leurs systèmes fonctionnent ainsi.",
+          "Provenance explore une nouvelle idée : les décisions devraient être traitées comme des artefacts de première classe du cycle de vie du développement logiciel. Au lieu de disparaître dans des réunions, des discussions ou des documents, les décisions peuvent être capturées, connectées, versionnées et interrogées — formant une mémoire vivante de l’évolution des systèmes."
         ]
-    },
-    "sign": {
-        "title": "Sign the Provenance Manifesto",
-        "description": "Add your name to support the Provenance Manifesto and the idea that decisions, context, and institutional memory should remain traceable in the age of AI.",
-        "form": {
-            "name_label": "Your Name",
-            "name_placeholder": "Jane Doe",
-            "consent_label": "By signing, you confirm your support for the principles of the Provenance Manifesto.",
-            "secondary_consent_label": "By clicking Sign Manifesto, you confirm that you understand and agree that your signature will be stored only as an obfuscated name and timestamp.",
-            "submit_button": "Sign Manifesto",
-            "success_message": "Thank you for supporting the Provenance Manifesto!",
-            "error_message": "There was an error submitting your signature. Please try again."
-        }
+      },
+      {
+        "title": "L’idée derrière Provenance",
+        "content": [
+          "Provenance propose que les organisations d’ingénierie préservent l’historique des décisions de la même manière qu’elles préservent leur code source. Cela signifie capturer les décisions, hypothèses, risques, questions, actions et responsabilités, et les relier dans un graphe de raisonnement qui évolue au fil du temps."
+        ]
+      },
+      {
+        "title": "Pourquoi cela compte aujourd’hui",
+        "content": [
+          "Le développement logiciel entre dans une nouvelle phase. L’IA accélère considérablement la génération de code et de solutions. Mais cette accélération augmente également le nombre de décisions qui façonnent les systèmes.",
+          "Sans préserver la provenance de ces décisions, la complexité croît plus vite que la compréhension. Provenance explore comment les organisations peuvent maintenir gouvernance, responsabilité et mémoire institutionnelle dans un monde de l’ingénierie piloté par l’IA."
+        ]
+      },
+      {
+        "title": "À propos de moi",
+        "content": [
+          "Je m’appelle Yauheni Kurbayeu. Je suis un responsable en ingénierie logicielle avec des décennies d’expérience dans la construction et l’exploitation de systèmes complexes et dans la gestion de grandes équipes d’ingénierie.",
+          "Au cours de ma carrière, j’ai travaillé sur des plateformes d’entreprise, des produits SaaS à grande échelle et des organisations d’ingénierie distribuées. Avec le temps, je me suis intéressé non seulement à la manière dont les systèmes sont construits, mais aussi à la manière dont les décisions qui façonnent ces systèmes sont prises, préservées et évoluent. Provenance est une exploration de cette idée."
+        ]
+      },
+      {
+        "title": "Une exploration ouverte",
+        "content": [
+          "Provenance n’est pas un produit fini. C’est un concept, une direction de recherche et une conversation continue sur la manière dont les organisations d’ingénierie peuvent faire évoluer leur cycle de développement à l’ère de l’intelligence artificielle. Si ces idées résonnent en vous, je vous invite à explorer le manifeste, ses principes et l’architecture qui sous-tend Provenance."
+        ]
+      }
+    ]
+  },
+  "sign": {
+    "title": "Signer le Manifeste Provenance",
+    "description": "Ajoutez votre nom pour soutenir le Manifeste Provenance et l’idée que les décisions, le contexte et la mémoire institutionnelle doivent rester traçables à l’ère de l’IA.",
+    "form": {
+      "name_label": "Votre nom",
+      "name_placeholder": "Jean Dupont",
+      "consent_label": "En signant, vous confirmez votre soutien aux principes du Manifeste Provenance.",
+      "secondary_consent_label": "En cliquant sur « Signer le manifeste », vous confirmez comprendre et accepter que votre signature soit stockée uniquement sous la forme d’un nom obfusqué et d’un horodatage.",
+      "submit_button": "Signer le manifeste",
+      "success_message": "Merci de soutenir le Manifeste Provenance !",
+      "error_message": "Une erreur est survenue lors de l’envoi de votre signature. Veuillez réessayer."
     }
+  }
 }

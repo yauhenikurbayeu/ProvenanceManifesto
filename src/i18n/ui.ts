@@ -3,7 +3,8 @@ export const languages = {
   es: 'Español',
   fr: 'Français',
   ru: 'Русский',
-  de: 'Deutsch'
+  de: 'Deutsch',
+  pl: 'Polski'
 };
 
 export const defaultLang = 'en';
@@ -17,15 +18,15 @@ export const routeMap = {
   },
   es: {
     manifesto: '',
-    principles: 'principios',
-    about: 'acerca-de',
-    sign: 'firmar'
+    principles: 'principles',
+    about: 'about',
+    sign: 'sign'
   },
   fr: {
     manifesto: '',
-    principles: 'principes',
-    about: 'a-propos',
-    sign: 'signer'
+    principles: 'principles',
+    about: 'about',
+    sign: 'sign'
   },
   ru: {
     manifesto: '',
@@ -35,9 +36,15 @@ export const routeMap = {
   },
   de: {
     manifesto: '',
-    principles: 'prinzipien',
-    about: 'ueber',
-    sign: 'unterschreiben'
+    principles: 'principles',
+    about: 'about',
+    sign: 'sign'
+  },
+  pl: {
+    manifesto: '',
+    principles: 'principles',
+    about: 'about',
+    sign: 'sign'
   }
 } as const;
 
@@ -54,6 +61,7 @@ export const ui = {
     'footer.github': 'Github',
     'footer.twitter': 'Twitter',
     'footer.community': 'Community',
+    'footer.linkedin': 'LinkedIn',
     'footer.privacy': 'Privacy',
     'footer.rights': 'All rights reserved.',
   },
@@ -69,6 +77,7 @@ export const ui = {
     'footer.github': 'Github',
     'footer.twitter': 'Twitter',
     'footer.community': 'Comunidad',
+    'footer.linkedin': 'LinkedIn',
     'footer.privacy': 'Privacidad',
     'footer.rights': 'Todos los derechos reservados.',
   },
@@ -84,6 +93,7 @@ export const ui = {
     'footer.github': 'Github',
     'footer.twitter': 'Twitter',
     'footer.community': 'Communauté',
+    'footer.linkedin': 'LinkedIn',
     'footer.privacy': 'Confidentialité',
     'footer.rights': 'Tous droits réservés.',
   },
@@ -99,6 +109,7 @@ export const ui = {
     'footer.github': 'Github',
     'footer.twitter': 'Twitter',
     'footer.community': 'Сообщество',
+    'footer.linkedin': 'LinkedIn',
     'footer.privacy': 'Конфиденциальность',
     'footer.rights': 'Все права защищены.',
   },
@@ -114,7 +125,24 @@ export const ui = {
     'footer.github': 'Github',
     'footer.twitter': 'Twitter',
     'footer.community': 'Gemeinschaft',
+    'footer.linkedin': 'LinkedIn',
     'footer.privacy': 'Datenschutz',
     'footer.rights': 'Alle Rechte vorbehalten.',
+  },
+  pl: {
+    'nav.manifesto': 'Manifest',
+    'nav.principles': 'Zasady',
+    'nav.about': 'O stronie',
+    'nav.sign': 'Podpisz manifest',
+    'hero.read': 'Przeczytaj pełny tekst',
+    'hero.over': 'zamiast',
+    'signatures.title': 'Dołącz do ruchu',
+    'signatures.count': 'osób już podpisało manifest',
+    'footer.github': 'Github',
+    'footer.twitter': 'Twitter',
+    'footer.community': 'Społeczność',
+    'footer.linkedin': 'LinkedIn',
+    'footer.privacy': 'Prywatność',
+    'footer.rights': 'Wszelkie prawa zastrzeżone.',
   }
 } as const;

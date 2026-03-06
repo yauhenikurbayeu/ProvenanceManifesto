@@ -6,6 +6,7 @@ import contentEs from '../../i18n/es/content.json';
 import contentFr from '../../i18n/fr/content.json';
 import contentRu from '../../i18n/ru/content.json';
 import contentDe from '../../i18n/de/content.json';
+import contentPl from '../../i18n/pl/content.json';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({ params: { lang } }));
@@ -17,7 +18,8 @@ const contentMap = {
   es: contentEs,
   fr: contentFr,
   ru: contentRu,
-  de: contentDe
+  de: contentDe,
+  pl: contentPl
 };
 const content = contentMap[lang as keyof typeof contentMap].sign;
 ---

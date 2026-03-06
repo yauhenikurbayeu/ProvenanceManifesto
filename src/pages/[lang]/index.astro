@@ -7,6 +7,7 @@ import contentEs from '../../i18n/es/content.json';
 import contentFr from '../../i18n/fr/content.json';
 import contentRu from '../../i18n/ru/content.json';
 import contentDe from '../../i18n/de/content.json';
+import contentPl from '../../i18n/pl/content.json';
 import Signatories from '../../components/Signatories.astro';
 
 export function getStaticPaths() {
@@ -21,7 +22,8 @@ const contentMap = {
   es: contentEs,
   fr: contentFr,
   ru: contentRu,
-  de: contentDe
+  de: contentDe,
+  pl: contentPl
 };
 const content = contentMap[lang as keyof typeof contentMap].landing;
 ---

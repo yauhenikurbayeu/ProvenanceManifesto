@@ -1,0 +1,51 @@
+---
+import { getLocalizedPath } from '../../i18n/utils';
+import { routeMap } from '../../i18n/ui';
+import type { SupportedLang } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  const paths: Array<{ params: { lang: string; slug: string } }> = [];
+
+  for (const lang of Object.keys(routeMap) as Array<keyof typeof routeMap>) {
+    const localizedRoutes = routeMap[lang];
+
+    for (const key of Object.keys(localizedRoutes) as Array<keyof typeof localizedRoutes>) {
+      if (key === 'manifesto') {
+        continue;
+      }
+
+      const localizedSlug = localizedRoutes[key];
+      const canonicalSlug = routeMap.en[key];
+
+      if (localizedSlug !== canonicalSlug) {
+        paths.push({
+          params: {
+            lang,
+            slug: localizedSlug
+          }
+        });
+      }
+    }
+  }
+
+  return paths;
+}
+
+const { lang, slug } = Astro.params;
+const normalizedLang = lang as SupportedLang;
+
+let canonicalRoute: keyof typeof routeMap.en | null = null;
+
+for (const [routeKey, localizedSlug] of Object.entries(routeMap[normalizedLang])) {
+  if (localizedSlug === slug) {
+    canonicalRoute = routeKey as keyof typeof routeMap.en;
+    break;
+  }
+}
+
+if (!canonicalRoute || canonicalRoute === 'manifesto') {
+  return Astro.redirect(getLocalizedPath(normalizedLang));
+}
+
+return Astro.redirect(getLocalizedPath(normalizedLang, canonicalRoute));
+---
