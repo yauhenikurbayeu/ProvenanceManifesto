@@ -12,6 +12,9 @@ permissions:
   id-token: write
   actions: write
 
+env:
+  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+
 concurrency:
   group: github-pages
   cancel-in-progress: true
@@ -40,19 +43,38 @@ jobs:
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
 
-      - name: Cleanup old Pages artifacts from this run
-        if: ${{ github.run_attempt != '1' }}
+      - name: Delete stale github-pages artifacts for this run
+        if: always()
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          for id in $(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts --jq '.artifacts[] | select(.name == "github-pages") | .id'); do
-            gh api --method DELETE repos/${{ github.repository }}/actions/artifacts/$id
+          set -euo pipefail
+          ids=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts --jq '.artifacts[] | select(.name | startswith("github-pages-")) | .id')
+          if [ -n "$ids" ]; then
+            for id in $ids; do
+              echo "Deleting stale artifact: $id"
+              gh api --method DELETE repos/${{ github.repository }}/actions/artifacts/$id
+            done
+          fi
+
+      - name: Cleanup default github-pages artifacts for this run
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          ids=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts --jq '.artifacts[] | select(.name == "github-pages") | .id')
+          if [ -n "$ids" ]; then
+            for id in $ids; do
+              echo "Deleting default artifact: $id"
+              gh api --method DELETE repos/${{ github.repository }}/actions/artifacts/$id
           done
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+          name: ${{ env.PAGES_ARTIFACT_NAME }}
 
   deploy:
     needs: build
@@ -64,3 +86,5 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
