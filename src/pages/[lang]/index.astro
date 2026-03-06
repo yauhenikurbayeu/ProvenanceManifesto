@@ -1,0 +1,96 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { languages } from '../../i18n/ui';
+import { getLocalizedPath, type SupportedLang, useTranslations } from '../../i18n/utils';
+import contentEn from '../../i18n/en/content.json';
+import contentEs from '../../i18n/es/content.json';
+import contentFr from '../../i18n/fr/content.json';
+import contentRu from '../../i18n/ru/content.json';
+import contentDe from '../../i18n/de/content.json';
+import Signatories from '../../components/Signatories.astro';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as keyof typeof ui);
+
+const contentMap = {
+  en: contentEn,
+  es: contentEs,
+  fr: contentFr,
+  ru: contentRu,
+  de: contentDe
+};
+const content = contentMap[lang as keyof typeof contentMap].landing;
+---
+
+<Layout title="The Provenance Manifesto">
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-32 px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#1152d4]/30 blur-[120px] rounded-full"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[30%] h-[30%] bg-[#1152d4]/20 blur-[100px] rounded-full"></div>
+        </div>
+        <div class="max-w-4xl mx-auto relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight mb-8 leading-[1.1]">
+                {content.hero_title_prefix} <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#1152d4] to-blue-400">{content.hero_title_highlight}</span> {content.hero_title_suffix}
+            </h1>
+            <p class="text-xl md:text-2xl font-light leading-relaxed text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+                {content.hero_description}
+            </p>
+            <div class="mt-12">
+                <a href={getLocalizedPath(lang as SupportedLang, 'principles')} class="inline-block bg-slate-900 dark:bg-slate-100 text-slate-100 dark:text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:opacity-90 transition-opacity">
+                    {t('hero.read')}
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-24 px-6 bg-slate-50 dark:bg-[#101622]/50">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center md:text-left">{content.values_title}</h2>
+            <div class="space-y-6">
+                {content.values.map((val) => (
+                    <div class="group flex flex-col md:flex-row md:items-center justify-between p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#101622] hover:border-[#1152d4]/50 transition-colors">
+                        <div class="flex items-center gap-4">
+                            <span class="material-symbols-outlined text-[#1152d4]">{val.icon}</span>
+                            <span class="text-lg font-semibold text-[#1152d4]">{val.left}</span>
+                        </div>
+                        <div class="mt-2 md:mt-0 flex items-center gap-3">
+                            <span class="text-slate-400 italic text-sm md:text-base">{t('hero.over')}</span>
+                            <span class="text-lg font-medium text-slate-500 dark:text-slate-400">{val.right}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-slate-500 dark:text-slate-400 italic font-light leading-relaxed">
+                    {content.disclaimer}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Abstract Visual Accent Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="h-[300px] w-full rounded-2xl bg-gradient-to-br from-slate-900 via-[#1152d4]/40 to-slate-900 border border-slate-800 flex items-center justify-center overflow-hidden relative" data-alt="Deep blue abstract geometric pattern representing connectivity and data flow">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+                <div class="relative z-10 text-center px-6">
+                    <blockquote class="text-2xl md:text-3xl font-light italic text-white max-w-2xl mb-8">
+                        {content.quote}
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Recent Signatories Block -->
+            <div class="mt-12 max-w-4xl mx-auto">
+                <Signatories lang={lang as string} />
+            </div>
+        </div>
+    </section>
+</Layout>

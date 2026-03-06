@@ -1,0 +1,80 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { languages } from '../../i18n/ui';
+import contentEn from '../../i18n/en/content.json';
+import contentEs from '../../i18n/es/content.json';
+import contentFr from '../../i18n/fr/content.json';
+import contentRu from '../../i18n/ru/content.json';
+import contentDe from '../../i18n/de/content.json';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+
+const contentMap = {
+  en: contentEn,
+  es: contentEs,
+  fr: contentFr,
+  ru: contentRu,
+  de: contentDe
+};
+const content = contentMap[lang as keyof typeof contentMap].principles;
+---
+
+<Layout title={content.title}>
+    <div class="max-w-[960px] mx-auto w-full px-6 md:px-10 py-12 md:py-20 flex flex-col gap-12">
+        <!-- Hero Section -->
+        <div class="flex flex-col gap-6 text-center md:text-left">
+            <div class="flex flex-col gap-3">
+                <h1 class="text-slate-900 dark:text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+                    {content.title}
+                </h1>
+                <p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-normal max-w-2xl leading-relaxed">
+                    {content.description}
+                </p>
+            </div>
+        </div>
+
+        <!-- Principles Accordion / Detailed List -->
+        <div class="flex flex-col gap-4">
+            {content.items.map((item, index) => (
+                <details class="group flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 transition-all duration-300 open:ring-1 open:ring-[#1152d4]/50" open={index === 0}>
+                    <summary class="flex cursor-pointer items-center justify-between gap-6 px-6 py-5 list-none">
+                        <div class="flex items-center gap-4">
+                            <span class="flex items-center justify-center size-8 rounded-full bg-[#1152d4]/10 text-[#1152d4] font-bold text-sm">{index + 1}</span>
+                            <p class="text-slate-900 dark:text-white text-lg font-bold leading-normal">{item.title}</p>
+                        </div>
+                        <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+                    </summary>
+                    <div class="px-6 pb-6 pt-0 ml-12">
+                        <p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed">
+                            {item.content}
+                        </p>
+                    </div>
+                </details>
+            ))}
+        </div>
+
+        <!-- Summary Grid Highlights -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+            <div class="flex flex-col gap-3 p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/30">
+                <span class="material-symbols-outlined text-[#1152d4] text-3xl">article</span>
+                <h3 class="text-slate-900 dark:text-white font-bold">Artifacts</h3>
+            </div>
+            <div class="flex flex-col gap-3 p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/30">
+                <span class="material-symbols-outlined text-[#1152d4] text-3xl">history</span>
+                <h3 class="text-slate-900 dark:text-white font-bold">Immutable</h3>
+            </div>
+            <div class="flex flex-col gap-3 p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/30">
+                <span class="material-symbols-outlined text-[#1152d4] text-3xl">manage_accounts</span>
+                <h3 class="text-slate-900 dark:text-white font-bold">Attributable</h3>
+            </div>
+            <div class="flex flex-col gap-3 p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/30">
+                <span class="material-symbols-outlined text-[#1152d4] text-3xl">smart_toy</span>
+                <h3 class="text-slate-900 dark:text-white font-bold">AI Governed</h3>
+            </div>
+        </div>
+    </div>
+</Layout>

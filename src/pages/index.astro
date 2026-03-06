@@ -1,0 +1,7 @@
+---
+import { defaultLang } from '../i18n/ui';
+import { getLocalizedPath } from '../i18n/utils';
+
+// Redirect to default language
+return Astro.redirect(getLocalizedPath(defaultLang));
+---

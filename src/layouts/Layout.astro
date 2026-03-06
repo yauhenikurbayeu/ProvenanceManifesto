@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import { getLocalizedPath, getLangFromUrl, useTranslations } from '../i18n/utils';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const baseUrl = import.meta.env.BASE_URL || '/';
+---
+
+<!doctype html>
+<html lang={lang} class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="The Provenance Manifesto - Preserving the provenance of decisions that shape our systems." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+	</head>
+	<body class="bg-[#f6f6f8] dark:bg-[#101622] text-slate-900 dark:text-slate-100 antialiased min-h-screen flex flex-col font-['Public_Sans',sans-serif]">
+        <!-- Top Navigation Bar -->
+	<header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-[#f6f6f8]/80 dark:bg-[#101622]/80 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                <a href={getLocalizedPath(lang)} class="flex items-center gap-3">
+                    <span aria-hidden="true" class="material-symbols-outlined text-[#1152d4] text-2xl">fingerprint</span>
+                    <span class="text-lg font-bold tracking-tight">Provenance Manifesto</span>
+                </a>
+                
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href={getLocalizedPath(lang)} class="text-sm font-medium hover:text-[#1152d4] transition-colors">{t('nav.manifesto')}</a>
+                    <a href={getLocalizedPath(lang, 'principles')} class="text-sm font-medium hover:text-[#1152d4] transition-colors">{t('nav.principles')}</a>
+                    <a href={getLocalizedPath(lang, 'about')} class="text-sm font-medium hover:text-[#1152d4] transition-colors">{t('nav.about')}</a>
+                    
+                    <div class="h-4 w-[1px] bg-slate-300 dark:bg-slate-700 mx-2"></div>
+                    
+                    <div class="flex items-center gap-3 text-xs font-semibold uppercase tracking-widest text-slate-500">
+                        <a href={getLocalizedPath('en')} class={lang === 'en' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>EN</a>
+                        <a href={getLocalizedPath('es')} class={lang === 'es' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>ES</a>
+                        <a href={getLocalizedPath('fr')} class={lang === 'fr' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>FR</a>
+                        <a href={getLocalizedPath('ru')} class={lang === 'ru' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>RU</a>
+                        <a href={getLocalizedPath('de')} class={lang === 'de' ? 'text-[#1152d4]' : 'hover:text-slate-300 transition-colors'}>DE</a>
+                    </div>
+                </nav>
+                
+                <a href={getLocalizedPath(lang, 'sign')} class="bg-[#1152d4] hover:bg-[#1152d4]/90 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-lg shadow-[#1152d4]/20">
+                    {t('nav.sign')}
+                </a>
+            </div>
+        </header>
+
+        <main class="flex-1">
+		    <slot />
+        </main>
+
+        <!-- Footer -->
+        <footer class="border-t border-slate-200 dark:border-slate-800 py-16 px-6">
+            <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="flex items-center gap-3">
+                    <span aria-hidden="true" class="material-symbols-outlined text-[#1152d4]">fingerprint</span>
+                    <span class="text-lg font-bold tracking-tight">Provenance Manifesto</span>
+                </div>
+
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                    © 2024 Provenance Manifesto. {t('footer.rights')}
+                </p>
+            </div>
+        </footer>
+	</body>
+</html>
+<style is:global>
+    /* Global styles can go here if needed */
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
