@@ -40,14 +40,9 @@ jobs:
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
 
-      - name: Keep only newest github-pages artifact for this run
-        if: always()
-        uses: actions/delete-artifact@v5
-        with:
-          name: github-pages
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
+        if: ${{ github.run_attempt == 1 }}
         with:
           path: ./dist
 
