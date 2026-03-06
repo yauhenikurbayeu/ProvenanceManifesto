@@ -26,9 +26,13 @@ const contentMap = {
   pl: contentPl
 };
 const content = contentMap[lang as keyof typeof contentMap].landing;
+
+const seoTitle = `The Provenance Manifesto | ${content.hero_title_highlight}`;
+const seoDescription = content.hero_description;
+const locale = String(lang);
 ---
 
-<Layout title="The Provenance Manifesto">
+<Layout title={seoTitle} description={seoDescription} metaLocale={locale}>
     <!-- Hero Section -->
     <section class="relative pt-24 pb-32 px-6 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">

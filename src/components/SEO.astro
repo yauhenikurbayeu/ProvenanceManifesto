@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalPath?: string;
+  type?: 'website' | 'article';
+  locale?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  image,
+  canonicalPath,
+  type = 'website',
+  locale = 'en',
+  noIndex = false
+} = Astro.props;
+
+const canonical = canonicalPath
+  ? new URL(canonicalPath, Astro.url)
+  : new URL(Astro.url.pathname, Astro.url.origin);
+
+const absoluteImage = image ? new URL(image, Astro.url).toString() : undefined;
+
+const ogLocale = locale.length === 2 ? `${locale}_${locale.toUpperCase()}` : locale.replace('-', '_');
+
+const ldJson = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Provenance Manifesto',
+  description,
+  url: canonical.toString()
+};
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+{noIndex && <meta name="robots" content="noindex, nofollow" />}
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical.toString()} />
+<meta property="og:locale" content={ogLocale} />
+<meta property="og:site_name" content="Provenance Manifesto" />
+{absoluteImage && <meta property="og:image" content={absoluteImage} />}
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+{absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
+
+<link rel="canonical" href={canonical.toString()} />
+<script type="application/ld+json" set:html={JSON.stringify(ldJson)} />

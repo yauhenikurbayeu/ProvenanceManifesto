@@ -22,9 +22,12 @@ const contentMap = {
   pl: contentPl
 };
 const content = contentMap[lang as keyof typeof contentMap].sign;
+const locale = String(lang);
+const seoTitle = `${content.title} | The Provenance Manifesto`;
+const seoDescription = content.description;
 ---
 
-<Layout title={content.title}>
+<Layout title={seoTitle} description={seoDescription} metaLocale={locale} metaType="website">
     <div class="flex-1 flex flex-col items-center justify-center py-12 md:py-24 px-6 min-h-[60vh]">
         <div class="w-full max-w-md bg-white dark:bg-[#101622] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden relative">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#1152d4] to-blue-400"></div>
