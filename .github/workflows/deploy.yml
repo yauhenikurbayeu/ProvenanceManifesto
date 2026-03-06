@@ -12,9 +12,6 @@ permissions:
   id-token: write
   actions: write
 
-env:
-  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-
 concurrency:
   group: github-pages
   cancel-in-progress: true
@@ -43,39 +40,33 @@ jobs:
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
           SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
 
-      - name: Delete stale github-pages artifacts for this run
+      - name: Keep only newest github-pages artifact for this run
         if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          ids=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts --jq '.artifacts[] | select(.name | startswith("github-pages-")) | .id')
-          if [ -n "$ids" ]; then
-            for id in $ids; do
-              echo "Deleting stale artifact: $id"
-              gh api --method DELETE repos/${{ github.repository }}/actions/artifacts/$id
-            done
-          fi
-
-      - name: Cleanup default github-pages artifacts for this run
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          ids=$(gh api repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts --jq '.artifacts[] | select(.name == "github-pages") | .id')
-          if [ -n "$ids" ]; then
-            for id in $ids; do
-              echo "Deleting default artifact: $id"
-              gh api --method DELETE repos/${{ github.repository }}/actions/artifacts/$id
-            done
-          fi
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const runId = context.runId;
+            const { data } = await github.rest.actions.listWorkflowRunArtifacts({
+              owner,
+              repo,
+              run_id: runId
+            });
+            const artifacts = (data.artifacts || [])
+              .filter((artifact) => artifact.name === "github-pages")
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+            for (const artifact of artifacts.slice(1)) {
+              await github.rest.actions.deleteArtifact({
+                owner,
+                repo,
+                artifact_id: artifact.id
+              });
+            }
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
-          name: ${{ env.PAGES_ARTIFACT_NAME }}
 
   deploy:
     needs: build
@@ -88,4 +79,4 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
+          artifact_name: github-pages
