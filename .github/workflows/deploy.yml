@@ -68,7 +68,8 @@ jobs:
             for id in $ids; do
               echo "Deleting default artifact: $id"
               gh api --method DELETE repos/${{ github.repository }}/actions/artifacts/$id
-          done
+            done
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
