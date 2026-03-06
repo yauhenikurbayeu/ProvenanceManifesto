@@ -42,26 +42,9 @@ jobs:
 
       - name: Keep only newest github-pages artifact for this run
         if: always()
-        uses: actions/github-script@v7
+        uses: actions/delete-artifact@v5
         with:
-          script: |
-            const { owner, repo } = context.repo;
-            const runId = context.runId;
-            const { data } = await github.rest.actions.listWorkflowRunArtifacts({
-              owner,
-              repo,
-              run_id: runId
-            });
-            const artifacts = (data.artifacts || [])
-              .filter((artifact) => artifact.name === "github-pages")
-              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-            for (const artifact of artifacts.slice(1)) {
-              await github.rest.actions.deleteArtifact({
-                owner,
-                repo,
-                artifact_id: artifact.id
-              });
-            }
+          name: github-pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
