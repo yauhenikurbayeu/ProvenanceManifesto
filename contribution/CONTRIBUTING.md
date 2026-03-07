@@ -39,6 +39,7 @@ Modify the relevant files, typically:
 - [MANIFESTO.md](MANIFESTO.md)  
 - [PRINCIPLES.md](PRINCIPLES.md)  
 - [translations/*](translations/)
+- [SIGNATORIES.md](SIGNATORIES.md)
 
 ### Step 4 — Submit a Pull Request
 
@@ -169,6 +170,8 @@ The repository maintainers curate contributions to ensure:
 - alignment with the manifesto’s purpose
 
 Community input shapes the manifesto, but final merge decisions remain with the maintainers.
+
+[Mainteners](SIGNATORIES.md)
 
 ---
 
