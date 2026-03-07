@@ -1,0 +1,43 @@
+
+# The Provenance Manifesto
+ 
+## What is the Provenance Manifesto?
+
+The Provenance Manifesto is a set of principles for preserving the provenance of decisions that shape software systems, enabling organizations to maintain institutional memory, accountability, and governance in the age of artificial intelligence.
+
+## Manifesto 
+Software systems are shaped not only by code, but by the decisions that lead to that code.
+
+Architecture choices, product trade-offs, operational responses, and governance policies all originate from decisions made by individuals and teams. Yet in most organizations these decisions quickly lose their context. Assumptions fade, alternatives disappear, and future teams are left rediscovering the reasoning behind systems that already exist.
+
+The **Provenance Manifesto** proposes a different approach.
+
+In the age of artificial intelligence, software development is increasingly driven by natural language instructions, automated tooling, and machine-generated output. As this transformation accelerates, preserving the provenance of decisions becomes critical. Without traceable reasoning, organizations risk losing institutional memory, accountability, and the ability to govern complex systems.
+
+The Provenance Manifesto calls for treating decisions as durable artifacts that carry context, ownership, and evolution over time.
+
+Through this work we have come to value:
+
+**Traceable decisions with context**  
+over undocumented intuition.
+
+**Institutional memory**  
+over repeated rediscovery.
+
+**Transparent reasoning**  
+over hidden assumptions.
+
+**Evolution of decisions**  
+over static documentation.
+
+**Accountable decision ownership**  
+over anonymous outputs.
+
+**Governed collaboration between humans and AI**  
+over uncontrolled automation.
+
+While the items on the right have value, we value the items on the left more.
+
+The following principles expand these values and describe how organizations can preserve and evolve the provenance of decisions that shape their systems.
+
+→ [Read the principles behind the manifesto](https://provenancemanifesto.org/principles)
