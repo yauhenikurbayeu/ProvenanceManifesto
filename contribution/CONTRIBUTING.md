@@ -171,7 +171,7 @@ The repository maintainers curate contributions to ensure:
 
 Community input shapes the manifesto, but final merge decisions remain with the maintainers.
 
-[Mainteners](SIGNATORIES.md)
+[Mainteiners](SIGNATORIES.md)
 
 ---
 
