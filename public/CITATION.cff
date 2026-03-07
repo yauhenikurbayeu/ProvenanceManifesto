@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use the Provenance Manifesto, please cite it using the metadata below."
+title: "Provenance Manifesto"
+type: software
+authors:
+  - family-names: "Kurbayeu"
+    given-names: "Yauheni"
+repository-code: "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY"
+url: "https://provenancemanifesto.org"
+abstract: >
+  The Provenance Manifesto is a living framework for building, operating,
+  and governing systems in the age of artificial intelligence by preserving,
+  tracing, and evolving the provenance of decisions that shape those systems.
+keywords:
+  - provenance
+  - manifesto
+  - decision provenance
+  - institutional memory
+  - AI governance
+  - software architecture
+  - human-AI collaboration
+license: "SEE LICENSE IN LICENSE FILE"
+version: "1.0.0"
+date-released: "2026-03-07"

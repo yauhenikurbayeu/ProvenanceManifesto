@@ -1,6 +1,4 @@
 # [Provenance Manifesto](https://provenancemanifesto.org)
-   
-
 ```text
 Addressing organizational context amnesia through the art of provenance.
 ```
@@ -38,6 +36,35 @@ Throughout my career I have worked on enterprise platforms, large-scale SaaS pro
 Provenance is not a finished product. It is a concept, research direction, and ongoing conversation about how engineering organizations can evolve their development lifecycle for the age of artificial intelligence. If these ideas resonate with you, I invite you to explore the manifesto, the principles, and the architecture behind Provenance.
 
 
-**Want to learn more?**
+**Want to contribute or learn more?**
+
+If these ideas resonate with you, we invite you to help refine and expand the manifesto see the [Contribution Guidelines] (contribution/CONTRIBUTING.md) to get involved.
 
 Feel free to check [Provenance Manifesto](https://provenancemanifesto.org) or jump into my [LinkedIn](https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/).
+
+[Code of Conduct](contribution/CODE_OF_CONDUCT.md) 
+
+**License**
+
+The **Provenance Manifesto** is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
+
+
+You are free to:
+
+ - **Share** — copy and redistribute the material in any medium or format
+
+ - **Adapt** — remix, transform, and build upon the material for any purpose, even commercially
+
+Under the following terms:
+
+- **Attribution** — appropriate credit must be given to the Provenance Manifesto and its author(s)
+
+Full license text:
+https://creativecommons.org/licenses/by/4.0/
+
+**Citation**
+
+If you reference the Provenance Manifesto in publications, articles, or documentation, please cite:
+
+Kurbayeu, Yauheni. (2026). *The Provenance Manifesto*.  
+https://provenancemanifesto.org
