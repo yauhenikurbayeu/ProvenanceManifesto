@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Kurbayeu"
     given-names: "Yauheni"
-repository-code: "https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY"
+repository-code: "https://github.com/yauhenikurbayeu/ProvenanceManifesto"
 url: "https://provenancemanifesto.org"
 abstract: >
   The Provenance Manifesto is a living framework for building, operating,
