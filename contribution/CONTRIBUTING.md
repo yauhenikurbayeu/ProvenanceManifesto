@@ -36,9 +36,9 @@ fix-translation-errors
 
 Modify the relevant files, typically:
 
-manifesto.md  
-principles.md  
-translations/*
+- [MANIFESTO.md](MANIFESTO.md)  
+- [PRINCIPLES.md](PRINCIPLES.md)  
+- [translations/*](translations/)
 
 ### Step 4 — Submit a Pull Request
 
@@ -68,6 +68,8 @@ Your proposal should include:
 - how it aligns with the manifesto’s purpose
 
 Strong proposals typically describe **systemic problems in modern software or AI-assisted development**.
+
+Here are [Issue templates](issue-templates/) for your reference.
 
 ---
 
