@@ -32,7 +32,7 @@ const seoDescription = content.hero_description;
 const locale = String(lang);
 ---
 
-<Layout title={seoTitle} description={seoDescription} metaLocale={locale}>
+<Layout title={seoTitle} description={seoDescription} metaLocale={locale} lang={lang as SupportedLang}>
     <!-- Hero Section -->
     <section class="relative pt-24 pb-32 px-6 overflow-hidden">
         <div class="absolute inset-0 z-0 opacity-20 pointer-events-none">
