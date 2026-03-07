@@ -38,11 +38,14 @@ Provenance is not a finished product. It is a concept, research direction, and o
 
 **Want to contribute or learn more?**
 
-If these ideas resonate with you, we invite you to help refine and expand the manifesto see the [Contribution Guidelines] (contribution/CONTRIBUTING.md) to get involved.
+If these ideas resonate with you, we invite you to help refine and expand the manifesto see the how-to's to get involved:
+- [Contribution Guidelines](contribution/CONTRIBUTING.md)
+- [Code of Conduct](contribution/CODE_OF_CONDUCT.md) 
+- [Governance](contribution/GOVERNANCE.md) 
 
-Feel free to check [Provenance Manifesto](https://provenancemanifesto.org) or jump into my [LinkedIn](https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/).
 
-[Code of Conduct](contribution/CODE_OF_CONDUCT.md) 
+Feel free to check [Provenance Manifesto](https://provenancemanifesto.org) or jump into my [LinkedIn](https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/) for more details.
+
 
 **License**
 

@@ -79,6 +79,8 @@ If a section of the manifesto is unclear or incomplete:
 2. Describe the concern
 3. Suggest an improvement if possible
 
+Here are [Issue templates](contribution/issue-templates) for your reference.
+
 Community discussion often precedes larger changes.
 
 ---
@@ -91,12 +93,12 @@ To contribute a translation:
 
 1. Add a new file under:
 
-translations/
+[translations/](contribution/translations)
 
 Example:
 
-translations/MANIFESTO_FR.md  
-translations/PRINCIPLES_FR.md
+[translations/MANIFESTO_FR.md](translations/MANIFESTO_FR.md)  
+[translations/PRINCIPLES_FR.md](translations/PRINCIPLES_FR.md)
 
 2. Ensure the translation preserves the **meaning and intent**, not only the literal wording.
 
