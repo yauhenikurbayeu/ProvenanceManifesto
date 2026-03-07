@@ -1,51 +1,43 @@
-# Astro Starter Kit: Minimal
-
-```sh
-npm create astro@latest -- --template minimal
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+# [Provenance Manifesto](https://provenancemanifesto.org)
+   
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+Addressing organizational context amnesia through the art of provenance.
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+**Organizational Context Amnesia**
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Most organizations suffer from a silent drain of knowledge. Teams change. Context is lost. Documentation becomes outdated. Engineers are forced to rediscover decisions that were already made long ago.
+After spending years leading engineering teams and large-scale SaaS initiatives, I began to see the same pattern everywhere: Organizations build systems, but they do not preserve the reasoning behind them. The result is what I call organizational context amnesia."
 
-Any static assets, like images, can be placed in the `public/` directory.
 
-### GitHub Pages notes
+**Why Provenance Exists**
 
-- Set `GITHUB_PAGES_BASE_PATH` to your repo name when publishing to a project page (for example, `my-repo`).
-- If not set, the build falls back to `GITHUB_REPOSITORY` (used by GitHub Actions) and then `/`.
-- Set Supabase client envs in GitHub Pages/CI as:
-  - `PUBLIC_SUPABASE_URL` (or `VITE_SUPABASE_URL`)
-  - `PUBLIC_SUPABASE_ANON_KEY` (or `VITE_SUPABASE_ANON_KEY`)
+In the age of artificial intelligence this problem becomes even more critical. AI systems can generate code, architecture, and solutions at unprecedented speed. But without traceable reasoning and governance, organizations risk losing visibility into why systems behave the way they do.
 
-## 🧞 Commands
+Provenance explores a new idea: Decisions should be treated as first-class artifacts of the Software Development Lifecycle. Instead of disappearing in meetings, chats, or documents, decisions can be captured, connected, versioned, and queried — forming a living memory of how systems evolve.
 
-All commands are run from the root of the project, from a terminal:
+**The Idea Behind Provenance**
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Provenance proposes that engineering organizations should preserve decision history the same way they preserve source code. This means capturing: decisions, assumptions, risks, questions, actions, ownership, and connecting them into a graph of reasoning that evolves over time.
+ 
+ 
+**Why This Matters Now**
 
-## 👀 Want to learn more?
+Software development is entering a new phase. AI is dramatically accelerating the generation of code and solutions. But this acceleration also increases the number of decisions that shape systems.
+Without preserving the provenance of those decisions, complexity grows faster than understanding. Provenance explores how organizations can maintain governance, accountability, and institutional memory in an AI-driven engineering world.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+**About Me**
+
+My name is **[Yauheni Kurbayeu](https://www.linkedin.com/in/yauhenikurbayeu/)**. 
+I am a software engineering leader with decades of experience building and operating complex systems and managing large engineering teams.
+Throughout my career I have worked on enterprise platforms, large-scale SaaS products, and distributed engineering organizations. Over time, I became increasingly interested not only in how systems are built, but in how decisions that shape those systems are made, preserved, and evolved. Provenance is an exploration of that idea.
+
+**An Open Exploration**
+
+Provenance is not a finished product. It is a concept, research direction, and ongoing conversation about how engineering organizations can evolve their development lifecycle for the age of artificial intelligence. If these ideas resonate with you, I invite you to explore the manifesto, the principles, and the architecture behind Provenance.
+
+
+**Want to learn more?**
+
+Feel free to check [Provenance Manifesto](https://provenancemanifesto.org) or jump into my [LinkedIn](https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/).

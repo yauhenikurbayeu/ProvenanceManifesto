@@ -7,6 +7,10 @@ interface Props {
   type?: 'website' | 'article';
   locale?: string;
   noIndex?: boolean;
+  schemaName?: string;
+  schemaDescription?: string;
+  schemaKeywords?: string[];
+  schemaDatePublished?: string;
 }
 
 const {
@@ -16,7 +20,11 @@ const {
   canonicalPath,
   type = 'website',
   locale = 'en',
-  noIndex = false
+  noIndex = false,
+  schemaName,
+  schemaDescription,
+  schemaKeywords,
+  schemaDatePublished
 } = Astro.props;
 
 const siteBase = (import.meta.env.SITE_URL || 'https://provenancemanifesto.org').replace(/\/+$/, '');
@@ -35,33 +43,121 @@ const canonical = toAbsoluteUrl(canonicalPathValue);
 const absoluteImage = image ? toAbsoluteUrl(image) : undefined;
 
 const ogLocale = locale.length === 2 ? `${locale}_${locale.toUpperCase()}` : locale.replace('-', '_');
+const imageAlt = title;
+const siteName = 'Provenance Manifesto';
+const defaultKeywords = [
+  'decision provenance',
+  'decision memory',
+  'git for decisions',
+  'SDLC memory',
+  'AI governance',
+  'decision development'
+];
 
-const ldJson = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Provenance Manifesto',
-  description,
-  url: canonical
-};
+const ldJson = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${canonical}#website`,
+    name: siteName,
+    description,
+    url: siteBase,
+    inLanguage: locale,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteBase}/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string'
+    }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': `${siteBase}#organization`,
+    name: siteName,
+    url: siteBase,
+    sameAs: [
+      'https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/'
+    ]
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    description,
+    url: canonical,
+    inLanguage: locale,
+    isPartOf: { '@id': `${siteBase}#website` }
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: schemaName || siteName,
+    author: {
+      '@type': 'Person',
+      name: 'Yauheni Kurbayeu'
+    },
+    datePublished: schemaDatePublished || '2026',
+    description: schemaDescription || description,
+    keywords: schemaKeywords && schemaKeywords.length ? schemaKeywords : defaultKeywords,
+    url: siteBase
+  }
+];
+
+const robotPolicy = noIndex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
+const twitterSite = '@provenance_man';
+
+const canoCanonical = canonical.replace(/\/index\.html$/, '/');
+
+const robotsByAI = [
+  'GPTBot',
+  'OAI-SearchBot',
+  'ChatGPT-User',
+  'Claude-Web',
+  'Google-Extended',
+  'PerplexityBot',
+  'YouBot'
+];
+
+const ldJsonCombined = JSON.stringify(ldJson);
+
+const safeDescription = description.length > 320 ? `${description.slice(0, 317)}...` : description;
+
 ---
 
 <title>{title}</title>
-<meta name="description" content={description} />
+<meta name="description" content={safeDescription} />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-{noIndex && <meta name="robots" content="noindex, nofollow" />}
+<meta name="robots" content={robotPolicy} />
+<meta name="googlebot" content={robotPolicy} />
+<meta name="bingbot" content={robotPolicy} />
+<meta name="slurp" content={robotPolicy} />
+{robotsByAI.map((bot) => <meta name={bot.toLowerCase()} content={robotPolicy} />)}
 
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={safeDescription} />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonical} />
 <meta property="og:locale" content={ogLocale} />
-<meta property="og:site_name" content="Provenance Manifesto" />
+<meta property="og:locale:alternate" content="en_GB" />
+<meta property="og:site_name" content={siteName} />
 {absoluteImage && <meta property="og:image" content={absoluteImage} />}
+{absoluteImage && <meta property="og:image:alt" content={imageAlt} />}
 
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content={twitterSite} />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={safeDescription} />
 {absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
+{absoluteImage && <meta name="twitter:image:alt" content={imageAlt} />}
 
-<link rel="canonical" href={canonical} />
-<script type="application/ld+json" set:html={JSON.stringify(ldJson)} />
+<link rel="canonical" href={canoCanonical} />
+<link rel="alternate" hrefLang="en" href={`${siteBase}/en/`} />
+<link rel="alternate" hrefLang="es" href={`${siteBase}/es/`} />
+<link rel="alternate" hrefLang="fr" href={`${siteBase}/fr/`} />
+<link rel="alternate" hrefLang="ru" href={`${siteBase}/ru/`} />
+<link rel="alternate" hrefLang="de" href={`${siteBase}/de/`} />
+<link rel="alternate" hrefLang="pl" href={`${siteBase}/pl/`} />
+<link rel="alternate" hrefLang="x-default" href={`${siteBase}/`} />
+<link rel="sitemap" type="application/xml" href={`${siteBase}/sitemap.xml`} />
+<link rel="alternate" type="text/plain" href={`${siteBase}/llms.txt`} title="LLMs discovery" />
+<script type="application/ld+json" set:html={ldJsonCombined} />

@@ -1,0 +1,17 @@
+# LLMs and AI crawlers
+# This file is provided to facilitate indexing by AI assistants and other non-commercial crawlers.
+
+# Canonical site for all languages and AI reference
+Sitemap: /sitemap.xml
+
+# Core sections
+https://provenancemanifesto.org/
+https://provenancemanifesto.org/en/
+https://provenancemanifesto.org/es/
+https://provenancemanifesto.org/fr/
+https://provenancemanifesto.org/ru/
+https://provenancemanifesto.org/de/
+https://provenancemanifesto.org/pl/
+https://provenancemanifesto.org/en/about/
+https://provenancemanifesto.org/en/principles/
+https://provenancemanifesto.org/en/sign/
