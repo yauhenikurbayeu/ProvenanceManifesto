@@ -19,21 +19,20 @@ const {
   noIndex = false
 } = Astro.props;
 
-const siteBase = import.meta.env.SITE_URL || 'https://provenancemanifesto.org';
+const siteBase = (import.meta.env.SITE_URL || 'https://provenancemanifesto.org').replace(/\/+$/, '');
 
-function normalizeToAbsoluteUrl(value: string) {
-  try {
-    return new URL(value, siteBase).toString();
-  } catch {
-    const cleanedBase = siteBase.replace(/\/+$/, '');
-    const cleanedPath = value.startsWith('/') ? value : `/${value}`;
-    return `${cleanedBase}${cleanedPath}`;
+function toAbsoluteUrl(value: string) {
+  if (/^https?:\/\//i.test(value) || value.startsWith('//')) {
+    return value;
   }
+
+  const normalizedValue = value.startsWith('/') ? value : `/${value}`;
+  return `${siteBase}${normalizedValue}`;
 }
 
 const canonicalPathValue = canonicalPath || Astro.url?.pathname || '/';
-const canonical = normalizeToAbsoluteUrl(canonicalPathValue);
-const absoluteImage = image ? normalizeToAbsoluteUrl(image) : undefined;
+const canonical = toAbsoluteUrl(canonicalPathValue);
+const absoluteImage = image ? toAbsoluteUrl(image) : undefined;
 
 const ogLocale = locale.length === 2 ? `${locale}_${locale.toUpperCase()}` : locale.replace('-', '_');
 
@@ -42,7 +41,7 @@ const ldJson = {
   '@type': 'WebSite',
   name: 'Provenance Manifesto',
   description,
-  url: canonical.toString()
+  url: canonical
 };
 ---
 
@@ -54,7 +53,7 @@ const ldJson = {
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:type" content={type} />
-<meta property="og:url" content={canonical.toString()} />
+<meta property="og:url" content={canonical} />
 <meta property="og:locale" content={ogLocale} />
 <meta property="og:site_name" content="Provenance Manifesto" />
 {absoluteImage && <meta property="og:image" content={absoluteImage} />}
@@ -64,5 +63,5 @@ const ldJson = {
 <meta name="twitter:description" content={description} />
 {absoluteImage && <meta name="twitter:image" content={absoluteImage} />}
 
-<link rel="canonical" href={canonical.toString()} />
+<link rel="canonical" href={canonical} />
 <script type="application/ld+json" set:html={JSON.stringify(ldJson)} />

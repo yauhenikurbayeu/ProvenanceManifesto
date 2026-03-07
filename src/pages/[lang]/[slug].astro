@@ -3,8 +3,6 @@ import { getLocalizedPath } from '../../i18n/utils';
 import { routeMap } from '../../i18n/ui';
 import type { SupportedLang } from '../../i18n/utils';
 
-const siteUrl = import.meta.env.SITE_URL || 'https://provenancemanifesto.org';
-
 export function getStaticPaths() {
   const paths: Array<{ params: { lang: string; slug: string } }> = [];
 
@@ -35,6 +33,7 @@ export function getStaticPaths() {
 
 const { lang, slug } = Astro.params;
 const normalizedLang = lang as SupportedLang;
+const siteUrl = (import.meta.env.SITE_URL || 'https://provenancemanifesto.org').replace(/\/+$/, '');
 
 let canonicalRoute: keyof typeof routeMap.en | null = null;
 
@@ -46,10 +45,10 @@ for (const [routeKey, localizedSlug] of Object.entries(routeMap[normalizedLang])
 }
 
 if (!canonicalRoute || canonicalRoute === 'manifesto') {
-  const target = new URL(getLocalizedPath(normalizedLang), siteUrl).toString();
-  return Astro.redirect(target);
+  const path = getLocalizedPath(normalizedLang);
+  return Astro.redirect(`${siteUrl}${path}`);
 }
 
-const target = new URL(getLocalizedPath(normalizedLang, canonicalRoute), siteUrl).toString();
-return Astro.redirect(target);
+const path = getLocalizedPath(normalizedLang, canonicalRoute);
+return Astro.redirect(`${siteUrl}${path}`);
 ---
