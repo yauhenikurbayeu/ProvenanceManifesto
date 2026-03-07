@@ -4,10 +4,11 @@ import type { APIRoute } from 'astro';
 
 export const prerender = true;
 
-const siteUrl = import.meta.env.SITE_URL || 'https://your-domain.com';
+const siteUrl = import.meta.env.SITE_URL || 'https://provenancemanifesto.org';
 const sitePath = siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`;
 const routeKeys = Object.keys(routeMap.en) as Array<keyof typeof routeMap.en>;
 const today = new Date().toISOString().split('T')[0];
+const safeSitePath = sitePath.startsWith('http') ? sitePath : 'https://provenancemanifesto.org/';
 
 export const GET: APIRoute = async () => {
 	const urls = [];
@@ -16,7 +17,7 @@ export const GET: APIRoute = async () => {
 	for (const lang of locales) {
 		for (const route of routeKeys) {
 			const path = getLocalizedPath(lang as keyof typeof routeMap, route);
-			const full = new URL(path, sitePath).toString();
+			const full = new URL(path, safeSitePath).toString();
 			urls.push(`<url><loc>${full}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`);
 		}
 	}

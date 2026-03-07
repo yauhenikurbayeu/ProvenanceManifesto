@@ -19,11 +19,21 @@ const {
   noIndex = false
 } = Astro.props;
 
-const canonical = canonicalPath
-  ? new URL(canonicalPath, Astro.url)
-  : new URL(Astro.url.pathname, Astro.url.origin);
+const siteBase = import.meta.env.SITE_URL || 'https://provenancemanifesto.org';
 
-const absoluteImage = image ? new URL(image, Astro.url).toString() : undefined;
+function normalizeToAbsoluteUrl(value: string) {
+  try {
+    return new URL(value, siteBase).toString();
+  } catch {
+    const cleanedBase = siteBase.replace(/\/+$/, '');
+    const cleanedPath = value.startsWith('/') ? value : `/${value}`;
+    return `${cleanedBase}${cleanedPath}`;
+  }
+}
+
+const canonicalPathValue = canonicalPath || Astro.url?.pathname || '/';
+const canonical = normalizeToAbsoluteUrl(canonicalPathValue);
+const absoluteImage = image ? normalizeToAbsoluteUrl(image) : undefined;
 
 const ogLocale = locale.length === 2 ? `${locale}_${locale.toUpperCase()}` : locale.replace('-', '_');
 
