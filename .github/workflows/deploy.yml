@@ -35,10 +35,10 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          GITHUB_PAGES_BASE_PATH: ${{ github.event.repository.name }}
+          GITHUB_PAGES_BASE_PATH: "/"
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
-          SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}
+          SITE_URL: https://provenancemanifesto.org
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

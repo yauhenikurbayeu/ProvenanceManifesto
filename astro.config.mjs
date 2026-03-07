@@ -9,12 +9,14 @@ const repositoryBase = process.env.GITHUB_REPOSITORY
   ? process.env.GITHUB_REPOSITORY.split('/').pop()
   : '';
 const effectiveBase = githubPagesBase || repositoryBase || '';
+const siteUrl = process.env.SITE_URL || 'https://provenancemanifesto.org';
 
 const normalizedBase = effectiveBase
   ? `/${effectiveBase.replace(/^\/+|\/+$/g, '')}/`
   : '/';
 
 export default defineConfig({
+  site: siteUrl,
   base: normalizedBase,
   vite: {
     plugins: [tailwindcss()]
