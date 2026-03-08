@@ -27,9 +27,32 @@ const locale = String(lang);
 
 const seoTitle = `${content.title} | The Provenance Manifesto`;
 const seoDescription = content.subtitle;
+
+const personStructuredData = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": "Yauheni Kurbayeu",
+	"url": "https://provenancemanifesto.org/en/about/",
+	"jobTitle": "Software Engineering Leader & Systems Architect",
+	"knowsAbout": [
+		"Decision Provenance",
+		"AI Governance",
+		"Software Development",
+		"Software Architecture",
+		"Institutional Memory",
+		"Engineering Leadership",
+		"SDLC Memory",
+		"AI Philosophy"
+	],
+	"sameAs": [
+		"https://www.linkedin.com/in/yauhenikurbayeu/",
+		"https://github.com/yauhenikurbayeu/ProvenanceManifesto"
+	]
+};
 ---
 
 <Layout title={seoTitle} description={seoDescription} metaLocale={locale} lang={lang}>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(personStructuredData)} />
     <div class="flex-1 flex flex-col items-center py-12 md:py-24 px-6">
         <article class="max-w-2xl w-full">
             <header class="mb-16">
