@@ -10,6 +10,7 @@ interface Props {
   schemaName?: string;
   schemaDescription?: string;
   schemaKeywords?: string[];
+  schemaSameAs?: string[];
   schemaDatePublished?: string;
 }
 
@@ -24,6 +25,7 @@ const {
   schemaName,
   schemaDescription,
   schemaKeywords,
+  schemaSameAs,
   schemaDatePublished
 } = Astro.props;
 
@@ -46,12 +48,18 @@ const ogLocale = locale.length === 2 ? `${locale}_${locale.toUpperCase()}` : loc
 const imageAlt = title;
 const siteName = 'Provenance Manifesto';
 const defaultKeywords = [
-  'decision provenance',
-  'decision memory',
-  'git for decisions',
-  'SDLC memory',
-  'AI governance',
-  'decision development'
+  'Decision Provenance',
+  'Decision Memory',
+  'Git For Decisions',
+  'SDLC Memory',
+  'AI Governance',
+  'Decision Development',
+  'Provenance Manifesto'
+];
+const defaultSameAs = [
+  'https://provenancemanifesto.org/',
+  'https://www.linkedin.com/in/yauhenikurbayeu/',
+  'https://github.com/yauhenikurbayeu/ProvenanceManifesto'
 ];
 
 const ldJson = [
@@ -99,6 +107,7 @@ const ldJson = [
     datePublished: schemaDatePublished || '2026',
     description: schemaDescription || description,
     keywords: schemaKeywords && schemaKeywords.length ? schemaKeywords : defaultKeywords,
+    sameAs: schemaSameAs && schemaSameAs.length ? schemaSameAs : defaultSameAs,
     url: siteBase
   }
 ];
