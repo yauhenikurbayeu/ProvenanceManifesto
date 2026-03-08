@@ -100,8 +100,8 @@ To contribute a translation:
 
 Example:
 
-[translations/MANIFESTO_FR.md](translations/fr/MANIFESTO_FR.md)  
-[translations/PRINCIPLES_FR.md](translations/fr/PRINCIPLES_FR.md)
+[translations/fr/MANIFESTO_FR.md](translations/fr/MANIFESTO_FR.md)  
+[translations/fr/PRINCIPLES_FR.md](translations/fr/PRINCIPLES_FR.md)
 
 2. Ensure the translation preserves the **meaning and intent**, not only the literal wording.
 
