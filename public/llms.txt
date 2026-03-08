@@ -2,16 +2,35 @@
 # This file is provided to facilitate indexing by AI assistants and other non-commercial crawlers.
 
 # Canonical site for all languages and AI reference
-Sitemap: /sitemap.xml
+Sitemap: https://provenancemanifesto.org/sitemap.xml
 
 # Core sections
 https://provenancemanifesto.org/
 https://provenancemanifesto.org/en/
+https://provenancemanifesto.org/manifesto/
 https://provenancemanifesto.org/es/
 https://provenancemanifesto.org/fr/
 https://provenancemanifesto.org/ru/
 https://provenancemanifesto.org/de/
 https://provenancemanifesto.org/pl/
+https://provenancemanifesto.org/about/
+https://provenancemanifesto.org/principles/
+https://provenancemanifesto.org/sign/
 https://provenancemanifesto.org/en/about/
 https://provenancemanifesto.org/en/principles/
 https://provenancemanifesto.org/en/sign/
+https://provenancemanifesto.org/es/about/
+https://provenancemanifesto.org/es/principles/
+https://provenancemanifesto.org/es/sign/
+https://provenancemanifesto.org/fr/about/
+https://provenancemanifesto.org/fr/principles/
+https://provenancemanifesto.org/fr/sign/
+https://provenancemanifesto.org/ru/about/
+https://provenancemanifesto.org/ru/principles/
+https://provenancemanifesto.org/ru/sign/
+https://provenancemanifesto.org/de/about/
+https://provenancemanifesto.org/de/principles/
+https://provenancemanifesto.org/de/sign/
+https://provenancemanifesto.org/pl/about/
+https://provenancemanifesto.org/pl/principles/
+https://provenancemanifesto.org/pl/sign/

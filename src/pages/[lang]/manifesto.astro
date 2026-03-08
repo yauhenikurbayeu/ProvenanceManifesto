@@ -1,5 +1,5 @@
 ---
-import PrinciplesPage from '../../components/PrinciplesPage.astro';
+import ManifestoLanding from '../../components/ManifestoLanding.astro';
 import { languages } from '../../i18n/ui';
 import type { SupportedLang } from '../../i18n/utils';
 
@@ -10,4 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 ---
 
-<PrinciplesPage lang={lang as SupportedLang} />
+<ManifestoLanding lang={lang as SupportedLang} />

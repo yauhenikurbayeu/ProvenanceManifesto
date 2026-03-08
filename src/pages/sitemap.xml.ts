@@ -12,7 +12,8 @@ const today = new Date().toISOString().split('T')[0];
 export const GET: APIRoute = async () => {
 	const urls = [];
 	const locales = Object.keys(languages) as Array<keyof typeof languages>;
-	const deeplinks = ['/manifesto', '/principles'];
+	const deeplinks = ['/manifesto', '/principles', '/about', '/sign'];
+	const rootManifestoAliases = new Set<string>(deeplinks);
 
 	for (const lang of locales) {
 		for (const route of routeKeys) {
@@ -20,6 +21,16 @@ export const GET: APIRoute = async () => {
 			const normalizedPath = path.startsWith('/') ? path : `/${path}`;
 			const full = `${sitePath}${normalizedPath}`;
 			urls.push(`<url><loc>${full}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`);
+		}
+
+		const indexPath = getLocalizedPath(lang as keyof typeof routeMap);
+		const normalizedIndexPath = indexPath.endsWith('/') ? indexPath : `${indexPath}/`;
+		const localizedManifestoPath = `${normalizedIndexPath}manifesto`;
+		if (!rootManifestoAliases.has(localizedManifestoPath)) {
+			urls.push(
+				`<url><loc>${sitePath}${localizedManifestoPath}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`
+			);
+			rootManifestoAliases.add(localizedManifestoPath);
 		}
 	}
 

@@ -1,0 +1,149 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { type SupportedLang } from '../i18n/utils';
+import contentEn from '../i18n/en/content.json';
+import contentEs from '../i18n/es/content.json';
+import contentFr from '../i18n/fr/content.json';
+import contentRu from '../i18n/ru/content.json';
+import contentDe from '../i18n/de/content.json';
+import contentPl from '../i18n/pl/content.json';
+
+interface Props {
+  lang: SupportedLang;
+}
+
+const { lang } = Astro.props;
+
+const contentMap = {
+  en: contentEn,
+  es: contentEs,
+  fr: contentFr,
+  ru: contentRu,
+  de: contentDe,
+  pl: contentPl
+};
+const content = contentMap[lang as keyof typeof contentMap].sign;
+const locale = String(lang);
+const seoTitle = `${content.title} | The Provenance Manifesto`;
+const seoDescription = content.description;
+---
+
+<Layout title={seoTitle} description={seoDescription} metaLocale={locale} metaType="website" lang={lang}>
+    <div class="flex-1 flex flex-col items-center justify-center py-12 md:py-24 px-6 min-h-[60vh]">
+        <div class="w-full max-w-md bg-white dark:bg-[#101622] rounded-2xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden relative">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#1152d4] to-blue-400"></div>
+            
+            <div class="p-8">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-[#1152d4] text-3xl">draw</span>
+                    <h1 class="text-2xl font-bold dark:text-white font-display tracking-tight">{content.title}</h1>
+                </div>
+                
+                <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                    {content.description}
+                </p>
+                
+                <form id="sign-manifesto-form" class="space-y-6" data-lang={lang} data-success={content.form.success_message} data-error={content.form.error_message}>
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">{content.form.name_label}</label>
+                        <input type="text" id="name" name="name" required placeholder={content.form.name_placeholder}
+                            class="w-full px-4 py-3 rounded-lg border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#1152d4]/50 focus:border-[#1152d4] transition-colors" />
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="consent" name="consent" type="checkbox" required
+                                class="w-5 h-5 rounded border-slate-300 dark:border-slate-700 text-[#1152d4] focus:ring-[#1152d4]/50 dark:bg-slate-900 cursor-pointer" />
+                        </div>
+                        <label for="consent" class="text-sm text-slate-600 dark:text-slate-400 cursor-pointer select-none">
+                            {content.form.consent_label}
+                        </label>
+                    </div>
+
+                    <div class="flex items-start gap-3 mt-4">
+                        <div class="flex items-center h-5 mt-1">
+                            <input id="secondary_consent" name="secondary_consent" type="checkbox" required
+                                class="w-5 h-5 rounded border-slate-300 dark:border-slate-700 text-[#1152d4] focus:ring-[#1152d4]/50 dark:bg-slate-900 cursor-pointer" />
+                        </div>
+                        <label for="secondary_consent" class="text-sm text-slate-600 dark:text-slate-400 cursor-pointer select-none">
+                            {content.form.secondary_consent_label}
+                        </label>
+                    </div>
+                    
+                    <button type="submit" id="submit-btn"
+                        class="w-full bg-[#1152d4] hover:bg-[#1152d4]/90 text-white font-bold py-3 px-4 rounded-lg transition-all shadow-lg flex justify-center items-center gap-2">
+                        <span>{content.form.submit_button}</span>
+                        <span id="loading-spinner" class="material-symbols-outlined hidden animate-spin">progress_activity</span>
+                    </button>
+
+                    <div id="status-message" class="hidden rounded-lg p-4 text-sm font-medium text-center"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<script>
+    import { createClient } from '@supabase/supabase-js';
+    import { getSupabaseClientConfig } from '../i18n/utils';
+
+    // Form element references
+    const form = document.getElementById('sign-manifesto-form') as HTMLFormElement;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const spinner = document.getElementById('loading-spinner');
+    const statusMsg = document.getElementById('status-message');
+
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const name = formData.get('name') as string;
+            const consent = formData.get('consent') === 'on';
+            const secondaryConsent = formData.get('secondary_consent') === 'on';
+            
+            if (!name || !consent || !secondaryConsent) return;
+            
+            submitBtn.disabled = true;
+            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+            spinner?.classList.remove('hidden');
+            if (statusMsg) statusMsg.classList.add('hidden');
+            
+            try {
+                const { url: supabaseUrl, anonKey: supabaseKey } = getSupabaseClientConfig();
+                
+                if (!supabaseUrl || !supabaseKey) {
+                    throw new Error('Supabase credentials missing. Please set them in your environment variables.');
+                }
+                
+                const supabase = createClient(supabaseUrl, supabaseKey);
+                
+                const { error } = await supabase
+                    .from('signatures')
+                    .insert([
+                        { name: name, consent_given: consent, language: form.dataset.lang || 'en' }
+                    ]);
+                    
+                if (error) throw error;
+                
+                if (statusMsg) {
+                    statusMsg.textContent = form.dataset.success || "Thank you for supporting the Provenance Manifesto!";
+                    statusMsg.className = "rounded-lg p-4 text-sm font-medium text-center bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-400 block";
+                }
+                form.reset();
+                
+            } catch (err: any) {
+                console.error('Error submitting signature:', err);
+                
+                if (statusMsg) {
+                    statusMsg.textContent = err.message || form.dataset.error || "There was an error submitting your signature. Please try again.";
+                    statusMsg.className = "rounded-lg p-4 text-sm font-medium text-center bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-400 block";
+                }
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                spinner?.classList.add('hidden');
+            }
+        });
+    }
+</script>
