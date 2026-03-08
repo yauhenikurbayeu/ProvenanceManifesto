@@ -4,7 +4,7 @@ interface Props {
   description: string;
   image?: string;
   canonicalPath?: string;
-  type?: 'website' | 'article';
+  type?: "website" | "article";
   locale?: string;
   noIndex?: boolean;
   schemaName?: string;
@@ -19,118 +19,130 @@ const {
   description,
   image,
   canonicalPath,
-  type = 'website',
-  locale = 'en',
+  type = "website",
+  locale = "en",
   noIndex = false,
   schemaName,
   schemaDescription,
   schemaKeywords,
   schemaSameAs,
-  schemaDatePublished
+  schemaDatePublished,
 } = Astro.props;
 
-const siteBase = (import.meta.env.SITE_URL || 'https://provenancemanifesto.org').replace(/\/+$/, '');
+const siteBase = (
+  import.meta.env.SITE_URL || "https://provenancemanifesto.org"
+).replace(/\/+$/, "");
 
 function toAbsoluteUrl(value: string) {
-  if (/^https?:\/\//i.test(value) || value.startsWith('//')) {
+  if (/^https?:\/\//i.test(value) || value.startsWith("//")) {
     return value;
   }
 
-  const normalizedValue = value.startsWith('/') ? value : `/${value}`;
+  const normalizedValue = value.startsWith("/") ? value : `/${value}`;
   return `${siteBase}${normalizedValue}`;
 }
 
-const canonicalPathValue = canonicalPath || Astro.url?.pathname || '/';
+const canonicalPathValue = canonicalPath || Astro.url?.pathname || "/";
 const canonical = toAbsoluteUrl(canonicalPathValue);
-const absoluteImage = image ? toAbsoluteUrl(image) : undefined;
+const absoluteImage = toAbsoluteUrl(
+  image || "/og_image_provenance_1773011614570.png"
+);
 
-const ogLocale = locale.length === 2 ? `${locale}_${locale.toUpperCase()}` : locale.replace('-', '_');
+const ogLocale =
+  locale.length === 2
+    ? `${locale}_${locale.toUpperCase()}`
+    : locale.replace("-", "_");
 const imageAlt = title;
-const siteName = 'Provenance Manifesto';
+const siteName = "Provenance Manifesto";
 const defaultKeywords = [
-  'Decision Provenance',
-  'Decision Memory',
-  'Git For Decisions',
-  'SDLC Memory',
-  'AI Governance',
-  'Decision Development',
-  'Provenance Manifesto'
+  "Decision Provenance",
+  "Decision Memory",
+  "Git For Decisions",
+  "SDLC Memory",
+  "AI Governance",
+  "Decision Development",
+  "Provenance Manifesto",
 ];
 const defaultSameAs = [
-  'https://provenancemanifesto.org/',
-  'https://www.linkedin.com/in/yauhenikurbayeu/',
-  'https://github.com/yauhenikurbayeu/ProvenanceManifesto'
+  "https://provenancemanifesto.org/",
+  "https://www.linkedin.com/in/yauhenikurbayeu/",
+  "https://github.com/yauhenikurbayeu/ProvenanceManifesto",
 ];
 
 const ldJson = [
   {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': `${canonical}#website`,
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${canonical}#website`,
     name: siteName,
     description,
     url: siteBase,
     inLanguage: locale,
     potentialAction: {
-      '@type': 'SearchAction',
+      "@type": "SearchAction",
       target: `${siteBase}/?q={search_term_string}`,
-      'query-input': 'required name=search_term_string'
-    }
+      "query-input": "required name=search_term_string",
+    },
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    '@id': `${siteBase}#organization`,
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": `${siteBase}#organization`,
     name: siteName,
     url: siteBase,
     sameAs: [
-      'https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/'
-    ]
+      "https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/",
+    ],
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'WebPage',
+    "@context": "https://schema.org",
+    "@type": "WebPage",
     name: title,
     description,
     url: canonical,
     inLanguage: locale,
-    isPartOf: { '@id': `${siteBase}#website` }
+    isPartOf: { "@id": `${siteBase}#website` },
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
     name: schemaName || siteName,
     author: {
-      '@type': 'Person',
-      name: 'Yauheni Kurbayeu'
+      "@type": "Person",
+      name: "Yauheni Kurbayeu",
     },
-    datePublished: schemaDatePublished || '2026',
+    datePublished: schemaDatePublished || "2026",
     description: schemaDescription || description,
-    keywords: schemaKeywords && schemaKeywords.length ? schemaKeywords : defaultKeywords,
+    keywords:
+      schemaKeywords && schemaKeywords.length
+        ? schemaKeywords
+        : defaultKeywords,
     sameAs: schemaSameAs && schemaSameAs.length ? schemaSameAs : defaultSameAs,
-    url: siteBase
-  }
+    url: siteBase,
+  },
 ];
 
-const robotPolicy = noIndex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
-const twitterSite = '@provenance_man';
+const robotPolicy = noIndex
+  ? "noindex, nofollow"
+  : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1";
+const twitterSite = "@provenance_man";
 
-const canoCanonical = canonical.replace(/\/index\.html$/, '/');
+const canoCanonical = canonical.replace(/\/index\.html$/, "/");
 
 const robotsByAI = [
-  'GPTBot',
-  'OAI-SearchBot',
-  'ChatGPT-User',
-  'Claude-Web',
-  'Google-Extended',
-  'PerplexityBot',
-  'YouBot'
+  "GPTBot",
+  "OAI-SearchBot",
+  "ChatGPT-User",
+  "Claude-Web",
+  "Google-Extended",
+  "PerplexityBot",
+  "YouBot",
 ];
 
 const ldJsonCombined = JSON.stringify(ldJson);
 
-const safeDescription = description.length > 320 ? `${description.slice(0, 317)}...` : description;
-
+const safeDescription =
+  description.length > 320 ? `${description.slice(0, 317)}...` : description;
 ---
 
 <title>{title}</title>
@@ -140,7 +152,11 @@ const safeDescription = description.length > 320 ? `${description.slice(0, 317)}
 <meta name="googlebot" content={robotPolicy} />
 <meta name="bingbot" content={robotPolicy} />
 <meta name="slurp" content={robotPolicy} />
-{robotsByAI.map((bot) => <meta name={bot.toLowerCase()} content={robotPolicy} />)}
+{
+  robotsByAI.map((bot) => (
+    <meta name={bot.toLowerCase()} content={robotPolicy} />
+  ))
+}
 
 <meta property="og:title" content={title} />
 <meta property="og:description" content={safeDescription} />
@@ -151,6 +167,9 @@ const safeDescription = description.length > 320 ? `${description.slice(0, 317)}
 <meta property="og:site_name" content={siteName} />
 {absoluteImage && <meta property="og:image" content={absoluteImage} />}
 {absoluteImage && <meta property="og:image:alt" content={imageAlt} />}
+{absoluteImage && <meta property="og:image:width" content="1200" />}
+{absoluteImage && <meta property="og:image:height" content="630" />}
+{absoluteImage && <meta property="og:image:type" content="image/png" />}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content={twitterSite} />
@@ -168,5 +187,10 @@ const safeDescription = description.length > 320 ? `${description.slice(0, 317)}
 <link rel="alternate" hrefLang="pl" href={`${siteBase}/pl/`} />
 <link rel="alternate" hrefLang="x-default" href={`${siteBase}/`} />
 <link rel="sitemap" type="application/xml" href={`${siteBase}/sitemap.xml`} />
-<link rel="alternate" type="text/plain" href={`${siteBase}/llms.txt`} title="LLMs discovery" />
-<script type="application/ld+json" set:html={ldJsonCombined} />
+<link
+  rel="alternate"
+  type="text/plain"
+  href={`${siteBase}/llms.txt`}
+  title="LLMs discovery"
+/>
+<script type="application/ld+json" set:html={ldJsonCombined}></script>
