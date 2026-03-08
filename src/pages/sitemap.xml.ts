@@ -12,7 +12,7 @@ const today = new Date().toISOString().split('T')[0];
 export const GET: APIRoute = async () => {
 	const urls = [];
 	const locales = Object.keys(languages) as Array<keyof typeof languages>;
-	const deeplinks = ['/manifesto', '/principles', '/about', '/sign'];
+	const deeplinks = ['/manifesto', '/principles', '/about', '/faq', '/sign'];
 	const rootManifestoAliases = new Set<string>(deeplinks);
 
 	for (const lang of locales) {

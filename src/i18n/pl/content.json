@@ -124,6 +124,64 @@
       }
     ]
   },
+  "faq": {
+    "title": "Najczęściej zadawane pytania",
+    "description": "Wprowadzenie do Provenance Manifesto oraz koncepcji pochodzenia decyzji w nowoczesnych systemach oprogramowania.",
+    "items": [
+      {
+        "question": "Czym jest Provenance Manifesto?",
+        "answer": "Provenance Manifesto to propozycja dotycząca tego, w jaki sposób organizacje powinny zarządzać i zachowywać decyzje kształtujące ich systemy.\n\nNowoczesne systemy oprogramowania nie powstają wyłącznie z kodu. Są kształtowane przez tysiące decyzji: wybory architektoniczne, kompromisy techniczne, założenia, reakcje operacyjne oraz rozumowanie produktowe. W większości organizacji decyzje te są omawiane podczas spotkań lub w komunikatorach, a z czasem znikają.\n\nProvenance Manifesto proponuje traktowanie decyzji jako **artefaktów pierwszej klasy**, których pochodzenie — kontekst, uzasadnienie, alternatywy oraz ewolucja — powinno być zachowane jako część wiedzy organizacji."
+      },
+      {
+        "question": "Jaki problem rozwiązuje manifest?",
+        "answer": "Manifest odnosi się do powszechnego problemu znanego jako **utrata kontekstu organizacyjnego**.\n\nWażne decyzje są zazwyczaj rozproszone między spotkaniami, wątkami czatów, dokumentami projektowymi i pull requestami. Z czasem uzasadnienie tych decyzji zanika. Nowi inżynierowie są zmuszeni ponownie odkrywać te same ograniczenia, powtarzać te same dyskusje architektoniczne i odtwarzać te same obejścia.\n\nProwadzi to do powtarzającego się odkrywania decyzji architektonicznych, kruchej pamięci instytucjonalnej, wolniejszego onboardingu, ukrytych założeń w systemach oraz narzędzi AI generujących odpowiedzi bez pierwotnego kontekstu decyzji."
+      },
+      {
+        "question": "Co oznacza „decision provenance”?",
+        "answer": "**Decision provenance** oznacza możliwe do prześledzenia pochodzenie, kontekst oraz ewolucję decyzji.\n\nDobrze zachowana decyzja zazwyczaj obejmuje:\n\n- problem, który należało rozwiązać\n- kontekst i ograniczenia w danym momencie\n- rozważane alternatywy\n- uzasadnienie wybranego rozwiązania\n- osoby odpowiedzialne za decyzję\n- późniejszą ewolucję decyzji\n\nPochodzenie decyzji wyjaśnia **dlaczego system istnieje w swojej obecnej formie**, a nie tylko co system aktualnie robi."
+      },
+      {
+        "question": "Czym to się różni od dokumentacji?",
+        "answer": "Tradycyjna dokumentacja opisuje systemy. Pochodzenie decyzji wyjaśnia **jak i dlaczego te systemy powstały**.\n\nDokumentacja zazwyczaj opisuje aktualny stan systemu. Ponieważ systemy ewoluują, dokumentacja szybko się dezaktualizuje. Decyzje natomiast tworzą łańcuch rozumowania stojący za ewolucją systemu.\n\nProvenance Manifesto proponuje, aby **decyzje stały się podstawową jednostką wiedzy**, z której można odtworzyć dokumentację, wyjaśnienia i rozumowanie generowane przez AI."
+      },
+      {
+        "question": "Dlaczego jest to szczególnie ważne w erze AI?",
+        "answer": "Systemy sztucznej inteligencji mogą analizować repozytoria kodu, dokumentację oraz historię commitów. Jednak źródła te rzadko zawierają pełne uzasadnienie decyzji projektowych.\n\nBez pochodzenia decyzji systemy AI potrafią wyjaśnić, co system robi, ale mają trudność z wyjaśnieniem, dlaczego został zaprojektowany w taki sposób.\n\nNa przykład narzędzia AI mogą nie wiedzieć:\n\n- dlaczego podjęto określony kompromis architektoniczny\n- dlaczego w systemie istnieje dane ograniczenie\n- dlaczego wprowadzono obejście\n- dlaczego odrzucono alternatywne rozwiązanie\n\nGdy pochodzenie decyzji jest zachowane, systemy AI uzyskują dostęp do warstwy rozumowania wiedzy inżynierskiej i mogą pomagać ludziom w głębszych analizach."
+      },
+      {
+        "question": "Czy jest to podobne do Architecture Decision Records (ADR)?",
+        "answer": "Architecture Decision Records (ADR) są ważnym krokiem w kierunku zachowania kontekstu architektonicznego. W wielu organizacjach pozostają jednak statycznymi dokumentami przechowywanymi w repozytoriach.\n\nProvenance Manifesto proponuje szerszy model, w którym decyzje są:\n\n- ewoluującymi artefaktami zamiast statycznych zapisów\n- powiązane z innymi decyzjami i wydarzeniami\n- wiedzą organizacyjną, którą można przeszukiwać\n- zintegrowane z procesami rozwoju oraz systemami AI\n\nW tym modelu decyzje tworzą ewoluujący **organizacyjny graf decyzji**, zamiast izolowanych dokumentów."
+      },
+      {
+        "question": "Dla kogo jest ten manifest?",
+        "answer": "Provenance Manifesto jest przeznaczony dla osób zaangażowanych w projektowanie, budowę i utrzymanie złożonych systemów.\n\nDotyczy to inżynierów oprogramowania, architektów systemów, liderów inżynierii, liderów produktu, badaczy zajmujących się rozwojem wspieranym przez AI oraz organizacji budujących systemy oparte na wiedzy.\n\nKażdy zainteresowany poprawą sposobu, w jaki organizacje zachowują i rozwijają wiedzę inżynierską, może wziąć udział w tej dyskusji."
+      },
+      {
+        "question": "Czy manifest jest powiązany z konkretną technologią?",
+        "answer": "Nie. Provenance Manifesto opisuje zasady, a nie produkt.\n\nOrganizacje mogą wdrażać te idee przy użyciu różnych technologii i podejść, takich jak Architecture Decision Records, systemy wiedzy strukturalnej, modele wiedzy oparte na grafach, środowiska programistyczne wspierane przez AI czy ramy zarządzania decyzjami.\n\nManifest jest celowo niezależny od technologii, aby jego idee mogły rozwijać się w różnych ekosystemach."
+      },
+      {
+        "question": "Jak to się ma do Agile lub DevOps?",
+        "answer": "Agile zmieniło sposób, w jaki zespoły zarządzają **pracą i współpracą**.\n\nDevOps zmienił sposób, w jaki zespoły zarządzają **dostarczaniem, infrastrukturą i operacjami**.\n\nProvenance Manifesto koncentruje się na tym, jak organizacje zarządzają **decyzjami i pamięcią instytucjonalną**.\n\nDotyczy innej warstwy cyklu życia oprogramowania: rozumowania i kontekstu, które kierują architekturą, rozwojem produktu i działaniem systemów."
+      },
+      {
+        "question": "Czy manifest jest zakończony?",
+        "answer": "Nie. Podobnie jak inne manifesty w historii inżynierii oprogramowania, Provenance Manifesto ma ewoluować poprzez dyskusję, krytykę i współpracę.\n\nJego celem jest rozpoczęcie szerszej rozmowy o tym, jak organizacje powinny zarządzać pochodzeniem decyzji i pamięcią instytucjonalną w erze sztucznej inteligencji."
+      },
+      {
+        "question": "Jak mogę się przyczynić?",
+        "answer": "Istnieje kilka sposobów, aby przyczynić się do rozwoju Provenance Manifesto.\n\nMożna publicznie dyskutować idee, proponować ulepszenia manifestu, tworzyć tłumaczenia, pomagać w rozwijaniu zasad lub dzielić się rzeczywistymi doświadczeniami związanymi z pochodzeniem decyzji i pamięcią organizacyjną.\n\nWytyczne dotyczące wkładu są dostępne w repozytorium projektu."
+      },
+      {
+        "question": "Kto rozpoczął Provenance Manifesto?",
+        "answer": "Provenance Manifesto zostało zainicjowane przez **Yauheni Kurbayeu** na podstawie badań i dyskusji dotyczących pochodzenia decyzji, pamięci organizacyjnej oraz rozwoju oprogramowania wspieranego przez AI.\n\nCelem nie jest stworzenie osobistego projektu, lecz rozpoczęcie otwartej dyskusji w społeczności inżynierskiej o tym, jak wiedza decyzyjna powinna być zachowywana i zarządzana."
+      },
+      {
+        "question": "Gdzie mogę dowiedzieć się więcej?",
+        "answer": "Manifest i jego zasady można poznać tutaj:\n\nhttps://provenancemanifesto.org\n\nDodatkowe artykuły i dyskusje omawiają pochodzenie decyzji, pamięć instytucjonalną oraz zachowanie wiedzy w nowoczesnych systemach oprogramowania."
+      }
+    ]
+  },
   "sign": {
     "title": "Podpisz Manifest Provenance",
     "description": "Dodaj swoje imię, aby wesprzeć Manifest Provenance i ideę, że decyzje, kontekst i pamięć instytucjonalna powinny pozostać możliwe do prześledzenia w erze AI.",

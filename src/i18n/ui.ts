@@ -14,36 +14,42 @@ export const routeMap = {
     manifesto: '',
     principles: 'principles',
     about: 'about',
+    faq: 'faq',
     sign: 'sign'
   },
   es: {
     manifesto: '',
     principles: 'principles',
     about: 'about',
+    faq: 'faq',
     sign: 'sign'
   },
   fr: {
     manifesto: '',
     principles: 'principles',
     about: 'about',
+    faq: 'faq',
     sign: 'sign'
   },
   ru: {
     manifesto: '',
     principles: 'principles',
     about: 'about',
+    faq: 'faq',
     sign: 'sign'
   },
   de: {
     manifesto: '',
     principles: 'principles',
     about: 'about',
+    faq: 'faq',
     sign: 'sign'
   },
   pl: {
     manifesto: '',
     principles: 'principles',
     about: 'about',
+    faq: 'faq',
     sign: 'sign'
   }
 } as const;
@@ -53,6 +59,7 @@ export const ui = {
     'nav.manifesto': 'Manifesto',
     'nav.principles': 'Principles',
     'nav.about': 'About',
+    'nav.faq': 'FAQ',
     'nav.sign': 'Sign Manifesto',
     'nav.contribute': 'Contribute',
     'hero.read': 'Read the full text',
@@ -72,6 +79,7 @@ export const ui = {
     'nav.manifesto': 'Manifiesto',
     'nav.principles': 'Principios',
     'nav.about': 'Acerca de',
+    'nav.faq': 'Preguntas frecuentes',
     'nav.sign': 'Firmar Manifiesto',
     'hero.read': 'Leer el texto completo',
     'nav.contribute': 'Contribuir',
@@ -91,6 +99,7 @@ export const ui = {
     'nav.manifesto': 'Manifeste',
     'nav.principles': 'Principes',
     'nav.about': 'À propos',
+    'nav.faq': 'FAQ',
     'nav.sign': 'Signer le Manifeste',
     'hero.read': 'Lire le texte intégral',
     'nav.contribute': 'Contribuer',
@@ -110,6 +119,7 @@ export const ui = {
     'nav.manifesto': 'Манифест',
     'nav.principles': 'Принципы',
     'nav.about': 'О нас',
+    'nav.faq': 'Вопросы и ответы',
     'nav.sign': 'Подписать Манифест',
     'hero.read': 'Читать полный текст',
     'nav.contribute': 'Внести вклад',
@@ -129,6 +139,7 @@ export const ui = {
     'nav.manifesto': 'Manifest',
     'nav.principles': 'Prinzipien',
     'nav.about': 'Über',
+    'nav.faq': 'FAQ',
     'nav.sign': 'Manifest unterschreiben',
     'hero.read': 'Vollständigen Text lesen',
     'nav.contribute': 'Mitwirken',
@@ -148,6 +159,7 @@ export const ui = {
     'nav.manifesto': 'Manifest',
     'nav.principles': 'Zasady',
     'nav.about': 'O stronie',
+    'nav.faq': 'FAQ',
     'nav.sign': 'Podpisz manifest',
     'hero.read': 'Przeczytaj pełny tekst',
     'nav.contribute': 'Wesprzyj',

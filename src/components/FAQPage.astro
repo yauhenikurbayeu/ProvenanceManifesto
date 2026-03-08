@@ -1,0 +1,212 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { SupportedLang } from '../i18n/utils';
+import contentEn from '../i18n/en/content.json';
+import contentEs from '../i18n/es/content.json';
+import contentFr from '../i18n/fr/content.json';
+import contentRu from '../i18n/ru/content.json';
+import contentDe from '../i18n/de/content.json';
+import contentPl from '../i18n/pl/content.json';
+
+interface Props {
+	lang: SupportedLang;
+}
+
+interface ParsedBlock {
+	type: 'paragraph' | 'list';
+	content?: string;
+	items?: string[];
+}
+
+interface FAQSourceItem {
+	question: string;
+	answer: string;
+}
+
+interface FAQSection {
+	id: string;
+	question: string;
+	blocks: ParsedBlock[];
+}
+
+const { lang } = Astro.props;
+
+function stripMarkdown(value: string) {
+	return value
+		.replace(/\[(.+?)\]\((.+?)\)/g, '$1 ($2)')
+		.replace(/\*\*(.+?)\*\*/g, '$1')
+		.replace(/\*(.+?)\*/g, '$1')
+		.replace(/`(.+?)`/g, '$1')
+		.replace(/^[\-\*]\s+/gm, '')
+		.replace(/\r?\n\s*/g, ' ')
+		.replace(/\s{2,}/g, ' ')
+		.trim();
+}
+
+function slugify(value: string) {
+	return value
+		.trim()
+		.toLowerCase()
+		.normalize('NFKD')
+		.replace(/[\u0300-\u036f]/g, '')
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-+|-+$/g, '')
+		.replace(/-+/g, '-');
+}
+
+function escapeHtml(value: string) {
+	return value
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;');
+}
+
+function formatMarkdown(value: string) {
+	return escapeHtml(value)
+		.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+		.replace(/\*(.+?)\*/g, '<em>$1</em>')
+		.replace(/`(.+?)`/g, '<code>$1</code>')
+		.replace(/\[(.+?)\]\((.+?)\)/g, (_match, label, url) => {
+			return `<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-[#1152d4] underline">${label}</a>`;
+		})
+		.replace(/(^|[^\w\"'=])(https?:\/\/[^\s<>")\]\[]+)/g, (_match, prefix, url) => {
+			return `${prefix}<a href="${url}" target="_blank" rel="noopener noreferrer" class="text-[#1152d4] underline">${url}</a>`;
+		});
+}
+
+function parseAnswer(raw: string): ParsedBlock[] {
+	const blocks: ParsedBlock[] = [];
+	const lines = raw.replace(/\r\n/g, '\n').split('\n');
+	let paragraph: string[] = [];
+	let listItems: string[] = [];
+
+	const flushParagraph = () => {
+		if (!paragraph.length) return;
+		const content = paragraph.join(' ').replace(/\s+/g, ' ').trim();
+		if (content) {
+			blocks.push({ type: 'paragraph', content });
+		}
+		paragraph = [];
+	};
+
+	const flushList = () => {
+		if (!listItems.length) return;
+		blocks.push({ type: 'list', items: listItems });
+		listItems = [];
+	};
+
+	for (const line of lines) {
+		const trimmed = line.trim();
+		if (!trimmed) {
+			flushParagraph();
+			flushList();
+			continue;
+		}
+
+		const listMatch = trimmed.match(/^[\-*]\s+(.+)$/);
+		if (listMatch) {
+			flushParagraph();
+			listItems.push(listMatch[1]);
+			continue;
+		}
+
+		paragraph.push(trimmed);
+	}
+
+	flushParagraph();
+	flushList();
+	return blocks;
+}
+
+const contentMap = {
+	en: contentEn,
+	es: contentEs,
+	fr: contentFr,
+	ru: contentRu,
+	de: contentDe,
+	pl: contentPl
+};
+
+const faq = contentMap[lang as keyof typeof contentMap].faq;
+const englishFaq = contentEn.faq;
+
+const faqItems: FAQSourceItem[] = (englishFaq?.items ?? []).map((englishItem, index) => {
+	const localizedItem = faq?.items?.[index] as FAQSourceItem | undefined;
+	return {
+		question: localizedItem?.question || englishItem.question,
+		answer: localizedItem?.answer || englishItem.answer
+	};
+});
+
+const sections: FAQSection[] = faqItems.map((item, index) => {
+	const sourceQuestion = englishFaq?.items?.[index]?.question || item.question;
+	return {
+		id: `faq-${slugify(sourceQuestion) || String(index + 1)}`,
+		question: item.question,
+		blocks: parseAnswer(item.answer || '')
+	};
+});
+
+const faqJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'FAQPage',
+	mainEntity: faqItems.map((item) => ({
+		'@type': 'Question',
+		name: item.question,
+		acceptedAnswer: {
+			'@type': 'Answer',
+			text: stripMarkdown(item.answer || '')
+		}
+	}))
+};
+
+const seoTitle = `${faq.title} | The Provenance Manifesto`;
+const seoDescription = faq.description;
+---
+
+<Layout title={seoTitle} description={seoDescription} metaLocale={lang} lang={lang}>
+	<script is:inline type="application/ld+json" set:html={JSON.stringify(faqJsonLd, null, 2)} />
+	<div class="max-w-[960px] mx-auto w-full px-6 md:px-10 py-12 md:py-20 flex flex-col gap-12">
+		<div class="flex flex-col gap-6 text-center md:text-left">
+			<div class="flex flex-col gap-3">
+				<h1 class="text-slate-900 dark:text-white text-4xl md:text-6xl font-black leading-tight tracking-[-0.033em]">
+					{faq.title}
+				</h1>
+				<p class="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-normal max-w-2xl leading-relaxed">
+					{faq.description}
+				</p>
+			</div>
+		</div>
+
+		<div class="flex flex-col gap-4">
+			{sections.map((item, index) => (
+				<details class="group flex flex-col rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 transition-all duration-300 open:ring-1 open:ring-[#1152d4]/50" open={index === 0}>
+					<summary class="flex cursor-pointer items-center justify-between gap-6 px-6 py-5 list-none">
+						<div class="flex items-center gap-4">
+							<span class="flex items-center justify-center size-8 rounded-full bg-[#1152d4]/10 text-[#1152d4] font-bold text-sm">
+								{index + 1}
+							</span>
+							<p class="text-slate-900 dark:text-white text-lg font-bold leading-normal" id={item.id}>
+								{item.question}
+							</p>
+						</div>
+						<span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+					</summary>
+					<div class="px-6 pb-6 pt-0 ml-12">
+						<div class="flex flex-col gap-4 text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed">
+							{item.blocks.map((block) =>
+								block.type === 'paragraph' ? (
+									<p set:html={formatMarkdown(block.content || '')} />
+								) : (
+									<ul class="list-disc pl-5 space-y-2">
+										{block.items?.map((line) => <li set:html={formatMarkdown(line)} />)}
+									</ul>
+								)
+							)}
+					</div>
+					</div>
+				</details>
+			))}
+		</div>
+	</div>
+</Layout>

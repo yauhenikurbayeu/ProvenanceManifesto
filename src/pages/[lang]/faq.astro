@@ -1,0 +1,13 @@
+---
+import FAQPage from '../../components/FAQPage.astro';
+import { languages } from '../../i18n/ui';
+import type { SupportedLang } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+---
+
+<FAQPage lang={lang as SupportedLang} />
