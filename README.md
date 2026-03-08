@@ -42,6 +42,7 @@ If these ideas resonate with you, we invite you to help refine and expand the ma
 - [Contribution Guidelines](contribution/CONTRIBUTING.md)
 - [Code of Conduct](contribution/CODE_OF_CONDUCT.md) 
 - [Governance](contribution/GOVERNANCE.md) 
+- [FAQ](contribution/FAQ.md)
 
 
 Feel free to check [Provenance Manifesto](https://provenancemanifesto.org) or jump into my [LinkedIn](https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/) for more details.

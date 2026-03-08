@@ -66,6 +66,14 @@ See:
 
 ---
 
+# Frequently Asked Questions
+
+An introduction to the Provenance Manifesto and the concept of decision provenance in modern software systems
+
+**[FAQ.md](FAQ.md)**
+
+---
+
 ## Translations
 
 Translations of the manifesto into other languages are welcome.
