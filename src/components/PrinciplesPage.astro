@@ -23,9 +23,26 @@ const contentMap = {
   pl: contentPl
 };
 const content = contentMap[lang as keyof typeof contentMap].principles;
+const englishPrinciples = contentEn.principles;
 const locale = String(lang);
 const seoTitle = `${content.title} | The Provenance Manifesto`;
 const seoDescription = content.description;
+
+function slugify(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-');
+}
+
+const getItemId = (index: number) => {
+  const sourceTitle = englishPrinciples.items[index]?.title || content.items[index]?.title || '';
+  return `principle-${slugify(sourceTitle) || index + 1}`;
+};
 ---
 
 <Layout title={seoTitle} description={seoDescription} metaLocale={locale} lang={lang}>
@@ -47,7 +64,7 @@ const seoDescription = content.description;
                     <summary class="flex cursor-pointer items-center justify-between gap-6 px-6 py-5 list-none">
                         <div class="flex items-center gap-4">
                             <span class="flex items-center justify-center size-8 rounded-full bg-[#1152d4]/10 text-[#1152d4] font-bold text-sm">{index + 1}</span>
-                            <p class="text-slate-900 dark:text-white text-lg font-bold leading-normal">{item.title}</p>
+                            <p class="text-slate-900 dark:text-white text-lg font-bold leading-normal" id={getItemId(index)}>{item.title}</p>
                         </div>
                         <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
                     </summary>

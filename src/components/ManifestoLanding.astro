@@ -25,6 +25,23 @@ const contentMap = {
   pl: contentPl
 };
 const content = contentMap[lang as keyof typeof contentMap].landing;
+const englishValues = contentEn.landing.values;
+
+function slugify(value: string) {
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-+/g, '-');
+}
+
+const getValueId = (index: number) => {
+  const sourceValue = englishValues[index]?.left || content.values[index]?.left || '';
+  return slugify(sourceValue);
+};
 
 const seoTitle = `The Provenance Manifesto | ${content.hero_title_highlight}`;
 const seoDescription = content.hero_description;
@@ -56,12 +73,14 @@ const locale = String(lang);
         <div class="max-w-3xl mx-auto">
             <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center md:text-left">{content.values_title}</h2>
             <div class="space-y-6">
-                {content.values.map((val) => (
+                {content.values.map((val, index) => (
                     <div class="group p-6 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#101622] hover:border-[#1152d4]/50 transition-colors">
                         <div class="grid md:grid-cols-2 gap-4 md:gap-6 items-start">
                         <div class="flex items-start gap-4 min-w-0">
                             <span class="material-symbols-outlined text-[#1152d4]">{val.icon}</span>
-                            <span class="text-lg font-semibold text-[#1152d4] break-words">{val.left}</span>
+                            <span class="text-lg font-semibold text-[#1152d4] break-words" id={getValueId(index)}>
+                              {val.left}
+                            </span>
                         </div>
                         <div class="mt-2 md:mt-0 flex items-start gap-3 min-w-0">
                             <span class="text-slate-400 italic text-sm md:text-base shrink-0">{t('hero.over')}</span>
