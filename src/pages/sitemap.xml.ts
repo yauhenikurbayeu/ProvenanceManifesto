@@ -12,6 +12,7 @@ const today = new Date().toISOString().split('T')[0];
 export const GET: APIRoute = async () => {
 	const urls = [];
 	const locales = Object.keys(languages) as Array<keyof typeof languages>;
+	const deeplinks = ['/manifesto', '/principles'];
 
 	for (const lang of locales) {
 		for (const route of routeKeys) {
@@ -20,6 +21,12 @@ export const GET: APIRoute = async () => {
 			const full = `${sitePath}${normalizedPath}`;
 			urls.push(`<url><loc>${full}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`);
 		}
+	}
+
+	for (const path of deeplinks) {
+		urls.push(
+			`<url><loc>${sitePath}${path}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`
+		);
 	}
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
