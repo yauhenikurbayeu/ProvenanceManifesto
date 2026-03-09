@@ -80,9 +80,9 @@ Translations of the manifesto into other languages are welcome.
 
 Existing translations and translation contributions can be found in:
 
-translations/
+[translations/*](translations/)
 
-If you would like to contribute a translation, please follow the instructions in **CONTRIBUTING.md**.
+If you would like to contribute a translation, please follow the instructions in **[CONTRIBUTING.md](CONTRIBUTING.md)**.
 
 ---
 
@@ -112,4 +112,4 @@ https://creativecommons.org/licenses/by/4.0/
 
 ## Author
 
-The Provenance Manifesto was initiated by **Yauheni Kurbayeu**.
+The Provenance Manifesto was initiated by **[Yauheni Kurbayeu](https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/)**.
