@@ -34,6 +34,8 @@ const baseUrl = import.meta.env.BASE_URL || '/';
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+        <link rel="icon" sizes="any" href={`${baseUrl}favicon.ico`}>
+        <link rel="apple-touch-icon" href={`${baseUrl}apple-touch-icon.png`}>
 		<meta name="generator" content={Astro.generator} />
         <SEO
             title={title}
