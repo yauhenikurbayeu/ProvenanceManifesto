@@ -113,3 +113,11 @@ https://creativecommons.org/licenses/by/4.0/
 ## Author
 
 The Provenance Manifesto was initiated by **[Yauheni Kurbayeu](https://www.linkedin.com/in/yauhenikurbayeu/recent-activity/all/)**.
+
+---
+
+## Privacy Policy
+
+Privacy Policy explains what information may be collected when you visit the site and how it is used.
+
+[PRIVACY_POLICY.md](PRIVACY_POLICY.md)
