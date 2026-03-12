@@ -7,6 +7,7 @@ interface Props {
   type?: "website" | "article";
   locale?: string;
   noIndex?: boolean;
+  schemaType?: "creativeWork" | "blogPosting";
   schemaName?: string;
   schemaDescription?: string;
   schemaKeywords?: string[];
@@ -22,6 +23,7 @@ const {
   type = "website",
   locale = "en",
   noIndex = false,
+  schemaType = "creativeWork",
   schemaName,
   schemaDescription,
   schemaKeywords,
@@ -69,7 +71,7 @@ const defaultSameAs = [
   "https://github.com/yauhenikurbayeu/ProvenanceManifesto",
 ];
 
-const ldJson = [
+const baseLdJson = [
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -102,24 +104,59 @@ const ldJson = [
     url: canonical,
     inLanguage: locale,
     isPartOf: { "@id": `${siteBase}#website` },
+  }
+];
+
+const creativeWorkLd = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  name: schemaName || siteName,
+  author: {
+    "@type": "Person",
+    name: "Yauheni Kurbayeu",
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    name: schemaName || siteName,
-    author: {
-      "@type": "Person",
-      name: "Yauheni Kurbayeu",
-    },
-    datePublished: schemaDatePublished || "2026",
-    description: schemaDescription || description,
-    keywords:
-      schemaKeywords && schemaKeywords.length
-        ? schemaKeywords
-        : defaultKeywords,
-    sameAs: schemaSameAs && schemaSameAs.length ? schemaSameAs : defaultSameAs,
-    url: siteBase,
+  datePublished: schemaDatePublished || "2026",
+  description: schemaDescription || description,
+  keywords:
+    schemaKeywords && schemaKeywords.length
+      ? schemaKeywords
+      : defaultKeywords,
+  sameAs: schemaSameAs && schemaSameAs.length ? schemaSameAs : defaultSameAs,
+  url: canonical,
+};
+
+const blogPostingLd = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  headline: schemaName || title,
+  description: schemaDescription || description,
+  author: {
+    "@type": "Person",
+    name: "Yauheni Kurbayeu"
   },
+  datePublished: schemaDatePublished || "2026-01-01",
+  dateModified: schemaDatePublished || "2026-01-01",
+  inLanguage: locale,
+  keywords:
+    schemaKeywords && schemaKeywords.length
+      ? schemaKeywords
+      : defaultKeywords,
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": canonical
+  },
+  publisher: {
+    "@type": "Organization",
+    name: siteName,
+    url: siteBase
+  },
+  sameAs: schemaSameAs && schemaSameAs.length ? schemaSameAs : defaultSameAs,
+  url: canonical
+};
+
+const ldJson = [
+  ...baseLdJson,
+  schemaType === "blogPosting" ? blogPostingLd : creativeWorkLd
 ];
 
 const robotPolicy = noIndex
@@ -179,13 +216,13 @@ const safeDescription =
 {absoluteImage && <meta name="twitter:image:alt" content={imageAlt} />}
 
 <link rel="canonical" href={canoCanonical} />
-<link rel="alternate" hrefLang="en" href={`${siteBase}/en/`} />
-<link rel="alternate" hrefLang="es" href={`${siteBase}/es/`} />
-<link rel="alternate" hrefLang="fr" href={`${siteBase}/fr/`} />
-<link rel="alternate" hrefLang="ru" href={`${siteBase}/ru/`} />
-<link rel="alternate" hrefLang="de" href={`${siteBase}/de/`} />
-<link rel="alternate" hrefLang="pl" href={`${siteBase}/pl/`} />
-<link rel="alternate" hrefLang="x-default" href={`${siteBase}/`} />
+<link rel="alternate" hreflang="en" href={`${siteBase}/en/`} />
+<link rel="alternate" hreflang="es" href={`${siteBase}/es/`} />
+<link rel="alternate" hreflang="fr" href={`${siteBase}/fr/`} />
+<link rel="alternate" hreflang="ru" href={`${siteBase}/ru/`} />
+<link rel="alternate" hreflang="de" href={`${siteBase}/de/`} />
+<link rel="alternate" hreflang="pl" href={`${siteBase}/pl/`} />
+<link rel="alternate" hreflang="x-default" href={`${siteBase}/`} />
 <link rel="sitemap" type="application/xml" href={`${siteBase}/sitemap.xml`} />
 <link
   rel="alternate"

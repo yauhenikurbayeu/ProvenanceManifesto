@@ -1,0 +1,35 @@
+---
+import BlogArticlePage from '../../../components/BlogArticlePage.astro';
+import { getLocalizedPath, type SupportedLang } from '../../../i18n/utils';
+import {
+  getMarkdownHtml,
+  getLocalizedBlogArticles,
+  getLocalizedBlogLanguages,
+  type BlogArticle
+} from '../../../lib/blog';
+
+export function getStaticPaths() {
+  return getLocalizedBlogLanguages().flatMap((lang: SupportedLang) =>
+    getLocalizedBlogArticles(lang).map((article: BlogArticle) => ({
+      params: { lang, slug: article.slug },
+      props: { article, lang }
+    }))
+  );
+}
+
+const { article, lang } = Astro.props as { article: BlogArticle; lang: SupportedLang };
+const normalizedLang = lang as SupportedLang;
+const contentHtml = getMarkdownHtml(article.sourcePath);
+if (!contentHtml) {
+  throw new Error(`Unable to load localized blog article source: ${article.sourcePath}`);
+}
+const blogPath = getLocalizedPath(normalizedLang, 'blog');
+---
+
+<BlogArticlePage
+  lang={normalizedLang}
+  article={article}
+  canonicalPath={`${blogPath}/${article.slug}`}
+  backToBlogPath={blogPath}
+  contentHtml={contentHtml}
+/>

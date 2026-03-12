@@ -1,0 +1,25 @@
+---
+import BlogArticlePage from '../../components/BlogArticlePage.astro';
+import { getEnglishBlogArticles, getMarkdownHtml, type BlogArticle } from '../../lib/blog';
+
+export function getStaticPaths() {
+  return getEnglishBlogArticles().map((article) => ({
+    params: { slug: article.slug },
+    props: { article }
+  }));
+}
+
+const { article } = Astro.props as { article: BlogArticle };
+const contentHtml = getMarkdownHtml(article.sourcePath);
+if (!contentHtml) {
+  throw new Error(`Unable to load blog article source: ${article.sourcePath}`);
+}
+---
+
+<BlogArticlePage
+  lang="en"
+  article={article}
+  canonicalPath={`/blog/${article.slug}`}
+  backToBlogPath="/blog"
+  contentHtml={contentHtml}
+/>

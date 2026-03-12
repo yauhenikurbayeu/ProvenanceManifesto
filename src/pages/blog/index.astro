@@ -1,0 +1,21 @@
+---
+import BlogPage from '../../components/BlogPage.astro';
+import { getBlogReadmePath, getEnglishBlogArticles } from '../../lib/blog';
+
+const readmePath = getBlogReadmePath('en');
+if (!readmePath) {
+  throw new Error('Missing required blog README source file at /blog/README.md');
+}
+
+const articles = getEnglishBlogArticles();
+---
+
+<BlogPage
+  lang="en"
+  title="Blog"
+  description="Essays and practical notes on provenance, SDLC memory, and AI-era delivery governance."
+  readmePath={readmePath}
+  articles={articles}
+  canonicalPath="/blog"
+  articleHrefBuilder={(slug: string) => `/blog/${slug}`}
+/>

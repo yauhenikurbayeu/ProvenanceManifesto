@@ -1,5 +1,10 @@
 import { languages, routeMap } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
+import {
+	getEnglishBlogArticles,
+	getLocalizedBlogArticles,
+	getLocalizedBlogLanguages
+} from '../lib/blog';
 import type { APIRoute } from 'astro';
 
 export const prerender = true;
@@ -12,7 +17,7 @@ const today = new Date().toISOString().split('T')[0];
 export const GET: APIRoute = async () => {
 	const urls = [];
 	const locales = Object.keys(languages) as Array<keyof typeof languages>;
-	const deeplinks = ['/manifesto', '/principles', '/about', '/faq', '/sign'];
+	const deeplinks = ['/manifesto', '/blog', '/principles', '/about', '/faq', '/sign'];
 	const rootManifestoAliases = new Set<string>(deeplinks);
 
 	for (const lang of locales) {
@@ -38,6 +43,26 @@ export const GET: APIRoute = async () => {
 		urls.push(
 			`<url><loc>${sitePath}${path}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`
 		);
+	}
+
+	const englishBlogPath = '/blog';
+	for (const article of getEnglishBlogArticles()) {
+		urls.push(
+			`<url><loc>${sitePath}${englishBlogPath}/${article.slug}</loc><lastmod>${article.publishedISO}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+		);
+	}
+
+	for (const lang of getLocalizedBlogLanguages()) {
+		const blogBasePath = getLocalizedPath(lang, 'blog');
+		urls.push(
+			`<url><loc>${sitePath}${blogBasePath}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+		);
+
+		for (const article of getLocalizedBlogArticles(lang)) {
+			urls.push(
+				`<url><loc>${sitePath}${blogBasePath}/${article.slug}</loc><lastmod>${article.publishedISO}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+			);
+		}
 	}
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>

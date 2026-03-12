@@ -12,6 +12,7 @@ export const defaultLang = 'en';
 export const routeMap = {
   en: {
     manifesto: '',
+    blog: 'blog',
     principles: 'principles',
     about: 'about',
     faq: 'faq',
@@ -19,6 +20,7 @@ export const routeMap = {
   },
   es: {
     manifesto: '',
+    blog: 'blog',
     principles: 'principles',
     about: 'about',
     faq: 'faq',
@@ -26,6 +28,7 @@ export const routeMap = {
   },
   fr: {
     manifesto: '',
+    blog: 'blog',
     principles: 'principles',
     about: 'about',
     faq: 'faq',
@@ -33,6 +36,7 @@ export const routeMap = {
   },
   ru: {
     manifesto: '',
+    blog: 'blog',
     principles: 'principles',
     about: 'about',
     faq: 'faq',
@@ -40,6 +44,7 @@ export const routeMap = {
   },
   de: {
     manifesto: '',
+    blog: 'blog',
     principles: 'principles',
     about: 'about',
     faq: 'faq',
@@ -47,6 +52,7 @@ export const routeMap = {
   },
   pl: {
     manifesto: '',
+    blog: 'blog',
     principles: 'principles',
     about: 'about',
     faq: 'faq',
@@ -57,6 +63,7 @@ export const routeMap = {
 export const ui = {
   en: {
     'nav.manifesto': 'Manifesto',
+    'nav.blog': 'Blog',
     'nav.principles': 'Principles',
     'nav.about': 'About',
     'nav.faq': 'FAQ',
@@ -77,6 +84,7 @@ export const ui = {
   },
   es: {
     'nav.manifesto': 'Manifiesto',
+    'nav.blog': 'Blog',
     'nav.principles': 'Principios',
     'nav.about': 'Acerca de',
     'nav.faq': 'Preguntas frecuentes',
@@ -97,6 +105,7 @@ export const ui = {
   },
   fr: {
     'nav.manifesto': 'Manifeste',
+    'nav.blog': 'Blog',
     'nav.principles': 'Principes',
     'nav.about': 'À propos',
     'nav.faq': 'FAQ',
@@ -117,6 +126,7 @@ export const ui = {
   },
   ru: {
     'nav.manifesto': 'Манифест',
+    'nav.blog': 'Блог',
     'nav.principles': 'Принципы',
     'nav.about': 'О нас',
     'nav.faq': 'Вопросы и ответы',
@@ -137,6 +147,7 @@ export const ui = {
   },
   de: {
     'nav.manifesto': 'Manifest',
+    'nav.blog': 'Blog',
     'nav.principles': 'Prinzipien',
     'nav.about': 'Über',
     'nav.faq': 'FAQ',
@@ -157,6 +168,7 @@ export const ui = {
   },
   pl: {
     'nav.manifesto': 'Manifest',
+    'nav.blog': 'Blog',
     'nav.principles': 'Zasady',
     'nav.about': 'O stronie',
     'nav.faq': 'FAQ',

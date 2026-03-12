@@ -1,0 +1,30 @@
+---
+import BlogPage from '../../../components/BlogPage.astro';
+import { getLocalizedPath, type SupportedLang } from '../../../i18n/utils';
+import { getBlogReadmePath, getLocalizedBlogArticles, getLocalizedBlogLanguages } from '../../../lib/blog';
+
+export function getStaticPaths() {
+  return getLocalizedBlogLanguages().map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const normalizedLang = lang as SupportedLang;
+const readmePath = getBlogReadmePath(normalizedLang);
+
+if (!readmePath) {
+  throw new Error(`Missing localized blog README for language: ${normalizedLang}`);
+}
+
+const articles = getLocalizedBlogArticles(normalizedLang);
+const blogPath = getLocalizedPath(normalizedLang, 'blog');
+---
+
+<BlogPage
+  lang={normalizedLang}
+  title="Blog"
+  description="Essays and practical notes on provenance, SDLC memory, and AI-era delivery governance."
+  readmePath={readmePath}
+  articles={articles}
+  canonicalPath={blogPath}
+  articleHrefBuilder={(slug: string) => `${blogPath}/${slug}`}
+/>

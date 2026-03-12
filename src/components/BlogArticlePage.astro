@@ -1,0 +1,66 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getLocalizedPath, type SupportedLang } from '../i18n/utils';
+import type { BlogArticle } from '../lib/blog';
+
+interface Props {
+  lang: SupportedLang;
+  article: BlogArticle;
+  canonicalPath: string;
+  backToBlogPath: string;
+  contentHtml: string;
+}
+
+const { lang, article, canonicalPath, backToBlogPath, contentHtml } = Astro.props as Props;
+
+const locale = String(lang);
+const seoTitle = `${article.title} | The Provenance Manifesto`;
+const schemaSameAs = [article.linkedInUrl, 'https://provenancemanifesto.org/blog'];
+---
+
+<Layout
+  title={seoTitle}
+  description={article.tldr}
+  metaType="article"
+  metaLocale={locale}
+  lang={lang}
+  canonicalPath={canonicalPath}
+  schemaType="blogPosting"
+  schemaName={article.title}
+  schemaDescription={article.tldr}
+  schemaKeywords={article.keywords}
+  schemaSameAs={schemaSameAs}
+  schemaDatePublished={article.publishedISO}
+>
+  <div class="max-w-[960px] mx-auto w-full px-6 md:px-10 py-12 md:py-20 flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <a href={backToBlogPath} class="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-[#1152d4] transition-colors">
+        <span class="material-symbols-outlined text-base">arrow_back</span>
+        Back to Blog
+      </a>
+
+      <h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+        {article.title}
+      </h1>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+        <span>{article.author}</span>
+        <span aria-hidden="true">•</span>
+        <time datetime={article.publishedISO}>{article.publishedLabel}</time>
+      </div>
+    </div>
+
+    <article class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-6 md:p-8 prose prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-[#1152d4]" set:html={contentHtml}>
+    </article>
+
+    <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+      <a href={backToBlogPath} class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-[#1152d4] transition-colors">
+        <span class="material-symbols-outlined text-base">arrow_back</span>
+        Blog
+      </a>
+      <a href={getLocalizedPath(lang)} class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-[#1152d4] transition-colors">
+        Manifesto
+        <span class="material-symbols-outlined text-base">arrow_forward</span>
+      </a>
+    </div>
+  </div>
+</Layout>
