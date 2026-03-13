@@ -1,61 +1,87 @@
 ![A description of the image](/images/blog/1.png)
 
-# Why Organizational Memory Is Not Just an AI Knowledge System.
+# Por qué la memoria organizacional no es solo un sistema de conocimiento de IA.
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 11, 2026  
 **[LinkedIn](https://www.linkedin.com/pulse/why-organizational-memory-just-ai-knowledge-system-yauheni-kurbayeu-zqetf/?trackingId=g%2FDMfZ%2BIJpCfLgtI%2BZx3Qg%3D%3D)**
 
-Following the release of the initial version of the Provenance Manifesto, I began examining whether existing market solutions align with principles outlined therein.
+Tras la publicación de la versión inicial del Provenance Manifesto, comencé a analizar si las soluciones existentes en el mercado se alinean con los principios descritos en él.
 
-The question was straightforward: Do tools currently exist that can effectively preserve and manage the decisions that influence the development of our systems?
+La pregunta era sencilla: ¿existen actualmente herramientas que puedan preservar y gestionar de forma efectiva las decisiones que influyen en el desarrollo de nuestros sistemas?
 
-Quite quickly, I noticed an interesting pattern. Many solutions describe themselves as organizational memory platforms, but what they actually provide is something slightly different. In most cases, they are proposing what could be called a modern AI knowledge system.
+Muy pronto observé un patrón interesante. Muchas soluciones se describen a sí mismas como plataformas de memoria organizacional, pero en realidad ofrecen algo ligeramente distinto. En la mayoría de los casos, proponen lo que podría llamarse un sistema moderno de conocimiento basado en IA.
 
-These platforms connect company tools such as Slack, Jira, GitHub, Notion, CRM systems, and documentation repositories. They ingest the data, build embeddings, and allow AI agents to retrieve context while performing tasks.
-In essence, they turn the organization’s data into a searchable knowledge layer.
+Estas plataformas conectan herramientas de la empresa como Slack, Jira, GitHub, Notion, sistemas CRM y repositorios de documentación. Ingestan los datos, generan embeddings y permiten a los agentes de IA recuperar contexto mientras realizan tareas.  
+En esencia, convierten los datos de la organización en una capa de conocimiento consultable.
 
-From a technical perspective, most of these systems are built around Retrieval Augmented Generation (RAG). Documents, tickets, conversations, and code are indexed and transformed into a semantic search space. When an AI assistant needs context, it retrieves relevant fragments and incorporates them into its reasoning.
+Desde una perspectiva técnica, la mayoría de estos sistemas se construyen alrededor de **Retrieval Augmented Generation (RAG)**. Documentos, tickets, conversaciones y código se indexan y se transforman en un espacio de búsqueda semántica. Cuando un asistente de IA necesita contexto, recupera fragmentos relevantes y los incorpora a su razonamiento.
 
-This is a powerful capability.
+Esta es una capacidad poderosa.
 
-But it is not yet the same thing as organizational memory.
+Por primera vez, los agentes de IA pueden navegar por el paisaje fragmentado de información dentro de las organizaciones.
 
-Without captured reasoning, the organization remembers the result but forgets the logic that produced it.
+Pero llamar a esto **memoria organizacional** resulta algo engañoso.
 
-This is where the idea of decision provenance becomes critical.
+Lo que realmente proporcionan estos sistemas es **recuperación de conocimiento organizacional**.
 
-If knowledge systems represent the information layer of organizational memory, decision provenance represents the reasoning layer.
+- Pueden decirnos qué información existe.
+- Pueden mostrar documentación, tickets y conversaciones relacionadas con una pregunta.
+- Incluso pueden resumir discusiones o explicar partes del código.
 
-Knowledge systems answer questions like:
+Sin embargo, las organizaciones no están definidas principalmente por documentos.
 
-- What does the system do?
-- Where is the documentation?
-- Which service implements this behavior?
+Están definidas por **decisiones**.
 
-Decision provenance answers a different set of questions:
+Cada arquitectura, cada comportamiento de producto y cada solución operativa existe porque alguien tomó una decisión en un momento concreto del tiempo. Esas decisiones estuvieron influenciadas por restricciones, supuestos, riesgos y compromisos que muchas veces solo se documentaron parcialmente.
 
-- Why does the system work this way?
-- What alternatives were considered?
-- Which assumptions shaped the architecture?
-- Who owns the decision, and when might it need revision?
+Cuando un sistema de conocimiento recupera un documento que dice “usamos Kafka para streaming de eventos”, nos muestra el resultado.
 
-These two layers are complementary.
+Pero no nos dice por qué se eligió Kafka.
 
-RAG-based knowledge systems allow AI to retrieve existing artifacts.
-Decision provenance connects those artifacts to the decisions that created them and the context that justified them.
+- ¿Se seleccionó por su escalabilidad?
+- ¿Se adoptó porque el equipo ya tenía experiencia operativa con él?
+- ¿Se rechazó otra tecnología debido a preocupaciones sobre fiabilidad?
 
-When combined, they form something much closer to true organizational memory.
+Sin ese razonamiento, la organización recuerda el resultado pero olvida la lógica que lo produjo.
 
-The knowledge layer tells the story of what exists.
-The provenance layer explains why it exists.
+Aquí es donde la idea de la **proveniencia de decisiones (decision provenance)** se vuelve fundamental.
 
-As AI becomes more deeply integrated into software development and operational workflows, this distinction becomes increasingly important. AI agents that can read documents will help teams navigate information. But AI agents that can understand the reasoning behind systems will be able to participate in the evolution of those systems.
+Si los sistemas de conocimiento representan la **capa de información** de la memoria organizacional, la proveniencia de decisiones representa la **capa de razonamiento**.
 
-In other words, the next step beyond AI knowledge management is not simply better retrieval.
-It is decision-aware organizational memory.
+Los **sistemas de conocimiento** responden preguntas como:
 
-This is the direction explored in the Provenance Manifesto, which proposes treating decisions as first-class artifacts whose context, reasoning, and evolution should be preserved alongside the systems they shape.
+- ¿Qué hace el sistema?
+- ¿Dónde está la documentación?
+- ¿Qué servicio implementa este comportamiento?
 
-Because in the end, organizations do not operate on documents alone.
-They operate on the decisions embedded within them.
+La **proveniencia de decisiones** responde a un conjunto diferente de preguntas:
+
+- ¿Por qué el sistema funciona de esta manera?
+- ¿Qué alternativas se consideraron?
+- ¿Qué supuestos dieron forma a la arquitectura?
+- ¿Quién es responsable de la decisión y cuándo podría necesitar revisión?
+
+Estas dos capas son complementarias.
+
+Los sistemas de conocimiento basados en RAG permiten a la IA recuperar artefactos existentes.
+
+La proveniencia de decisiones conecta esos artefactos con las **decisiones que los crearon y el contexto que las justificó**.
+
+Cuando se combinan, forman algo mucho más cercano a una verdadera memoria organizacional.
+
+La capa de conocimiento cuenta la historia de **lo que existe**.
+
+La capa de proveniencia explica **por qué existe**.
+
+A medida que la IA se integra cada vez más profundamente en el desarrollo de software y en los flujos operativos, esta distinción se vuelve cada vez más importante. Los agentes de IA que pueden leer documentos ayudarán a los equipos a navegar la información. Pero los agentes de IA que pueden comprender el razonamiento detrás de los sistemas podrán participar en la evolución de esos sistemas.
+
+En otras palabras, el siguiente paso más allá de la gestión del conocimiento basada en IA no es simplemente una mejor recuperación.
+
+Es **memoria organizacional consciente de las decisiones**.
+
+Esta es la dirección explorada en el **Provenance Manifesto**, que propone tratar las **decisiones como artefactos de primera clase**, cuyo contexto, razonamiento y evolución deberían preservarse junto con los sistemas que moldean.
+
+Porque, al final, las organizaciones no funcionan únicamente sobre documentos.
+
+Funcionan sobre las decisiones incrustadas en ellos.

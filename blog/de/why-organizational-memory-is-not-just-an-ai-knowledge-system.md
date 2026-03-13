@@ -1,6 +1,6 @@
 ![A description of the image](/images/blog/1.png)
 
-# Warum organisatorisches Gedächtnis nicht einfach ein KI-Wissenssystem ist.
+# Warum organisatorisches Gedächtnis nicht nur ein KI-Wissenssystem ist.
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 11, 2026  
@@ -8,56 +8,80 @@
 
 Nach der Veröffentlichung der ersten Version des Provenance Manifesto begann ich zu untersuchen, ob bestehende Lösungen auf dem Markt mit den darin beschriebenen Prinzipien übereinstimmen.
 
-Die Frage war einfach: Gibt es heute bereits Werkzeuge, die die Entscheidungen, welche die Entwicklung unserer Systeme prägen, effektiv bewahren und verwalten können?
+Die Frage war einfach: Gibt es bereits Werkzeuge, die Entscheidungen, welche die Entwicklung unserer Systeme beeinflussen, effektiv bewahren und verwalten können?
 
-Relativ schnell bemerkte ich ein interessantes Muster. Viele Lösungen bezeichnen sich selbst als Plattformen für organisatorisches Gedächtnis, doch tatsächlich bieten sie etwas leicht anderes an. In den meisten Fällen schlagen sie vor, was man als modernes KI-Wissenssystem bezeichnen könnte.
+Ziemlich schnell bemerkte ich ein interessantes Muster. Viele Lösungen bezeichnen sich als Plattformen für organisatorisches Gedächtnis, doch tatsächlich liefern sie etwas leicht anderes. In den meisten Fällen schlagen sie das vor, was man als ein modernes KI-Wissenssystem bezeichnen könnte.
 
-Diese Plattformen verbinden Unternehmenswerkzeuge wie Slack, Jira, GitHub, Notion, CRM-Systeme und Dokumentations-Repositories. Sie nehmen die Daten auf, erstellen Embeddings und ermöglichen es KI-Agenten, beim Ausführen von Aufgaben Kontext abzurufen.  
-Im Wesentlichen verwandeln sie die Daten einer Organisation in eine durchsuchbare Wissensebene.
+Diese Plattformen verbinden Unternehmenswerkzeuge wie Slack, Jira, GitHub, Notion, CRM-Systeme und Dokumentations-Repositories. Sie nehmen die Daten auf, erstellen Embeddings und ermöglichen es KI-Agenten, während der Ausführung von Aufgaben Kontext abzurufen.  
+Im Grunde verwandeln sie die Daten einer Organisation in eine durchsuchbare Wissensebene.
 
-Aus technischer Sicht basieren die meisten dieser Systeme auf Retrieval Augmented Generation (RAG). Dokumente, Tickets, Gespräche und Code werden indexiert und in einen semantischen Suchraum überführt. Wenn ein KI-Assistent Kontext benötigt, ruft er relevante Fragmente ab und integriert sie in seine Schlussfolgerungen.
+Aus technischer Perspektive basieren die meisten dieser Systeme auf **Retrieval Augmented Generation (RAG)**. Dokumente, Tickets, Gespräche und Code werden indexiert und in einen semantischen Suchraum transformiert. Wenn ein KI-Assistent Kontext benötigt, ruft er relevante Fragmente ab und integriert sie in seine Argumentation.
 
 Das ist eine leistungsstarke Fähigkeit.
 
-Aber es ist noch nicht dasselbe wie organisatorisches Gedächtnis.
+Zum ersten Mal können KI-Agenten sich in der fragmentierten Informationslandschaft innerhalb von Organisationen bewegen.
 
-Ohne erfasste Begründungen erinnert sich die Organisation an das Ergebnis, vergisst jedoch die Logik, die zu diesem Ergebnis geführt hat.
+Doch dies als **organisatorisches Gedächtnis** zu bezeichnen, ist etwas irreführend.
 
-Hier wird die Idee der Decision Provenance entscheidend.
+Was diese Systeme tatsächlich bieten, ist **organisatorischer Wissensabruf**.
 
-Wenn Wissenssysteme die Informationsebene des organisatorischen Gedächtnisses darstellen, dann repräsentiert Decision Provenance die Ebene der Begründung.
+- Sie können uns sagen, welche Informationen existieren.
+- Sie können Dokumentationen, Tickets und Gespräche zu einer Frage sichtbar machen.
+- Sie können sogar Diskussionen zusammenfassen oder Teile einer Codebasis erklären.
 
-Wissenssysteme beantworten Fragen wie:
+Doch Organisationen werden nicht in erster Linie durch Dokumente geprägt.
+
+Sie werden durch **Entscheidungen** geprägt.
+
+Jede Architektur, jedes Produktverhalten und jede operative Umgehungslösung existiert, weil jemand zu einem bestimmten Zeitpunkt eine Entscheidung getroffen hat. Diese Entscheidungen wurden von Einschränkungen, Annahmen, Risiken und Abwägungen beeinflusst, die oft nur teilweise dokumentiert wurden.
+
+Wenn ein Wissenssystem ein Dokument findet, in dem steht: „Wir verwenden Kafka für Event-Streaming“, dann zeigt es uns das Ergebnis.
+
+Aber es sagt uns nicht, warum Kafka gewählt wurde.
+
+- Wurde es wegen seiner Skalierbarkeit ausgewählt?
+- Wurde es übernommen, weil das Team bereits operative Erfahrung damit hatte?
+- Wurde eine andere Technologie wegen Zuverlässigkeitsbedenken verworfen?
+
+Ohne diese Begründung erinnert sich die Organisation an das Ergebnis, vergisst jedoch die Logik, die dazu geführt hat.
+
+Hier wird die Idee der **Entscheidungsprovenienz (Decision Provenance)** entscheidend.
+
+Wenn Wissenssysteme die **Informationsebene** des organisatorischen Gedächtnisses darstellen, dann repräsentiert Entscheidungsprovenienz die **Begründungsebene**.
+
+**Wissenssysteme** beantworten Fragen wie:
 
 - Was macht das System?
 - Wo befindet sich die Dokumentation?
 - Welcher Service implementiert dieses Verhalten?
 
-Decision Provenance beantwortet eine andere Art von Fragen:
+**Entscheidungsprovenienz** beantwortet eine andere Art von Fragen:
 
 - Warum funktioniert das System auf diese Weise?
-- Welche Alternativen wurden in Betracht gezogen?
+- Welche Alternativen wurden betrachtet?
 - Welche Annahmen haben die Architektur geprägt?
-- Wem gehört die Entscheidung und wann sollte sie möglicherweise überarbeitet werden?
+- Wem gehört diese Entscheidung, und wann sollte sie möglicherweise überprüft werden?
 
 Diese beiden Ebenen ergänzen sich.
 
-RAG-basierte Wissenssysteme ermöglichen es KI-Systemen, bestehende Artefakte abzurufen.  
-Decision Provenance verbindet diese Artefakte mit den Entscheidungen, die sie hervorgebracht haben, und mit dem Kontext, der sie gerechtfertigt hat.
+RAG-basierte Wissenssysteme ermöglichen es KI, bestehende Artefakte abzurufen.
 
-In Kombination bilden sie etwas, das dem echten organisatorischen Gedächtnis deutlich näherkommt.
+Entscheidungsprovenienz verbindet diese Artefakte mit den **Entscheidungen, die sie hervorgebracht haben, und dem Kontext, der sie gerechtfertigt hat**.
 
-Die Wissensebene erzählt die Geschichte dessen, was existiert.  
-Die Provenance-Ebene erklärt, warum es existiert.
+Zusammen ergeben sie etwas, das dem echten organisatorischen Gedächtnis sehr viel näherkommt.
 
-Je stärker KI in die Softwareentwicklung und operative Arbeitsabläufe integriert wird, desto wichtiger wird diese Unterscheidung. KI-Agenten, die Dokumente lesen können, helfen Teams dabei, Informationen zu navigieren. Doch KI-Agenten, die die Begründung hinter Systemen verstehen, können an der Weiterentwicklung dieser Systeme teilnehmen.
+Die Wissensebene erzählt die Geschichte von **dem, was existiert**.
 
-Mit anderen Worten: Der nächste Schritt über KI-Wissensmanagement hinaus ist nicht einfach bessere Suche.
+Die Provenienzebene erklärt **warum es existiert**.
 
-Es ist ein entscheidungsbewusstes organisatorisches Gedächtnis.
+Je tiefer KI in Softwareentwicklung und operative Abläufe integriert wird, desto wichtiger wird diese Unterscheidung. KI-Agenten, die Dokumente lesen können, helfen Teams dabei, Informationen zu navigieren. Doch KI-Agenten, die die Begründung hinter Systemen verstehen, können an der Weiterentwicklung dieser Systeme teilnehmen.
 
-Genau diese Richtung wird im Provenance Manifesto untersucht, das vorschlägt, Entscheidungen als erstklassige Artefakte zu behandeln, deren Kontext, Begründung und Entwicklung gemeinsam mit den Systemen bewahrt werden sollten, die sie prägen.
+Mit anderen Worten: Der nächste Schritt über KI-Wissensmanagement hinaus ist nicht einfach nur besserer Abruf.
 
-Denn am Ende arbeiten Organisationen nicht nur mit Dokumenten.
+Er ist **entscheidungsbewusstes organisatorisches Gedächtnis**.
 
-Sie arbeiten mit den Entscheidungen, die in ihnen eingebettet sind.
+Diese Richtung wird im **Provenance Manifesto** untersucht, das vorschlägt, **Entscheidungen als erstklassige Artefakte** zu behandeln, deren Kontext, Begründung und Entwicklung gemeinsam mit den Systemen, die sie prägen, bewahrt werden sollten.
+
+Denn letztlich funktionieren Organisationen nicht allein auf Basis von Dokumenten.
+
+Sie funktionieren auf Basis der in ihnen eingebetteten Entscheidungen.
