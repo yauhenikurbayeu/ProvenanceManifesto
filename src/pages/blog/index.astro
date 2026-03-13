@@ -1,5 +1,6 @@
 ---
 import BlogPage from '../../components/BlogPage.astro';
+import { useTranslations } from '../../i18n/utils';
 import { getBlogReadmePath, getEnglishBlogArticles } from '../../lib/blog';
 
 const readmePath = getBlogReadmePath('en');
@@ -8,12 +9,13 @@ if (!readmePath) {
 }
 
 const articles = getEnglishBlogArticles();
+const t = useTranslations('en');
 ---
 
 <BlogPage
   lang="en"
-  title="Blog"
-  description="Essays and practical notes on provenance, SDLC memory, and AI-era delivery governance."
+  title={t('blog.title')}
+  description={t('blog.description')}
   readmePath={readmePath}
   articles={articles}
   canonicalPath="/blog"

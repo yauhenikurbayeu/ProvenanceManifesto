@@ -1,10 +1,13 @@
+
+![From RAG to Provenance: How We Realized Vector Alone Is Not Memory.](/images/blog/from_rag_to_provenance_how_we_realized_vector_alone_is_not_memory.png)
+
 # From RAG to Provenance: How We Realized Vector Alone Is Not Memory.
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 22, 2026  
 **[LinkedIn](https://www.linkedin.com/pulse/from-rag-provenance-how-we-realized-vector-alone-memory-kurbayeu-z9djf/?trackingId=AES1GONRFcEuwPpL7dI7dg%3D%3D)**
 
-In the previous articles, we explored an uncomfortable observation: SDLC does not really have memory.
+In the previous articles, we explored an uncomfortable observation: **SDLC does not really have memory**.
 
 Not because we fail to write documentation. Not because Jira is empty. Not because meeting notes disappear.
 
@@ -12,7 +15,7 @@ We lose memory because we lose causality.
 Decisions are made, risks are discussed, assumptions are formed, action items are assigned, and yet months later, when something breaks or a strategic pivot happens, we cannot reconstruct the chain of reasoning that brought us there. We retrieve fragments, but we cannot trace the lineage.
 
 That is where the idea of Provenance entered the conversation. Not as another documentation practice, and not as an AI trick, but as something more structural — a way to preserve the causal DNA of delivery.
-But once we say “we need memory,” a practical question immediately follows: “What kind of data model does real SDLC memory require?”
+But once we say **“we need memory”**, a practical question immediately follows: “What kind of data model does real SDLC memory require?”
 
 And this is exactly where most teams stop too early.
 
@@ -61,6 +64,10 @@ These are not hyperlinks. They are causal statements.
 
 And at that point, something subtle but powerful happened: memory stopped being textual and became structural.
 
+![Vector (pgvector) - Datat Schema](/images/blog/pg_vector.png)
+
+![Graph Data Model - Unified Delivery Memory Schema](/images/blog/graph_data_model.png)
+
 ## Why Vector and Graph Both Matter
 
 It would be tempting to move everything into a graph database and declare victory. But that would be incomplete.
@@ -71,7 +78,7 @@ Because when a user asks a question, we don’t know where to start. We need a s
 But once we find those chunks, the graph takes over.
 From the seed nodes identified via vector search, we expand the provenance graph using Neo4j. We traverse relationships about who produced this decision, what it affects, what it supersedes, what risk it mitigates, and what depends on it. Suddenly, the answer is not just similar text fragments, but a reconstructed causal neighborhood.
 
-Vector gives us the entry point. The graph gives us the explanation.
+**Vector gives us the entry point. The graph gives us the explanation.**
 Together, they form something much closer to organizational memory than either could alone.
 
 ## Building Memory Incrementally, Like Neural Reinforcement
@@ -79,6 +86,16 @@ Together, they form something much closer to organizational memory than either c
 One of the most important architectural decisions was this: the graph must be global, not per document.
 
 Every ingestion does not create an isolated island. Instead, it modifies and strengthens a shared memory.
+
+When a new note references an existing system, we reuse that node. When two meetings produce the same decision in slightly different words, we normalize and reconnect them. When an action item mitigates a risk that has already been discussed before, we don’t create another risk; we reinforce the connection.
+
+Over time, the graph becomes denser. Edges gain confidence. Repeated references increase support counts. The delivery memory becomes more coherent.
+
+It is not machine learning in the classical sense, but structurally it resembles reinforcement. The more often something is mentioned, linked, or acted upon, the stronger its structural presence becomes.
+
+This is how **SDLC memory** starts to feel less like documentation and more like cognition.
+
+![Ingestion Process - From Document Upload to Delivery Memory](/images/blog/ingestion_process.png)
 
 ## Retrieval as Structured Conversation
 
@@ -89,13 +106,16 @@ It assembles a context pack that includes not only relevant text but also the ca
 
 The model does not invent explanations. It reconstructs them.
 
+![Retreival Process - From Query to Delivery Memory](/images/blog/ingestion_process.png)
+
+
 ## Mapping Back to the SDLC Memory Thesis
 
-Earlier, we asked a strategic question: if AI replaces execution, what remains valuable?
+Earlier, we asked a strategic question: **if AI replaces execution, what remains valuable**?
 
 The answer was context and causality.
 
-This vector-plus-graph design operationalizes that thesis.
+This **vector-plus-graph** design operationalizes that thesis.
 
 Vector storage captures what was said. Graph structure captures why it mattered. The combination preserves how the system evolved.
 
@@ -105,7 +125,7 @@ Without both, we lose memory.
 ## The Deeper Insight
 
 Most teams will build RAG pipelines this year. Many will believe they have “AI-powered knowledge.”
-But very few will build Provenance.
+But very few will build **Provenance**.
 
 Because Provenance forces you to confront structure. It forces you to model decisions explicitly, to define directionality, to handle supersession, to enforce identity, to avoid duplication, and to think in terms of causal systems rather than documents.
 
@@ -116,4 +136,5 @@ In a world where AI can write code and draft documentation, the real competitive
 
 That is not a prompt engineering problem.
 It is a memory architecture problem.
-And real memory is never flat. It is always structured.
+
+**And real memory is never flat. It is always structured.**

@@ -1,3 +1,5 @@
+![AI will take the “What”, but Humans must own the “Why”](/images/blog/ai_will_take_the_wwhat_but_humans_must_own_the_why.jpeg)
+
 # AI will take the “What”, but Humans must own the “Why”
 
 **Author:** Yauheni Kurbayeu  

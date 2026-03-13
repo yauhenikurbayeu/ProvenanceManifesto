@@ -15,25 +15,47 @@ Quite quickly, I noticed an interesting pattern. Many solutions describe themsel
 These platforms connect company tools such as Slack, Jira, GitHub, Notion, CRM systems, and documentation repositories. They ingest the data, build embeddings, and allow AI agents to retrieve context while performing tasks.
 In essence, they turn the organization’s data into a searchable knowledge layer.
 
-From a technical perspective, most of these systems are built around Retrieval Augmented Generation (RAG). Documents, tickets, conversations, and code are indexed and transformed into a semantic search space. When an AI assistant needs context, it retrieves relevant fragments and incorporates them into its reasoning.
+From a technical perspective, most of these systems are built around Retrieval **Augmented Generation (RAG)**. Documents, tickets, conversations, and code are indexed and transformed into a semantic search space. When an AI assistant needs context, it retrieves relevant fragments and incorporates them into its reasoning.
 
 This is a powerful capability.
 
-But it is not yet the same thing as organizational memory.
+For the first time, AI agents can navigate the fragmented information landscape inside organizations.
 
-Without captured reasoning, the organization remembers the result but forgets the logic that produced it.
+But calling this **organizational memory** is somewhat misleading.
 
-This is where the idea of decision provenance becomes critical.
+What these systems actually provide is **organizational knowledge retrieval**.
 
-If knowledge systems represent the information layer of organizational memory, decision provenance represents the reasoning layer.
+- They can tell us what information exists.
+- They can surface documentation, tickets, and conversations related to a question.
+- They can even summarize discussions or explain parts of the codebase.
 
-Knowledge systems answer questions like:
+Yet organizations are not primarily shaped by documents.
+
+They are shaped by **decisions**.
+
+Every architecture, every product behavior, every operational workaround exists because someone made a decision at a particular moment in time. Those decisions were influenced by constraints, assumptions, risks, and trade-offs that were often only partially documented.
+
+When a knowledge system retrieves a document saying “we use Kafka for event streaming,” it tells us the outcome.
+
+But it does not tell us why Kafka was chosen.
+
+- Was it selected for scalability?
+- Was it adopted because the team already had operational expertise?
+- Was another technology rejected due to reliability concerns?
+
+Without that reasoning, the organization remembers the result but forgets the logic that produced it.
+
+This is where the idea of **decision provenance** becomes critical.
+
+If knowledge systems represent the **information layer** of organizational memory, decision provenance represents the **reasoning layer**.
+
+**Knowledge systems** answer questions like:
 
 - What does the system do?
 - Where is the documentation?
 - Which service implements this behavior?
 
-Decision provenance answers a different set of questions:
+**Decision provenance** answers a different set of questions:
 
 - Why does the system work this way?
 - What alternatives were considered?
@@ -43,19 +65,24 @@ Decision provenance answers a different set of questions:
 These two layers are complementary.
 
 RAG-based knowledge systems allow AI to retrieve existing artifacts.
-Decision provenance connects those artifacts to the decisions that created them and the context that justified them.
+
+Decision provenance connects those artifacts to the **decisions that created them and the context that justified them**.
 
 When combined, they form something much closer to true organizational memory.
 
-The knowledge layer tells the story of what exists.
-The provenance layer explains why it exists.
+The knowledge layer tells the story of **what exists**.
+
+The provenance layer explains **why it exists**.
 
 As AI becomes more deeply integrated into software development and operational workflows, this distinction becomes increasingly important. AI agents that can read documents will help teams navigate information. But AI agents that can understand the reasoning behind systems will be able to participate in the evolution of those systems.
 
 In other words, the next step beyond AI knowledge management is not simply better retrieval.
-It is decision-aware organizational memory.
 
-This is the direction explored in the Provenance Manifesto, which proposes treating decisions as first-class artifacts whose context, reasoning, and evolution should be preserved alongside the systems they shape.
+It is **decision-aware organizational memory**.
+
+This is the direction explored in the **Provenance Manifesto**, which proposes treating **decisions as first-class artifacts** whose context, reasoning, and evolution should be preserved alongside the systems they shape.
 
 Because in the end, organizations do not operate on documents alone.
+
 They operate on the decisions embedded within them.
+

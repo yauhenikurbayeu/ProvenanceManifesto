@@ -1,3 +1,6 @@
+
+![Why SDLC has no memory (and why delivery teams keep paying for it)](/images/blog/why_sdlc_has_no_memory_and_why_delivery_teams_keep_paying_for_it.jpeg)
+
 # Why SDLC has no memory (and why delivery teams keep paying for it)
 
 **Author:** Yauheni Kurbayeu  
@@ -79,7 +82,7 @@ But we do not systematically track:
 - Rationale
 - Decision lineage
 
-So here’s the uncomfortable question: How is it possible that in 2026, SDLC still has no memory?
+So here’s the uncomfortable question: How is it possible that in 2026, **SDLC still has no memory**?
 
 ## Curious
 
