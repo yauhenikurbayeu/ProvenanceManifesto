@@ -43,6 +43,17 @@ function cleanInlineMarkdown(value: string): string {
     .trim();
 }
 
+function normalizeSlug(value: string): string {
+  return cleanInlineMarkdown(value)
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/[’']/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
 function getTitle(content: string, fallback: string): string {
   const fromHeading = firstRegexGroup(content, /^#\s+(.+)$/m);
   return cleanInlineMarkdown(fromHeading || fallback);
@@ -108,6 +119,38 @@ function getKeywords(title: string, tldr: string): string[] {
   return Array.from(new Set([...defaults, ...uniqueTerms]));
 }
 
+function getReadmeTldrBySlug(lang: SupportedLang): Map<string, string> {
+  const readmePath = getBlogReadmePath(lang);
+  const readmeContent = readmePath ? getMarkdownRawContent(readmePath) : null;
+  if (!readmeContent) {
+    return new Map<string, string>();
+  }
+
+  const sections = readmeContent
+    .split(/\n(?=#\s+)/)
+    .map((section) => section.trim())
+    .filter((section) => section.startsWith('# '));
+
+  const map = new Map<string, string>();
+
+  for (const section of sections) {
+    const heading = firstRegexGroup(section, /^#\s+(.+)$/m);
+    if (!heading) {
+      continue;
+    }
+
+    const tldr = firstRegexGroup(section, /\*\*TL;DR\s*:?[ \t]*([\s\S]*?)\*\*/im);
+    const normalizedSlug = normalizeSlug(heading);
+    const cleanTldr = cleanInlineMarkdown(tldr);
+
+    if (normalizedSlug && cleanTldr) {
+      map.set(normalizedSlug, cleanTldr);
+    }
+  }
+
+  return map;
+}
+
 function createArticle(lang: SupportedLang, slug: string, rawContent: string): BlogArticle {
   const title = getTitle(rawContent, slug.replace(/-/g, ' '));
   const publishedLabel = getPublishedLabel(rawContent);
@@ -133,6 +176,8 @@ function sortByPublishedDateDesc(posts: BlogArticle[]): BlogArticle[] {
 }
 
 export function getEnglishBlogArticles(): BlogArticle[] {
+  const readmeTldrBySlug = getReadmeTldrBySlug('en');
+
   const posts = Object.entries(markdownRaw)
     .map(([path, rawContent]) => {
       const match = path.match(ENGLISH_ARTICLE_PATTERN);
@@ -141,6 +186,11 @@ export function getEnglishBlogArticles(): BlogArticle[] {
       }
 
       const article = createArticle('en', match[1], rawContent);
+      const readmeTldr = readmeTldrBySlug.get(normalizeSlug(match[1]));
+      if (readmeTldr) {
+        article.tldr = readmeTldr;
+        article.keywords = getKeywords(article.title, readmeTldr);
+      }
       article.sourcePath = path;
       return article;
     })
@@ -154,6 +204,8 @@ export function getLocalizedBlogArticles(lang: SupportedLang): BlogArticle[] {
     return getEnglishBlogArticles();
   }
 
+  const readmeTldrBySlug = getReadmeTldrBySlug(lang);
+
   const posts = Object.entries(markdownRaw)
     .map(([path, rawContent]) => {
       const match = path.match(LOCALIZED_ARTICLE_PATTERN);
@@ -162,6 +214,11 @@ export function getLocalizedBlogArticles(lang: SupportedLang): BlogArticle[] {
       }
 
       const article = createArticle(lang, match[2], rawContent);
+      const readmeTldr = readmeTldrBySlug.get(normalizeSlug(match[2]));
+      if (readmeTldr) {
+        article.tldr = readmeTldr;
+        article.keywords = getKeywords(article.title, readmeTldr);
+      }
       article.sourcePath = path;
       return article;
     })

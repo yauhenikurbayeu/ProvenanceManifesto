@@ -1,4 +1,3 @@
-
 # Why Organizational Memory Is Not Just an AI Knowledge System.
 
 **Author:** Yauheni Kurbayeu  
@@ -11,7 +10,7 @@
 
 # Git for Decisions Needs a Brain, But What Kind?
 
-**TL;DR While building SDLC Memory, I ran into an unexpected architectural dilemma. Should the system reason like an autonomous agent, behave like a deterministic data transformer, or sit somewhere in between? I'm still deciding which direction is the right one for the MVP.**
+**TL;DR Во время создания SDLC Memory я столкнулся с неожиданной архитектурной дилеммой. Должна ли система рассуждать как автономный агент, вести себя как детерминированный трансформатор данных или находиться где-то посередине? Я всё ещё решаю, какое направление будет правильным для MVP.**
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 4, 2026  
@@ -19,7 +18,7 @@
 
 # From RAG to Provenance (Part 2): How Incremental Graph Memory Actually Learns.
 
-**TL;DR In "Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory", we moved from RAG to Provenance, from similarity to lineage. But if AI agents will generate 50–80% of future work, the real question becomes: How does memory update safely? How do new decisions get validated, linked, and governed, instead of just embedded? This article shows the incremental graph update process behind the decision memory step by step, with a real example. Because in the AI era, memory must evolve, not just retrieve.**
+**TL;DR В «Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory» мы перешли от RAG к provenance — от сходства к происхождению решений. Но если агенты ИИ будут генерировать 50–80% будущей работы, возникает главный вопрос: как безопасно обновлять память? Как новые решения могут быть проверены, связаны и управляемы, а не просто добавлены в виде embedding? В этой статье шаг за шагом показан инкрементальный процесс обновления графа, лежащий в основе памяти решений, на реальном примере. Потому что в эпоху ИИ память должна эволюционировать, а не просто извлекать информацию.**
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 28, 2026  
@@ -27,21 +26,21 @@
 
 # From RAG to Provenance: How We Realized Vector Alone Is Not Memory.
 
-**TL;DR What if your SDLC doesn’t actually remember anything, and it only retrieves fragments? We’ve built powerful RAG systems that can surface “relevant” text in milliseconds. But relevance is not causality. And when something breaks in production, similarity won’t tell you why it happened, or which decision, risk, or dependency led there. In this article, I unpack why vector search alone is not memory, how graph structure changes the game, and how combining vector with a strict provenance model turns scattered documentation into something closer to organizational cognition. If you care about explainability, decision lineage, and real delivery intelligence - this one is for you.**
+**TL;DR А что если ваш SDLC на самом деле ничего не помнит и лишь извлекает фрагменты? Мы построили мощные RAG-системы, которые могут находить «релевантный» текст за миллисекунды. Но релевантность — это не причинность. И когда что-то ломается в продакшене, сходство не скажет вам, почему это произошло и какое решение, риск или зависимость к этому привели. В этой статье я объясняю, почему одного лишь векторного поиска недостаточно для памяти, как графовая структура меняет правила игры и как сочетание векторов со строгой моделью provenance превращает разрозненную документацию во что-то более похожее на организационное мышление. Если вам важны объяснимость, происхождение решений и настоящая delivery-интеллектуальность — эта статья для вас.**
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 22, 2026 
 
 # Why Humans Think They Remember Everything, And Why SDLC Memory Proves They Don’t
 
-**TL;DR Chapter Next: SDLC Memory & Provenance. In the previous chapters, we explored why SDLC has no real memory and why provenance must become structural, not optional. In this next step, we go deeper into a more uncomfortable question. What if the real bottleneck in delivery isn’t velocity, tooling, or even AI capability… but the biological limits of human context. Humans can actively hold about four meaningful constraints at once. Modern agents can process hundreds of thousands of tokens. And yet, neither can remember a living product over time without structure. This chapter connects cognitive science, AI context windows, and a practical Hot/Warm/Cold memory architecture to show why durable SDLC memory is not documentation overhead; it’s a competitive advantage. If execution is getting cheaper, memory is becoming the differentiator. Let’s talk about how to build it.**
+**TL;DR Следующая глава: SDLC Memory & Provenance. В предыдущих главах мы исследовали, почему SDLC не имеет настоящей памяти и почему provenance должно стать структурным элементом, а не опцией. Теперь мы углубляемся в ещё более неудобный вопрос. Что если настоящее узкое место в delivery — это не скорость, инструменты или даже возможности ИИ… а биологические ограничения человеческого контекста? Люди могут активно удерживать в памяти примерно четыре значимых ограничения одновременно. Современные агенты способны обрабатывать сотни тысяч токенов. И всё же ни те, ни другие не могут помнить живой продукт во времени без структуры. Эта глава соединяет когнитивную науку, окна контекста ИИ и практическую архитектуру памяти Hot/Warm/Cold, чтобы показать, почему долговременная память SDLC — это не избыточная документация, а конкурентное преимущество. Если исполнение становится дешевле, память становится ключевым фактором различия. Давайте поговорим о том, как её построить.**
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 22, 2026  
 
 # How Should Intellectual Capital Be Assessed In The Context Of Artificial Intelligence Increasingly Replacing Human Roles?
 
-**TL;DR In the previous chapters, we spoke about SDLC Memory and Provenance as a way to reduce chaos, protect delivery integrity,and make decisions traceable inside engineering organizations. Now I want to zoom it out.Because if AI is changing how software is built, it is also changing something much bigger - how Intellectual Capital itself is valued. This article is not a deviation from the Provenance discussion. It is the next logical step. If execution becomes abundant, then memory, governance, and decision architecture become the real assets. Let’s talk about what happens to Intellectual Capital when AI materially replaces human positions, and what that means for companies that want to survive:**
+**TL;DR В предыдущих главах мы говорили о SDLC Memory и Provenance как о способе уменьшить хаос, защитить целостность delivery и сделать решения отслеживаемыми внутри инженерных организаций. Теперь я хочу посмотреть шире. Потому что если ИИ меняет то, как создаётся программное обеспечение, он меняет и нечто гораздо большее — то, как оценивается интеллектуальный капитал. Эта статья не является отклонением от обсуждения Provenance. Это следующий логический шаг. Если исполнение становится избыточным и дешёвым, то память, управление и архитектура решений становятся настоящими активами. Давайте поговорим о том, что происходит с интеллектуальным капиталом, когда ИИ существенно заменяет человеческие позиции, и что это означает для компаний, которые хотят выжить.**
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 16, 2026  
