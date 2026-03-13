@@ -1,4 +1,3 @@
----
 ![From RAG to Provenance (Part 2): How Incremental Graph Memory Actually Learns](/images/blog/from_rag_to_provenance_part_2_how_Incremental_graph_memory_actually_learns.png)
 
 # From RAG to Provenance (Part 2): Cómo aprende realmente la memoria gráfica incremental
