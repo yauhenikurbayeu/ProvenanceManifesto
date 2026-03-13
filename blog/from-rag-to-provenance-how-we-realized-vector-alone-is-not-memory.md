@@ -106,7 +106,7 @@ It assembles a context pack that includes not only relevant text but also the ca
 
 The model does not invent explanations. It reconstructs them.
 
-![Retreival Process - From Query to Delivery Memory](/images/blog/ingestion_process.png)
+![Retreival Process - From Query to Delivery Memory](/images/blog/retreival_process.png)
 
 
 ## Mapping Back to the SDLC Memory Thesis
