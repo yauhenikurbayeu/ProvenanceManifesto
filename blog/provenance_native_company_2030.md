@@ -5,6 +5,8 @@
 
 *Let's imagine a "Provenance-native company" in 2030 - an organization built from the beginning around decision lineage, SDLC memory, and AI execution traceability rather than trying to retrofit it later.*
 
+![A Provenance-Native Company (2030)](/images/blog/provenance_native_company_2030.png)
+
 ## 1. Organizational Memory Is Core Infrastructure.
 
 In a provenance-native company, **organizational memory is treated as infrastructure**, not documentation.
