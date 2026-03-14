@@ -1,4 +1,12 @@
 
+# A Provenance-Native Company (2030)
+
+**Author:** Yauheni Kurbayeu  
+**Published:** Mar 18, 2026 
+
+**TL;DR Let's imagine a "Provenance-native company" in 2030 - an organization built from the beginning around decision lineage, SDLC memory, and AI execution traceability rather than trying to retrofit it later.**
+
+
 # Why Organizational Memory Is Not Just an AI Knowledge System.
 
 **Author:** Yauheni Kurbayeu  
