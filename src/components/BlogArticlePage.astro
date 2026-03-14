@@ -65,4 +65,13 @@ const backToArticleAnchorPath = `${backToBlogPath}#${article.slug}`;
       </a>
     </div>
   </div>
+
+  <a
+    href={backToArticleAnchorPath}
+    class="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full border border-slate-200/80 dark:border-slate-700/80 bg-white/95 dark:bg-slate-900/90 px-4 py-2.5 text-sm font-semibold text-slate-700 dark:text-slate-200 shadow-lg shadow-slate-900/10 backdrop-blur-md hover:text-[#1152d4] hover:border-[#1152d4]/40 transition-colors"
+    aria-label={t('blog.backToBlog')}
+  >
+    <span class="material-symbols-outlined text-base">arrow_back</span>
+    {t('blog.backToBlog')}
+  </a>
 </Layout>
