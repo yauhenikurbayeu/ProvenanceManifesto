@@ -1,8 +1,15 @@
 
-# A Provenance-Native Company (2030)
+# Why Decisions Must Become a First-Class Artifact
 
 **Author:** Yauheni Kurbayeu  
-**Published:** Mar 18, 2026 
+**Published:** Mar 14, 2026  
+
+**TL;DR Once decisions become first-class artifacts, something fundamentally changes. When the environment evolves, we are no longer forced to rediscover the reasoning behind the system through archaeology and speculation. Instead, we can revisit the original decision, update the assumptions that are no longer valid, and regenerate the implementation in a way that reflects the new context.**
+
+#2030 A Provenance-Native Company
+
+**Author:** Yauheni Kurbayeu  
+**Published:** Mar 13, 2026 
 
 **TL;DR Let's imagine a "Provenance-native company" in 2030 - an organization built from the beginning around decision lineage, SDLC memory, and AI execution traceability rather than trying to retrofit it later.**
 

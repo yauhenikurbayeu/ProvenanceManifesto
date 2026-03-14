@@ -1,7 +1,8 @@
-# A Provenance-Native Company (2030).
+# 2030 A Provenance-Native Company.
 
 **Author:** Yauheni Kurbayeu  
-**Published:** March 14, 2026  
+**Published:** March 13, 2026  
+**[LinkedIn](https://www.linkedin.com/pulse/2030-provenance-native-company-yauheni-kurbayeu-h9p8f/)** 
 
 *Let's imagine a "Provenance-native company" in 2030 - an organization built from the beginning around decision lineage, SDLC memory, and AI execution traceability rather than trying to retrofit it later.*
 

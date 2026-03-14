@@ -44,7 +44,7 @@ function cleanInlineMarkdown(value: string): string {
 }
 
 function normalizeSlug(value: string): string {
-  return cleanInlineMarkdown(value)
+  return cleanInlineMarkdown(value.replace(/_/g, ' '))
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/&/g, ' and ')
