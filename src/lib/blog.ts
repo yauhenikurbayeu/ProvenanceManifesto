@@ -30,6 +30,17 @@ export interface BlogArticle {
   sourcePath: string;
 }
 
+export interface BlogTocItem {
+  id: string;
+  text: string;
+  level: 2 | 3 | 4;
+}
+
+export interface BlogMarkdownRenderResult {
+  html: string;
+  toc: BlogTocItem[];
+}
+
 function firstRegexGroup(content: string, pattern: RegExp): string {
   const match = content.match(pattern);
   return (match?.[1] || '').trim();
@@ -52,6 +63,31 @@ function normalizeSlug(value: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function normalizeHeadingId(value: string): string {
+  const normalized = cleanInlineMarkdown(value)
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/[’']/g, '')
+    .toLowerCase()
+    .replace(/[^\p{Letter}\p{Number}]+/gu, '-')
+    .replace(/^-+|-+$/g, '');
+
+  return normalized || 'section';
+}
+
+function createHeadingIdGenerator() {
+  const counts = new Map<string, number>();
+
+  return (text: string): string => {
+    const baseId = normalizeHeadingId(text);
+    const count = counts.get(baseId) ?? 0;
+    counts.set(baseId, count + 1);
+
+    return count === 0 ? baseId : `${baseId}-${count + 1}`;
+  };
 }
 
 function getTitle(content: string, fallback: string): string {
@@ -278,11 +314,38 @@ export function getMarkdownRawContent(path: string): string | null {
   return markdownRaw[path] ?? null;
 }
 
-export function getMarkdownHtml(path: string): string | null {
+export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult | null {
   const rawContent = getMarkdownRawContent(path);
   if (!rawContent) {
     return null;
   }
 
-  return marked.parse(rawContent) as string;
+  const toc: BlogTocItem[] = [];
+  const nextHeadingId = createHeadingIdGenerator();
+  const renderer = new marked.Renderer();
+
+  renderer.heading = ({ tokens, depth }) => {
+    const text = cleanInlineMarkdown(marked.parser(tokens).trim());
+    const id = nextHeadingId(text);
+
+    if (depth >= 2 && depth <= 4) {
+      toc.push({
+        id,
+        text,
+        level: depth as 2 | 3 | 4
+      });
+    }
+
+    const innerHtml = marked.parser(tokens);
+    return `<h${depth} id="${id}">${innerHtml}</h${depth}>`;
+  };
+
+  return {
+    html: marked.parse(rawContent, { renderer }) as string,
+    toc
+  };
+}
+
+export function getMarkdownHtml(path: string): string | null {
+  return getMarkdownRenderResult(path)?.html ?? null;
 }

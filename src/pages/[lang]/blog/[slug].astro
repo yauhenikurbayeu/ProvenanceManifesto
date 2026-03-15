@@ -2,7 +2,7 @@
 import BlogArticlePage from '../../../components/BlogArticlePage.astro';
 import { getLocalizedPath, type SupportedLang } from '../../../i18n/utils';
 import {
-  getMarkdownHtml,
+  getMarkdownRenderResult,
   getLocalizedBlogArticles,
   getLocalizedBlogLanguages,
   type BlogArticle
@@ -19,8 +19,8 @@ export function getStaticPaths() {
 
 const { article, lang } = Astro.props as { article: BlogArticle; lang: SupportedLang };
 const normalizedLang = lang as SupportedLang;
-const contentHtml = getMarkdownHtml(article.sourcePath);
-if (!contentHtml) {
+const renderResult = getMarkdownRenderResult(article.sourcePath);
+if (!renderResult) {
   throw new Error(`Unable to load localized blog article source: ${article.sourcePath}`);
 }
 const blogPath = getLocalizedPath(normalizedLang, 'blog');
@@ -31,5 +31,6 @@ const blogPath = getLocalizedPath(normalizedLang, 'blog');
   article={article}
   canonicalPath={`${blogPath}/${article.slug}`}
   backToBlogPath={blogPath}
-  contentHtml={contentHtml}
+  contentHtml={renderResult.html}
+  contentToc={renderResult.toc}
 />

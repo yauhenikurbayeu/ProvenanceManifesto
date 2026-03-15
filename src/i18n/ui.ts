@@ -84,6 +84,7 @@ export const ui = {
     'blog.title': 'Blog',
     'blog.description': 'Essays and practical notes on provenance, SDLC memory, and AI-era delivery governance.',
     'blog.backToBlog': 'Back to Blog',
+    'blog.tableOfContents': 'Table of Contents',
   },
   es: {
     'nav.manifesto': 'Manifiesto',
@@ -108,6 +109,7 @@ export const ui = {
     'blog.title': 'Bitácora',
     'blog.description': 'Ensayos y notas prácticas sobre provenance, memoria del SDLC y gobernanza de entrega en la era de la IA.',
     'blog.backToBlog': 'Volver a la bitácora',
+    'blog.tableOfContents': 'Tabla de contenidos',
   },
   fr: {
     'nav.manifesto': 'Manifeste',
@@ -132,6 +134,7 @@ export const ui = {
     'blog.title': 'Journal',
     'blog.description': 'Essais et notes pratiques sur la provenance, la mémoire SDLC et la gouvernance de delivery à l’ère de l’IA.',
     'blog.backToBlog': 'Retour au journal',
+    'blog.tableOfContents': 'Table des matières',
   },
   ru: {
     'nav.manifesto': 'Манифест',
@@ -156,6 +159,7 @@ export const ui = {
     'blog.title': 'Блог',
     'blog.description': 'Эссе и практические заметки о provenance, памяти SDLC и управлении delivery в эпоху ИИ.',
     'blog.backToBlog': 'Назад в блог',
+    'blog.tableOfContents': 'Содержание',
   },
   de: {
     'nav.manifesto': 'Manifest',
@@ -180,6 +184,7 @@ export const ui = {
     'blog.title': 'Journal',
     'blog.description': 'Essays und praxisnahe Notizen zu Provenance, SDLC-Memory und Delivery-Governance im KI-Zeitalter.',
     'blog.backToBlog': 'Zurück zum Journal',
+    'blog.tableOfContents': 'Inhaltsverzeichnis',
   },
   pl: {
     'nav.manifesto': 'Manifest',
@@ -204,5 +209,6 @@ export const ui = {
     'blog.title': 'Dziennik',
     'blog.description': 'Eseje i praktyczne notatki o provenance, pamięci SDLC oraz governance delivery w erze AI.',
     'blog.backToBlog': 'Powrót do dziennika',
+    'blog.tableOfContents': 'Spis treści',
   }
 } as const;

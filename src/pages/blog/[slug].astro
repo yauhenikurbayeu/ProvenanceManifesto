@@ -1,6 +1,6 @@
 ---
 import BlogArticlePage from '../../components/BlogArticlePage.astro';
-import { getEnglishBlogArticles, getMarkdownHtml, type BlogArticle } from '../../lib/blog';
+import { getEnglishBlogArticles, getMarkdownRenderResult, type BlogArticle } from '../../lib/blog';
 
 export function getStaticPaths() {
   return getEnglishBlogArticles().map((article) => ({
@@ -10,8 +10,8 @@ export function getStaticPaths() {
 }
 
 const { article } = Astro.props as { article: BlogArticle };
-const contentHtml = getMarkdownHtml(article.sourcePath);
-if (!contentHtml) {
+const renderResult = getMarkdownRenderResult(article.sourcePath);
+if (!renderResult) {
   throw new Error(`Unable to load blog article source: ${article.sourcePath}`);
 }
 ---
@@ -21,5 +21,6 @@ if (!contentHtml) {
   article={article}
   canonicalPath={`/blog/${article.slug}`}
   backToBlogPath="/blog"
-  contentHtml={contentHtml}
+  contentHtml={renderResult.html}
+  contentToc={renderResult.toc}
 />
