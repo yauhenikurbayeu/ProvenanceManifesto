@@ -113,7 +113,7 @@ export const ui = {
   },
   fr: {
     'nav.manifesto': 'Manifeste',
-    'nav.blog': 'Journal',
+    'nav.blog': 'Blog',
     'nav.principles': 'Principes',
     'nav.about': 'À propos',
     'nav.faq': 'FAQ',
@@ -131,9 +131,9 @@ export const ui = {
     'footer.linkedin': 'LinkedIn',
     'footer.privacy': 'Confidentialité',
     'footer.rights': 'Tous droits réservés.',
-    'blog.title': 'Journal',
+    'blog.title': 'Blog',
     'blog.description': 'Essais et notes pratiques sur la provenance, la mémoire SDLC et la gouvernance de delivery à l’ère de l’IA.',
-    'blog.backToBlog': 'Retour au journal',
+    'blog.backToBlog': 'Retour au blog',
     'blog.tableOfContents': 'Table des matières',
   },
   ru: {
@@ -163,7 +163,7 @@ export const ui = {
   },
   de: {
     'nav.manifesto': 'Manifest',
-    'nav.blog': 'Journal',
+    'nav.blog': 'Blog',
     'nav.principles': 'Prinzipien',
     'nav.about': 'Über',
     'nav.faq': 'FAQ',
@@ -181,9 +181,9 @@ export const ui = {
     'footer.linkedin': 'LinkedIn',
     'footer.privacy': 'Datenschutz',
     'footer.rights': 'Alle Rechte vorbehalten.',
-    'blog.title': 'Journal',
+    'blog.title': 'Blog',
     'blog.description': 'Essays und praxisnahe Notizen zu Provenance, SDLC-Memory und Delivery-Governance im KI-Zeitalter.',
-    'blog.backToBlog': 'Zurück zum Journal',
+    'blog.backToBlog': 'Zurück zum Blog',
     'blog.tableOfContents': 'Inhaltsverzeichnis',
   },
   pl: {
