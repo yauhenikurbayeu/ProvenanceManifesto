@@ -1,228 +1,217 @@
-# Provenance Is Not About Tools. It Is About Mindset.
+
+# Provenienz handelt nicht von Werkzeugen. Es geht um Denkweise.
 
 ![Provenance Is Not About Tools. It Is About Mindset](/images/blog/provenance-is-not-about-tools-it-is-about-mindset.png)
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 15, 2026  
 
-Over the past months, while exploring the idea of **decision provenance
-in software development**, I noticed something interesting. Most people
-initially interpret the **Provenance Manifesto** as a proposal about
-**new tools**, **new documentation standards**, or **new processes**.
+In den vergangenen Monaten, während ich die Idee der **Decision Provenance
+in der Softwareentwicklung** untersucht habe, ist mir etwas Interessantes
+aufgefallen. Die meisten Menschen interpretieren das **Provenance Manifesto**
+zunächst als einen Vorschlag für **neue Werkzeuge**, **neue Dokumentationsstandards**
+oder **neue Prozesse**.
 
-But that interpretation **misses the core point**.
+Doch diese Interpretation **verfehlt den Kernpunkt**.
 
-> The manifesto is **not primarily about changing tools.**\
-> It is about **changing how we think about knowledge, decisions, and responsibility in engineering organizations.**
+> Das Manifest handelt **nicht in erster Linie davon, Werkzeuge zu verändern.**  
+> Es geht darum, **wie wir über Wissen, Entscheidungen und Verantwortung in Engineering‑Organisationen denken.**
 
-And that change is **much harder than introducing a new system.**
+Und diese Veränderung ist **wesentlich schwieriger als die Einführung eines neuen Systems.**
 
 
-## The Hidden Assumption of Modern Engineering.
+## Die verborgene Annahme moderner Softwareentwicklung.
 
-For decades, software development has operated under a quiet assumption:
+Über Jahrzehnte hinweg beruhte Softwareentwicklung auf einer stillen Annahme:
 
-> **The reasoning behind systems lives inside people.**
+> **Die Begründung hinter Systemen lebt in den Köpfen der Menschen.**
 
-We store **implementation artifacts** very well:
+Wir speichern **Implementierungsartefakte** sehr gut:
 
--   **Code** in repositories
--   **Tasks** in issue trackers
--   **Documentation** in knowledge bases
--   **Infrastructure** in configuration systems
+- **Code** in Repositories
+- **Aufgaben** in Issue‑Trackern
+- **Dokumentation** in Wissensdatenbanken
+- **Infrastruktur** in Konfigurationssystemen
 
-But the **most important part of the system** - *why things were decided the way they were* - usually lives somewhere else.
+Doch der **wichtigste Teil des Systems** – *warum Dinge so entschieden wurden* – befindet sich meist woanders.
 
-It lives in:
+Er lebt in:
 
--   Design meetings
--   Slack threads
--   Architectural discussions
--   Personal memory
+- Design‑Meetings
+- Slack‑Threads
+- Architektur‑Diskussionen
+- persönlicher Erinnerung
 
-Over time, this reasoning **slowly disappears**.
+Mit der Zeit **verschwindet diese Begründung langsam**.
 
--   Architects change roles
--   Engineers move teams
--   Managers leave organizations
+- Architekten wechseln ihre Rollen
+- Engineers wechseln Teams
+- Manager verlassen Organisationen
 
-The **system remains**, but the **context that created it dissolves**.
+Das **System bleibt**, aber der **Kontext, der es geschaffen hat, löst sich auf**.
 
-For many years this limitation was tolerable. Systems evolved slowly
-enough that teams could often **reconstruct the reasoning when needed**.
+Viele Jahre lang war diese Einschränkung tolerierbar. Systeme entwickelten sich langsam genug, sodass Teams die **ursprüngliche Begründung bei Bedarf rekonstruieren** konnten.
 
-The **AI‑augmented era** changes that dynamic dramatically.
+Die **KI‑augmentierte Ära** verändert diese Dynamik jedoch dramatisch.
 
 
-## Why the Provenance Manifesto Is About Mindset.
+## Warum das Provenance Manifesto eine Frage der Denkweise ist.
 
-When people hear about the idea of capturing decisions as structured
-artifacts, the first reaction is often technical:
+Wenn Menschen von der Idee hören, Entscheidungen als strukturierte Artefakte zu erfassen, ist die erste Reaktion oft technisch:
 
--   "Should this be another documentation system?"
--   "Is this just ADRs?"
--   "Is this another tool we need to maintain?"
+- „Soll das ein weiteres Dokumentationssystem sein?“
+- „Sind das einfach ADRs?“
+- „Ist das noch ein Tool, das wir pflegen müssen?“
 
-But **provenance is not a documentation problem.**
+Doch **Provenienz ist kein Dokumentationsproblem.**
 
-> It is a **mindset shift.**
+> Es ist ein **Mindset‑Shift.**
 
-The idea is simple but powerful:
+Die Idee ist einfach, aber wirkungsvoll:
 
-**Decisions themselves must become first‑class artifacts of the
-system**, just like:
+**Entscheidungen selbst müssen zu erstklassigen Artefakten des Systems werden**, genau wie:
 
--   code
--   infrastructure
--   APIs
+- Code
+- Infrastruktur
+- APIs
 
-Instead of existing only in conversations or personal memory,
-**decisions should be preserved with their context**:
+Anstatt nur in Gesprächen oder persönlicher Erinnerung zu existieren,
+**sollten Entscheidungen mit ihrem Kontext bewahrt werden**:
 
--   the **assumptions** behind them
--   the **risks** considered
--   the **constraints** involved
--   the **alternatives rejected**
--   the **outcomes** they produced
+- die **Annahmen**, die ihnen zugrunde lagen
+- die betrachteten **Risiken**
+- die beteiligten **Constraints**
+- die **abgelehnten Alternativen**
+- die **Ergebnisse**, die sie hervorgebracht haben
 
-This represents a **fundamental change** in how organizations treat
-knowledge.
+Das stellt eine **grundlegende Veränderung** dar, wie Organisationen Wissen behandeln.
 
-It moves us from:
+Es verschiebt uns von:
 
-**Individual Memory to Institutional Memory**
+**Individuellem Gedächtnis zu institutionellem Gedächtnis**
 
-And that shift challenges **long‑standing habits in engineering
-culture**.
+Und dieser Wandel stellt **langjährige Gewohnheiten der Engineering‑Kultur** infrage.
 
 
-## Why People Resist Sharing Their Decisions.
+## Warum Menschen ihre Entscheidungen ungern teilen.
 
-Resistance to this idea is rarely about tools or process overhead.
+Der Widerstand gegen diese Idee hat selten mit Werkzeugen oder Prozessaufwand zu tun.
 
-It is usually about something deeper.
+Er hat meist eine tiefere Ursache.
 
-In many **knowledge‑driven professions**, a simple rule applies:
+In vielen **wissensgetriebenen Berufen** gilt eine einfache Regel:
 
-> **Context is power.**
+> **Kontext ist Macht.**
 
-The person who remembers **why a system works the way it does** holds
-influence. They become the interpreter of past decisions. They become
-the source of explanations when something breaks.
+Die Person, die sich daran erinnert, **warum ein System so funktioniert, wie es funktioniert**, besitzt Einfluss. Sie wird zur Interpretin vergangener Entscheidungen. Sie wird zur Quelle von Erklärungen, wenn etwas schiefgeht.
 
-In practice, this creates an **invisible hierarchy based on private
-knowledge**.
+In der Praxis entsteht dadurch eine **unsichtbare Hierarchie auf Basis privaten Wissens**.
 
-When decisions remain undocumented, the organization depends on **the
-people who remember them**.
+Wenn Entscheidungen undokumentiert bleiben, ist die Organisation auf **die Menschen angewiesen, die sich erinnern**.
 
-Preserving decision provenance **changes this dynamic**.
+Das Bewahren von Decision Provenance **verändert diese Dynamik**.
 
-When reasoning becomes part of the system itself:
+Wenn Begründungen Teil des Systems selbst werden:
 
--   knowledge becomes **accessible to everyone**
--   context becomes **searchable**
--   authority becomes **traceable**
+- wird Wissen **für alle zugänglich**
+- wird Kontext **durchsuchbar**
+- wird Autorität **nachvollziehbar**
 
-For some people this feels uncomfortable, because it removes the
-advantage of **holding context privately**.
+Für manche Menschen fühlt sich das unangenehm an, weil es den Vorteil beseitigt, **Kontext privat zu besitzen**.
 
-This is one of the reasons why **decision capture has historically been inconsistent** across organizations.
+Das ist einer der Gründe, warum **die Dokumentation von Entscheidungen historisch oft inkonsistent war**.
 
-It is not that teams **cannot** document decisions.
+Es liegt nicht daran, dass Teams Entscheidungen **nicht dokumentieren können**.
 
-It is that **culturally, they often do not**.
+Es liegt daran, dass sie es **kulturell oft nicht tun**.
 
 
-## Why the AI Shift Makes This Problem Urgent.
+## Warum der KI‑Shift dieses Problem dringend macht.
 
-**Artificial intelligence is accelerating software creation.**
+**Künstliche Intelligenz beschleunigt die Softwareentwicklung.**
 
-AI agents can generate code **faster than teams can reason about the consequences**.
+KI‑Agenten können Code **schneller generieren, als Teams über dessen Konsequenzen nachdenken können**.
 
-As a result, the real bottleneck in software development is shifting.
+Dadurch verschiebt sich der eigentliche Engpass in der Softwareentwicklung.
 
-> It is **no longer writing code.**
-> It is **understanding the decisions behind the system.**
+> Es geht **nicht mehr darum, Code zu schreiben.**  
+> Es geht darum, **die Entscheidungen hinter dem System zu verstehen.**
 
-Without preserved decision context:
+Ohne erhaltenen Entscheidungskontext:
 
--   systems become **harder to evolve**
--   architectural trade‑offs **disappear**
--   new engineers cannot **reconstruct the past**
--   AI agents lack the **reasoning context needed to act safely**
+- werden Systeme **schwerer weiterzuentwickeln**
+- verschwinden **architektonische Trade‑offs**
+- können neue Engineers **die Vergangenheit nicht rekonstruieren**
+- fehlt KI‑Agenten der **Begründungskontext, um sicher handeln zu können**
 
-The faster systems evolve, the more dangerous **context loss** becomes.
+Je schneller sich Systeme entwickeln, desto gefährlicher wird **Kontextverlust**.
 
-This is why provenance is **not just an intellectual exercise**.
+Darum ist Provenienz **nicht nur eine intellektuelle Übung**.
 
-It is becoming a **structural requirement for AI‑augmented development.**
+Sie wird zu einer **strukturellen Voraussetzung für KI‑augmentierte Softwareentwicklung.**
 
 
-## What We Should Start Doing Right Now.
+## Was wir jetzt sofort tun sollten.
 
-The good news is that adopting the **provenance mindset** does not
-require waiting for new platforms or complex infrastructure.
+Die gute Nachricht ist: Die Einführung der **Provenance‑Denkweise** erfordert keine neuen Plattformen oder komplexe Infrastruktur.
 
-Organizations can begin today by focusing on a simple principle:
+Organisationen können heute beginnen, indem sie sich auf ein einfaches Prinzip konzentrieren:
 
-> **Preserve decisions wherever AI participates in the development process.**
+> **Bewahrt Entscheidungen überall dort, wo KI am Entwicklungsprozess beteiligt ist.**
 
-In practice this means capturing the reasoning behind work that involves:
+In der Praxis bedeutet das, die Begründung hinter Arbeit zu erfassen, die Folgendes beinhaltet:
 
--   **AI assistance**
--   **automation**
--   **agent‑driven execution**
+- **KI‑Assistenz**
+- **Automatisierung**
+- **agentengesteuerte Ausführung**
 
-Examples include:
+Beispiele:
 
--   When AI generates an implementation plan → **preserve the execution plan**
--   When architectural alternatives are evaluated → **preserve the trade‑off discussion**
--   When assumptions influence design → **preserve assumptions and constraints**
--   When decisions are made → **record the decision and the reasoning behind it**
+- Wenn KI einen Implementierungsplan generiert → **den Ausführungsplan bewahren**
+- Wenn Architektur‑Alternativen bewertet werden → **die Trade‑off‑Diskussion bewahren**
+- Wenn Annahmen ein Design beeinflussen → **Annahmen und Constraints bewahren**
+- Wenn Entscheidungen getroffen werden → **die Entscheidung und ihre Begründung aufzeichnen**
 
-These artifacts can come from many sources:
+Diese Artefakte können aus vielen Quellen stammen:
 
--   meeting transcripts
--   architecture reviews
--   AI execution plans
--   follow‑up summaries
--   architecture decision records
+- Meeting‑Transkripte
+- Architektur‑Reviews
+- KI‑Ausführungspläne
+- Follow‑up‑Zusammenfassungen
+- Architecture Decision Records
 
-The important change is **not the format**.
+Die wichtige Veränderung ist **nicht das Format**.
 
-The important change is the **intent to preserve reasoning as part of the system.**
+Die wichtige Veränderung ist die **Absicht, Begründungen als Teil des Systems zu bewahren.**
 
 
-## Keeping Humans in the Loop.
+## Menschen im Loop behalten.
 
-Capturing decisions should **not be a fully automated process**.
+Die Erfassung von Entscheidungen sollte **kein vollständig automatisierter Prozess sein**.
 
-AI can help extract structure from conversations, documents, and
-discussions.
-But **humans remain essential** for validating meaning.
+KI kann helfen, Struktur aus Gesprächen, Dokumenten und Diskussionen zu extrahieren.
 
-A practical workflow may look like this:
+Doch **Menschen bleiben entscheidend**, um Bedeutung zu validieren.
 
-1.  Conversations and meetings are **captured**
-2.  AI extracts **candidate decisions, assumptions, and risks**
-3.  A responsible person **reviews and confirms the structure**
-4.  The validated decision becomes part of **system memory**
+Ein praktischer Workflow könnte so aussehen:
 
-This keeps **human understanding in the loop** while allowing AI to
-**scale the capture process**.
+1. Gespräche und Meetings werden **erfasst**
+2. KI extrahiert **potenzielle Entscheidungen, Annahmen und Risiken**
+3. Eine verantwortliche Person **überprüft und bestätigt die Struktur**
+4. Die validierte Entscheidung wird Teil des **Systemgedächtnisses**
 
+So bleibt **menschliches Verständnis im Loop**, während KI hilft, **den Erfassungsprozess zu skalieren**.
 
-## The Beginning of Organizational Memory.
 
-The **Provenance Manifesto** ultimately proposes something simple but
-powerful.
+## Der Beginn organisationaler Erinnerung.
 
-> Organizations should treat **reasoning the same way they treat code.**
+Das **Provenance Manifesto** schlägt letztlich etwas Einfaches, aber Mächtiges vor.
 
--   **Code** describes *what the system does.*
--   **Decision provenance** explains *why the system became what it is.*
+> Organisationen sollten **Begründungen genauso behandeln wie Code.**
 
-In the **AI‑augmented world**, both are essential.
+- **Code** beschreibt *was ein System tut.*
+- **Decision Provenance** erklärt *warum das System zu dem geworden ist, was es ist.*
 
-Because when systems evolve **faster than humans can remember them**, the organizations that survive will be the ones that **build memory into the system itself**.
+In der **KI‑augmentierten Welt** sind beide notwendig.
+
+Denn wenn sich Systeme **schneller entwickeln, als Menschen sie erinnern können**, werden die Organisationen überleben, die **Gedächtnis direkt in ihre Systeme einbauen**.

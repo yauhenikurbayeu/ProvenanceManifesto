@@ -1,228 +1,212 @@
-# Provenance Is Not About Tools. It Is About Mindset.
+
+# Провенанс — это не про инструменты. Это про образ мышления.
 
 ![Provenance Is Not About Tools. It Is About Mindset](/images/blog/provenance-is-not-about-tools-it-is-about-mindset.png)
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 15, 2026  
 
-Over the past months, while exploring the idea of **decision provenance
-in software development**, I noticed something interesting. Most people
-initially interpret the **Provenance Manifesto** as a proposal about
-**new tools**, **new documentation standards**, or **new processes**.
+За последние месяцы, исследуя идею **происхождения решений (decision provenance) в разработке программного обеспечения**, я заметил одну интересную вещь. Большинство людей сначала воспринимают **Provenance Manifesto** как предложение о **новых инструментах**, **новых стандартах документации** или **новых процессах**.
 
-But that interpretation **misses the core point**.
+Но такая интерпретация **упускает главную мысль**.
 
-> The manifesto is **not primarily about changing tools.**\
-> It is about **changing how we think about knowledge, decisions, and responsibility in engineering organizations.**
+> Манифест **в первую очередь не о смене инструментов.**  
+> Он о **смене того, как мы думаем о знаниях, решениях и ответственности в инженерных организациях.**
 
-And that change is **much harder than introducing a new system.**
+И эта перемена **намного сложнее, чем внедрение новой системы.**
 
 
-## The Hidden Assumption of Modern Engineering.
+## Скрытое предположение современной инженерии.
 
-For decades, software development has operated under a quiet assumption:
+Десятилетиями разработка программного обеспечения жила с негласным предположением:
 
-> **The reasoning behind systems lives inside people.**
+> **Обоснование систем хранится в головах людей.**
 
-We store **implementation artifacts** very well:
+Мы очень хорошо сохраняем **артефакты реализации**:
 
--   **Code** in repositories
--   **Tasks** in issue trackers
--   **Documentation** in knowledge bases
--   **Infrastructure** in configuration systems
+- **Код** в репозиториях
+- **Задачи** в трекерах
+- **Документацию** в базах знаний
+- **Инфраструктуру** в конфигурационных системах
 
-But the **most important part of the system** - *why things were decided the way they were* - usually lives somewhere else.
+Но **самая важная часть системы** — *почему решения были приняты именно так* — обычно находится где‑то ещё.
 
-It lives in:
+Она живёт в:
 
--   Design meetings
--   Slack threads
--   Architectural discussions
--   Personal memory
+- дизайн‑встречах
+- тредах Slack
+- архитектурных обсуждениях
+- личной памяти
 
-Over time, this reasoning **slowly disappears**.
+Со временем это обоснование **постепенно исчезает**.
 
--   Architects change roles
--   Engineers move teams
--   Managers leave organizations
+- Архитекторы меняют роли
+- Инженеры переходят в другие команды
+- Менеджеры покидают компании
 
-The **system remains**, but the **context that created it dissolves**.
+**Система остаётся**, но **контекст, который её создал, растворяется**.
 
-For many years this limitation was tolerable. Systems evolved slowly
-enough that teams could often **reconstruct the reasoning when needed**.
+Много лет это ограничение было терпимым. Системы развивались достаточно медленно, и команды часто могли **восстановить логику решений при необходимости**.
 
-The **AI‑augmented era** changes that dynamic dramatically.
+**Эпоха AI‑augmentation** резко меняет эту динамику.
 
 
-## Why the Provenance Manifesto Is About Mindset.
+## Почему Provenance Manifesto — это про образ мышления.
 
-When people hear about the idea of capturing decisions as structured
-artifacts, the first reaction is often technical:
+Когда люди слышат идею фиксировать решения как структурированные артефакты, первая реакция обычно техническая:
 
--   "Should this be another documentation system?"
--   "Is this just ADRs?"
--   "Is this another tool we need to maintain?"
+- «Это ещё одна система документации?»
+- «Это просто ADR?»
+- «Это ещё один инструмент, который нужно поддерживать?»
 
-But **provenance is not a documentation problem.**
+Но **provenance — это не проблема документации.**
 
-> It is a **mindset shift.**
+> Это **смена мышления.**
 
-The idea is simple but powerful:
+Идея проста, но мощна:
 
-**Decisions themselves must become first‑class artifacts of the
-system**, just like:
+**Сами решения должны стать первоклассными артефактами системы**, так же как:
 
--   code
--   infrastructure
--   APIs
+- код
+- инфраструктура
+- API
 
-Instead of existing only in conversations or personal memory,
-**decisions should be preserved with their context**:
+Вместо того чтобы существовать только в разговорах или памяти людей,
+**решения должны сохраняться вместе с их контекстом**:
 
--   the **assumptions** behind them
--   the **risks** considered
--   the **constraints** involved
--   the **alternatives rejected**
--   the **outcomes** they produced
+- **предположениями**, на которых они основаны
+- рассмотренными **рисками**
+- существующими **ограничениями**
+- **отклонёнными альтернативами**
+- **результатами**, к которым они привели
 
-This represents a **fundamental change** in how organizations treat
-knowledge.
+Это означает **фундаментальное изменение** того, как организации относятся к знаниям.
 
-It moves us from:
+Мы переходим от:
 
-**Individual Memory to Institutional Memory**
+**индивидуальной памяти к институциональной памяти**
 
-And that shift challenges **long‑standing habits in engineering
-culture**.
+И этот переход бросает вызов **многолетним привычкам инженерной культуры**.
 
 
-## Why People Resist Sharing Their Decisions.
+## Почему люди сопротивляются фиксации своих решений.
 
-Resistance to this idea is rarely about tools or process overhead.
+Сопротивление этой идее редко связано с инструментами или дополнительной нагрузкой.
 
-It is usually about something deeper.
+Обычно причина глубже.
 
-In many **knowledge‑driven professions**, a simple rule applies:
+Во многих **профессиях, основанных на знаниях**, действует простое правило:
 
-> **Context is power.**
+> **Контекст — это власть.**
 
-The person who remembers **why a system works the way it does** holds
-influence. They become the interpreter of past decisions. They become
-the source of explanations when something breaks.
+Человек, который помнит **почему система работает именно так**, обладает влиянием. Он становится интерпретатором прошлых решений. Он становится источником объяснений, когда что‑то ломается.
 
-In practice, this creates an **invisible hierarchy based on private
-knowledge**.
+На практике это создаёт **невидимую иерархию, основанную на приватных знаниях**.
 
-When decisions remain undocumented, the organization depends on **the
-people who remember them**.
+Когда решения не документируются, организация зависит от **людей, которые их помнят**.
 
-Preserving decision provenance **changes this dynamic**.
+Сохранение provenance решений **меняет эту динамику**.
 
-When reasoning becomes part of the system itself:
+Когда обоснование становится частью самой системы:
 
--   knowledge becomes **accessible to everyone**
--   context becomes **searchable**
--   authority becomes **traceable**
+- знания становятся **доступными для всех**
+- контекст становится **поисковым**
+- авторитет становится **прозрачным и отслеживаемым**
 
-For some people this feels uncomfortable, because it removes the
-advantage of **holding context privately**.
+Для некоторых людей это ощущается некомфортно, потому что исчезает преимущество **обладать контекстом только лично**.
 
-This is one of the reasons why **decision capture has historically been inconsistent** across organizations.
+Это одна из причин, почему **фиксация решений исторически происходила очень непоследовательно**.
 
-It is not that teams **cannot** document decisions.
+Дело не в том, что команды **не могут** документировать решения.
 
-It is that **culturally, they often do not**.
+Дело в том, что **культурно они часто этого не делают**.
 
 
-## Why the AI Shift Makes This Problem Urgent.
+## Почему AI‑сдвиг делает проблему срочной.
 
-**Artificial intelligence is accelerating software creation.**
+**Искусственный интеллект ускоряет создание программного обеспечения.**
 
-AI agents can generate code **faster than teams can reason about the consequences**.
+AI‑агенты могут генерировать код **быстрее, чем команды способны осмыслить последствия**.
 
-As a result, the real bottleneck in software development is shifting.
+В результате настоящее узкое место разработки меняется.
 
-> It is **no longer writing code.**
-> It is **understanding the decisions behind the system.**
+> Это **уже не написание кода.**  
+> Это **понимание решений, стоящих за системой.**
 
-Without preserved decision context:
+Без сохранённого контекста решений:
 
--   systems become **harder to evolve**
--   architectural trade‑offs **disappear**
--   new engineers cannot **reconstruct the past**
--   AI agents lack the **reasoning context needed to act safely**
+- системы становятся **сложнее для развития**
+- **архитектурные компромиссы** исчезают
+- новые инженеры не могут **восстановить прошлый контекст**
+- AI‑агентам не хватает **контекста рассуждений для безопасных действий**
 
-The faster systems evolve, the more dangerous **context loss** becomes.
+Чем быстрее эволюционируют системы, тем опаснее становится **потеря контекста**.
 
-This is why provenance is **not just an intellectual exercise**.
+Поэтому provenance — **не просто интеллектуальная идея**.
 
-It is becoming a **structural requirement for AI‑augmented development.**
+Это становится **структурным требованием для AI‑augmented разработки.**
 
 
-## What We Should Start Doing Right Now.
+## Что мы можем начать делать уже сейчас.
 
-The good news is that adopting the **provenance mindset** does not
-require waiting for new platforms or complex infrastructure.
+Хорошая новость в том, что принятие **мышления provenance** не требует ожидания новых платформ или сложной инфраструктуры.
 
-Organizations can begin today by focusing on a simple principle:
+Организации могут начать уже сегодня, следуя простому принципу:
 
-> **Preserve decisions wherever AI participates in the development process.**
+> **Сохраняйте решения везде, где AI участвует в процессе разработки.**
 
-In practice this means capturing the reasoning behind work that involves:
+На практике это означает фиксировать обоснование работы, связанной с:
 
--   **AI assistance**
--   **automation**
--   **agent‑driven execution**
+- **AI‑ассистентами**
+- **автоматизацией**
+- **agent‑driven исполнением**
 
-Examples include:
+Например:
 
--   When AI generates an implementation plan → **preserve the execution plan**
--   When architectural alternatives are evaluated → **preserve the trade‑off discussion**
--   When assumptions influence design → **preserve assumptions and constraints**
--   When decisions are made → **record the decision and the reasoning behind it**
+- Когда AI генерирует план реализации → **сохраните план выполнения**
+- Когда оцениваются архитектурные альтернативы → **сохраните обсуждение компромиссов**
+- Когда предположения влияют на дизайн → **сохраните предположения и ограничения**
+- Когда принимается решение → **зафиксируйте решение и его обоснование**
 
-These artifacts can come from many sources:
+Эти артефакты могут происходить из разных источников:
 
--   meeting transcripts
--   architecture reviews
--   AI execution plans
--   follow‑up summaries
--   architecture decision records
+- транскриптов встреч
+- архитектурных ревью
+- планов выполнения AI
+- follow‑up‑резюме
+- Architecture Decision Records
 
-The important change is **not the format**.
+Ключевое изменение **не в формате**.
 
-The important change is the **intent to preserve reasoning as part of the system.**
+Ключевое изменение — **в намерении сохранять обоснование как часть системы.**
 
 
-## Keeping Humans in the Loop.
+## Сохраняя человека в контуре.
 
-Capturing decisions should **not be a fully automated process**.
+Фиксация решений **не должна быть полностью автоматизированным процессом**.
 
-AI can help extract structure from conversations, documents, and
-discussions.
-But **humans remain essential** for validating meaning.
+AI может помогать извлекать структуру из разговоров, документов и обсуждений.
+Но **люди остаются критически важными** для проверки смысла.
 
-A practical workflow may look like this:
+Практический процесс может выглядеть так:
 
-1.  Conversations and meetings are **captured**
-2.  AI extracts **candidate decisions, assumptions, and risks**
-3.  A responsible person **reviews and confirms the structure**
-4.  The validated decision becomes part of **system memory**
+1. Разговоры и встречи **фиксируются**
+2. AI извлекает **кандидатные решения, предположения и риски**
+3. Ответственный человек **проверяет и подтверждает структуру**
+4. Подтверждённое решение становится частью **памяти системы**
 
-This keeps **human understanding in the loop** while allowing AI to
-**scale the capture process**.
+Так **человеческое понимание остаётся в контуре**, а AI помогает **масштабировать процесс фиксации знаний**.
 
 
-## The Beginning of Organizational Memory.
+## Начало организационной памяти.
 
-The **Provenance Manifesto** ultimately proposes something simple but
-powerful.
+В конечном итоге **Provenance Manifesto** предлагает простую, но мощную идею.
 
-> Organizations should treat **reasoning the same way they treat code.**
+> Организации должны относиться к **обоснованию так же, как они относятся к коду.**
 
--   **Code** describes *what the system does.*
--   **Decision provenance** explains *why the system became what it is.*
+- **Код** описывает *что делает система.*
+- **Decision provenance** объясняет *почему система стала такой, какой она стала.*
 
-In the **AI‑augmented world**, both are essential.
+В **AI‑augmented мире** оба элемента критически важны.
 
-Because when systems evolve **faster than humans can remember them**, the organizations that survive will be the ones that **build memory into the system itself**.
+Потому что когда системы эволюционируют **быстрее, чем люди способны их помнить**, выживут те организации, которые **встроят память прямо в свои системы**.
