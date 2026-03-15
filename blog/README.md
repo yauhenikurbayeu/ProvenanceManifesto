@@ -1,4 +1,11 @@
 
+# Provenance Is Not About Tools. It Is About Mindset
+
+**Author:** Yauheni Kurbayeu  
+**Published:** Mar 15, 2026  
+
+**TL;DR Humans naturally resist sharing the reasoning behind their decisions because context and memory have historically been a source of influence and professional advantage. As a result, many critical decisions remain undocumented and live only in conversations or individual memory. In the AI-augmented era this becomes a serious governance problem, because systems evolve faster and the reasoning behind changes disappears even more quickly. Without preserved decision context, organizations lose the ability to explain, audit, or safely evolve their systems. The AI shift therefore turns decision provenance from a cultural preference into a structural requirement for organizational governance.**
+
 # Why Decisions Must Become a First-Class Artifact
 
 **Author:** Yauheni Kurbayeu  
