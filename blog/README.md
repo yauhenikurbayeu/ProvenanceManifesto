@@ -1,4 +1,11 @@
 
+# "Where Provenance Ends, Knowledge Decays" Reflections
+
+**Author:** Yauheni Kurbayeu  
+**Published:** Mar 17, 2026  
+
+**TL;DR Here is another strong argument on something that has been quietly breaking beneath the surface of the AI wave - the relationship between knowledge and its origin.**
+
 # Provenance Is Not About Tools. It Is About Mindset
 
 **Author:** Yauheni Kurbayeu  
