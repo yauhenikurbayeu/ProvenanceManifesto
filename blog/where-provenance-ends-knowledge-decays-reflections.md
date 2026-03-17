@@ -5,6 +5,10 @@
 
 Here is another strong argument on something that has been quietly breaking beneath the surface of the AI wave - **the relationship between knowledge and its origin**.
 
+
+<div class="substack-post-embed"><p lang="en">Where Provenance Ends, Knowledge Decays by Jessica Talisman</p><p></p><a data-post-link href="https://jessicatalisman.substack.com/p/where-provenance-ends-knowledge-decays">Read on Substack</a></div><script async src="https://substack.com/embedjs/embed.js" charset="utf-8"></script>
+
+
 I recently read [“Where provenance ends, knowledge decays”](https://jessicatalisman.substack.com/p/where-provenance-ends-knowledge-decays) by [Jessica Talisman](https://www.ontologypipeline.com/more-context), and what makes it powerful is not that it criticizes AI, but that it **reframes the problem entirely**.
 
 It shows how, as language models become better at producing fluent, convincing outputs, they also **dissolve the chain that makes knowledge trustworthy in the first place**.
