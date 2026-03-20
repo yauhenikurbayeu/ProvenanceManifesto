@@ -391,5 +391,17 @@ If you want, I can help you:
 - add Slack/email notifications
 - convert this into a SaaS-ready architecture
 
+---
 
 And as a bonus for those who read all the way to the end, you can download the sources for the instructions, skills, agents, and hooks (still a bit buggy, but useful) from my [GitHub Provenance repository](https://github.com/yauhenikurbayeu/ProvenanceManifesto/tree/main/.github).
+
+This article was automatically translated with the help of this pipeline:
+- https://provenancemanifesto.org/de/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/es/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/fr/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/pl/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/ru/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
