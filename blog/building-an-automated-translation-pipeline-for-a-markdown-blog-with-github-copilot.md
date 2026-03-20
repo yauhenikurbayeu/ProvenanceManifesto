@@ -390,3 +390,6 @@ If you want, I can help you:
 - integrate with your blog engine (Astro, Jekyll)
 - add Slack/email notifications
 - convert this into a SaaS-ready architecture
+
+
+And as a bonus for those who read all the way to the end, you can download the sources for the instructions, skills, agents, and hooks (still a bit buggy, but useful) from my [GitHub Provenance repository](https://github.com/yauhenikurbayeu/ProvenanceManifesto/tree/main/.github).
