@@ -1,3 +1,10 @@
+# The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
+
+**Author:** Yauheni Kurbayeu  
+**Published:** March 21, 2026  
+
+**I asked AI to revise my English. It did a great job — cleaner, sharper, more readable. And then… it quietly inserted a Russian word into the middle of the sentence. Nothing broke. The sentence still made sense. You could read it and move on without noticing. That’s the problem. We’ve been trained to look for failures as crashes, errors, broken outputs. But AI doesn’t fail like that. It fails silently. It produces results that look correct — and that’s exactly what makes them dangerous. This is what I call the Fluency Paradox 👉**
+
 # Building an Automated Translation Pipeline for a Markdown Blog with GitHub Copilot
 
 **Author:** Yauheni Kurbayeu
