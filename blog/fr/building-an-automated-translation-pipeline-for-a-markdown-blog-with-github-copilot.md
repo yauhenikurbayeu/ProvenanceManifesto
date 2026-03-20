@@ -1,7 +1,7 @@
 # Créer un pipeline automatisé de traduction multilingue pour un blog Markdown avec les agents GitHub Copilot
 
 **Author:** Yauheni Kurbayeu  
-**Published:** 20.03.2026
+**Published:** Mar 20, 2026
 
 ![Créer un pipeline automatisé de traduction multilingue pour un blog Markdown avec les agents GitHub Copilot](/images/blog/how-to-copilot-translation-pipeline.png)
 

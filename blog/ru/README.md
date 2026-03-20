@@ -1,6 +1,8 @@
-# Building an Automated Multi-Language Translation Pipeline for a Markdown Blog with GitHub Copilot Agents
-Author: Yauheni Kurbayeu
-Published: 20.03.2026
+# Building an Automated Translation Pipeline for a Markdown Blog with GitHub Copilot
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 20, 2026 
+
 **TL;DR Это руководство объясняет, как автоматизировать Markdown-блог в многоязычный конвейер публикации с использованием GitHub Copilot Agents, где оркестратор координирует языковые субагенты, обновляет сводки README, применяет hooks и skills как защитные механизмы и обеспечивает воспроизводимые, масштабируемые результаты.**
 
 # Provenance Is Not About Tools. It Is About Mindset

@@ -62,25 +62,30 @@ function formatTocLabel(value: string): string {
     </div>
 
     {contentToc.length > 0 && (
-      <nav aria-label={t('blog.tableOfContents')} class="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/70 p-5 md:p-6 flex flex-col gap-4">
-        <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">{t('blog.tableOfContents')}</h2>
-        <div class="flex flex-col gap-2">
-          {contentToc.map((item) => (
-            <a
-              href={`#${item.id}`}
-              class:list={[
-                'group inline-flex items-start gap-2.5 rounded-md px-2 py-1 text-[0.92rem] md:text-[0.95rem] font-medium leading-relaxed text-slate-600 dark:text-slate-300 hover:text-[#1152d4] hover:bg-white/80 dark:hover:bg-slate-800/70 transition-colors',
-                item.level === 2 && 'font-medium',
-                item.level === 3 && 'pl-5 text-slate-600 dark:text-slate-300',
-                item.level === 4 && 'pl-9 text-slate-500 dark:text-slate-400'
-              ]}
-            >
-              <span class="mt-[0.38rem] shrink-0 text-[0.7rem] leading-none text-slate-400 dark:text-slate-500 group-hover:text-[#1152d4] transition-colors" aria-hidden="true">·</span>
-              <span>{formatTocLabel(item.text)}</span>
-            </a>
-          ))}
-        </div>
-      </nav>
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/70">
+        <summary class="list-none cursor-pointer px-5 md:px-6 py-4 md:py-5 flex items-center justify-between gap-4">
+          <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">{t('blog.tableOfContents')}</h2>
+          <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <nav aria-label={t('blog.tableOfContents')} class="px-5 md:px-6 pb-5 md:pb-6">
+          <div class="flex flex-col gap-2">
+            {contentToc.map((item) => (
+              <a
+                href={`#${item.id}`}
+                class:list={[
+                  'group inline-flex items-start gap-2.5 rounded-md px-2 py-1 text-[0.92rem] md:text-[0.95rem] font-medium leading-relaxed text-slate-600 dark:text-slate-300 hover:text-[#1152d4] hover:bg-white/80 dark:hover:bg-slate-800/70 transition-colors',
+                  item.level === 2 && 'font-medium',
+                  item.level === 3 && 'pl-5 text-slate-600 dark:text-slate-300',
+                  item.level === 4 && 'pl-9 text-slate-500 dark:text-slate-400'
+                ]}
+              >
+                <span class="mt-[0.38rem] shrink-0 text-[0.7rem] leading-none text-slate-400 dark:text-slate-500 group-hover:text-[#1152d4] transition-colors" aria-hidden="true">·</span>
+                <span>{formatTocLabel(item.text)}</span>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </details>
     )}
 
     <article class="blog-article-content rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-6 md:p-8 prose prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-[#1152d4]" set:html={contentHtml}>
