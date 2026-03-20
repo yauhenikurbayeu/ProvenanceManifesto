@@ -1,0 +1,124 @@
+
+import json, os, sys, pathlib, datetime
+
+ROOT = pathlib.Path.cwd()
+HOOK_DIR = ROOT / ".github" / "hooks"
+LOG_DIR = HOOK_DIR / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+
+def read_input():
+    raw = sys.stdin.read()
+    if not raw.strip():
+        return {}
+    try:
+        return json.loads(raw)
+    except Exception:
+        return {"_raw": raw, "_parse_error": True}
+
+def append_jsonl(path, payload):
+    with open(path, "a", encoding="utf-8") as fh:
+        fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
+
+def now_iso():
+    return datetime.datetime.utcnow().isoformat() + "Z"
+
+LANG_DIRS = {"de", "fr", "es", "pl", "ru"}
+
+def parse_tool_args(obj):
+    tool_args = obj.get("toolArgs")
+    if isinstance(tool_args, dict):
+        return tool_args
+    if isinstance(tool_args, str):
+        try:
+            return json.loads(tool_args)
+        except Exception:
+            return {"_raw": tool_args}
+    return {}
+
+def is_root_markdown(path_str):
+    p = pathlib.PurePosixPath(path_str.replace("\\", "/"))
+    return len(p.parts) == 1 and p.suffix.lower() == ".md"
+
+def allowed_write_path(path_str):
+    if not path_str:
+        return True
+    p = pathlib.PurePosixPath(path_str.replace("\\", "/"))
+    parts = p.parts
+    if not parts:
+        return True
+    # root-level allowed files
+    if len(parts) == 1:
+        name = parts[0]
+        if name in {"README.md", "translation-summary.md"}:
+            return True
+        if name.endswith(".md"):
+            return True
+        return False
+    # language folders
+    if parts[0] in LANG_DIRS:
+        return True
+    return False
+
+data = read_input()
+tool_name = data.get("toolName")
+tool_args = parse_tool_args(data)
+tool_result = data.get("toolResult") or {}
+result_type = tool_result.get("resultType")
+
+targets = []
+for key in ("path", "filePath", "targetPath"):
+    if isinstance(tool_args.get(key), str):
+        targets.append(tool_args[key])
+if isinstance(tool_args.get("paths"), list):
+    targets.extend([p for p in tool_args["paths"] if isinstance(p, str)])
+
+checks = []
+
+def read_text(path):
+    try:
+        return (ROOT / path).read_text(encoding="utf-8")
+    except Exception:
+        return None
+
+if result_type == "success" and tool_name in {"edit", "create"}:
+    for target in targets:
+        norm = target.replace("\\", "/")
+        if norm == "README.md":
+            text = read_text(norm)
+            checks.append({
+                "path": norm,
+                "exists": text is not None,
+                "looksLikeReadme": text is not None and ("Author:" in text or "**TL;DR" in text)
+            })
+        elif norm == "translation-summary.md":
+            text = read_text(norm)
+            checks.append({
+                "path": norm,
+                "exists": text is not None,
+                "hasFinalStatus": text is not None and "Final Status" in text
+            })
+        elif norm.split("/", 1)[0] in LANG_DIRS:
+            text = read_text(norm)
+            if norm.endswith("/README.md"):
+                checks.append({
+                    "path": norm,
+                    "exists": text is not None,
+                    "hasAuthorLine": text is not None and "Author:" in text,
+                    "hasDateLine": text is not None and "Published:" in text,
+                    "hasTldr": text is not None and "**TL;DR" in text
+                })
+            elif norm.endswith(".md"):
+                checks.append({
+                    "path": norm,
+                    "exists": text is not None,
+                    "nonEmpty": text is not None and len(text.strip()) > 0
+                })
+
+append_jsonl(LOG_DIR / "post-tool-use.jsonl", {
+    "hook": "postToolUse",
+    "ts": now_iso(),
+    "toolName": tool_name,
+    "resultType": result_type,
+    "targets": targets,
+    "checks": checks
+})

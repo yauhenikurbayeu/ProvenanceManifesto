@@ -30,3 +30,5 @@ pnpm-debug.log*
 .codemie/
 
 temp/
+
+blog/translation-summary.md
