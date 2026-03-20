@@ -390,3 +390,20 @@ commit → agent → transformation → commit
 - интегрировать с вашим движком блога (Astro, Jekyll)
 - добавить уведомления в Slack/email
 - превратить это в SaaS-ready архитектуру
+
+---
+
+И в качестве бонуса для тех, кто дочитал до самого конца, вы можете скачать исходники инструкций, skills, агентов и hooks (пока немного сыроваты, но уже полезны) из моего [GitHub репозитория Provenance](https://github.com/yauhenikurbayeu/ProvenanceManifesto/tree/main/.github).
+
+Эта статья была автоматически переведена с помощью этого пайплайна:
+- https://provenancemanifesto.org/de/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/es/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/fr/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/pl/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+- https://provenancemanifesto.org/ru/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot/
+
+Здесь вы можете посмотреть [translation-summary-log](/blog/translation-summary-log), сгенерированный оркестратор-агентом.
