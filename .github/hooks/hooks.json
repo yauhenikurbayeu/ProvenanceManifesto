@@ -9,6 +9,14 @@
         "timeoutSec": 10
       }
     ],
+    "userPromptSubmitted": [
+      {
+        "type": "command",
+        "bash": "python3 .github/hooks/user_prompt_submitted.py",
+        "cwd": ".",
+        "timeoutSec": 10
+      }
+    ],
     "preToolUse": [
       {
         "type": "command",

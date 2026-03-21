@@ -22,6 +22,7 @@ Use this skill when a new English Markdown article needs to be processed and tra
   - or the most recent English `.md` file in `/blog` other than `README.md`.
 - Ignore `README.md`, `manifest.json`, translation summary files, and language folders.
 - Prefer the newest or explicitly requested `/blog` article.
+- Process one source article at a time unless batch mode is explicitly requested.
 
 ## Metadata extraction
 
@@ -75,12 +76,12 @@ Generate one concise TL;DR sentence or short paragraph that remains faithful to 
 
 README files are optional human-facing summary artifacts and are not the source of truth for publication.
 
-If maintained, find or create `/blog/README.md` and prepend exactly:
+When root README updates are requested in the run, find or create `/blog/README.md` and prepend exactly:
 
 - `# {title}`
 - empty line
-- `**Author: {author}**`
-- `**Published: {normalized_date}**`
+- `**Author:** {author}`
+- `**Published:** {normalized_date}`
 - empty line
 - `**TL;DR {english_tldr}**`
 
@@ -98,7 +99,6 @@ For each language folder, find or create `/blog/<lang>/README.md` and prepend ex
 - `**TL;DR {localized_tldr}**`
 
 Constraints:
-- do not translate the title line
 - do not translate `Author:`
 - do not translate the author value
 - do not translate `Published:`
@@ -124,13 +124,14 @@ The main orchestrator agent should:
 2. extract metadata
 3. generate English TL;DR
 4. update the English block in `/blog/manifest.json`
-5. optionally update `/blog/README.md`
+5. update `/blog/README.md` when requested for the run
 6. invoke `translate-de`, `translate-fr`, `translate-es`, `translate-pl`, and `translate-ru`
 7. collect subagent outputs
 8. update localized manifest language blocks
 9. verify each language result
 10. write `/blog/translation-summary.md`
-11. report final status
+11. run `npm run build` from the workspace root as a final quality gate
+12. report final status
 
 The orchestrator is the only agent allowed to edit `/blog/manifest.json`.
 
@@ -151,7 +152,13 @@ For each language, confirm:
 - localized TL;DR exists in manifest when `published: true`
 - localized `README.md` exists if README updates were requested
 - localized README header block is correctly formatted
+- `Author:`, author value, `Published:`, and date value remain unchanged in localized README
+- only TL;DR text is translated in localized README
 - translated article is complete and structurally consistent
+
+For the full run, also confirm:
+- `npm run build` exits with code `0`
+- if the build fails, record the failure in `/blog/translation-summary.md` and mark the overall result as `partial`
 
 ## Final summary
 
@@ -162,5 +169,6 @@ Write `/blog/translation-summary.md` containing:
 - manifest update status
 - files created or updated for each language
 - verification outcome for each language
+- build validation result
 - failures or warnings
 - final status: `success`, `partial`, or `failed`

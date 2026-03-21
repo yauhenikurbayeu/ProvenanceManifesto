@@ -24,6 +24,10 @@ This hook set is intentionally lightweight and aligned with the documented hook 
   - creates a hooks log directory
   - starts a session log entry
 
+- `userPromptSubmitted`
+  - records the original user prompt as part of the translation workflow audit trail
+  - makes it easier to trace which translation request produced which manifest and article updates
+
 - `preToolUse`
   - guards `edit` and `create` operations
   - denies writes outside the article translation workflow scope
@@ -43,6 +47,7 @@ This hook set is intentionally lightweight and aligned with the documented hook 
 
 Hooks do not perform the translation work themselves.
 Hooks do not provide a dedicated subagent lifecycle event.
+Hooks do not provide a dedicated build-validation event.
 Hooks do not replace the orchestrator's own semantic verification and final summary generation.
 
 The main orchestrator agent remains responsible for:
@@ -50,12 +55,14 @@ The main orchestrator agent remains responsible for:
 - collecting their results
 - updating `blog/manifest.json`
 - checking translated outputs semantically
+- running `npm run build` as the final quality gate
 - writing `blog/translation-summary.md`
 
 ## Files in this folder
 
 - `hooks.json` — actual GitHub Copilot hooks configuration
 - `session_start.py` — session-start logger
+- `user_prompt_submitted.py` — prompt submission logger
 - `pre_tool_guard.py` — write-scope guard for edit/create
 - `post_tool_validate.py` — lightweight validation and tool logging
 - `session_end.py` — final completion logger

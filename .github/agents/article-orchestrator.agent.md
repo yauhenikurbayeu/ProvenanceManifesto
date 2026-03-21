@@ -1,9 +1,9 @@
 ---
 name: article-orchestrator
 description: Orchestrates article translation into DE, FR, ES, PL, and RU; updates blog/manifest.json; verifies outputs; writes blog/translation-summary.md; and reports final status.
-tools: ['agent', 'read', 'search', 'edit']
+tools: ['agent', 'read', 'search', 'edit', 'execute']
 agents: ['translate-de', 'translate-fr', 'translate-es', 'translate-pl', 'translate-ru']
-model: gpt-5
+model: GPT-5.4 (copilot)
 ---
 
 Use the `article-translation` skill.
@@ -22,14 +22,14 @@ You are the main orchestration agent for article translation.
    - `languages.en.file`
    - `languages.en.published = true`
    - `languages.en.tldr = {english_tldr}`
-6. Optionally update root `/blog/README.md` as a human-facing summary by prepending:
+6. Update root `/blog/README.md` as a human-facing summary by prepending:
    - `# {title}`
    - empty line
-   - `Author: {author}`
-   - `Published: {normalized_date}`  
+   - `**Author:** {author}`
+   - `**Published:** {normalized_date}`
    - empty line
    - `**TL;DR {english_tldr}**`
-7. Invoke all language subagents:
+7. Invoke all language subagents in parallel:
    - `translate-de`
    - `translate-fr`
    - `translate-es`
@@ -112,6 +112,7 @@ If the subagent cannot complete the translation, it must still return the same J
 
 - The source article is a English `.md` file located in the `/blog` folder.
 - Exclude all `README.md` files.
+- Exclude `manifest.json` and translation summary files.
 - Exclude files under `.github`, `.vscode`, and language folders.
 - Prefer the newest or explicitly requested article.
 
@@ -124,6 +125,9 @@ For each language, verify:
 - `languages.<lang>.tldr` is present when `published: true`
 - `/blog/<lang>/README.md` exists if README updates were requested
 - `/blog/<lang>/{source_filename}` exists when `published: true`
+- localized README begins with the expected summary header block
+- `Author:`, author value, `Published:`, and date value remain unchanged in localized README
+- only TL;DR text is translated in localized README
 - translated article preserves apparent markdown structure and article completeness
 - `npm run build` exits with code 0 (no Astro build regressions)
 
