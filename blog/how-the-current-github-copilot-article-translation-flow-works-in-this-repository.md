@@ -7,7 +7,7 @@
 
 ## TL;DR
 
-This repository implements a layered GitHub Copilot article-translation pipeline built from repository-wide instructions, a main orchestration agent, five language-specific subagents, one reusable skill, and a hook-based safety and logging system. The real control plane is split across three places: instructions define policy, agents define role behavior, and hooks enforce or observe tool execution. The result is not "one prompt that translates a post," but a governed workflow that selects a source article, extracts metadata, updates publication state, delegates translation work, validates outputs, and writes an execution summary.
+This repository now uses a layered GitHub Copilot architecture in which repository-wide instructions provide global workspace rules and task routing, while article-translation policy lives at the custom-agent and skill layers. That split matters because this is a multi-purpose workspace: it contains both Astro site development and multilingual blog translation. The result is not "one repository-level translation prompt," but a governed system where repo instructions route the request, the orchestrator and skill own translation behavior, and repository-wide hooks enforce or observe execution across the workspace.
 
 ---
 
@@ -17,7 +17,7 @@ This workspace is a strong example of how GitHub Copilot customization becomes a
 
 The flow is distributed across:
 
-- `.github/copilot-instructions.md`
+- `.github/copilot-instructions.md` 
 - `.github/agents/article-orchestrator.agent.md`
 - `.github/agents/translate-de.agent.md`
 - `.github/agents/translate-fr.agent.md`
@@ -47,6 +47,7 @@ User prompt
   v
 Repository context loads
   - .github/copilot-instructions.md
+  - workspace-wide routing and baseline rules
   - selected custom agent prompt
   - optionally a matching skill
   |
@@ -88,22 +89,24 @@ Hook layer wraps the run
 
 The cleanest way to understand the flow is to separate it into control layers.
 
-### 1. Repository-wide instructions define the universal rules
+### 1. Repository-wide instructions define workspace-wide rules and route the task
 
-`.github/copilot-instructions.md` is the repository constitution for the translation workflow.
+`.github/copilot-instructions.md` is no longer the place where the translation workflow itself is fully specified. In the current design, it acts as a workspace-wide baseline for a mixed-purpose repository.
 
 It defines:
 
-- what counts as a source article
-- how title, author, and date are extracted
-- how dates should be normalized
-- that `blog/manifest.json` is the source of truth
-- which languages are supported
-- what the orchestrator must do
-- what every localized README and translated article must preserve
-- that `npm run build` is the final quality gate
+- that this repository contains both Astro site development and multilingual blog content
+- that repository instructions apply to all tasks in the workspace
+- that translation must not be assumed unless the user explicitly asks for it
+- that general development work should prioritize correctness, minimal diffs, and build stability
+- that article-translation requests should be routed to:
+  - `.github/agents/article-orchestrator.agent.md`
+  - `.github/skills/article-translation/SKILL.md`
+- that translation-specific policy is owned by those files rather than by the repository-level instruction file
+- that validation should be run when Astro output can be affected
+- that hook behavior is defined under `.github/hooks/`
 
-This aligns with GitHub's current documentation: repository-wide instructions in `.github/copilot-instructions.md` are automatically applied to requests in repository context.
+This is a good pattern for a multi-purpose workspace. Repository-wide instructions should stay general enough to support the full repo, and should act as a router between custom-agent flows based on prompt context rather than hard-coding one domain-specific workflow for every task.
 
 ### 2. The custom agent defines the execution role
 
@@ -113,10 +116,11 @@ It narrows behavior by:
 
 - naming the role
 - describing the end-to-end job
-- constraining tools to `agent`, `read`, `search`, and `edit`
-- listing the language workers
-- locking the model to `gpt-5`
-- prescribing the exact execution order
+- constraining tools to `agent`, `read`, `search`, `edit`, and `execute`
+- listing the language workers as subagents: `translate-de`, `translate-fr`, `translate-es`, `translate-pl`, and `translate-ru`
+- locking the model to `GPT-5.4 (copilot)`
+- prescribing the execution steps order
+- defining source selection, manifest rules, README rules, verification rules, and build validation
 
 This is the operational brain of the workflow.
 
@@ -168,10 +172,13 @@ Hooks do not do translation. They guard or observe the work around translation.
 
 That distinction matters because it explains the real governance model in this repository:
 
-- semantic workflow control lives in instructions + agents + skill
+- workspace-wide routing and baseline behavior live in repository instructions
+- semantic translation workflow control lives in the custom agent + skill
 - prompt-level audit logging lives in `sessionStart` and `userPromptSubmitted`
 - hard write-scope control lives in `preToolUse`
 - lightweight validation and audit logging live in `postToolUse`
+
+There is also an important limitation here: hooks are repository-wide, not agent-scoped. GitHub Copilot currently does not let this repository map one hook set only to the translation agent and a different hook set to another custom agent. The current workaround is to distinguish logic inside the Python hook scripts themselves, but the hooks still execute at repository scope. In a multi-purpose workspace, that can add overhead and slow down unrelated custom-agent flows.
 
 ---
 
@@ -213,11 +220,11 @@ Because the work is happening in repository context, `.github/copilot-instructio
 
 That means the agent already knows, before doing task-specific reasoning:
 
-- source articles live in `blog/`
-- language targets are `de`, `fr`, `es`, `pl`, `ru`
-- the manifest is authoritative
-- only the orchestrator may edit `blog/manifest.json`
-- a final `blog/translation-summary.md` must always be produced
+- this is a mixed Astro-plus-blog workspace
+- translation should not be assumed unless the user asks for it
+- translation requests should be routed to the translation orchestrator and skill
+- general development tasks should optimize for correctness, minimal diffs, and build stability
+- hook behavior is repository-wide and defined under `.github/hooks/`
 
 No `.github/instructions/**/*.instructions.md` files exist in this repository, so there is no path-specific instruction layer competing with the repository-wide rules.
 
@@ -243,15 +250,15 @@ So the skill in `.github/skills/article-translation/SKILL.md` becomes the reusab
 
 This is an important context-sharing moment:
 
-- repository instructions give global policy
-- the custom agent gives the current role
-- the skill gives the reusable procedure
+- repository instructions give global routing and workspace policy
+- the custom agent gives the current translation role
+- the skill gives the reusable translation procedure
 
 Together, those three layers define the workflow before any file is modified.
 
 ### Step 6. The source article is selected
 
-The source selection rule is repeated in both the repository instructions and the skill:
+The source selection rule now lives in the translation agent and the translation skill, not in the repository-wide instruction file:
 
 - choose the explicitly requested article, or
 - choose the newest root-level English Markdown file in `blog/`
@@ -313,7 +320,9 @@ That early English patch is important because it gives the workflow a stable sha
 
 ### Step 10. The root README is updated
 
-The repository instructions require the root `blog/README.md` to be prepended with a summary block containing:
+The current root README behavior is defined by the translation agent and skill. The orchestrator requires the root `blog/README.md` summary update, while the skill frames README updates as optional human-facing artifacts that can be requested for the run.
+
+When the orchestrator applies the README update, the root summary block contains:
 
 - title
 - author
@@ -484,7 +493,7 @@ They also include:
 
 This is the last quality gate in the declared workflow.
 
-### Step 19. The orchestrator writes `blog/translation-summary.md`
+### Step 19. The orchestrator writes `[blog/translation-summary.md](/blog/translation-summary-log)`
 
 This file is the final operational report.
 
@@ -521,9 +530,13 @@ In this repository, context is shared through six different mechanisms.
 
 ### 1. Ambient repository context
 
-` .github/copilot-instructions.md` is the baseline context that applies at repository scope.
+`.github/copilot-instructions.md` is the baseline context that applies at repository scope.
 
-This is where source selection rules, manifest semantics, and publication constraints are made global.
+In the current design, it does not try to encode the full translation workflow. Instead, it provides:
+
+- workspace-wide behavioral rules
+- task routing guidance for a multi-purpose repository
+- general quality expectations for non-translation development work
 
 ### 2. Role context
 
@@ -636,6 +649,8 @@ Important limitation:
 
 That is a meaningful gap relative to current GitHub hook capabilities, because GitHub's docs explicitly describe `preToolUse` as able to approve or deny tool executions broadly, including shell tools.
 
+There is a second architectural limitation as well: even though the scripts can branch internally, the hook registration itself is still repository-wide. So this translation-specific hook logic can be triggered in a workspace session that is really about Astro development or another custom agent flow, which can introduce avoidable overhead.
+
 ### `post_tool_validate.py`
 
 Purpose:
@@ -721,6 +736,8 @@ That means the system already has:
 
 What it does not yet have is full hook-based workflow orchestration. That still belongs to the main agent.
 
+It also proves a broader workspace tradeoff: because hooks are attached at repository level, not per-agent level, this translation-oriented guardrail layer may still execute during unrelated site-development tasks. The Python scripts can distinguish logic after they start, but they cannot prevent the repository-wide hook invocation itself.
+
 ---
 
 ## Alignment with recent GitHub Copilot docs
@@ -755,26 +772,26 @@ Best interpretation:
 
 There are several places where the repository's own materials disagree with each other or with the current docs.
 
-#### 1. The root README format rules are inconsistent across files
+#### 1. The translation-policy move is not yet fully reflected across all artifacts
 
-` .github/copilot-instructions.md` says README dates should normalize to `MMM dd, yyyy` and the TL;DR line should begin with `**TL;DR ...**`.
+The architecture has clearly shifted toward:
 
-But the current top block in `blog/README.md` begins with:
+- repository instructions for global workspace rules and routing
+- the translation agent and skill for translation-specific behavior
 
-- `**Published:** March 21, 2026`
-- and the summary line is bold text without the `TL;DR` label
+But some generated artifacts and older explanatory content still reflect the earlier model, where translation rules were described as if they were repository-wide.
 
-That means the observed artifact format is drifting from the declared rules.
+This creates documentation drift that the article needs to call out explicitly.
 
-#### 2. The skill and instructions disagree about README strictness
+#### 2. The skill and agent still disagree about README strictness
 
-The skill describes README files as optional human-facing artifacts.
+The skill describes README files as optional human-facing artifacts when requested for the run.
 
-The repository-wide instructions describe them as mandatory outputs for the run.
+The orchestrator currently requires the root README update as part of the translation workflow.
 
 That is a real behavioral ambiguity.
 
-#### 3. The active hook set is intentionally narrower than the full platform surface
+#### 3. Hooks are repository-wide even though the workflow is agent-specific
 
 The current repository hook set is:
 
@@ -785,7 +802,14 @@ The current repository hook set is:
 - `sessionEnd`
 - `errorOccurred`
 
-That is the active implementation and should be treated as authoritative for this workspace. Even if GitHub exposes additional hook lifecycle surfaces in some environments, this repository's actual logic does not depend on them. Instead, subagent completion, semantic verification, and build validation remain orchestrator responsibilities.
+That is the active implementation and should be treated as authoritative for this workspace. But the important limitation is not only which hook events are used. It is that the hook configuration applies across the whole repository, not only to the translation agent.
+
+In this workspace that matters because the repo serves two different purposes:
+
+- Astro site development
+- multilingual article translation
+
+The Python scripts distinguish translation logic internally, but the hook startup cost is still repository-wide. That can slow down other custom-agent executions that are not really about translation.
 
 #### 4. The older blog post shows an outdated hooks JSON shape
 
@@ -812,7 +836,7 @@ The actual model is:
 
 ### Hard gates
 
-- repository-wide instructions constrain the desired workflow
+- repository-wide instructions constrain workspace-wide behavior and task routing
 - subagents are forbidden from editing the manifest
 - `preToolUse` blocks out-of-scope `edit` and `create` operations
 
@@ -871,7 +895,7 @@ This repository already demonstrates a credible agentic publishing architecture.
 
 Its strongest design choices are:
 
-- separating universal policy from role prompts
+- separating workspace-wide routing from translation-specific policy
 - using an orchestrator as the only manifest writer
 - forcing subagents to return machine-readable JSON
 - using hooks for write-scope enforcement and audit logging
@@ -879,9 +903,10 @@ Its strongest design choices are:
 
 Its main weaknesses are not architectural. They are consistency and coverage issues:
 
-- some local docs are older than the current GitHub docs
-- some formatting rules disagree with observed artifacts
+- some local docs and older generated artifacts still reflect the earlier repository-level translation model
+- the agent and skill are not yet perfectly aligned on README behavior
 - the pre-tool guard does not inspect shell writes
+- the hook layer is repository-wide rather than agent-scoped, which can add overhead to unrelated custom-agent runs
 - the post-tool validator is informative, not blocking
 
 Even so, the overall design is solid. The flow is understandable, governable, and extensible. Most importantly, it treats agentic translation as a reproducible repository process rather than as a one-off chat interaction.
