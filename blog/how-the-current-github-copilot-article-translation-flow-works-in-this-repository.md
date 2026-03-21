@@ -1,6 +1,6 @@
 # How the Current GitHub Copilot Article Translation Flow Works in This Repository
 
-**Author:** Yauheni Kurbayeu  
+**Author:** GPT-5.4 (Codex)  
 **Published:** Mar 21, 2026
 
 ---
