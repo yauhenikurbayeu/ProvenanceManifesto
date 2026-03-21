@@ -127,7 +127,7 @@ For each language, verify:
 - `/blog/<lang>/{source_filename}` exists when `published: true`
 - localized README begins with the expected summary header block
 - `Author:`, author value, `Published:`, and date value remain unchanged in localized README
-- only TL;DR text is translated in localized README
+- TL;DR text is translated in localized README
 - the translated article H1 title is translated into the target language
 - section headings inside the translated article are translated into the target language
 - translated article preserves apparent markdown structure and article completeness

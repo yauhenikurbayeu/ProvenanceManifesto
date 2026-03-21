@@ -155,9 +155,8 @@ For each language, confirm:
 - localized TL;DR exists in manifest when `published: true`
 - localized `README.md` exists if README updates were requested
 - localized README header block is correctly formatted
-- the localized README title line remains unchanged from the English source title
 - `Author:`, author value, `Published:`, and date value remain unchanged in localized README
-- only TL;DR text is translated in localized README
+- TL;DR text is translated in localized README
 - the translated article H1 title is translated into the target language
 - section headings inside the translated article are translated into the target language
 - translated article is complete and structurally consistent
