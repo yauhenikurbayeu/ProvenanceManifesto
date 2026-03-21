@@ -1,3 +1,10 @@
+# The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 21, 2026 
+
+**TL;DR Эта статья показывает, что беглые ответы ИИ могут скрывать тонкие нарушения ограничений и границ: результаты выглядят корректными, но не являются полностью надёжными. Чтобы обнаруживать и объяснять такие отклонения, нам нужен Provenance — трассируемая память о решениях и контексте, — а не валидация только по итоговому выводу.**
+
 # Building an Automated Translation Pipeline for a Markdown Blog with GitHub Copilot
 
 **Author:** Yauheni Kurbayeu

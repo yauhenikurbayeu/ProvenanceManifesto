@@ -22,7 +22,7 @@ Extract from the source article:
 - author: from `**Author:** ...` or `Author: ...`
 - date: from `**Published:** ...`, `Published: ...`, or `Date: ...`
 
-Normalize README date output to exactly `dd.mm.yyy` whenever possible.
+Normalize README date output to exactly `MMM dd, yyyy` whenever possible.
 
 ## TL;DR generation rules
 
@@ -36,8 +36,10 @@ Normalize README date output to exactly `dd.mm.yyy` whenever possible.
 Find or create in blog `/blog/README.md` and prepend exactly these four lines:
 
 - `# {title}`
-- `Author: {author}`
-- `Published: {normalized_date}`
+- empty line
+- `**Author:** {author}`
+- `**Published:** {normalized_date}`
+- empty line
 - `**TL;DR {english_tldr}**`
 
 Additional constraints:

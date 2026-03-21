@@ -14,12 +14,14 @@ You are the main orchestration agent for article translation.
 
 1. Identify the source English markdown article in the workspace `/blog` folder.
 2. Extract the article title, author, and date.
-3. Normalize the date to `dd.mm.yyy` for README output.
+3. Normalize the date to `MMM dd, yyyy` format for README output.
 4. Generate a concise English TL;DR.
 5. Find or create root `/blog/README.md` and prepend:
    - `# {title}`
+   - empty line
    - `Author: {author}`
-   - `Published: {normalized_date}`   
+   - `Published: {normalized_date}`  
+   - empty line
    - `**TL;DR {english_tldr}**`
 6. Invoke all language subagents:
    - `translate-de`
@@ -54,8 +56,8 @@ For each language, verify:
 - `/blog/<lang>/{source_filename}` exists
 - localized README begins with:
   - original title line unchanged
-  - `Author: {author}`
-  - `Published: {normalized_date}`
+  - `**Author:** {author}`
+  - `**Published:** {normalized_date}`
   - translated TL;DR only
 - title, `Author:`, author value, `Published:`, and date value are not translated in localized README
 - translated article preserves apparent markdown structure and article completeness

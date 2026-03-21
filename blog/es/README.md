@@ -1,3 +1,10 @@
+# The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 21, 2026 
+
+**TL;DR Este artículo muestra que la fluidez de la IA puede ocultar violaciones sutiles de límites y restricciones: las salidas parecen correctas, pero no son totalmente fiables. Para detectar y explicar esas desviaciones, necesitamos Provenance —memoria trazable de decisiones y contexto— y no solo validación del resultado.**
+
 # Building an Automated Translation Pipeline for a Markdown Blog with GitHub Copilot
 
 **Author:** Yauheni Kurbayeu

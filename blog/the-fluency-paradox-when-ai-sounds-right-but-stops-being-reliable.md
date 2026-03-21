@@ -4,7 +4,7 @@
 
 **Author:** Yauheni Kurbayeu  
 **Published:** March 21, 2026  
-**[LinkedIn](https://www.linkedin.com/pulse/fluency-paradox-when-ai-sounds-right-stops-being-yauheni-kurbayeu-vn2pf** 
+**[LinkedIn](https://www.linkedin.com/pulse/fluency-paradox-when-ai-sounds-right-stops-being-yauheni-kurbayeu-vn2pf)** 
 
 
 ---

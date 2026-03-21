@@ -31,7 +31,7 @@ Extract:
 - author from `**Author:** ...` or `Author: ...`
 - date from `**Published:** ...`, `Published: ...`, or `Date: ...`
 
-Normalize the date for README output as `dd.mm.yyy`.
+Normalize the date for README output as `MMM dd, yyyy` .
 
 ## English TL;DR generation
 
@@ -42,8 +42,10 @@ Generate one concise TL;DR sentence or short paragraph that remains faithful to 
 Find or create root `README.md` and prepend exactly:
 
 - `# {title}`
-- `Author: {author}`
-- `Published: {normalized_date}`
+- empty line
+- `**Author: {author}**`
+- `**Published: {normalized_date}**`
+- empty line
 - `**TL;DR {english_tldr}**`
 
 Preserve existing content below and insert one blank line between the new block and the previous file content.
@@ -53,8 +55,10 @@ Preserve existing content below and insert one blank line between the new block 
 For each language folder, find or create `<lang>/README.md` and prepend exactly:
 
 - `# {title}`
-- `Author: {author}`
-- `Published: {normalized_date}`
+- empty line
+- `**Author:** {author}`
+- `**Published:** {normalized_date}`
+- empty line
 - `**TL;DR {localized_tldr}**`
 
 Constraints:
