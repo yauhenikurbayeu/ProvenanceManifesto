@@ -1,3 +1,10 @@
+# "Where Provenance Ends, Knowledge Decays" Reflections
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 17, 2026
+
+**TL;DR Wissen verliert seine Vertrauenswürdigkeit, sobald seine Herkunft verschwindet – KI beschleunigt diesen Verfall, indem sie überzeugende Ausgaben ohne nachvollziehbare Begründungskette erzeugt. Provenienz ist keine Formatierungsfrage, sondern eine Integritätsschicht: Ohne sie werden selbst korrekte Ergebnisse fragil, weil ihr Reasoning nicht rekonstruierbar ist.**
+
 # The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
 
 **Author:** Yauheni Kurbayeu

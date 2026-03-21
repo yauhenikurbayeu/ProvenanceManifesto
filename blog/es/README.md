@@ -1,3 +1,10 @@
+# "Where Provenance Ends, Knowledge Decays" Reflections
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 17, 2026
+
+**TL;DR Una reflexión sobre el ensayo de Jessica Talisman que argumenta que a medida que los modelos de lenguaje producen resultados más fluidos, disuelven la cadena de procedencia que hace confiable el conocimiento; el autor conecta esto con la procedencia de decisiones en la entrega de software, donde el razonamiento detrás de las decisiones desaparece, y propone que capturar la trazabilidad de decisiones de forma sistemática convierte la procedencia en infraestructura y en una nueva capacidad de gobernanza, auditabilidad y colaboración entre sistemas.**
+
 # The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
 
 **Author:** Yauheni Kurbayeu

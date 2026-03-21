@@ -1,3 +1,10 @@
+# "Where Provenance Ends, Knowledge Decays" Reflections
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 17, 2026
+
+**TL;DR Refleksje nad artykułem Jessiki Talisman pokazują, że utrata proweniencji wiedzy to nie problem formatowania cytatów, lecz strukturalny rozpad integralności – a w kontekście AI i inżynierii oprogramowania przechwytywanie uzasadnienia decyzji staje się fundamentem zarządzania, wyjaśnialności i bezpiecznej współpracy systemów.**
+
 # The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
 
 **Author:** Yauheni Kurbayeu

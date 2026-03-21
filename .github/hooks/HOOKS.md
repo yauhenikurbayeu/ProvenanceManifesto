@@ -33,7 +33,7 @@ This hook set is intentionally lightweight and aligned with the documented hook 
   - performs lightweight validation after successful `edit` or `create` operations on translation-related files
 
 - `sessionEnd`
-  - verifies whether `translation-summary.md` exists
+  - verifies whether `blog/translation-summary.md` exists
   - writes a concise completion record
 
 - `errorOccurred`
@@ -48,8 +48,9 @@ Hooks do not replace the orchestrator's own semantic verification and final summ
 The main orchestrator agent remains responsible for:
 - dispatching language subagents
 - collecting their results
+- updating `blog/manifest.json`
 - checking translated outputs semantically
-- writing `translation-summary.md`
+- writing `blog/translation-summary.md`
 
 ## Files in this folder
 
@@ -63,9 +64,16 @@ The main orchestrator agent remains responsible for:
 ## Validation scope used by the hooks
 
 Allowed translation workflow write targets:
-- root `README.md`
-- root `translation-summary.md`
-- root English source article `.md` file
-- files under `/blog/de`, `/blog/fr`, `/blog/es`, `/blog/pl`, `/blog/ru`
+- `blog/manifest.json`
+- `blog/README.md`
+- `blog/translation-summary.md`
+- English source article `.md` files under `blog/`
+- files under `blog/de`, `blog/fr`, `blog/es`, `blog/pl`, `blog/ru`
 
 Anything outside that scope is denied by the pre-tool guard for `edit` and `create`.
+
+The post-tool validator also performs a lightweight manifest sanity check:
+- `blog/manifest.json` must parse as JSON
+- it must expose an `articles` array
+- every published language entry must have a non-empty `tldr`
+- every published language entry must point to an existing file

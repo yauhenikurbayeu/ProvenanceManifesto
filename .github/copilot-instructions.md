@@ -1,6 +1,7 @@
 # Copilot Instructions
 
 This workspace is used to process English source articles in Markdown and produce:
+- a canonical publication entry in `/blog/manifest.json`
 - a blog root `/blog/README.md` summary header
 - localized `README.md` summary headers in `/blog/de`, `/blog/fr`, `/blog/es`, `/blog/pl`, `/blog/ru`
 - translated article files in `/blog/de`, `/blog/fr`, `/blog/es`, `/blog/pl`, `/blog/ru`
@@ -23,6 +24,25 @@ Extract from the source article:
 - date: from `**Published:** ...`, `Published: ...`, or `Date: ...`
 
 Normalize README date output to exactly `MMM dd, yyyy` whenever possible.
+
+## Manifest rules
+
+- `/blog/manifest.json` is the source of truth for publication.
+- The main agent must find or create a manifest entry for the source article before delegating translations.
+- `canonicalSlug` must remain stable forever and must be derived from the English source filename stem.
+- If an entry already exists for the source article, reuse its `id` and `canonicalSlug`.
+- If no entry exists, create one with:
+  - `id`: derived from `canonicalSlug` by replacing `_` with `-`
+  - `canonicalSlug`
+  - `languages.en.file`: English article path relative to `/blog`
+  - `languages.en.published: true`
+  - `languages.en.tldr`: English TL;DR
+- For each target language, the orchestrator must update:
+  - `languages.<lang>.file`
+  - `languages.<lang>.published`
+  - `languages.<lang>.tldr`
+- Translated `file` values in manifest must stay relative to `/blog`, for example `de/article.md`.
+- The orchestrator is the only agent allowed to edit `/blog/manifest.json`.
 
 ## TL;DR generation rules
 
@@ -86,26 +106,44 @@ The main agent must:
 - identify the source article
 - extract title, author, and date
 - generate the English TL;DR
+- create or patch the source article entry in `/blog/manifest.json`
 - update root `/blog/README.md`
 - delegate translation work to language-specific subagents for `de`, `fr`, `es`, `pl`, and `ru`
+- patch `/blog/manifest.json` after each subagent finishes using its returned file path, TL;DR, and published status
 - monitor subagent completion
 - verify the output of each subagent
 - write `/blog/translation-summary.md`
+- run `npm run build` as a final quality gate and include the result in the summary
 - report final status to the user
+
+The subagents must return machine-readable data that includes:
+- `language`
+- `translatedArticlePath`
+- `localizedReadmePath`
+- `localizedTldr`
+- `published`
+- `status`
+- `blockers`
 
 ## Verification rules
 
 For each language, verify:
+- `/blog/manifest.json` contains the expected language block
+- `languages.<lang>.file` points to the translated article path when `published: true`
+- `languages.<lang>.tldr` exists when `published: true`
 - `/blog/<lang>/README.md` exists
-- `/blog/<lang>/{source_filename}` exists
+- `/blog/<lang>/{source_filename}` exists when `published: true`
 - localized README begins with the expected four-line header block
 - title, `Author:`, author value, `Published:`, and date value remain unchanged in localized README
 - only TL;DR text is translated in localized README
 - translated article appears complete and structurally consistent with the source
+- `npm run build` exits with code 0 — no Astro build regressions introduced by the translation
+
+If `npm run build` fails, set overall status to `partial`, record the build error in `blog/translation-summary.md` under a `build-validation` section, and report the failure to the user.
 
 ## Failure handling
 
 - If one language fails, continue processing the others.
-- Always write `translation-summary.md`.
+- Always write `/blog/translation-summary.md`.
 - Mark final status as `success`, `partial`, or `failed`.
 - Include clear failure reasons per language when applicable.

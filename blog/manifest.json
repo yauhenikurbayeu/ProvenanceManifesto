@@ -83,28 +83,28 @@
         },
         "de": {
           "file": "de/where-provenance-ends-knowledge-decays-reflections.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Wissen verliert seine Vertrauenswürdigkeit, sobald seine Herkunft verschwindet – KI beschleunigt diesen Verfall, indem sie überzeugende Ausgaben ohne nachvollziehbare Begründungskette erzeugt. Provenienz ist keine Formatierungsfrage, sondern eine Integritätsschicht: Ohne sie werden selbst korrekte Ergebnisse fragil, weil ihr Reasoning nicht rekonstruierbar ist."
         },
         "es": {
           "file": "es/where-provenance-ends-knowledge-decays-reflections.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Una reflexión sobre el ensayo de Jessica Talisman que argumenta que a medida que los modelos de lenguaje producen resultados más fluidos, disuelven la cadena de procedencia que hace confiable el conocimiento; el autor conecta esto con la procedencia de decisiones en la entrega de software, donde el razonamiento detrás de las decisiones desaparece, y propone que capturar la trazabilidad de decisiones de forma sistemática convierte la procedencia en infraestructura y en una nueva capacidad de gobernanza, auditabilidad y colaboración entre sistemas."
         },
         "fr": {
           "file": "fr/where-provenance-ends-knowledge-decays-reflections.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Une réflexion sur l'essai de Jessica Talisman : lorsque les modèles de langage dissolvent la chaîne de traçabilité de la connaissance, la plausibilité remplace la confiance. L'auteur étend ce constat à la livraison logicielle — capturer la provenance des décisions (contexte, compromis, alternatives rejetées) n'est pas de la documentation, c'est de l'infrastructure ; sans elle, la dégradation devient la norme."
         },
         "pl": {
           "file": "pl/where-provenance-ends-knowledge-decays-reflections.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Refleksje nad artykułem Jessiki Talisman pokazują, że utrata proweniencji wiedzy to nie problem formatowania cytatów, lecz strukturalny rozpad integralności – a w kontekście AI i inżynierii oprogramowania przechwytywanie uzasadnienia decyzji staje się fundamentem zarządzania, wyjaśnialności i bezpiecznej współpracy systemów."
         },
         "ru": {
           "file": "ru/where-provenance-ends-knowledge-decays-reflections.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Рефлексия над статьёй Джессики Талисман о том, как языковые модели разрушают цепочку происхождения знаний: без провенанса даже корректный вывод становится хрупким, а в контексте разработки ПО это означает, что решения, принятые людьми и ИИ совместно, должны фиксироваться как структурированный след — иначе распад знаний становится не исключением, а нормой."
         }
       }
     },

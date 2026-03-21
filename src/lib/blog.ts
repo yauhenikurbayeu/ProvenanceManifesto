@@ -405,8 +405,8 @@ export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult 
   const nextHeadingId = createHeadingIdGenerator();
   const renderer = new marked.Renderer();
 
-  renderer.heading = ({ tokens, depth }) => {
-    const text = cleanInlineMarkdown(marked.parser(tokens).trim());
+  renderer.heading = ({ text: rawText, depth }) => {
+    const text = cleanInlineMarkdown(rawText);
     const id = nextHeadingId(text);
 
     if (depth >= 2 && depth <= 4) {
@@ -417,7 +417,7 @@ export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult 
       });
     }
 
-    const innerHtml = marked.parser(tokens);
+    const innerHtml = marked.parseInline(rawText) as string;
     return `<h${depth} id="${id}">${innerHtml}</h${depth}>`;
   };
 

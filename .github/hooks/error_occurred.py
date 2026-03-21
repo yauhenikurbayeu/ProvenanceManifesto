@@ -1,5 +1,5 @@
 
-import json, os, sys, pathlib, datetime
+import json, sys, pathlib, datetime
 
 ROOT = pathlib.Path.cwd()
 HOOK_DIR = ROOT / ".github" / "hooks"
@@ -20,44 +20,7 @@ def append_jsonl(path, payload):
         fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
 def now_iso():
-    return datetime.datetime.utcnow().isoformat() + "Z"
-
-LANG_DIRS = {"de", "fr", "es", "pl", "ru"}
-
-def parse_tool_args(obj):
-    tool_args = obj.get("toolArgs")
-    if isinstance(tool_args, dict):
-        return tool_args
-    if isinstance(tool_args, str):
-        try:
-            return json.loads(tool_args)
-        except Exception:
-            return {"_raw": tool_args}
-    return {}
-
-def is_root_markdown(path_str):
-    p = pathlib.PurePosixPath(path_str.replace("\\", "/"))
-    return len(p.parts) == 1 and p.suffix.lower() == ".md"
-
-def allowed_write_path(path_str):
-    if not path_str:
-        return True
-    p = pathlib.PurePosixPath(path_str.replace("\\", "/"))
-    parts = p.parts
-    if not parts:
-        return True
-    # root-level allowed files
-    if len(parts) == 1:
-        name = parts[0]
-        if name in {"README.md", "translation-summary.md"}:
-            return True
-        if name.endswith(".md"):
-            return True
-        return False
-    # language folders
-    if parts[0] in LANG_DIRS:
-        return True
-    return False
+    return datetime.datetime.now(datetime.UTC).isoformat().replace("+00:00", "Z")
 
 data = read_input()
 append_jsonl(LOG_DIR / "errors.jsonl", {

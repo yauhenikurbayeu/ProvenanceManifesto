@@ -1,3 +1,10 @@
+# "Where Provenance Ends, Knowledge Decays" Reflections
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 17, 2026
+
+**TL;DR Рефлексия над статьёй Джессики Талисман о том, как языковые модели разрушают цепочку происхождения знаний: без провенанса даже корректный вывод становится хрупким, а в контексте разработки ПО это означает, что решения, принятые людьми и ИИ совместно, должны фиксироваться как структурированный след — иначе распад знаний становится не исключением, а нормой.**
+
 # The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
 
 **Author:** Yauheni Kurbayeu

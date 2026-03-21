@@ -1,5 +1,5 @@
 
-import json, os, sys, pathlib, datetime
+import json, sys, pathlib, datetime
 
 ROOT = pathlib.Path.cwd()
 HOOK_DIR = ROOT / ".github" / "hooks"
@@ -20,9 +20,10 @@ def append_jsonl(path, payload):
         fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
 def now_iso():
-    return datetime.datetime.utcnow().isoformat() + "Z"
+    return datetime.datetime.now(datetime.UTC).isoformat().replace("+00:00", "Z")
 
 LANG_DIRS = {"de", "fr", "es", "pl", "ru"}
+BLOG_DIR = "blog"
 
 def parse_tool_args(obj):
     tool_args = obj.get("toolArgs")
@@ -35,10 +36,6 @@ def parse_tool_args(obj):
             return {"_raw": tool_args}
     return {}
 
-def is_root_markdown(path_str):
-    p = pathlib.PurePosixPath(path_str.replace("\\", "/"))
-    return len(p.parts) == 1 and p.suffix.lower() == ".md"
-
 def allowed_write_path(path_str):
     if not path_str:
         return True
@@ -46,16 +43,16 @@ def allowed_write_path(path_str):
     parts = p.parts
     if not parts:
         return True
-    # root-level allowed files
-    if len(parts) == 1:
-        name = parts[0]
-        if name in {"README.md", "translation-summary.md"}:
+    if parts[0] != BLOG_DIR:
+        return False
+    if len(parts) == 2:
+        name = parts[1]
+        if name == "manifest.json":
             return True
         if name.endswith(".md"):
             return True
         return False
-    # language folders
-    if parts[0] in LANG_DIRS:
+    if len(parts) >= 3 and parts[1] in LANG_DIRS:
         return True
     return False
 
@@ -78,7 +75,7 @@ if tool_name in {"edit", "create"}:
     if bad:
         decision = {
             "permissionDecision": "deny",
-            "permissionDecisionReason": "Article translation workflow may only write root Markdown files, translation-summary.md, README.md, or files inside de/fr/es/pl/ru."
+            "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."
         }
 
 append_jsonl(LOG_DIR / "pre-tool-use.jsonl", {

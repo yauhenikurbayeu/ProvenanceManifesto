@@ -1,6 +1,6 @@
 ---
 name: article-translation
-description: Process a root English markdown article, extract metadata, generate a TL;DR, update root and localized README files, orchestrate language-specific translation subagents, verify outputs, and write a translation summary.
+description: Process a blog English markdown article, extract metadata, generate TL;DRs, update blog/manifest.json, optionally update README files, orchestrate language-specific translation subagents, verify outputs, and write a translation summary.
 ---
 
 # Article Translation Skill
@@ -18,11 +18,10 @@ Use this skill when a new English Markdown article needs to be processed and tra
 ## Source article identification
 
 - A source article is
-  - - specified by user input and located in the workspace root
-  - - or the most recent an English `.md` file other than README.md placed in the workspace root.
-- Ignore `README.md`.
-- Ignore files inside `.github`, `.vscode`, and language folders.
-- Prefer the newest or explicitly requested root-level article.
+  - specified by user input and located in `/blog`
+  - or the most recent English `.md` file in `/blog` other than `README.md`.
+- Ignore `README.md`, `manifest.json`, translation summary files, and language folders.
+- Prefer the newest or explicitly requested `/blog` article.
 
 ## Metadata extraction
 
@@ -31,15 +30,52 @@ Extract:
 - author from `**Author:** ...` or `Author: ...`
 - date from `**Published:** ...`, `Published: ...`, or `Date: ...`
 
-Normalize the date for README output as `MMM dd, yyyy` .
+Normalize the date as `MMM dd, yyyy`.
+
+## Manifest output
+
+Find or create `/blog/manifest.json` and treat it as the authoritative publication registry.
+
+For the English article, ensure:
+- `id`
+- `canonicalSlug`
+- `languages.en.file`
+- `languages.en.published = true`
+- `languages.en.tldr = {english_tldr}`
+
+For each translated language, the orchestrator should update:
+- `languages.<lang>.file`
+- `languages.<lang>.published`
+- `languages.<lang>.tldr`
+
+If translation fails for a language, keep the language block and set `published: false`.
+
+## Manifest patch procedure
+
+During a real translation run:
+1. Read `/blog/manifest.json` if it exists.
+2. Compute `canonicalSlug` from the English source filename stem.
+3. Reuse an existing entry when either `canonicalSlug` matches or `languages.en.file` matches the source filename.
+4. Otherwise create a new entry with:
+  - `id = canonicalSlug.replace(/_/g, '-')`
+  - `canonicalSlug`
+  - supported language blocks for `en`, `de`, `es`, `fr`, `pl`, `ru`
+5. Patch `languages.en` before launching subagents.
+6. Require each subagent to return a machine-readable final JSON object.
+7. Patch one localized manifest block per subagent result.
+8. Save `/blog/manifest.json` before final verification and summary generation.
+
+Manifest path values must stay relative to `/blog`, for example `de/article.md`.
 
 ## English TL;DR generation
 
 Generate one concise TL;DR sentence or short paragraph that remains faithful to the article.
 
-## Root README output
+## README output
 
-Find or create root `README.md` and prepend exactly:
+README files are optional human-facing summary artifacts and are not the source of truth for publication.
+
+If maintained, find or create `/blog/README.md` and prepend exactly:
 
 - `# {title}`
 - empty line
@@ -52,7 +88,7 @@ Preserve existing content below and insert one blank line between the new block 
 
 ## Localized README output
 
-For each language folder, find or create `<lang>/README.md` and prepend exactly:
+For each language folder, find or create `/blog/<lang>/README.md` and prepend exactly:
 
 - `# {title}`
 - empty line
@@ -71,7 +107,7 @@ Constraints:
 
 ## Translated article output
 
-Create a translated article file at `/<lang>/{source_filename}`.
+Create a translated article file at `/blog/<lang>/{source_filename}`.
 
 Constraints:
 - translate the article content fully
@@ -87,29 +123,43 @@ The main orchestrator agent should:
 1. identify the source article
 2. extract metadata
 3. generate English TL;DR
-4. update root `README.md`
-5. invoke `translate-de`, `translate-fr`, `translate-es`, `translate-pl`, and `translate-ru`
-6. collect subagent outputs
-7. verify each language result
-8. write `translation-summary.md`
-9. report final status
+4. update the English block in `/blog/manifest.json`
+5. optionally update `/blog/README.md`
+6. invoke `translate-de`, `translate-fr`, `translate-es`, `translate-pl`, and `translate-ru`
+7. collect subagent outputs
+8. update localized manifest language blocks
+9. verify each language result
+10. write `/blog/translation-summary.md`
+11. report final status
+
+The orchestrator is the only agent allowed to edit `/blog/manifest.json`.
+
+Each language subagent should return a final fenced `json` block with:
+- `language`
+- `status`
+- `translatedArticlePath`
+- `localizedReadmePath`
+- `localizedTldr`
+- `published`
+- `blockers`
 
 ## Verification checklist
 
 For each language, confirm:
-- language folder exists
-- localized `README.md` exists
-- translated article file exists
+- manifest language block exists
+- translated article file exists when `published: true`
+- localized TL;DR exists in manifest when `published: true`
+- localized `README.md` exists if README updates were requested
 - localized README header block is correctly formatted
-- title and metadata lines are not translated in localized README
 - translated article is complete and structurally consistent
 
 ## Final summary
 
-Write `translation-summary.md` containing:
+Write `/blog/translation-summary.md` containing:
 - source file path
 - extracted title, author, date
 - English TL;DR
+- manifest update status
 - files created or updated for each language
 - verification outcome for each language
 - failures or warnings
