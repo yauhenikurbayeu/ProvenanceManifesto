@@ -99,6 +99,7 @@ For each language folder, find or create `/blog/<lang>/README.md` and prepend ex
 - `**TL;DR {localized_tldr}**`
 
 Constraints:
+- do not translate the title line in localized README header blocks
 - do not translate `Author:`
 - do not translate the author value
 - do not translate `Published:`
@@ -110,7 +111,9 @@ Constraints:
 Create a translated article file at `/blog/<lang>/{source_filename}`.
 
 Constraints:
+- translate the article title (`# ...`) into the target language
 - translate the article content fully
+- translate section headings and other human-language headings into the target language
 - preserve meaning and order
 - preserve markdown structure
 - preserve links, images, tables, blockquotes, and code fences
@@ -152,8 +155,11 @@ For each language, confirm:
 - localized TL;DR exists in manifest when `published: true`
 - localized `README.md` exists if README updates were requested
 - localized README header block is correctly formatted
+- the localized README title line remains unchanged from the English source title
 - `Author:`, author value, `Published:`, and date value remain unchanged in localized README
 - only TL;DR text is translated in localized README
+- the translated article H1 title is translated into the target language
+- section headings inside the translated article are translated into the target language
 - translated article is complete and structurally consistent
 
 For the full run, also confirm:

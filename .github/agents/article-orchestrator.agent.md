@@ -128,6 +128,8 @@ For each language, verify:
 - localized README begins with the expected summary header block
 - `Author:`, author value, `Published:`, and date value remain unchanged in localized README
 - only TL;DR text is translated in localized README
+- the translated article H1 title is translated into the target language
+- section headings inside the translated article are translated into the target language
 - translated article preserves apparent markdown structure and article completeness
 - `npm run build` exits with code 0 (no Astro build regressions)
 
