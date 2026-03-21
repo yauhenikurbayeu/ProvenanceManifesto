@@ -1,7 +1,7 @@
 ---
 import BlogPage from '../../../components/BlogPage.astro';
 import { getLocalizedPath, type SupportedLang, useTranslations } from '../../../i18n/utils';
-import { getBlogReadmePath, getLocalizedBlogArticles, getLocalizedBlogLanguages } from '../../../lib/blog';
+import { getLocalizedBlogArticles, getLocalizedBlogLanguages } from '../../../lib/blog';
 
 export function getStaticPaths() {
   return getLocalizedBlogLanguages().map((lang) => ({ params: { lang } }));
@@ -9,11 +9,6 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const normalizedLang = lang as SupportedLang;
-const readmePath = getBlogReadmePath(normalizedLang);
-
-if (!readmePath) {
-  throw new Error(`Missing localized blog README for language: ${normalizedLang}`);
-}
 
 const articles = getLocalizedBlogArticles(normalizedLang);
 const blogPath = getLocalizedPath(normalizedLang, 'blog');
@@ -24,7 +19,6 @@ const t = useTranslations(normalizedLang);
   lang={normalizedLang}
   title={t('blog.title')}
   description={t('blog.description')}
-  readmePath={readmePath}
   articles={articles}
   canonicalPath={blogPath}
   articleHrefBuilder={(slug: string) => `${blogPath}/${slug}`}

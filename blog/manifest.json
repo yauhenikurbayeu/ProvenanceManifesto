@@ -1,0 +1,580 @@
+{
+  "articles": [
+    {
+      "id": "fluency-paradox",
+      "canonicalSlug": "the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable",
+      "languages": {
+        "en": {
+          "file": "the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable.md",
+          "published": true,
+          "tldr": "I asked AI to revise my English. It did a great job — cleaner, sharper, more readable. And then… it quietly inserted a Russian word into the middle of the sentence. Nothing broke. The sentence still made sense. You could read it and move on without noticing. That’s the problem. We’ve been trained to look for failures as crashes, errors, broken outputs. But AI doesn’t fail like that. It fails silently. It produces results that look correct — and that’s exactly what makes them dangerous. This is what I call the Fluency Paradox 👉"
+        },
+        "de": {
+          "file": "de/the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable.md",
+          "published": true,
+          "tldr": "Dieser Beitrag zeigt, dass fluente KI-Ausgaben subtile Grenz- und Constraint-Verletzungen verbergen können: Ergebnisse wirken korrekt, sind aber nicht vollständig verlässlich. Um solche Abweichungen erkennbar und erklärbar zu machen, brauchen wir Provenance – also nachvollziehbare Entscheidungs- und Kontextspeicher – statt reiner Output-Prüfung."
+        },
+        "es": {
+          "file": "es/the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable.md",
+          "published": true,
+          "tldr": "Este artículo muestra que la fluidez de la IA puede ocultar violaciones sutiles de límites y restricciones: las salidas parecen correctas, pero no son totalmente fiables. Para detectar y explicar esas desviaciones, necesitamos Provenance —memoria trazable de decisiones y contexto— y no solo validación del resultado."
+        },
+        "fr": {
+          "file": "fr/the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable.md",
+          "published": true,
+          "tldr": "Cet article montre que la fluidité de l’IA peut masquer des violations subtiles de contraintes et de frontières : les sorties paraissent correctes, mais ne sont pas totalement fiables. Pour détecter et expliquer ces dérives, nous avons besoin de Provenance — une mémoire traçable des décisions et du contexte — et pas seulement d’une validation des résultats."
+        },
+        "pl": {
+          "file": "pl/the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable.md",
+          "published": true,
+          "tldr": "Ten artykuł pokazuje, że płynność odpowiedzi AI może ukrywać subtelne naruszenia ograniczeń i granic: wyniki wyglądają poprawnie, ale nie są w pełni wiarygodne. Aby wykrywać i wyjaśniać takie odchylenia, potrzebujemy Provenance — czyli śledzalnej pamięci decyzji i kontekstu — a nie wyłącznie walidacji samego wyniku."
+        },
+        "ru": {
+          "file": "ru/the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable.md",
+          "published": true,
+          "tldr": "Эта статья показывает, что беглые ответы ИИ могут скрывать тонкие нарушения ограничений и границ: результаты выглядят корректными, но не являются полностью надёжными. Чтобы обнаруживать и объяснять такие отклонения, нам нужен Provenance — трассируемая память о решениях и контексте, — а не валидация только по итоговому выводу."
+        }
+      }
+    },
+    {
+      "id": "building-translation-pipeline",
+      "canonicalSlug": "building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot",
+      "languages": {
+        "en": {
+          "file": "building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md",
+          "published": true,
+          "tldr": "This guide explains how to automate a Markdown blog into a multilingual publishing pipeline using GitHub Copilot Agents, where an orchestrator coordinates language subagents, updates README summaries, applies hooks and skills as guardrails, and produces reproducible, scalable outputs."
+        },
+        "de": {
+          "file": "de/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md",
+          "published": true,
+          "tldr": "Dieser Leitfaden erklärt, wie man einen Markdown-Blog mit GitHub Copilot Agents zu einer mehrsprachigen Publishing-Pipeline automatisiert, bei der ein Orchestrator Sprach-Subagents koordiniert, README-Zusammenfassungen aktualisiert, Hooks und Skills als Guardrails einsetzt und reproduzierbare, skalierbare Ergebnisse erzeugt."
+        },
+        "es": {
+          "file": "es/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md",
+          "published": true,
+          "tldr": "Esta guía explica cómo automatizar un blog en Markdown en una canalización de publicación multilingüe usando GitHub Copilot Agents, donde un orquestador coordina subagentes por idioma, actualiza resúmenes de README, aplica hooks y skills como barreras de control, y produce resultados reproducibles y escalables."
+        },
+        "fr": {
+          "file": "fr/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md",
+          "published": true,
+          "tldr": "Ce guide explique comment automatiser un blog Markdown en pipeline de publication multilingue à l’aide des agents GitHub Copilot, où un orchestrateur coordonne des sous-agents par langue, met à jour les résumés README, applique des hooks et des skills comme garde-fous, et produit des résultats reproductibles et scalables."
+        },
+        "pl": {
+          "file": "pl/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md",
+          "published": true,
+          "tldr": "Ten przewodnik wyjaśnia, jak zautomatyzować blog Markdown do wielojęzycznego pipeline’u publikacyjnego z użyciem GitHub Copilot Agents, gdzie orkiestrator koordynuje podagentów językowych, aktualizuje podsumowania README, stosuje hooks i skills jako mechanizmy ochronne oraz zapewnia powtarzalne, skalowalne wyniki."
+        },
+        "ru": {
+          "file": "ru/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md",
+          "published": true,
+          "tldr": "Это руководство объясняет, как автоматизировать Markdown-блог в многоязычный конвейер публикации с использованием GitHub Copilot Agents, где оркестратор координирует языковые субагенты, обновляет сводки README, применяет hooks и skills как защитные механизмы и обеспечивает воспроизводимые, масштабируемые результаты."
+        }
+      }
+    },
+    {
+      "id": "where-provenance-ends-knowledge-decays-reflections",
+      "canonicalSlug": "where-provenance-ends-knowledge-decays-reflections",
+      "languages": {
+        "en": {
+          "file": "where-provenance-ends-knowledge-decays-reflections.md",
+          "published": true,
+          "tldr": "Here is another strong argument on something that has been quietly breaking beneath the surface of the AI wave - the relationship between knowledge and its origin."
+        },
+        "de": {
+          "file": "de/where-provenance-ends-knowledge-decays-reflections.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/where-provenance-ends-knowledge-decays-reflections.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/where-provenance-ends-knowledge-decays-reflections.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/where-provenance-ends-knowledge-decays-reflections.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/where-provenance-ends-knowledge-decays-reflections.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
+    {
+      "id": "provenance-is-not-about-tools-it-is-about-mindset",
+      "canonicalSlug": "provenance-is-not-about-tools-it-is-about-mindset",
+      "languages": {
+        "en": {
+          "file": "provenance-is-not-about-tools-it-is-about-mindset.md",
+          "published": true,
+          "tldr": "Humans naturally resist sharing the reasoning behind their decisions because context and memory have historically been a source of influence and professional advantage. As a result, many critical decisions remain undocumented and live only in conversations or individual memory. In the AI-augmented era this becomes a serious governance problem, because systems evolve faster and the reasoning behind changes disappears even more quickly. Without preserved decision context, organizations lose the ability to explain, audit, or safely evolve their systems. The AI shift therefore turns decision provenance from a cultural preference into a structural requirement for organizational governance."
+        },
+        "de": {
+          "file": "de/provenance-is-not-about-tools-it-is-about-mindset.md",
+          "published": true,
+          "tldr": "Menschen widersetzen sich von Natur aus dagegen, die Begründungen hinter ihren Entscheidungen zu teilen, weil Kontext und Erinnerung historisch eine Quelle von Einfluss und beruflichem Vorteil waren. Infolgedessen bleiben viele kritische Entscheidungen undokumentiert und existieren nur in Gesprächen oder im individuellen Gedächtnis. Im KI-augmentierten Zeitalter wird dies zu einem ernsthaften Governance-Problem, weil sich Systeme schneller entwickeln und die Begründungen hinter Veränderungen noch schneller verschwinden. Ohne bewahrten Entscheidungskontext verlieren Organisationen die Fähigkeit, ihre Systeme zu erklären, zu prüfen oder sicher weiterzuentwickeln. Der KI-Wandel macht Entscheidungs-Provenienz daher von einer kulturellen Präferenz zu einer strukturellen Voraussetzung für organisatorische Governance."
+        },
+        "es": {
+          "file": "es/provenance-is-not-about-tools-it-is-about-mindset.md",
+          "published": true,
+          "tldr": "Los humanos resisten de forma natural compartir el razonamiento detrás de sus decisiones porque el contexto y la memoria históricamente han sido una fuente de influencia y ventaja profesional. Como resultado, muchas decisiones críticas permanecen sin documentar y viven solo en conversaciones o en la memoria individual. En la era aumentada por IA esto se convierte en un serio problema de gobernanza, porque los sistemas evolucionan más rápido y el razonamiento detrás de los cambios desaparece aún más rápido. Sin preservar el contexto de las decisiones, las organizaciones pierden la capacidad de explicar, auditar o evolucionar sus sistemas de forma segura. El cambio provocado por la IA convierte la procedencia de las decisiones de una preferencia cultural en un requisito estructural para la gobernanza organizacional."
+        },
+        "fr": {
+          "file": "fr/provenance-is-not-about-tools-it-is-about-mindset.md",
+          "published": true,
+          "tldr": "Les humains résistent naturellement à partager le raisonnement derrière leurs décisions, car le contexte et la mémoire ont historiquement été une source d’influence et d’avantage professionnel. En conséquence, de nombreuses décisions critiques restent non documentées et n’existent que dans des conversations ou dans la mémoire individuelle. À l’ère augmentée par l’IA, cela devient un sérieux problème de gouvernance, car les systèmes évoluent plus rapidement et le raisonnement derrière les changements disparaît encore plus vite. Sans préserver le contexte des décisions, les organisations perdent la capacité d’expliquer, d’auditer ou de faire évoluer leurs systèmes en toute sécurité. Le basculement provoqué par l’IA transforme donc la provenance des décisions d’une préférence culturelle en une exigence structurelle de gouvernance organisationnelle."
+        },
+        "pl": {
+          "file": "pl/provenance-is-not-about-tools-it-is-about-mindset.md",
+          "published": true,
+          "tldr": "Ludzie naturalnie niechętnie dzielą się rozumowaniem stojącym za swoimi decyzjami, ponieważ kontekst i pamięć historycznie były źródłem wpływu oraz przewagi zawodowej. W rezultacie wiele krytycznych decyzji pozostaje nieudokumentowanych i istnieje jedynie w rozmowach lub w indywidualnej pamięci. W erze wspomaganej przez AI staje się to poważnym problemem zarządczym, ponieważ systemy ewoluują szybciej, a uzasadnienie zmian znika jeszcze szybciej. Bez zachowania kontekstu decyzji organizacje tracą zdolność do wyjaśniania, audytowania oraz bezpiecznego rozwijania swoich systemów. Zmiana wywołana przez AI przekształca więc pochodzenie decyzji z kulturowej preferencji w strukturalny wymóg zarządzania organizacją."
+        },
+        "ru": {
+          "file": "ru/provenance-is-not-about-tools-it-is-about-mindset.md",
+          "published": true,
+          "tldr": "Люди естественно сопротивляются тому, чтобы делиться рассуждениями, стоящими за их решениями, потому что контекст и память исторически были источником влияния и профессионального преимущества. В результате многие критически важные решения остаются недокументированными и существуют только в разговорах или в индивидуальной памяти. В эпоху, усиленную ИИ, это становится серьёзной проблемой управления, потому что системы эволюционируют быстрее, а логика изменений исчезает ещё быстрее. Без сохранения контекста решений организации теряют способность объяснять, аудировать и безопасно развивать свои системы. Переход к ИИ превращает происхождение решений из культурного предпочтения в структурное требование организационного управления."
+        }
+      }
+    },
+    {
+      "id": "why-decisions-must-become-a-first-class-artifact",
+      "canonicalSlug": "why_decisions_must_become_a_first_class_artifact",
+      "languages": {
+        "en": {
+          "file": "why_decisions_must_become_a_first_class_artifact.md",
+          "published": true,
+          "tldr": "Once decisions become first-class artifacts, something fundamentally changes. When the environment evolves, we are no longer forced to rediscover the reasoning behind the system through archaeology and speculation. Instead, we can revisit the original decision, update the assumptions that are no longer valid, and regenerate the implementation in a way that reflects the new context."
+        },
+        "de": {
+          "file": "de/why_decisions_must_become_a_first_class_artifact.md",
+          "published": true,
+          "tldr": "Sobald Entscheidungen zu erstklassigen Artefakten werden, verändert sich etwas Grundlegendes. Wenn sich die Umgebung weiterentwickelt, sind wir nicht länger gezwungen, die Begründungen hinter einem System durch Archäologie und Spekulation erneut zu entdecken. Stattdessen können wir die ursprüngliche Entscheidung erneut betrachten, die Annahmen aktualisieren, die nicht mehr gültig sind, und die Implementierung so neu erzeugen, dass sie den neuen Kontext widerspiegelt."
+        },
+        "es": {
+          "file": "es/why_decisions_must_become_a_first_class_artifact.md",
+          "published": true,
+          "tldr": "Una vez que las decisiones se convierten en artefactos de primera clase, algo cambia fundamentalmente. Cuando el entorno evoluciona, ya no estamos obligados a redescubrir el razonamiento detrás del sistema mediante arqueología y especulación. En su lugar, podemos revisar la decisión original, actualizar las suposiciones que ya no son válidas y regenerar la implementación de una forma que refleje el nuevo contexto."
+        },
+        "fr": {
+          "file": "fr/why_decisions_must_become_a_first_class_artifact.md",
+          "published": true,
+          "tldr": "Une fois que les décisions deviennent des artefacts de première classe, quelque chose change fondamentalement. Lorsque l’environnement évolue, nous ne sommes plus contraints de redécouvrir le raisonnement derrière le système par une forme d’archéologie et de spéculation. Nous pouvons plutôt revisiter la décision originale, mettre à jour les hypothèses qui ne sont plus valides et régénérer l’implémentation d’une manière qui reflète le nouveau contexte."
+        },
+        "pl": {
+          "file": "pl/why_decisions_must_become_a_first_class_artifact.md",
+          "published": true,
+          "tldr": "Gdy decyzje stają się artefaktami pierwszej klasy, coś zmienia się fundamentalnie. Kiedy środowisko ewoluuje, nie jesteśmy już zmuszeni do ponownego odkrywania logiki systemu poprzez „archeologię” i spekulacje. Zamiast tego możemy wrócić do pierwotnej decyzji, zaktualizować założenia, które przestały być aktualne, i ponownie wygenerować implementację w sposób odzwierciedlający nowy kontekst."
+        },
+        "ru": {
+          "file": "ru/why_decisions_must_become_a_first_class_artifact.md",
+          "published": true,
+          "tldr": "Когда решения становятся первоклассными артефактами, происходит фундаментальное изменение. Когда среда меняется, нам больше не нужно заново «раскапывать» логику системы через археологию и догадки. Вместо этого мы можем вернуться к исходному решению, обновить предположения, которые больше не актуальны, и заново сформировать реализацию таким образом, чтобы она отражала новый контекст."
+        }
+      }
+    },
+    {
+      "id": "2030-a-provenance-native-company",
+      "canonicalSlug": "2030_a_provenance_native_company",
+      "languages": {
+        "en": {
+          "file": "2030_a_provenance_native_company.md",
+          "published": true,
+          "tldr": "Let's imagine a \"Provenance-native company\" in 2030 - an organization built from the beginning around decision lineage, SDLC memory, and AI execution traceability rather than trying to retrofit it later."
+        },
+        "de": {
+          "file": "de/2030_a_provenance_native_company.md",
+          "published": true,
+          "tldr": "Stellen wir uns ein „Provenance-natives Unternehmen“ im Jahr 2030 vor – eine Organisation, die von Anfang an um Entscheidungs-Lineage, SDLC-Gedächtnis und Nachvollziehbarkeit von KI-Ausführungen herum aufgebaut wurde, anstatt zu versuchen, dies später nachzurüsten."
+        },
+        "es": {
+          "file": "es/2030_a_provenance_native_company.md",
+          "published": true,
+          "tldr": "Imaginemos una “empresa nativa de Provenance” en 2030: una organización construida desde el principio alrededor del linaje de decisiones, la memoria del SDLC y la trazabilidad de la ejecución de IA, en lugar de intentar incorporarlo posteriormente."
+        },
+        "fr": {
+          "file": "fr/2030_a_provenance_native_company.md",
+          "published": true,
+          "tldr": "Imaginons une « entreprise native de la provenance » en 2030 — une organisation construite dès le départ autour de la lignée des décisions, de la mémoire du SDLC et de la traçabilité de l’exécution de l’IA, plutôt que d’essayer de l’ajouter après coup."
+        },
+        "pl": {
+          "file": "pl/2030_a_provenance_native_company.md",
+          "published": true,
+          "tldr": "Wyobraźmy sobie „organizację native w modelu Provenance” w 2030 roku — firmę zbudowaną od samego początku wokół linii pochodzenia decyzji, pamięci SDLC oraz śledzenia wykonania AI, zamiast próbować dodać te elementy dopiero później."
+        },
+        "ru": {
+          "file": "ru/2030_a_provenance_native_company.md",
+          "published": true,
+          "tldr": "Представим «компанию, изначально построенную вокруг Provenance» в 2030 году — организацию, которая с самого начала создаётся вокруг происхождения решений, памяти SDLC и трассируемости исполнения ИИ, а не пытается добавить это позже."
+        }
+      }
+    },
+    {
+      "id": "why-organizational-memory-is-not-just-an-ai-knowledge-system",
+      "canonicalSlug": "why-organizational-memory-is-not-just-an-ai-knowledge-system",
+      "languages": {
+        "en": {
+          "file": "why-organizational-memory-is-not-just-an-ai-knowledge-system.md",
+          "published": true,
+          "tldr": "Following the release of the initial version of the Provenance Manifesto, I began examining whether existing market solutions align with principles outlined therein."
+        },
+        "de": {
+          "file": "de/why-organizational-memory-is-not-just-an-ai-knowledge-system.md",
+          "published": true,
+          "tldr": "Nach der Veröffentlichung der ersten Version des Provenance Manifesto begann ich zu untersuchen, ob bestehende Marktlösungen mit den dort beschriebenen Prinzipien übereinstimmen."
+        },
+        "es": {
+          "file": "es/why-organizational-memory-is-not-just-an-ai-knowledge-system.md",
+          "published": true,
+          "tldr": "Tras la publicación de la versión inicial del Provenance Manifesto, comencé a examinar si las soluciones existentes en el mercado realmente se alinean con los principios descritos en él."
+        },
+        "fr": {
+          "file": "fr/why-organizational-memory-is-not-just-an-ai-knowledge-system.md",
+          "published": true,
+          "tldr": "Suite à la publication de la version initiale du Provenance Manifesto, j’ai commencé à examiner si les solutions existantes sur le marché s’alignent réellement avec les principes qui y sont décrits."
+        },
+        "pl": {
+          "file": "pl/why-organizational-memory-is-not-just-an-ai-knowledge-system.md",
+          "published": true,
+          "tldr": "Po opublikowaniu pierwszej wersji Provenance Manifesto zacząłem sprawdzać, czy istniejące rozwiązania rynkowe rzeczywiście odpowiadają zasadom w nim opisanym."
+        },
+        "ru": {
+          "file": "ru/why-organizational-memory-is-not-just-an-ai-knowledge-system.md",
+          "published": true,
+          "tldr": "После публикации первой версии Provenance Manifesto я начал исследовать, соответствуют ли существующие на рынке решения принципам, изложенным в нём."
+        }
+      }
+    },
+    {
+      "id": "the-day-the-provenance-manifesto-was-born",
+      "canonicalSlug": "the_day_the_provenance_manifesto_was_born",
+      "languages": {
+        "en": {
+          "file": "the_day_the_provenance_manifesto_was_born.md",
+          "published": true,
+          "tldr": "The article explores a simple but overlooked problem: software organizations rarely preserve the reasoning behind their decisions, even though those decisions shape everything they build. It argues that AI retrieval and documentation alone cannot solve this, because what’s missing is a structured system that records the relationships between decisions, assumptions, and outcomes. The Provenance Manifesto proposes treating decisions as first-class artifacts so organizations can preserve intent, accountability, and decision lineage as AI accelerates software development."
+        },
+        "de": {
+          "file": "de/the_day_the_provenance_manifesto_was_born.md",
+          "published": true,
+          "tldr": "Der Artikel untersucht ein einfaches, aber übersehenes Problem: Softwareorganisationen bewahren selten die Begründungen hinter ihren Entscheidungen auf, obwohl genau diese Entscheidungen alles prägen, was sie bauen. Er argumentiert, dass KI-Retrieval und Dokumentation allein dieses Problem nicht lösen können, weil das fehlt, was wirklich benötigt wird: ein strukturiertes System, das die Beziehungen zwischen Entscheidungen, Annahmen und Ergebnissen festhält. Das Provenance Manifesto schlägt vor, Entscheidungen als erstklassige Artefakte zu behandeln, damit Organisationen Absicht, Verantwortlichkeit und Entscheidungs-Lineage bewahren können, während KI die Softwareentwicklung beschleunigt."
+        },
+        "es": {
+          "file": "es/the_day_the_provenance_manifesto_was_born.md",
+          "published": true,
+          "tldr": "El artículo explora un problema simple pero a menudo ignorado: las organizaciones de software rara vez preservan el razonamiento detrás de sus decisiones, aunque esas decisiones moldean todo lo que construyen. Argumenta que la recuperación mediante IA y la documentación por sí solas no pueden resolver este problema, porque lo que falta es un sistema estructurado que registre las relaciones entre decisiones, suposiciones y resultados. El Provenance Manifesto propone tratar las decisiones como artefactos de primera clase para que las organizaciones puedan preservar la intención, la responsabilidad y el linaje de decisiones mientras la IA acelera el desarrollo de software."
+        },
+        "fr": {
+          "file": "fr/the_day_the_provenance_manifesto_was_born.md",
+          "published": true,
+          "tldr": "Cet article explore un problème simple mais souvent négligé : les organisations logicielles préservent rarement le raisonnement derrière leurs décisions, alors même que ces décisions façonnent tout ce qu’elles construisent. Il soutient que la simple récupération par IA et la documentation ne suffisent pas à résoudre ce problème, car ce qui manque est un système structuré enregistrant les relations entre décisions, hypothèses et résultats. Le Provenance Manifesto propose de traiter les décisions comme des artefacts de première classe afin que les organisations puissent préserver l’intention, la responsabilité et la lignée des décisions à mesure que l’IA accélère le développement logiciel."
+        },
+        "pl": {
+          "file": "pl/the_day_the_provenance_manifesto_was_born.md",
+          "published": true,
+          "tldr": "Artykuł analizuje prosty, ale często pomijany problem: organizacje tworzące oprogramowanie rzadko zachowują rozumowanie stojące za podejmowanymi decyzjami, mimo że to właśnie te decyzje kształtują wszystko, co budują. Pokazuje również, że sama dokumentacja i systemy wyszukiwania AI nie rozwiążą tego problemu, ponieważ brakuje strukturalnego systemu zapisującego relacje między decyzjami, założeniami i rezultatami. Provenance Manifesto proponuje traktowanie decyzji jako artefaktów pierwszej klasy, aby organizacje mogły zachować intencję, odpowiedzialność oraz linię pochodzenia decyzji w świecie, w którym AI przyspiesza rozwój oprogramowania."
+        },
+        "ru": {
+          "file": "ru/provenance_manifesto_origin_story.md",
+          "published": true,
+          "tldr": "Статья про то, как роодиося этот манифест!"
+        }
+      }
+    },
+    {
+      "id": "git-for-decisions-needs-a-brain-but-what-kind",
+      "canonicalSlug": "git-for-decisions-needs-a-brain-but-what-kind",
+      "languages": {
+        "en": {
+          "file": "git-for-decisions-needs-a-brain-but-what-kind.md",
+          "published": true,
+          "tldr": "While building SDLC Memory, I ran into an unexpected architectural dilemma. Should the system reason like an autonomous agent, behave like a deterministic data transformer, or sit somewhere in between? I'm still deciding which direction is the right one for the MVP."
+        },
+        "de": {
+          "file": "de/git-for-decisions-needs-a-brain-but-what-kind.md",
+          "published": true,
+          "tldr": "Beim Aufbau von SDLC Memory stieß ich auf ein unerwartetes architektonisches Dilemma. Sollte das System wie ein autonomer Agent schlussfolgern, sich wie ein deterministischer Datentransformator verhalten oder irgendwo dazwischen liegen? Ich entscheide noch, welche Richtung für das MVP die richtige ist."
+        },
+        "es": {
+          "file": "es/git-for-decisions-needs-a-brain-but-what-kind.md",
+          "published": true,
+          "tldr": "Mientras construía SDLC Memory, me encontré con un dilema arquitectónico inesperado. ¿Debería el sistema razonar como un agente autónomo, comportarse como un transformador de datos determinista, o situarse en algún punto intermedio? Aún estoy decidiendo qué dirección es la correcta para el MVP."
+        },
+        "fr": {
+          "file": "fr/git-for-decisions-needs-a-brain-but-what-kind.md",
+          "published": true,
+          "tldr": "En construisant SDLC Memory, je me suis retrouvé face à un dilemme architectural inattendu. Le système doit-il raisonner comme un agent autonome, se comporter comme un transformateur de données déterministe, ou se situer quelque part entre les deux ? Je suis encore en train de décider quelle direction est la bonne pour le MVP."
+        },
+        "pl": {
+          "file": "pl/git-for-decisions-needs-a-brain-but-what-kind.md",
+          "published": true,
+          "tldr": "Podczas budowania SDLC Memory natrafiłem na nieoczekiwany dylemat architektoniczny. Czy system powinien rozumować jak autonomiczny agent, działać jak deterministyczny transformator danych, czy może znajdować się gdzieś pomiędzy tymi podejściami? Wciąż zastanawiam się, który kierunek będzie właściwy dla MVP."
+        },
+        "ru": {
+          "file": "ru/git-for-decisions-needs-a-brain-but-what-kind.md",
+          "published": true,
+          "tldr": "Во время разработки SDLC Memory я столкнулся с неожиданной архитектурной дилеммой. Должна ли система рассуждать как автономный агент, работать как детерминированный преобразователь данных или находиться где-то между этими подходами? Я всё ещё решаю, какое направление будет правильным для MVP."
+        }
+      }
+    },
+    {
+      "id": "from-rag-to-provenance-part-2-how-incremental-graph-memory-actually-learns",
+      "canonicalSlug": "from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns",
+      "languages": {
+        "en": {
+          "file": "from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md",
+          "published": true,
+          "tldr": "In \"Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory\", we moved from RAG to Provenance, from similarity to lineage. But if AI agents will generate 50–80% of future work, the real question becomes: How does memory update safely? How do new decisions get validated, linked, and governed, instead of just embedded? This article shows the incremental graph update process behind the decision memory step by step, with a real example. Because in the AI era, memory must evolve, not just retrieve."
+        },
+        "de": {
+          "file": "de/from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md",
+          "published": true,
+          "tldr": "In „Part 1 – From RAG to Provenance: How We Realized Vector Alone Is Not Memory“ haben wir uns von RAG zu Provenance bewegt, von Ähnlichkeit zu Lineage. Doch wenn KI-Agenten künftig 50–80 % der Arbeit erzeugen, stellt sich die eigentliche Frage: Wie wird Gedächtnis sicher aktualisiert? Wie werden neue Entscheidungen validiert, verknüpft und gesteuert, anstatt einfach nur eingebettet zu werden? Dieser Artikel zeigt Schritt für Schritt den inkrementellen Graph-Update-Prozess hinter dem Entscheidungs-Gedächtnis anhand eines realen Beispiels. Denn im KI-Zeitalter muss sich Gedächtnis weiterentwickeln, nicht nur Informationen abrufen."
+        },
+        "es": {
+          "file": "es/from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md",
+          "published": true,
+          "tldr": "En “Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory”, pasamos de RAG a Provenance, de la similitud al linaje. Pero si los agentes de IA generarán entre el 50 y el 80 % del trabajo futuro, la verdadera pregunta pasa a ser: ¿cómo se actualiza la memoria de forma segura? ¿Cómo se validan, enlazan y gobiernan las nuevas decisiones en lugar de simplemente incrustarlas? Este artículo muestra paso a paso el proceso incremental de actualización del grafo de memoria de decisiones con un ejemplo real. Porque en la era de la IA, la memoria debe evolucionar, no solo recuperar."
+        },
+        "fr": {
+          "file": "fr/from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md",
+          "published": true,
+          "tldr": "Dans « Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory », nous sommes passés de RAG à la provenance, de la similarité à la lignée. Mais si les agents d’IA génèrent 50 à 80 % du travail futur, la vraie question devient : comment la mémoire se met-elle à jour en toute sécurité ? Comment les nouvelles décisions sont-elles validées, reliées et gouvernées, au lieu d’être simplement intégrées sous forme d’embeddings ? Cet article montre étape par étape le processus incrémental de mise à jour du graphe de mémoire des décisions avec un exemple réel. Car à l’ère de l’IA, la mémoire doit évoluer, pas seulement récupérer."
+        },
+        "pl": {
+          "file": "pl/from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md",
+          "published": true,
+          "tldr": "W „Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory” przeszliśmy od RAG do Provenance — od podobieństwa do linii pochodzenia. Ale jeśli agenci AI będą generować 50–80% przyszłej pracy, prawdziwe pytanie brzmi: jak pamięć powinna się bezpiecznie aktualizować? Jak nowe decyzje są walidowane, łączone i zarządzane, zamiast być jedynie zapisywane jako embeddingi? Ten artykuł krok po kroku pokazuje proces inkrementalnej aktualizacji grafu pamięci decyzji na rzeczywistym przykładzie. W erze AI pamięć musi ewoluować, a nie tylko odzyskiwać informacje."
+        },
+        "ru": {
+          "file": "ru/from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md",
+          "published": true,
+          "tldr": "В статье «Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory» мы перешли от RAG к Provenance — от сходства к происхождению. Но если агенты ИИ будут генерировать 50–80% будущей работы, возникает настоящий вопрос: как память должна безопасно обновляться? Как новые решения должны проверяться, связываться и управляться, а не просто сохраняться в виде эмбеддингов? Эта статья шаг за шагом показывает процесс инкрементального обновления графа памяти решений на реальном примере. Потому что в эпоху ИИ память должна эволюционировать, а не только извлекать информацию."
+        }
+      }
+    },
+    {
+      "id": "from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory",
+      "canonicalSlug": "from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory",
+      "languages": {
+        "en": {
+          "file": "from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md",
+          "published": true,
+          "tldr": "What if your SDLC doesn’t actually remember anything, and it only retrieves fragments? We’ve built powerful RAG systems that can surface “relevant” text in milliseconds. But relevance is not causality. And when something breaks in production, similarity won’t tell you why it happened, or which decision, risk, or dependency led there. In this article, I unpack why vector search alone is not memory, how graph structure changes the game, and how combining vector with a strict provenance model turns scattered documentation into something closer to organizational cognition. If you care about explainability, decision lineage, and real delivery intelligence - this one is for you."
+        },
+        "de": {
+          "file": "de/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md",
+          "published": true,
+          "tldr": "Was wäre, wenn Ihr SDLC sich eigentlich an nichts erinnert und nur Fragmente abruft? Wir haben leistungsstarke RAG-Systeme gebaut, die in Millisekunden „relevanten“ Text finden können. Doch Relevanz ist keine Kausalität. Und wenn in der Produktion etwas schiefgeht, wird Ähnlichkeit Ihnen nicht sagen, warum es passiert ist oder welche Entscheidung, welches Risiko oder welche Abhängigkeit dazu geführt hat. In diesem Artikel erkläre ich, warum Vektorsuche allein kein Gedächtnis ist, wie eine Graphstruktur das Spiel verändert und wie die Kombination aus Vektor-Suche und einem strikten Provenance-Modell verstreute Dokumentation in etwas verwandelt, das organisatorischer Kognition näherkommt. Wenn Sie sich für Erklärbarkeit, Entscheidungs-Lineage und echte Delivery-Intelligenz interessieren – dieser Artikel ist für Sie."
+        },
+        "es": {
+          "file": "es/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md",
+          "published": true,
+          "tldr": "¿Y si tu SDLC en realidad no recuerda nada y solo recupera fragmentos? Hemos construido potentes sistemas RAG capaces de mostrar texto “relevante” en milisegundos. Pero la relevancia no es causalidad. Cuando algo falla en producción, la similitud no te dirá por qué ocurrió ni qué decisión, riesgo o dependencia condujo a ese resultado. En este artículo explico por qué la búsqueda vectorial por sí sola no es memoria, cómo la estructura de grafos cambia el juego y cómo combinar vectores con un modelo estricto de provenance transforma documentación dispersa en algo más cercano a la cognición organizacional. Si te importan la explicabilidad, el linaje de decisiones y la inteligencia real de entrega, este artículo es para ti."
+        },
+        "fr": {
+          "file": "fr/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md",
+          "published": true,
+          "tldr": "Et si votre SDLC ne se souvenait en réalité de rien et ne faisait que récupérer des fragments ? Nous avons construit de puissants systèmes RAG capables de faire apparaître un texte « pertinent » en quelques millisecondes. Mais la pertinence n’est pas la causalité. Et lorsqu’un incident survient en production, la similarité ne vous dira pas pourquoi cela s’est produit ni quelle décision, quel risque ou quelle dépendance y a conduit. Dans cet article, j’explique pourquoi la recherche vectorielle seule n’est pas une mémoire, comment la structure en graphe change la donne, et comment la combinaison des vecteurs avec un modèle strict de provenance transforme une documentation dispersée en quelque chose qui se rapproche davantage d’une cognition organisationnelle. Si l’explicabilité, la lignée des décisions et l’intelligence réelle de livraison vous intéressent, cet article est pour vous."
+        },
+        "pl": {
+          "file": "pl/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md",
+          "published": true,
+          "tldr": "Co jeśli twój SDLC w rzeczywistości niczego nie pamięta i jedynie odzyskuje fragmenty informacji? Zbudowaliśmy potężne systemy RAG zdolne do wyszukiwania „istotnego” tekstu w milisekundach. Ale istotność to nie przyczynowość. Gdy coś psuje się na produkcji, podobieństwo nie powie ci, dlaczego tak się stało ani która decyzja, ryzyko czy zależność do tego doprowadziły. W tym artykule wyjaśniam, dlaczego sama wyszukiwarka wektorowa nie jest pamięcią, jak struktura grafowa zmienia reguły gry oraz jak połączenie wektorów z rygorystycznym modelem provenance zamienia rozproszoną dokumentację w coś bliższego poznaniu organizacyjnemu. Jeśli interesuje cię wyjaśnialność, linia pochodzenia decyzji i realna inteligencja dostarczania — ten artykuł jest dla ciebie."
+        },
+        "ru": {
+          "file": "ru/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md",
+          "published": true,
+          "tldr": "Что если ваш SDLC на самом деле ничего не запоминает и лишь извлекает фрагменты? Мы создали мощные системы RAG, способные находить «релевантный» текст за миллисекунды. Но релевантность — это не причинность. Когда что-то ломается в продакшене, сходство не скажет вам, почему это произошло и какое решение, риск или зависимость к этому привели. В этой статье я разбираю, почему одного векторного поиска недостаточно для памяти, как графовая структура меняет правила игры и как сочетание векторов со строгой моделью provenance превращает разрозненную документацию во что-то ближе к организационному мышлению. Если вам важны объяснимость, происхождение решений и настоящая интеллектуальность процессов доставки — эта статья для вас."
+        }
+      }
+    },
+    {
+      "id": "why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont",
+      "canonicalSlug": "why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont",
+      "languages": {
+        "en": {
+          "file": "why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont.md",
+          "published": true,
+          "tldr": "Chapter Next: SDLC Memory & Provenance. In the previous chapters, we explored why SDLC has no real memory and why provenance must become structural, not optional. In this next step, we go deeper into a more uncomfortable question. What if the real bottleneck in delivery isn’t velocity, tooling, or even AI capability… but the biological limits of human context. Humans can actively hold about four meaningful constraints at once. Modern agents can process hundreds of thousands of tokens. And yet, neither can remember a living product over time without structure. This chapter connects cognitive science, AI context windows, and a practical Hot/Warm/Cold memory architecture to show why durable SDLC memory is not documentation overhead; it’s a competitive advantage. If execution is getting cheaper, memory is becoming the differentiator. Let’s talk about how to build it."
+        },
+        "de": {
+          "file": "de/why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont.md",
+          "published": true,
+          "tldr": "Nächstes Kapitel: SDLC Memory & Provenance. In den vorherigen Kapiteln haben wir untersucht, warum SDLC kein echtes Gedächtnis hat und warum Provenance strukturell werden muss, nicht optional. Im nächsten Schritt gehen wir einer unangenehmeren Frage nach. Was wäre, wenn der eigentliche Engpass in der Delivery nicht Geschwindigkeit, Tooling oder sogar KI-Fähigkeiten ist … sondern die biologischen Grenzen menschlichen Kontextverständnisses? Menschen können gleichzeitig etwa vier bedeutungsvolle Einschränkungen aktiv im Kopf behalten. Moderne Agenten können Hunderttausende Tokens verarbeiten. Und dennoch kann keiner von beiden ein lebendes Produkt über die Zeit hinweg ohne Struktur erinnern. Dieses Kapitel verbindet Kognitionswissenschaft, KI-Kontextfenster und eine praktische Hot/Warm/Cold-Memory-Architektur, um zu zeigen, warum dauerhaftes SDLC-Gedächtnis kein Dokumentations-Overhead ist, sondern ein Wettbewerbsvorteil. Wenn Ausführung günstiger wird, wird Gedächtnis zum Differenzierungsfaktor. Lassen Sie uns darüber sprechen, wie man es aufbaut."
+        },
+        "es": {
+          "file": "es/why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont.md",
+          "published": true,
+          "tldr": "Capítulo siguiente: SDLC Memory & Provenance. En los capítulos anteriores exploramos por qué el SDLC no tiene memoria real y por qué la procedencia debe convertirse en algo estructural, no opcional. En este paso profundizamos en una pregunta más incómoda. ¿Y si el verdadero cuello de botella en la entrega no es la velocidad, las herramientas ni siquiera la capacidad de la IA… sino los límites biológicos del contexto humano? Los humanos pueden mantener activamente unas cuatro restricciones significativas a la vez. Los agentes modernos pueden procesar cientos de miles de tokens. Y aun así, ninguno puede recordar un producto vivo a lo largo del tiempo sin estructura. Este capítulo conecta ciencia cognitiva, ventanas de contexto de IA y una arquitectura práctica de memoria Hot/Warm/Cold para mostrar por qué una memoria duradera del SDLC no es sobrecarga documental, sino una ventaja competitiva. Si la ejecución se vuelve más barata, la memoria se convierte en el verdadero diferenciador. Hablemos de cómo construirla."
+        },
+        "fr": {
+          "file": "fr/why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont.md",
+          "published": true,
+          "tldr": "Chapitre suivant : SDLC Memory & Provenance. Dans les chapitres précédents, nous avons exploré pourquoi le SDLC n’a pas de véritable mémoire et pourquoi la provenance doit devenir structurelle et non optionnelle. Dans cette étape suivante, nous abordons une question plus inconfortable. Et si le véritable goulot d’étranglement de la livraison n’était pas la vélocité, les outils, ni même les capacités de l’IA… mais les limites biologiques du contexte humain ? Les humains peuvent maintenir activement environ quatre contraintes significatives à la fois. Les agents modernes peuvent traiter des centaines de milliers de tokens. Et pourtant, ni l’un ni l’autre ne peut se souvenir d’un produit vivant dans le temps sans structure. Ce chapitre relie la science cognitive, les fenêtres de contexte de l’IA et une architecture pratique de mémoire Hot/Warm/Cold pour montrer pourquoi une mémoire durable du SDLC n’est pas une surcharge documentaire ; c’est un avantage concurrentiel. Si l’exécution devient moins coûteuse, la mémoire devient le différenciateur. Parlons de la façon de la construire."
+        },
+        "pl": {
+          "file": "pl/why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont.md",
+          "published": true,
+          "tldr": "Kolejny rozdział: SDLC Memory & Provenance. W poprzednich częściach badaliśmy, dlaczego SDLC nie posiada prawdziwej pamięci i dlaczego provenance musi stać się elementem strukturalnym, a nie opcjonalnym. Teraz przechodzimy do bardziej niewygodnego pytania. A co jeśli prawdziwym wąskim gardłem w dostarczaniu nie jest prędkość, narzędzia ani nawet zdolności AI… lecz biologiczne ograniczenia ludzkiego kontekstu? Człowiek jest w stanie jednocześnie utrzymać w aktywnej pamięci około czterech istotnych ograniczeń. Nowoczesne agenty mogą przetwarzać setki tysięcy tokenów. A jednak ani jedni, ani drudzy nie są w stanie zapamiętać żyjącego produktu w czasie bez odpowiedniej struktury. Ten rozdział łączy naukę o poznaniu, okna kontekstowe AI oraz praktyczną architekturę pamięci Hot/Warm/Cold, aby pokazać, dlaczego trwała pamięć SDLC nie jest biurokracją dokumentacyjną, lecz przewagą konkurencyjną. Jeśli wykonanie staje się coraz tańsze, pamięć staje się kluczowym wyróżnikiem. Porozmawiajmy o tym, jak ją zbudować."
+        },
+        "ru": {
+          "file": "ru/why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont.md",
+          "published": true,
+          "tldr": "Следующая глава: SDLC Memory & Provenance. В предыдущих главах мы исследовали, почему у SDLC нет настоящей памяти и почему provenance должно стать структурным, а не опциональным элементом. Теперь мы переходим к более неудобному вопросу. А что если настоящим узким местом в разработке является не скорость, не инструменты и даже не возможности ИИ… а биологические ограничения человеческого контекста? Люди способны удерживать в активной памяти примерно четыре значимых ограничения одновременно. Современные агенты могут обрабатывать сотни тысяч токенов. И всё же ни те, ни другие не способны помнить живой продукт во времени без структуры. Эта глава связывает когнитивную науку, окна контекста ИИ и практическую архитектуру памяти Hot/Warm/Cold, чтобы показать, почему долговременная память SDLC — это не избыточная документация, а конкурентное преимущество. Если исполнение становится дешевле, память становится ключевым дифференциатором. Давайте обсудим, как её построить."
+        }
+      }
+    },
+    {
+      "id": "how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles",
+      "canonicalSlug": "how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles",
+      "languages": {
+        "en": {
+          "file": "how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles.md",
+          "published": true,
+          "tldr": "In the previous chapters, we spoke about SDLC Memory and Provenance as a way to reduce chaos, protect delivery integrity,and make decisions traceable inside engineering organizations. Now I want to zoom it out.Because if AI is changing how software is built, it is also changing something much bigger - how Intellectual Capital itself is valued. This article is not a deviation from the Provenance discussion. It is the next logical step. If execution becomes abundant, then memory, governance, and decision architecture become the real assets. Let’s talk about what happens to Intellectual Capital when AI materially replaces human positions, and what that means for companies that want to survive:"
+        },
+        "de": {
+          "file": "de/how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles.md",
+          "published": true,
+          "tldr": "In den vorherigen Kapiteln haben wir über SDLC Memory und Provenance als Wege gesprochen, Chaos zu reduzieren, Delivery-Integrität zu schützen und Entscheidungen innerhalb von Engineering-Organisationen nachvollziehbar zu machen. Jetzt möchte ich den Blick erweitern. Denn wenn KI verändert, wie Software gebaut wird, verändert sie auch etwas viel Größeres – wie Intellectual Capital selbst bewertet wird. Dieser Artikel ist keine Abweichung von der Provenance-Diskussion. Er ist der nächste logische Schritt. Wenn Ausführung im Überfluss vorhanden wird, werden Gedächtnis, Governance und Entscheidungsarchitektur zu den eigentlichen Vermögenswerten. Lassen Sie uns darüber sprechen, was mit Intellectual Capital passiert, wenn KI menschliche Positionen materiell ersetzt – und was das für Unternehmen bedeutet, die überleben wollen:"
+        },
+        "es": {
+          "file": "es/how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles.md",
+          "published": true,
+          "tldr": "En los capítulos anteriores hablamos de SDLC Memory y Provenance como una forma de reducir el caos, proteger la integridad de la entrega y hacer que las decisiones sean trazables dentro de las organizaciones de ingeniería. Ahora quiero ampliar la perspectiva. Porque si la IA está cambiando cómo se construye el software, también está cambiando algo mucho más grande: cómo se valora el Capital Intelectual. Este artículo no es una desviación del debate sobre Provenance; es el siguiente paso lógico. Si la ejecución se vuelve abundante, entonces la memoria, la gobernanza y la arquitectura de decisiones se convierten en los verdaderos activos. Hablemos de qué ocurre con el Capital Intelectual cuando la IA reemplaza materialmente posiciones humanas y qué significa esto para las empresas que quieren sobrevivir."
+        },
+        "fr": {
+          "file": "fr/how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles.md",
+          "published": true,
+          "tldr": "Dans les chapitres précédents, nous avons parlé de SDLC Memory et de provenance comme d’un moyen de réduire le chaos, de protéger l’intégrité de la livraison et de rendre les décisions traçables au sein des organisations d’ingénierie. Maintenant, je souhaite élargir la perspective. Car si l’IA change la manière dont les logiciels sont construits, elle transforme aussi quelque chose de bien plus vaste : la manière dont le capital intellectuel lui-même est évalué. Cet article n’est pas une digression par rapport à la discussion sur la provenance. Il en est la prochaine étape logique. Si l’exécution devient abondante, alors la mémoire, la gouvernance et l’architecture des décisions deviennent les véritables actifs. Parlons de ce qui arrive au capital intellectuel lorsque l’IA remplace matériellement des rôles humains, et de ce que cela signifie pour les entreprises qui veulent survivre."
+        },
+        "pl": {
+          "file": "pl/how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles.md",
+          "published": true,
+          "tldr": "W poprzednich rozdziałach omawialiśmy SDLC Memory i Provenance jako sposób na redukcję chaosu, ochronę integralności dostarczania oraz zapewnienie śledzalności decyzji w organizacjach inżynieryjnych. Teraz chcę spojrzeć na to szerzej. Jeśli AI zmienia sposób budowania oprogramowania, zmienia również coś znacznie większego — sposób, w jaki wyceniany jest kapitał intelektualny. Ten artykuł nie jest odejściem od dyskusji o Provenance. To jej kolejny logiczny krok. Jeśli wykonanie staje się powszechne i tanie, wtedy pamięć, zarządzanie i architektura decyzji stają się prawdziwymi aktywami. Porozmawiajmy o tym, co dzieje się z kapitałem intelektualnym, gdy AI realnie zastępuje ludzkie role i co to oznacza dla firm, które chcą przetrwać."
+        },
+        "ru": {
+          "file": "ru/how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles.md",
+          "published": true,
+          "tldr": "В предыдущих главах мы говорили о SDLC Memory и Provenance как о способе уменьшить хаос, защитить целостность доставки и сделать решения отслеживаемыми внутри инженерных организаций. Теперь я хочу посмотреть на это шире. Потому что если ИИ меняет то, как создаётся программное обеспечение, он также меняет нечто гораздо большее — то, как оценивается сам интеллектуальный капитал. Эта статья не является отклонением от обсуждения Provenance. Это следующий логический шаг. Если исполнение становится изобилующим и дешёвым, тогда память, управление и архитектура решений становятся настоящими активами. Давайте поговорим о том, что происходит с интеллектуальным капиталом, когда ИИ начинает реально заменять человеческие роли, и что это означает для компаний, которые хотят выжить."
+        }
+      }
+    },
+    {
+      "id": "ai-will-take-the-what-but-humans-must-own-the-why",
+      "canonicalSlug": "ai-will-take-the-what-but-humans-must-own-the-why",
+      "languages": {
+        "en": {
+          "file": "ai-will-take-the-what-but-humans-must-own-the-why.md",
+          "published": true,
+          "tldr": "AI is rapidly taking over the “What” layer of software development — generating architectures, code, optimizations, and alternative solutions faster than humans ever could. As a result, implementation and solution exploration are becoming cheap, scalable, and increasingly automated. But the real strategic layer of engineering has never been the “What.” The critical questions are the “Why” — why a solution exists, why a trade-off was accepted, why a risk is tolerable, and why a particular outcome matters for the business. These questions define intent, not implementation."
+        },
+        "de": {
+          "file": "de/ai-will-take-the-what-but-humans-must-own-the-why.md",
+          "published": true,
+          "tldr": "KI übernimmt zunehmend die „Was“-Ebene der Softwareentwicklung – sie erzeugt Architekturen, Code, Optimierungen und alternative Lösungen schneller, als Menschen es je könnten. Dadurch werden Implementierung und Lösungsfindung billig, skalierbar und zunehmend automatisiert. Doch die eigentliche strategische Ebene des Engineerings war nie das „Was“. Die entscheidenden Fragen betreffen das „Warum“ – warum eine Lösung existiert, warum ein Trade-off akzeptiert wurde, warum ein Risiko tolerierbar ist und warum ein bestimmtes Ergebnis für das Unternehmen relevant ist. Diese Fragen definieren Absicht, nicht Implementierung."
+        },
+        "es": {
+          "file": "es/ai-will-take-the-what-but-humans-must-own-the-why.md",
+          "published": true,
+          "tldr": "La IA está tomando rápidamente la capa del “Qué” en el desarrollo de software: generando arquitecturas, código, optimizaciones y soluciones alternativas más rápido de lo que los humanos podrían hacerlo. Como resultado, la implementación y la exploración de soluciones se vuelven baratas, escalables y cada vez más automatizadas. Pero la capa estratégica real de la ingeniería nunca ha sido el “Qué”. Las preguntas críticas son el “Por qué”: por qué existe una solución, por qué se aceptó un compromiso, por qué un riesgo es tolerable y por qué un resultado determinado importa para el negocio. Estas preguntas definen la intención, no la implementación."
+        },
+        "fr": {
+          "file": "fr/ai-will-take-the-what-but-humans-must-own-the-why.md",
+          "published": true,
+          "tldr": "L’IA prend rapidement en charge la couche du « quoi » dans le développement logiciel — en générant des architectures, du code, des optimisations et des solutions alternatives plus rapidement que les humains ne pourraient le faire. En conséquence, l’implémentation et l’exploration de solutions deviennent bon marché, évolutives et de plus en plus automatisées. Mais la véritable couche stratégique de l’ingénierie n’a jamais été le « quoi ». Les questions critiques sont le « pourquoi » — pourquoi une solution existe, pourquoi un compromis a été accepté, pourquoi un risque est tolérable et pourquoi un résultat particulier compte pour l’entreprise. Ces questions définissent l’intention, pas l’implémentation."
+        },
+        "pl": {
+          "file": "pl/ai-will-take-the-what-but-humans-must-own-the-why.md",
+          "published": true,
+          "tldr": "AI szybko przejmuje warstwę „co” w tworzeniu oprogramowania — generując architektury, kod, optymalizacje i alternatywne rozwiązania szybciej, niż ludzie są w stanie to zrobić. W rezultacie implementacja i eksploracja rozwiązań stają się tanie, skalowalne i coraz bardziej zautomatyzowane. Jednak prawdziwa strategiczna warstwa inżynierii nigdy nie dotyczyła „co”. Kluczowe pytania dotyczą „dlaczego” — dlaczego rozwiązanie istnieje, dlaczego zaakceptowano dany kompromis, dlaczego ryzyko jest dopuszczalne i dlaczego określony wynik ma znaczenie dla biznesu. To pytania o intencję, nie o implementację."
+        },
+        "ru": {
+          "file": "ru/ai-will-take-the-what-but-humans-must-own-the-why.md",
+          "published": true,
+          "tldr": "ИИ быстро захватывает уровень «что» в разработке программного обеспечения — генерируя архитектуры, код, оптимизации и альтернативные решения быстрее, чем это могут делать люди. В результате реализация и исследование решений становятся дешёвыми, масштабируемыми и всё более автоматизированными. Но настоящая стратегическая часть инженерии никогда не заключалась в «что». Ключевые вопросы — это «почему»: почему существует это решение, почему был принят тот или иной компромисс, почему данный риск допустим и почему конкретный результат важен для бизнеса. Эти вопросы определяют намерение, а не реализацию."
+        }
+      }
+    },
+    {
+      "id": "we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember",
+      "canonicalSlug": "we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember",
+      "languages": {
+        "en": {
+          "file": "we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember.md",
+          "published": true,
+          "tldr": "As AI becomes capable of proposing architectures, writing code, and optimizing systems, the real danger is not malicious AI but losing track of the human intent behind the systems we build. Organizations already struggle to remember why decisions were made; in an AI-augmented environment this problem becomes much more serious because machines can optimize solutions faster than humans can understand them. To avoid building systems that perfectly optimize the wrong goals, we need a new infrastructure layer called Provenance—a structured record of decisions, constraints, trade-offs, and intent that links system behavior back to human purpose. Without such a memory layer, organizations risk becoming highly efficient but strategically misaligned, gradually losing the ability to explain or control the systems they create."
+        },
+        "de": {
+          "file": "de/we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember.md",
+          "published": true,
+          "tldr": "Während KI zunehmend in der Lage ist, Architekturen vorzuschlagen, Code zu schreiben und Systeme zu optimieren, besteht die eigentliche Gefahr nicht in bösartiger KI, sondern darin, den menschlichen Zweck hinter den Systemen zu verlieren, die wir bauen. Organisationen haben bereits Schwierigkeiten, sich daran zu erinnern, warum Entscheidungen getroffen wurden; in einer KI-augmentierten Umgebung wird dieses Problem viel ernster, weil Maschinen Lösungen schneller optimieren können, als Menschen sie verstehen können. Um zu vermeiden, Systeme zu bauen, die die falschen Ziele perfekt optimieren, brauchen wir eine neue Infrastrukturebene namens Provenance – eine strukturierte Aufzeichnung von Entscheidungen, Einschränkungen, Trade-offs und Absichten, die das Verhalten von Systemen mit dem menschlichen Zweck verknüpft. Ohne eine solche Gedächtnisschicht riskieren Organisationen, hoch effizient, aber strategisch fehlaligned zu werden und allmählich die Fähigkeit zu verlieren, die Systeme zu erklären oder zu kontrollieren, die sie erschaffen."
+        },
+        "es": {
+          "file": "es/we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember.md",
+          "published": true,
+          "tldr": "A medida que la IA se vuelve capaz de proponer arquitecturas, escribir código y optimizar sistemas, el verdadero peligro no es una IA maliciosa, sino perder el rastro de la intención humana detrás de los sistemas que construimos. Las organizaciones ya tienen dificultades para recordar por qué se tomaron ciertas decisiones; en un entorno aumentado por IA este problema se vuelve mucho más serio porque las máquinas pueden optimizar soluciones más rápido de lo que los humanos pueden comprenderlas. Para evitar construir sistemas que optimicen perfectamente objetivos equivocados, necesitamos una nueva capa de infraestructura llamada Provenance: un registro estructurado de decisiones, restricciones, compromisos e intención que conecte el comportamiento del sistema con el propósito humano. Sin esta capa de memoria, las organizaciones corren el riesgo de volverse altamente eficientes pero estratégicamente desalineadas, perdiendo gradualmente la capacidad de explicar o controlar los sistemas que crean."
+        },
+        "fr": {
+          "file": "fr/we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember.md",
+          "published": true,
+          "tldr": "À mesure que l’IA devient capable de proposer des architectures, d’écrire du code et d’optimiser des systèmes, le véritable danger n’est pas une IA malveillante, mais la perte de l’intention humaine derrière les systèmes que nous construisons. Les organisations ont déjà du mal à se souvenir pourquoi certaines décisions ont été prises ; dans un environnement augmenté par l’IA, ce problème devient beaucoup plus sérieux, car les machines peuvent optimiser des solutions plus rapidement que les humains ne peuvent les comprendre. Pour éviter de construire des systèmes qui optimisent parfaitement de mauvais objectifs, nous avons besoin d’une nouvelle couche d’infrastructure appelée Provenance — un enregistrement structuré des décisions, des contraintes, des compromis et de l’intention qui relie le comportement du système à l’objectif humain. Sans cette couche de mémoire, les organisations risquent de devenir très efficaces mais stratégiquement désalignées, perdant progressivement la capacité d’expliquer ou de contrôler les systèmes qu’elles créent."
+        },
+        "pl": {
+          "file": "pl/we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember.md",
+          "published": true,
+          "tldr": "W miarę jak AI staje się zdolne do proponowania architektur, pisania kodu i optymalizacji systemów, prawdziwym zagrożeniem nie jest złośliwa sztuczna inteligencja, lecz utrata ludzkiej intencji stojącej za systemami, które budujemy. Organizacje już dziś mają problem z pamiętaniem, dlaczego podjęto określone decyzje; w środowisku wspomaganym przez AI problem ten staje się znacznie poważniejszy, ponieważ maszyny mogą optymalizować rozwiązania szybciej, niż ludzie są w stanie je zrozumieć. Aby uniknąć budowania systemów, które perfekcyjnie optymalizują niewłaściwe cele, potrzebujemy nowej warstwy infrastruktury zwanej Provenance — strukturalnego zapisu decyzji, ograniczeń, kompromisów i intencji, który łączy zachowanie systemu z ludzkim celem. Bez takiej warstwy pamięci organizacje ryzykują, że staną się bardzo efektywne, ale strategicznie rozbieżne, stopniowo tracąc zdolność do wyjaśniania i kontrolowania systemów, które tworzą."
+        },
+        "ru": {
+          "file": "ru/we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember.md",
+          "published": true,
+          "tldr": "По мере того как ИИ становится способным предлагать архитектуры, писать код и оптимизировать системы, настоящая опасность заключается не в злонамеренном ИИ, а в потере человеческого намерения, стоящего за системами, которые мы создаём. Организации уже испытывают трудности с тем, чтобы помнить, почему принимались решения; в среде, усиленной ИИ, эта проблема становится гораздо серьёзнее, потому что машины могут оптимизировать решения быстрее, чем люди способны их понять. Чтобы не создавать системы, идеально оптимизирующие неправильные цели, нам нужен новый инфраструктурный слой — Provenance: структурированная запись решений, ограничений, компромиссов и намерений, которая связывает поведение системы с человеческой целью. Без такого слоя памяти организации рискуют стать высокоэффективными, но стратегически рассогласованными, постепенно теряя способность объяснять или контролировать создаваемые ими системы."
+        }
+      }
+    },
+    {
+      "id": "why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it",
+      "canonicalSlug": "why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it",
+      "languages": {
+        "en": {
+          "file": "why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",
+          "published": true,
+          "tldr": "Software delivery organizations repeatedly lose the context behind their decisions. Months after implementation, teams often cannot explain why something was built, what trade-offs were made, or what was originally promised. This happens because SDLC tools track artifacts like tickets, commits, hours, and costs — but not the intent, commitments, and reasoning behind them. The result is “Context Amnesia : teams rebuild solutions, repeat decisions, argue about scope, and incur rework, margin loss, and burnout. The core problem is not careless teams but a systemic gap — SDLC has no built-in memory of decision rationale. The uncomfortable question the article raises is: why, in modern software development, do we rigorously track execution but not the reasoning that shaped it?"
+        },
+        "de": {
+          "file": "de/why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",
+          "published": true,
+          "tldr": "Software-Delivery-Organisationen verlieren immer wieder den Kontext hinter ihren Entscheidungen. Monate nach der Implementierung können Teams oft nicht mehr erklären, warum etwas gebaut wurde, welche Trade-offs gemacht wurden oder was ursprünglich versprochen wurde. Das geschieht, weil SDLC-Tools Artefakte wie Tickets, Commits, Stunden und Kosten verfolgen – aber nicht die Absicht, Verpflichtungen und Begründungen dahinter. Das Ergebnis ist „Context Amnesia“: Teams bauen Lösungen erneut, wiederholen Entscheidungen, streiten über Scope und verursachen Nacharbeit, Margenverluste und Burnout. Das Kernproblem sind nicht nachlässige Teams, sondern eine systemische Lücke – SDLC hat kein eingebautes Gedächtnis für Entscheidungsbegründungen. Die unbequeme Frage, die der Artikel aufwirft, lautet: Warum verfolgen wir in der modernen Softwareentwicklung die Ausführung so rigoros, aber nicht die Begründungen, die sie geformt haben?"
+        },
+        "es": {
+          "file": "es/why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",
+          "published": true,
+          "tldr": "Las organizaciones de entrega de software pierden repetidamente el contexto detrás de sus decisiones. Meses después de la implementación, los equipos a menudo no pueden explicar por qué se construyó algo, qué compromisos se aceptaron o qué se había prometido originalmente. Esto ocurre porque las herramientas del SDLC rastrean artefactos como tickets, commits, horas y costes, pero no la intención, los compromisos ni el razonamiento detrás de ellos. El resultado es “amnesia de contexto”: los equipos reconstruyen soluciones, repiten decisiones, discuten sobre el alcance y generan retrabajo, pérdida de margen y agotamiento. El problema central no son equipos descuidados, sino una brecha sistémica: el SDLC no tiene memoria incorporada del razonamiento de las decisiones. La pregunta incómoda que plantea el artículo es: ¿cómo es posible que en el desarrollo moderno de software rastreemos rigurosamente la ejecución pero no el razonamiento que la moldeó?"
+        },
+        "fr": {
+          "file": "fr/why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",
+          "published": true,
+          "tldr": "Les organisations de livraison logicielle perdent régulièrement le contexte derrière leurs décisions. Des mois après l’implémentation, les équipes sont souvent incapables d’expliquer pourquoi quelque chose a été construit, quels compromis ont été acceptés ou ce qui avait été initialement promis. Cela se produit parce que les outils du SDLC suivent des artefacts comme les tickets, les commits, les heures et les coûts — mais pas l’intention, les engagements et le raisonnement qui les sous-tendent. Le résultat est une « amnésie de contexte » : les équipes reconstruisent des solutions, répètent des décisions, se disputent sur le périmètre et subissent du retravail, une érosion des marges et de l’épuisement. Le problème central n’est pas des équipes négligentes, mais une lacune systémique : le SDLC n’a pas de mémoire intégrée du raisonnement des décisions. La question inconfortable posée par l’article est la suivante : pourquoi, dans le développement logiciel moderne, suivons-nous rigoureusement l’exécution mais pas le raisonnement qui l’a façonnée ?"
+        },
+        "pl": {
+          "file": "pl/why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",
+          "published": true,
+          "tldr": "Organizacje zajmujące się dostarczaniem oprogramowania wielokrotnie tracą kontekst stojący za podjętymi decyzjami. Miesiące po implementacji zespoły często nie potrafią wyjaśnić, dlaczego coś zostało zbudowane, jakie kompromisy zostały zaakceptowane ani co było pierwotnie obiecane. Dzieje się tak, ponieważ narzędzia SDLC śledzą artefakty takie jak tickety, commity, godziny pracy czy koszty — ale nie intencję, zobowiązania i uzasadnienie stojące za nimi. W rezultacie pojawia się „amnezja kontekstowa”: zespoły odtwarzają rozwiązania, powtarzają decyzje, kłócą się o zakres i ponoszą koszty poprawek, utraty marży oraz wypalenia. Sednem problemu nie są nieostrożne zespoły, lecz systemowa luka — SDLC nie posiada wbudowanej pamięci uzasadnienia decyzji. Niewygodne pytanie, które stawia artykuł, brzmi: dlaczego we współczesnym rozwoju oprogramowania tak dokładnie śledzimy wykonanie, ale nie rozumowanie, które je ukształtowało?"
+        },
+        "ru": {
+          "file": "ru/why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",
+          "published": true,
+          "tldr": "Организации, занимающиеся разработкой и доставкой программного обеспечения, постоянно теряют контекст своих решений. Через несколько месяцев после внедрения команды часто не могут объяснить, почему что-то было построено, какие компромиссы были приняты или что изначально было обещано. Это происходит потому, что инструменты SDLC отслеживают артефакты — тикеты, коммиты, часы и расходы — но не намерение, обязательства и логику решений. В результате возникает «амнезия контекста»: команды заново создают решения, повторяют решения, спорят о границах задач и несут расходы на переделку, потерю маржи и выгорание. Основная проблема не в небрежности команд, а в системном пробеле — у SDLC нет встроенной памяти обоснования решений. Неудобный вопрос, который поднимает статья: почему в современном разработке программного обеспечения мы тщательно отслеживаем исполнение, но не фиксируем рассуждения, которые его сформировали?"
+        }
+      }
+    }
+  ]
+}

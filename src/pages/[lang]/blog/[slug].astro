@@ -10,7 +10,7 @@ import {
 
 export function getStaticPaths() {
   return getLocalizedBlogLanguages().flatMap((lang: SupportedLang) =>
-    getLocalizedBlogArticles(lang).map((article: BlogArticle) => ({
+    getLocalizedBlogArticles(lang, { includeHidden: true }).map((article: BlogArticle) => ({
       params: { lang, slug: article.slug },
       props: { article, lang }
     }))

@@ -3,7 +3,7 @@ import BlogArticlePage from '../../components/BlogArticlePage.astro';
 import { getEnglishBlogArticles, getMarkdownRenderResult, type BlogArticle } from '../../lib/blog';
 
 export function getStaticPaths() {
-  return getEnglishBlogArticles().map((article) => ({
+  return getEnglishBlogArticles({ includeHidden: true }).map((article) => ({
     params: { slug: article.slug },
     props: { article }
   }));

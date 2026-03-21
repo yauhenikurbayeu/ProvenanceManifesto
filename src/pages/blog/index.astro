@@ -1,12 +1,7 @@
 ---
 import BlogPage from '../../components/BlogPage.astro';
 import { useTranslations } from '../../i18n/utils';
-import { getBlogReadmePath, getEnglishBlogArticles } from '../../lib/blog';
-
-const readmePath = getBlogReadmePath('en');
-if (!readmePath) {
-  throw new Error('Missing required blog README source file at /blog/README.md');
-}
+import { getEnglishBlogArticles } from '../../lib/blog';
 
 const articles = getEnglishBlogArticles();
 const t = useTranslations('en');
@@ -16,7 +11,6 @@ const t = useTranslations('en');
   lang="en"
   title={t('blog.title')}
   description={t('blog.description')}
-  readmePath={readmePath}
   articles={articles}
   canonicalPath="/blog"
   articleHrefBuilder={(slug: string) => `/blog/${slug}`}

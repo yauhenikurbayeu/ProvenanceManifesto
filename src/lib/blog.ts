@@ -7,15 +7,77 @@ const markdownRaw = import.meta.glob('/blog/**/*.md', {
   import: 'default',
   eager: true
 }) as Record<string, string>;
+const blogManifestRaw = import.meta.glob('/blog/manifest.json', {
+  query: '?raw',
+  import: 'default',
+  eager: true
+}) as Record<string, string>;
 
+const MANIFEST_PATH = '/blog/manifest.json';
+const SUPPORTED_BLOG_LANGS: SupportedLang[] = ['en', 'de', 'es', 'fr', 'pl', 'ru'];
 const ENGLISH_ARTICLE_PATTERN = /^\/blog\/(?!README\.md$)([^/]+)\.md$/i;
 const LOCALIZED_ARTICLE_PATTERN = /^\/blog\/([a-z]{2})\/(?!README\.md$)([^/]+)\.md$/i;
-const ENGLISH_README_PATTERN = /^\/blog\/README\.md$/i;
-const LOCALIZED_README_PATTERN = /^\/blog\/([a-z]{2})\/README\.md$/i;
+
+interface BlogManifestLanguageRule {
+  file: string;
+  published?: boolean;
+  tldr?: string;
+}
+
+interface BlogManifestArticleRule {
+  id: string;
+  canonicalSlug: string;
+  languages: Partial<Record<SupportedLang, BlogManifestLanguageRule>>;
+}
+
+interface BlogManifest {
+  articles: BlogManifestArticleRule[];
+}
 
 marked.setOptions({
   gfm: true
 });
+
+function normalizeBlogSourcePath(pathLike: string): string {
+  const normalizedPath = pathLike.trim().replace(/^\.\//, '');
+  if (normalizedPath.startsWith('/blog/')) {
+    return normalizedPath;
+  }
+
+  if (normalizedPath.startsWith('blog/')) {
+    return `/${normalizedPath}`;
+  }
+
+  return `/blog/${normalizedPath.replace(/^\//, '')}`;
+}
+
+function parseBlogManifest(): BlogManifest {
+  const raw = blogManifestRaw[MANIFEST_PATH];
+  if (!raw) {
+    return { articles: [] };
+  }
+
+  try {
+    const parsed = JSON.parse(raw) as Partial<BlogManifest>;
+    if (!Array.isArray(parsed.articles)) {
+      return { articles: [] };
+    }
+
+    const rules = parsed.articles
+      .filter((rule): rule is BlogManifestArticleRule => Boolean(rule && rule.canonicalSlug && rule.languages))
+      .map((rule) => ({
+        ...rule,
+        canonicalSlug: rule.canonicalSlug.trim()
+      }))
+      .filter((rule) => Boolean(rule.canonicalSlug));
+
+    return { articles: rules };
+  } catch {
+    return { articles: [] };
+  }
+}
+
+const blogManifest = parseBlogManifest();
 
 export interface BlogArticle {
   lang: SupportedLang;
@@ -155,38 +217,6 @@ function getKeywords(title: string, tldr: string): string[] {
   return Array.from(new Set([...defaults, ...uniqueTerms]));
 }
 
-function getReadmeTldrBySlug(lang: SupportedLang): Map<string, string> {
-  const readmePath = getBlogReadmePath(lang);
-  const readmeContent = readmePath ? getMarkdownRawContent(readmePath) : null;
-  if (!readmeContent) {
-    return new Map<string, string>();
-  }
-
-  const sections = readmeContent
-    .split(/\n(?=#\s+)/)
-    .map((section) => section.trim())
-    .filter((section) => section.startsWith('# '));
-
-  const map = new Map<string, string>();
-
-  for (const section of sections) {
-    const heading = firstRegexGroup(section, /^#\s+(.+)$/m);
-    if (!heading) {
-      continue;
-    }
-
-    const tldr = firstRegexGroup(section, /\*\*TL;DR\s*:?[ \t]*([\s\S]*?)\*\*/im);
-    const normalizedSlug = normalizeSlug(heading);
-    const cleanTldr = cleanInlineMarkdown(tldr);
-
-    if (normalizedSlug && cleanTldr) {
-      map.set(normalizedSlug, cleanTldr);
-    }
-  }
-
-  return map;
-}
-
 function createArticle(lang: SupportedLang, slug: string, rawContent: string): BlogArticle {
   const title = getTitle(rawContent, slug.replace(/-/g, ' '));
   const publishedLabel = getPublishedLabel(rawContent);
@@ -207,91 +237,142 @@ function createArticle(lang: SupportedLang, slug: string, rawContent: string): B
   };
 }
 
+function createManifestBackedArticle(
+  lang: SupportedLang,
+  rule: BlogManifestArticleRule,
+  sourcePath: string,
+  rawContent: string
+): BlogArticle {
+  const langRule = rule.languages[lang];
+  if (!langRule) {
+    throw new Error(`Missing manifest language rule for ${lang}:${rule.canonicalSlug}`);
+  }
+
+  const tldr = cleanInlineMarkdown(langRule.tldr || '');
+
+  if (!tldr) {
+    throw new Error(`Manifest metadata is incomplete for ${lang}:${rule.canonicalSlug}. Required: tldr.`);
+  }
+
+  const article = createArticle(lang, rule.canonicalSlug, rawContent);
+  article.tldr = tldr;
+  article.keywords = getKeywords(article.title, tldr);
+  article.sourcePath = sourcePath;
+  return article;
+}
+
+function getManifestSourcePath(rule: BlogManifestArticleRule, lang: SupportedLang): string | null {
+  const langRule = rule.languages[lang];
+  if (!langRule || langRule.published === false) {
+    return null;
+  }
+
+  const sourcePath = normalizeBlogSourcePath(langRule.file);
+  if (!markdownRaw[sourcePath]) {
+    return null;
+  }
+
+  return sourcePath;
+}
+
 function sortByPublishedDateDesc(posts: BlogArticle[]): BlogArticle[] {
   return [...posts].sort((a, b) => b.publishedISO.localeCompare(a.publishedISO));
 }
 
-export function getEnglishBlogArticles(): BlogArticle[] {
-  const readmeTldrBySlug = getReadmeTldrBySlug('en');
-
-  const posts = Object.entries(markdownRaw)
+function getEnglishHiddenArticles(excludePaths: Set<string>, excludeSlugs: Set<string>): BlogArticle[] {
+  return Object.entries(markdownRaw)
     .map(([path, rawContent]) => {
       const match = path.match(ENGLISH_ARTICLE_PATTERN);
-      if (!match) {
+      if (!match || excludePaths.has(path) || excludeSlugs.has(match[1])) {
         return null;
       }
 
       const article = createArticle('en', match[1], rawContent);
-      const readmeTldr = readmeTldrBySlug.get(normalizeSlug(match[1]));
-      if (readmeTldr) {
-        article.tldr = readmeTldr;
-        article.keywords = getKeywords(article.title, readmeTldr);
-      }
       article.sourcePath = path;
       return article;
     })
     .filter((article): article is BlogArticle => Boolean(article));
-
-  return sortByPublishedDateDesc(posts);
 }
 
-export function getLocalizedBlogArticles(lang: SupportedLang): BlogArticle[] {
+function getLocalizedHiddenArticles(
+  lang: SupportedLang,
+  excludePaths: Set<string>,
+  excludeSlugs: Set<string>
+): BlogArticle[] {
   if (lang === 'en') {
-    return getEnglishBlogArticles();
+    return getEnglishHiddenArticles(excludePaths, excludeSlugs);
   }
 
-  const readmeTldrBySlug = getReadmeTldrBySlug(lang);
-
-  const posts = Object.entries(markdownRaw)
+  return Object.entries(markdownRaw)
     .map(([path, rawContent]) => {
       const match = path.match(LOCALIZED_ARTICLE_PATTERN);
-      if (!match || match[1] !== lang) {
+      if (!match || match[1] !== lang || excludePaths.has(path) || excludeSlugs.has(match[2])) {
         return null;
       }
 
       const article = createArticle(lang, match[2], rawContent);
-      const readmeTldr = readmeTldrBySlug.get(normalizeSlug(match[2]));
-      if (readmeTldr) {
-        article.tldr = readmeTldr;
-        article.keywords = getKeywords(article.title, readmeTldr);
-      }
       article.sourcePath = path;
       return article;
     })
     .filter((article): article is BlogArticle => Boolean(article));
-
-  return sortByPublishedDateDesc(posts);
 }
 
-export function getBlogReadmePath(lang: SupportedLang): string | null {
-  const paths = Object.keys(markdownRaw);
+function getManifestBackedArticles(lang: SupportedLang): {
+  articles: BlogArticle[];
+  usedPaths: Set<string>;
+  usedSlugs: Set<string>;
+} {
+  const usedPaths = new Set<string>();
+  const usedSlugs = new Set<string>();
+
+  const manifestPosts = blogManifest.articles
+    .map((rule) => {
+      const sourcePath = getManifestSourcePath(rule, lang);
+      if (!sourcePath || usedSlugs.has(rule.canonicalSlug)) {
+        return null;
+      }
+
+      const article = createManifestBackedArticle(lang, rule, sourcePath, markdownRaw[sourcePath]);
+      usedPaths.add(sourcePath);
+      usedSlugs.add(rule.canonicalSlug);
+      return article;
+    })
+    .filter((article): article is BlogArticle => Boolean(article));
+
+  return {
+    articles: manifestPosts,
+    usedPaths,
+    usedSlugs
+  };
+}
+
+interface GetBlogArticlesOptions {
+  includeHidden?: boolean;
+}
+
+export function getEnglishBlogArticles(options: GetBlogArticlesOptions = {}): BlogArticle[] {
+  const { articles: manifestPosts, usedPaths, usedSlugs } = getManifestBackedArticles('en');
+  const hiddenPosts = options.includeHidden ? getEnglishHiddenArticles(usedPaths, usedSlugs) : [];
+
+  return sortByPublishedDateDesc([...manifestPosts, ...hiddenPosts]);
+}
+
+export function getLocalizedBlogArticles(lang: SupportedLang, options: GetBlogArticlesOptions = {}): BlogArticle[] {
   if (lang === 'en') {
-    return paths.find((path) => ENGLISH_README_PATTERN.test(path)) || null;
+    return getEnglishBlogArticles(options);
   }
 
-  return (
-    paths.find((path) => {
-      const match = path.match(LOCALIZED_README_PATTERN);
-      return Boolean(match && match[1] === lang);
-    }) || null
-  );
+  const { articles: manifestPosts, usedPaths, usedSlugs } = getManifestBackedArticles(lang);
+  const hiddenPosts = options.includeHidden ? getLocalizedHiddenArticles(lang, usedPaths, usedSlugs) : [];
+
+  return sortByPublishedDateDesc([...manifestPosts, ...hiddenPosts]);
 }
 
 export function getLocalizedBlogLanguages(): SupportedLang[] {
   const localizedLanguages = new Set<SupportedLang>();
 
-  if (getBlogReadmePath('en') && getEnglishBlogArticles().length > 0) {
-    localizedLanguages.add('en');
-  }
-
-  for (const path of Object.keys(markdownRaw)) {
-    const readmeMatch = path.match(LOCALIZED_README_PATTERN);
-    if (!readmeMatch) {
-      continue;
-    }
-
-    const lang = readmeMatch[1] as SupportedLang;
-    const hasArticles = getLocalizedBlogArticles(lang).length > 0;
+  for (const lang of SUPPORTED_BLOG_LANGS) {
+    const hasArticles = getLocalizedBlogArticles(lang, { includeHidden: true }).length > 0;
     if (hasArticles) {
       localizedLanguages.add(lang);
     }
