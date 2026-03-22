@@ -1,6 +1,7 @@
 import { languages, routeMap } from '../i18n/ui';
 import { getLocalizedPath } from '../i18n/utils';
 import {
+	getBlogArtifacts,
 	getEnglishBlogArticles,
 	getLocalizedBlogArticles,
 	getLocalizedBlogLanguages
@@ -49,6 +50,12 @@ export const GET: APIRoute = async () => {
 	for (const article of getEnglishBlogArticles()) {
 		urls.push(
 			`<url><loc>${sitePath}${englishBlogPath}/${article.slug}</loc><lastmod>${article.publishedISO}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+		);
+	}
+
+	for (const artifact of getBlogArtifacts()) {
+		urls.push(
+			`<url><loc>${sitePath}/blog/artifacts/${artifact.slug}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>`
 		);
 	}
 

@@ -1,0 +1,102 @@
+---
+import { Code } from 'astro:components';
+import Layout from '../../../layouts/Layout.astro';
+import {
+  getBlogArtifacts,
+  getMarkdownRawContent,
+  getMarkdownRenderResultFromRaw,
+  type BlogArtifact
+} from '../../../lib/blog';
+
+export function getStaticPaths() {
+  return getBlogArtifacts().map((artifact) => ({
+    params: { slug: artifact.slug },
+    props: { artifact }
+  }));
+}
+
+const { artifact } = Astro.props as { artifact: BlogArtifact };
+const rawContent = getMarkdownRawContent(artifact.sourcePath);
+if (!rawContent) {
+  throw new Error(`Unable to load artifact source: ${artifact.sourcePath}`);
+}
+
+const frontmatterMatch = rawContent.match(/^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)/);
+const frontmatterYaml = frontmatterMatch?.[1]?.trim() || '';
+const markdownBody = frontmatterMatch ? rawContent.slice(frontmatterMatch[0].length) : rawContent;
+
+const renderResult = getMarkdownRenderResultFromRaw(markdownBody);
+if (!renderResult) {
+  throw new Error(`Unable to render artifact source: ${artifact.sourcePath}`);
+}
+
+const canonicalPath = `/blog/artifacts/${artifact.slug}`;
+---
+
+<Layout
+  title={`${artifact.title} | Artifact | The Provenance Manifesto`}
+  description={`Article artifact: ${artifact.title}`}
+  metaType="article"
+  metaLocale="en"
+  lang="en"
+  canonicalPath={canonicalPath}
+  schemaType="creativeWork"
+  schemaName={artifact.title}
+  schemaDescription={`Artifact page for ${artifact.title}`}
+>
+  <div class="max-w-[960px] mx-auto w-full px-6 md:px-10 py-12 md:py-20 flex flex-col gap-8">
+    <div class="flex flex-col gap-4">
+      <a href="/blog" class="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-[#1152d4] transition-colors">
+        <span class="material-symbols-outlined text-base">arrow_back</span>
+        Back to Blog
+      </a>
+
+      <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">Article artifact</p>
+      <h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em]">
+        {artifact.title}
+      </h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400">Source: {artifact.sourcePath.replace('/blog/', '')}</p>
+    </div>
+
+    {renderResult.toc.length > 0 && (
+      <details class="group rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-900/70">
+        <summary class="list-none cursor-pointer px-5 md:px-6 py-4 md:py-5 flex items-center justify-between gap-4">
+          <h2 class="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">Table of contents</h2>
+          <span class="material-symbols-outlined text-slate-400 group-open:rotate-180 transition-transform">expand_more</span>
+        </summary>
+        <nav aria-label="Table of contents" class="px-5 md:px-6 pb-5 md:pb-6">
+          <div class="flex flex-col gap-2">
+            {renderResult.toc.map((item) => (
+              <a
+                href={`#${item.id}`}
+                class:list={[
+                  'group inline-flex items-start gap-2.5 rounded-md px-2 py-1 text-[0.92rem] md:text-[0.95rem] font-medium leading-relaxed text-slate-600 dark:text-slate-300 hover:text-[#1152d4] hover:bg-white/80 dark:hover:bg-slate-800/70 transition-colors',
+                  item.level === 3 && 'pl-5 text-slate-600 dark:text-slate-300',
+                  item.level === 4 && 'pl-9 text-slate-500 dark:text-slate-400'
+                ]}
+              >
+                <span class="mt-[0.38rem] shrink-0 text-[0.7rem] leading-none text-slate-400 dark:text-slate-500 group-hover:text-[#1152d4] transition-colors" aria-hidden="true">·</span>
+                <span>{item.text}</span>
+              </a>
+            ))}
+          </div>
+        </nav>
+      </details>
+    )}
+
+    {frontmatterYaml && (
+      <section class="rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-6 md:p-8">
+        <h2 class="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">YAML frontmatter</h2>
+        <Code code={frontmatterYaml} lang="yaml" />
+      </section>
+    )}
+
+    <article class="artifact-content rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/50 p-6 md:p-8 prose prose-slate dark:prose-invert max-w-none prose-headings:font-bold prose-a:text-[#1152d4]" set:html={renderResult.html} />
+  </div>
+</Layout>
+
+<style>
+  .artifact-content :is(h2, h3, h4) {
+    scroll-margin-top: 6rem;
+  }
+</style>

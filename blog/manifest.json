@@ -1,5 +1,41 @@
 {
   "articles": [
+     {
+      "id": "agentic-flow-how-to-guide",
+      "canonicalSlug": "agentic-flow-how-to-guide",
+      "languages": {
+        "en": {
+          "file": "agentic-flow-how-to-guide.md",
+          "published": true,
+          "tldr": "In the previous article, about **Building an Automated Translation Pipeline** we designed a GitHub Copilot-based translation pipeline built around an orchestrator, language-specific subagents, reusable skills, and hooks. In this article, we go one step further and turn those ideas into a practical how-to. We walk through how this workspace models **agentic inheritance**, how instruction layering replaces native inheritance, and how the three execution approaches work: sequential, parallel, hierarchical"
+        },
+        "de": {
+          "file": "de/agentic-flow-how-to-guide.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/agentic-flow-how-to-guide.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/agentic-flow-how-to-guide.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/agentic-flow-how-to-guide.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/agentic-flow-how-to-guide.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
     {
       "id": "fluency-paradox",
       "canonicalSlug": "the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable",

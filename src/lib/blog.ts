@@ -17,6 +17,7 @@ const MANIFEST_PATH = '/blog/manifest.json';
 const SUPPORTED_BLOG_LANGS: SupportedLang[] = ['en', 'de', 'es', 'fr', 'pl', 'ru'];
 const ENGLISH_ARTICLE_PATTERN = /^\/blog\/(?!README\.md$)([^/]+)\.md$/i;
 const LOCALIZED_ARTICLE_PATTERN = /^\/blog\/([a-z]{2})\/(?!README\.md$)([^/]+)\.md$/i;
+const ARTIFACT_PATTERN = /^\/blog\/artifacts\/(?!README\.md$)(.+)\.md$/i;
 
 interface BlogManifestLanguageRule {
   file: string;
@@ -103,6 +104,12 @@ export interface BlogMarkdownRenderResult {
   toc: BlogTocItem[];
 }
 
+export interface BlogArtifact {
+  slug: string;
+  title: string;
+  sourcePath: string;
+}
+
 function firstRegexGroup(content: string, pattern: RegExp): string {
   const match = content.match(pattern);
   return (match?.[1] || '').trim();
@@ -125,6 +132,20 @@ function normalizeSlug(value: string): string {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function slugToTitle(slug: string): string {
+  return slug
+    .split('/')
+    .map((segment) =>
+      segment
+        .replace(/[_.-]+/g, ' ')
+        .split(' ')
+        .filter(Boolean)
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+    )
+    .join(' / ');
 }
 
 function normalizeHeadingId(value: string): string {
@@ -395,8 +416,7 @@ export function getMarkdownRawContent(path: string): string | null {
   return markdownRaw[path] ?? null;
 }
 
-export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult | null {
-  const rawContent = getMarkdownRawContent(path);
+export function getMarkdownRenderResultFromRaw(rawContent: string): BlogMarkdownRenderResult | null {
   if (!rawContent) {
     return null;
   }
@@ -427,6 +447,37 @@ export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult 
   };
 }
 
+export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult | null {
+  const rawContent = getMarkdownRawContent(path);
+  if (!rawContent) {
+    return null;
+  }
+
+  return getMarkdownRenderResultFromRaw(rawContent);
+}
+
 export function getMarkdownHtml(path: string): string | null {
   return getMarkdownRenderResult(path)?.html ?? null;
+}
+
+export function getBlogArtifacts(): BlogArtifact[] {
+  return Object.entries(markdownRaw)
+    .map(([path, rawContent]) => {
+      const match = path.match(ARTIFACT_PATTERN);
+      if (!match) {
+        return null;
+      }
+
+      const slug = match[1];
+      const fallbackTitle = slugToTitle(slug);
+      const title = getTitle(rawContent, fallbackTitle);
+
+      return {
+        slug,
+        title,
+        sourcePath: path
+      };
+    })
+    .filter((artifact): artifact is BlogArtifact => Boolean(artifact))
+    .sort((a, b) => a.slug.localeCompare(b.slug));
 }
