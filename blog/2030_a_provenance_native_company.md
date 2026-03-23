@@ -255,6 +255,6 @@ Everything needed already exists:
 -   event pipelines
 -   observability stacks
 
-What's missing is the **mental model**.
+What's missing is the **[mental model](/blog/provenance-is-not-about-tools-it-is-about-mindset)**.
 
 That is exactly what the **[Provenance Manifesto](https://provenancemanifesto.org/)** introduces.
