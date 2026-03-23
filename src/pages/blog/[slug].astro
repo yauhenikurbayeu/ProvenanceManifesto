@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { article } = Astro.props as { article: BlogArticle };
-const renderResult = getMarkdownRenderResult(article.sourcePath);
+const renderResult = await getMarkdownRenderResult(article.sourcePath);
 if (!renderResult) {
   throw new Error(`Unable to load blog article source: ${article.sourcePath}`);
 }

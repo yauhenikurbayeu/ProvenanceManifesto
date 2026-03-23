@@ -25,7 +25,7 @@ const frontmatterMatch = rawContent.match(/^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)/)
 const frontmatterYaml = frontmatterMatch?.[1]?.trim() || '';
 const markdownBody = frontmatterMatch ? rawContent.slice(frontmatterMatch[0].length) : rawContent;
 
-const renderResult = getMarkdownRenderResultFromRaw(markdownBody);
+const renderResult = await getMarkdownRenderResultFromRaw(markdownBody);
 if (!renderResult) {
   throw new Error(`Unable to render artifact source: ${artifact.sourcePath}`);
 }

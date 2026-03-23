@@ -1,5 +1,6 @@
 import type { SupportedLang } from '../i18n/utils';
 import { marked } from 'marked';
+import { codeToHtml } from 'shiki';
 
 const markdownLoaders = import.meta.glob('/blog/**/*.md');
 const markdownRaw = import.meta.glob('/blog/**/*.md', {
@@ -416,10 +417,49 @@ export function getMarkdownRawContent(path: string): string | null {
   return markdownRaw[path] ?? null;
 }
 
-export function getMarkdownRenderResultFromRaw(rawContent: string): BlogMarkdownRenderResult | null {
+function collectCodeBlocks(tokenList: any[]): Array<{ text: string; lang: string }> {
+  const result: Array<{ text: string; lang: string }> = [];
+  for (const token of tokenList) {
+    if (token.type === 'code') {
+      result.push({ text: token.text as string, lang: (token.lang as string) || '' });
+    }
+    const nested: any[] =
+      token.tokens ??
+      token.items?.flatMap((item: any) => item.tokens ?? []) ??
+      [];
+    if (nested.length > 0) {
+      result.push(...collectCodeBlocks(nested));
+    }
+  }
+  return result;
+}
+
+function normalizeLang(raw: string): string {
+  return raw.split(/[\s:{]/)[0].toLowerCase() || 'text';
+}
+
+export async function getMarkdownRenderResultFromRaw(rawContent: string): Promise<BlogMarkdownRenderResult | null> {
   if (!rawContent) {
     return null;
   }
+
+  // Pre-highlight all code blocks in parallel using Shiki
+  const codeBlocks = collectCodeBlocks(marked.lexer(rawContent) as any[]);
+  const highlightCache = new Map<string, string>();
+
+  await Promise.all(
+    codeBlocks.map(async ({ text, lang: rawLang }) => {
+      const lang = normalizeLang(rawLang);
+      const key = `${lang}\0${text}`;
+      if (highlightCache.has(key)) return;
+      try {
+        const html = await codeToHtml(text, { lang, theme: 'github-dark' });
+        highlightCache.set(key, html);
+      } catch {
+        highlightCache.set(key, ''); // unsupported language — will use fallback renderer
+      }
+    })
+  );
 
   const toc: BlogTocItem[] = [];
   const nextHeadingId = createHeadingIdGenerator();
@@ -441,13 +481,22 @@ export function getMarkdownRenderResultFromRaw(rawContent: string): BlogMarkdown
     return `<h${depth} id="${id}">${innerHtml}</h${depth}>`;
   };
 
+  renderer.code = ({ text, lang: rawLang }) => {
+    const lang = normalizeLang(rawLang ?? '');
+    const key = `${lang}\0${text}`;
+    const highlighted = highlightCache.get(key);
+    if (highlighted) return highlighted;
+    // Fallback for unsupported languages
+    return `<pre class="shiki" style="background-color:#24292e;color:#e1e4e8"><code class="language-${lang}">${text}</code></pre>`;
+  };
+
   return {
     html: marked.parse(rawContent, { renderer }) as string,
     toc
   };
 }
 
-export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult | null {
+export async function getMarkdownRenderResult(path: string): Promise<BlogMarkdownRenderResult | null> {
   const rawContent = getMarkdownRawContent(path);
   if (!rawContent) {
     return null;
@@ -456,8 +505,9 @@ export function getMarkdownRenderResult(path: string): BlogMarkdownRenderResult 
   return getMarkdownRenderResultFromRaw(rawContent);
 }
 
-export function getMarkdownHtml(path: string): string | null {
-  return getMarkdownRenderResult(path)?.html ?? null;
+export async function getMarkdownHtml(path: string): Promise<string | null> {
+  const result = await getMarkdownRenderResult(path);
+  return result?.html ?? null;
 }
 
 export function getBlogArtifacts(): BlogArtifact[] {

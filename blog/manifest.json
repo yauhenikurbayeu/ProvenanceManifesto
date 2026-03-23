@@ -1,5 +1,41 @@
 {
-  "articles": [
+    "articles": [
+     {
+      "id": "agentic-oriented-programming-vs-oop",
+      "canonicalSlug": "agentic-oriented-programming-vs-oop",
+      "languages": {
+        "en": {
+          "file": "agentic-oriented-programming-vs-oop.md",
+          "published": true,
+          "tldr": "Agents are not just smarter objects. OOP was designed for deterministic behavior; agentic systems operate through probabilistic reasoning, context, and runtime decision-making. That is why Agentic-Oriented Programming needs new primitives beyond classes and methods, especially around orchestration, memory, and decision provenance."
+        },
+        "de": {
+          "file": "de/agentic-oriented-programming-vs-oop.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/agentic-oriented-programming-vs-oop.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/agentic-oriented-programming-vs-oop.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/agentic-oriented-programming-vs-oop.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/agentic-oriented-programming-vs-oop.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
      {
       "id": "agentic-flow-how-to-guide",
       "canonicalSlug": "agentic-flow-how-to-guide",
