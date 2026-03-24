@@ -39,6 +39,29 @@ export function getLocalizedPath(lang: SupportedLang, route: RouteKey = 'manifes
 	return `${baseUrl}/${lang}${slug ? `/${slug}` : ''}`;
 }
 
+export function getLocalizedBlogCategoryPath(lang: SupportedLang, category: string) {
+	const blogPath = getLocalizedPath(lang, 'blog');
+	return `${blogPath}/category/${category}`;
+}
+
+export function getBlogCategoryLabel(lang: SupportedLang, category: string): string {
+	const t = useTranslations(lang);
+	const keyMap: Record<string, keyof typeof ui[typeof defaultLang]> = {
+		provenance_philosophy: 'blog.category.provenance_philosophy',
+		technical_articles: 'blog.category.technical_articles',
+		other: 'blog.category.other'
+	};
+
+	const translationKey = keyMap[category];
+	if (translationKey) {
+		return t(translationKey);
+	}
+
+	return category
+		.replace(/[_-]+/g, ' ')
+		.replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
 export function getSupabaseClientConfig() {
 	return {
 		url: import.meta.env.PUBLIC_SUPABASE_URL || import.meta.env.VITE_SUPABASE_URL || '',

@@ -1,0 +1,48 @@
+---
+import BlogPage from '../../../../components/BlogPage.astro';
+import {
+  getBlogCategoryLabel,
+  getLocalizedBlogCategoryPath,
+  getLocalizedPath,
+  type SupportedLang,
+  useTranslations
+} from '../../../../i18n/utils';
+import {
+  getBlogCategoryKeys,
+  getLocalizedBlogArticlesByCategory,
+  getLocalizedBlogLanguages,
+  type BlogCategoryKey
+} from '../../../../lib/blog';
+
+export function getStaticPaths() {
+  return getLocalizedBlogLanguages().flatMap((lang: SupportedLang) =>
+    getBlogCategoryKeys().map((category: BlogCategoryKey) => ({
+      params: { lang, category },
+      props: { lang, category }
+    }))
+  );
+}
+
+const { lang, category } = Astro.props as { lang: SupportedLang; category: BlogCategoryKey };
+const normalizedLang = lang as SupportedLang;
+const categoryKeys = getBlogCategoryKeys();
+const articles = getLocalizedBlogArticlesByCategory(normalizedLang, category);
+const blogPath = getLocalizedPath(normalizedLang, 'blog');
+const t = useTranslations(normalizedLang);
+const categoryLinks = categoryKeys.map((categoryKey: BlogCategoryKey) => ({
+  key: categoryKey,
+  label: getBlogCategoryLabel(normalizedLang, categoryKey),
+  href: getLocalizedBlogCategoryPath(normalizedLang, categoryKey),
+  isActive: categoryKey === category
+}));
+---
+
+<BlogPage
+  lang={normalizedLang}
+  title={t('blog.title')}
+  description={t('blog.description')}
+  articles={articles}
+  categoryLinks={categoryLinks}
+  canonicalPath={getLocalizedBlogCategoryPath(normalizedLang, category)}
+  articleHrefBuilder={(slug: string) => `${blogPath}/${slug}`}
+/>

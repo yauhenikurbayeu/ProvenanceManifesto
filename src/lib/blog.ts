@@ -19,6 +19,12 @@ const SUPPORTED_BLOG_LANGS: SupportedLang[] = ['en', 'de', 'es', 'fr', 'pl', 'ru
 const ENGLISH_ARTICLE_PATTERN = /^\/blog\/(?!README\.md$)([^/]+)\.md$/i;
 const LOCALIZED_ARTICLE_PATTERN = /^\/blog\/([a-z]{2})\/(?!README\.md$)([^/]+)\.md$/i;
 const ARTIFACT_PATTERN = /^\/blog\/artifacts\/(?!README\.md$)(.+)\.md$/i;
+const DEFAULT_BLOG_CATEGORIES = {
+  provenance_philosophy: {},
+  technical_articles: {},
+  other: {}
+} as const;
+const DEFAULT_BLOG_CATEGORY_KEYS = Object.keys(DEFAULT_BLOG_CATEGORIES);
 
 interface BlogManifestLanguageRule {
   file: string;
@@ -29,10 +35,13 @@ interface BlogManifestLanguageRule {
 interface BlogManifestArticleRule {
   id: string;
   canonicalSlug: string;
+  category?: string;
   languages: Partial<Record<SupportedLang, BlogManifestLanguageRule>>;
 }
 
 interface BlogManifest {
+  categories: Record<string, Record<string, never>>;
+  categoryKeys: string[];
   articles: BlogManifestArticleRule[];
 }
 
@@ -56,34 +65,73 @@ function normalizeBlogSourcePath(pathLike: string): string {
 function parseBlogManifest(): BlogManifest {
   const raw = blogManifestRaw[MANIFEST_PATH];
   if (!raw) {
-    return { articles: [] };
+    return {
+      categories: DEFAULT_BLOG_CATEGORIES,
+      categoryKeys: DEFAULT_BLOG_CATEGORY_KEYS,
+      articles: []
+    };
   }
 
   try {
     const parsed = JSON.parse(raw) as Partial<BlogManifest>;
+    const categoryKeys =
+      parsed.categories && typeof parsed.categories === 'object'
+        ? Object.keys(parsed.categories).map((key) => key.trim()).filter(Boolean)
+        : [];
+    const effectiveCategoryKeys = categoryKeys.length > 0 ? categoryKeys : DEFAULT_BLOG_CATEGORY_KEYS;
+
     if (!Array.isArray(parsed.articles)) {
-      return { articles: [] };
+      return {
+        categories: Object.fromEntries(effectiveCategoryKeys.map((key) => [key, {}])),
+        categoryKeys: effectiveCategoryKeys,
+        articles: []
+      };
     }
 
     const rules = parsed.articles
       .filter((rule): rule is BlogManifestArticleRule => Boolean(rule && rule.canonicalSlug && rule.languages))
       .map((rule) => ({
         ...rule,
-        canonicalSlug: rule.canonicalSlug.trim()
+        canonicalSlug: rule.canonicalSlug.trim(),
+        category: typeof rule.category === 'string' ? rule.category.trim() : undefined
       }))
       .filter((rule) => Boolean(rule.canonicalSlug));
 
-    return { articles: rules };
+    return {
+      categories: Object.fromEntries(effectiveCategoryKeys.map((key) => [key, {}])),
+      categoryKeys: effectiveCategoryKeys,
+      articles: rules
+    };
   } catch {
-    return { articles: [] };
+    return {
+      categories: DEFAULT_BLOG_CATEGORIES,
+      categoryKeys: DEFAULT_BLOG_CATEGORY_KEYS,
+      articles: []
+    };
   }
 }
 
 const blogManifest = parseBlogManifest();
+const blogCategoryKeySet = new Set(blogManifest.categoryKeys);
+
+export type BlogCategoryKey = string;
+
+function getFallbackBlogCategoryKey(): BlogCategoryKey {
+  return blogManifest.categoryKeys[blogManifest.categoryKeys.length - 1] ?? 'other';
+}
+
+function normalizeBlogCategoryKey(category?: string): BlogCategoryKey {
+  if (category && blogCategoryKeySet.has(category)) {
+    return category;
+  }
+
+  return getFallbackBlogCategoryKey();
+}
 
 export interface BlogArticle {
   lang: SupportedLang;
   slug: string;
+  category: BlogCategoryKey;
   title: string;
   author: string;
   publishedLabel: string;
@@ -239,7 +287,7 @@ function getKeywords(title: string, tldr: string): string[] {
   return Array.from(new Set([...defaults, ...uniqueTerms]));
 }
 
-function createArticle(lang: SupportedLang, slug: string, rawContent: string): BlogArticle {
+function createArticle(lang: SupportedLang, slug: string, rawContent: string, category?: string): BlogArticle {
   const title = getTitle(rawContent, slug.replace(/-/g, ' '));
   const publishedLabel = getPublishedLabel(rawContent);
   const publishedISO = toISODate(publishedLabel);
@@ -248,6 +296,7 @@ function createArticle(lang: SupportedLang, slug: string, rawContent: string): B
   return {
     lang,
     slug,
+    category: normalizeBlogCategoryKey(category),
     title,
     author: getAuthor(rawContent),
     publishedLabel,
@@ -280,6 +329,7 @@ function createManifestBackedArticle(
   article.tldr = tldr;
   article.keywords = getKeywords(article.title, tldr);
   article.sourcePath = sourcePath;
+  article.category = normalizeBlogCategoryKey(rule.category);
   return article;
 }
 
@@ -372,6 +422,14 @@ interface GetBlogArticlesOptions {
   includeHidden?: boolean;
 }
 
+export function getBlogCategoryKeys(): BlogCategoryKey[] {
+  return [...blogManifest.categoryKeys];
+}
+
+export function getPrimaryBlogCategoryKey(): BlogCategoryKey {
+  return blogManifest.categoryKeys[0] ?? 'provenance_philosophy';
+}
+
 export function getEnglishBlogArticles(options: GetBlogArticlesOptions = {}): BlogArticle[] {
   const { articles: manifestPosts, usedPaths, usedSlugs } = getManifestBackedArticles('en');
   const hiddenPosts = options.includeHidden ? getEnglishHiddenArticles(usedPaths, usedSlugs) : [];
@@ -388,6 +446,15 @@ export function getLocalizedBlogArticles(lang: SupportedLang, options: GetBlogAr
   const hiddenPosts = options.includeHidden ? getLocalizedHiddenArticles(lang, usedPaths, usedSlugs) : [];
 
   return sortByPublishedDateDesc([...manifestPosts, ...hiddenPosts]);
+}
+
+export function getLocalizedBlogArticlesByCategory(
+  lang: SupportedLang,
+  category: BlogCategoryKey,
+  options: GetBlogArticlesOptions = {}
+): BlogArticle[] {
+  const normalizedCategory = normalizeBlogCategoryKey(category);
+  return getLocalizedBlogArticles(lang, options).filter((article) => article.category === normalizedCategory);
 }
 
 export function getLocalizedBlogLanguages(): SupportedLang[] {

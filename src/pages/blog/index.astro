@@ -1,10 +1,22 @@
 ---
 import BlogPage from '../../components/BlogPage.astro';
-import { useTranslations } from '../../i18n/utils';
-import { getEnglishBlogArticles } from '../../lib/blog';
+import { getBlogCategoryLabel, useTranslations } from '../../i18n/utils';
+import {
+  getBlogCategoryKeys,
+  getLocalizedBlogArticlesByCategory,
+  getPrimaryBlogCategoryKey
+} from '../../lib/blog';
 
-const articles = getEnglishBlogArticles();
+const categoryKeys = getBlogCategoryKeys();
+const activeCategory = getPrimaryBlogCategoryKey();
+const articles = getLocalizedBlogArticlesByCategory('en', activeCategory);
 const t = useTranslations('en');
+const categoryLinks = categoryKeys.map((category) => ({
+  key: category,
+  label: getBlogCategoryLabel('en', category),
+  href: `/blog/category/${category}`,
+  isActive: category === activeCategory
+}));
 ---
 
 <BlogPage
@@ -12,6 +24,7 @@ const t = useTranslations('en');
   title={t('blog.title')}
   description={t('blog.description')}
   articles={articles}
-  canonicalPath="/blog"
+  categoryLinks={categoryLinks}
+  canonicalPath={`/blog/category/${activeCategory}`}
   articleHrefBuilder={(slug: string) => `/blog/${slug}`}
 />

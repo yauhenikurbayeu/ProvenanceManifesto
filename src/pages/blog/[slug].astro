@@ -1,5 +1,6 @@
 ---
 import BlogArticlePage from '../../components/BlogArticlePage.astro';
+import { getLocalizedBlogCategoryPath } from '../../i18n/utils';
 import { getEnglishBlogArticles, getMarkdownRenderResult, type BlogArticle } from '../../lib/blog';
 
 export function getStaticPaths() {
@@ -14,13 +15,14 @@ const renderResult = await getMarkdownRenderResult(article.sourcePath);
 if (!renderResult) {
   throw new Error(`Unable to load blog article source: ${article.sourcePath}`);
 }
+const backToBlogPath = getLocalizedBlogCategoryPath('en', article.category).replace(/^\/en/, '');
 ---
 
 <BlogArticlePage
   lang="en"
   article={article}
   canonicalPath={`/blog/${article.slug}`}
-  backToBlogPath="/blog"
+  backToBlogPath={backToBlogPath}
   contentHtml={renderResult.html}
   contentToc={renderResult.toc}
 />

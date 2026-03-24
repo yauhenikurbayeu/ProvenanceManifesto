@@ -1,8 +1,14 @@
 {
+    "categories": {
+      "provenance_philosophy": {},
+      "technical_articles": {},
+      "other": {}
+    },
     "articles": [
      {
       "id": "agentic-oriented-programming-vs-oop",
       "canonicalSlug": "agentic-oriented-programming-vs-oop",
+      "category": "technical_articles",
       "languages": {
         "en": {
           "file": "agentic-oriented-programming-vs-oop.md",
@@ -39,6 +45,7 @@
      {
       "id": "agentic-flow-how-to-guide",
       "canonicalSlug": "agentic-flow-how-to-guide",
+      "category": "technical_articles",
       "languages": {
         "en": {
           "file": "agentic-flow-how-to-guide.md",
@@ -75,6 +82,7 @@
     {
       "id": "fluency-paradox",
       "canonicalSlug": "the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable",
+      "category": "other",
       "languages": {
         "en": {
           "file": "the-fluency-paradox-when-ai-sounds-right-but-stops-being-reliable.md",
@@ -111,6 +119,7 @@
     {
       "id": "building-translation-pipeline",
       "canonicalSlug": "building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot",
+      "category": "technical_articles",
       "languages": {
         "en": {
           "file": "building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md",
@@ -147,6 +156,7 @@
     {
       "id": "where-provenance-ends-knowledge-decays-reflections",
       "canonicalSlug": "where-provenance-ends-knowledge-decays-reflections",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "where-provenance-ends-knowledge-decays-reflections.md",
@@ -183,6 +193,7 @@
     {
       "id": "provenance-is-not-about-tools-it-is-about-mindset",
       "canonicalSlug": "provenance-is-not-about-tools-it-is-about-mindset",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "provenance-is-not-about-tools-it-is-about-mindset.md",
@@ -219,6 +230,7 @@
     {
       "id": "why-decisions-must-become-a-first-class-artifact",
       "canonicalSlug": "why_decisions_must_become_a_first_class_artifact",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "why_decisions_must_become_a_first_class_artifact.md",
@@ -255,6 +267,7 @@
     {
       "id": "2030-a-provenance-native-company",
       "canonicalSlug": "2030_a_provenance_native_company",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "2030_a_provenance_native_company.md",
@@ -291,6 +304,7 @@
     {
       "id": "why-organizational-memory-is-not-just-an-ai-knowledge-system",
       "canonicalSlug": "why-organizational-memory-is-not-just-an-ai-knowledge-system",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "why-organizational-memory-is-not-just-an-ai-knowledge-system.md",
@@ -327,6 +341,7 @@
     {
       "id": "the-day-the-provenance-manifesto-was-born",
       "canonicalSlug": "the_day_the_provenance_manifesto_was_born",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "the_day_the_provenance_manifesto_was_born.md",
@@ -363,6 +378,7 @@
     {
       "id": "git-for-decisions-needs-a-brain-but-what-kind",
       "canonicalSlug": "git-for-decisions-needs-a-brain-but-what-kind",
+      "category": "technical_articles",
       "languages": {
         "en": {
           "file": "git-for-decisions-needs-a-brain-but-what-kind.md",
@@ -399,6 +415,7 @@
     {
       "id": "from-rag-to-provenance-part-2-how-incremental-graph-memory-actually-learns",
       "canonicalSlug": "from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns",
+      "category": "technical_articles",
       "languages": {
         "en": {
           "file": "from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md",
@@ -435,6 +452,7 @@
     {
       "id": "from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory",
       "canonicalSlug": "from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory",
+      "category": "technical_articles",
       "languages": {
         "en": {
           "file": "from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md",
@@ -471,6 +489,7 @@
     {
       "id": "why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont",
       "canonicalSlug": "why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont",
+      "category": "other",
       "languages": {
         "en": {
           "file": "why-humans-think-they-remember-everything-and-why-sdlc-memory-proves-they-dont.md",
@@ -507,6 +526,7 @@
     {
       "id": "how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles",
       "canonicalSlug": "how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles",
+      "category": "other",
       "languages": {
         "en": {
           "file": "how-should-intellectual-capital-be-assessed-in-the-context-of-artificial-intelligence-increasingly-replacing-human-roles.md",
@@ -543,6 +563,7 @@
     {
       "id": "ai-will-take-the-what-but-humans-must-own-the-why",
       "canonicalSlug": "ai-will-take-the-what-but-humans-must-own-the-why",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "ai-will-take-the-what-but-humans-must-own-the-why.md",
@@ -579,6 +600,7 @@
     {
       "id": "we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember",
       "canonicalSlug": "we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "we-are-teaching-ai-to-decide-but-we-are-forgetting-how-to-remember.md",
@@ -615,6 +637,7 @@
     {
       "id": "why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it",
       "canonicalSlug": "why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it",
+      "category": "provenance_philosophy",
       "languages": {
         "en": {
           "file": "why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",

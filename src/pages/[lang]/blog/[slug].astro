@@ -1,6 +1,6 @@
 ---
 import BlogArticlePage from '../../../components/BlogArticlePage.astro';
-import { getLocalizedPath, type SupportedLang } from '../../../i18n/utils';
+import { getLocalizedBlogCategoryPath, getLocalizedPath, type SupportedLang } from '../../../i18n/utils';
 import {
   getMarkdownRenderResult,
   getLocalizedBlogArticles,
@@ -24,13 +24,14 @@ if (!renderResult) {
   throw new Error(`Unable to load localized blog article source: ${article.sourcePath}`);
 }
 const blogPath = getLocalizedPath(normalizedLang, 'blog');
+const backToBlogPath = getLocalizedBlogCategoryPath(normalizedLang, article.category);
 ---
 
 <BlogArticlePage
   lang={normalizedLang}
   article={article}
   canonicalPath={`${blogPath}/${article.slug}`}
-  backToBlogPath={blogPath}
+  backToBlogPath={backToBlogPath}
   contentHtml={renderResult.html}
   contentToc={renderResult.toc}
 />

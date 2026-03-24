@@ -85,6 +85,9 @@ export const ui = {
     'blog.description': 'Essays and practical notes on provenance, SDLC memory, and AI-era delivery governance.',
     'blog.backToBlog': 'Back to Blog',
     'blog.tableOfContents': 'Table of Contents',
+    'blog.category.provenance_philosophy': 'Provenance Philosophy',
+    'blog.category.technical_articles': 'Technical Articles',
+    'blog.category.other': 'Other',
   },
   es: {
     'nav.manifesto': 'Manifiesto',
@@ -110,6 +113,9 @@ export const ui = {
     'blog.description': 'Ensayos y notas prácticas sobre provenance, memoria del SDLC y gobernanza de entrega en la era de la IA.',
     'blog.backToBlog': 'Volver a la bitácora',
     'blog.tableOfContents': 'Tabla de contenidos',
+    'blog.category.provenance_philosophy': 'Filosofía de Provenance',
+    'blog.category.technical_articles': 'Artículos técnicos',
+    'blog.category.other': 'Otros',
   },
   fr: {
     'nav.manifesto': 'Manifeste',
@@ -135,6 +141,9 @@ export const ui = {
     'blog.description': 'Essais et notes pratiques sur la provenance, la mémoire SDLC et la gouvernance de delivery à l’ère de l’IA.',
     'blog.backToBlog': 'Retour au blog',
     'blog.tableOfContents': 'Table des matières',
+    'blog.category.provenance_philosophy': 'Philosophie de la provenance',
+    'blog.category.technical_articles': 'Articles techniques',
+    'blog.category.other': 'Autres',
   },
   ru: {
     'nav.manifesto': 'Манифест',
@@ -160,6 +169,9 @@ export const ui = {
     'blog.description': 'Эссе и практические заметки о provenance, памяти SDLC и управлении delivery в эпоху ИИ.',
     'blog.backToBlog': 'Назад в блог',
     'blog.tableOfContents': 'Содержание',
+    'blog.category.provenance_philosophy': 'Философия Provenance',
+    'blog.category.technical_articles': 'Технические статьи',
+    'blog.category.other': 'Другое',
   },
   de: {
     'nav.manifesto': 'Manifest',
@@ -185,6 +197,9 @@ export const ui = {
     'blog.description': 'Essays und praxisnahe Notizen zu Provenance, SDLC-Memory und Delivery-Governance im KI-Zeitalter.',
     'blog.backToBlog': 'Zurück zum Blog',
     'blog.tableOfContents': 'Inhaltsverzeichnis',
+    'blog.category.provenance_philosophy': 'Provenienz-Philosophie',
+    'blog.category.technical_articles': 'Technische Artikel',
+    'blog.category.other': 'Sonstiges',
   },
   pl: {
     'nav.manifesto': 'Manifest',
@@ -210,5 +225,8 @@ export const ui = {
     'blog.description': 'Eseje i praktyczne notatki o provenance, pamięci SDLC oraz governance delivery w erze AI.',
     'blog.backToBlog': 'Powrót do dziennika',
     'blog.tableOfContents': 'Spis treści',
+    'blog.category.provenance_philosophy': 'Filozofia Provenance',
+    'blog.category.technical_articles': 'Artykuły techniczne',
+    'blog.category.other': 'Inne',
   }
 } as const;

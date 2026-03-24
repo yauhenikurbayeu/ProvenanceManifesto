@@ -1,7 +1,8 @@
 import { languages, routeMap } from '../i18n/ui';
-import { getLocalizedPath } from '../i18n/utils';
+import { getLocalizedBlogCategoryPath, getLocalizedPath } from '../i18n/utils';
 import {
 	getBlogArtifacts,
+	getBlogCategoryKeys,
 	getEnglishBlogArticles,
 	getLocalizedBlogArticles,
 	getLocalizedBlogLanguages
@@ -47,6 +48,12 @@ export const GET: APIRoute = async () => {
 	}
 
 	const englishBlogPath = '/blog';
+	for (const category of getBlogCategoryKeys()) {
+		urls.push(
+			`<url><loc>${sitePath}${englishBlogPath}/category/${category}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+		);
+	}
+
 	for (const article of getEnglishBlogArticles()) {
 		urls.push(
 			`<url><loc>${sitePath}${englishBlogPath}/${article.slug}</loc><lastmod>${article.publishedISO}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
@@ -64,6 +71,12 @@ export const GET: APIRoute = async () => {
 		urls.push(
 			`<url><loc>${sitePath}${blogBasePath}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
 		);
+
+		for (const category of getBlogCategoryKeys()) {
+			urls.push(
+				`<url><loc>${sitePath}${getLocalizedBlogCategoryPath(lang, category)}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
+			);
+		}
 
 		for (const article of getLocalizedBlogArticles(lang)) {
 			urls.push(

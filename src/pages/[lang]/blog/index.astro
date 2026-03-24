@@ -1,7 +1,18 @@
 ---
 import BlogPage from '../../../components/BlogPage.astro';
-import { getLocalizedPath, type SupportedLang, useTranslations } from '../../../i18n/utils';
-import { getLocalizedBlogArticles, getLocalizedBlogLanguages } from '../../../lib/blog';
+import {
+  getBlogCategoryLabel,
+  getLocalizedBlogCategoryPath,
+  getLocalizedPath,
+  type SupportedLang,
+  useTranslations
+} from '../../../i18n/utils';
+import {
+  getBlogCategoryKeys,
+  getLocalizedBlogArticlesByCategory,
+  getLocalizedBlogLanguages,
+  getPrimaryBlogCategoryKey
+} from '../../../lib/blog';
 
 export function getStaticPaths() {
   return getLocalizedBlogLanguages().map((lang) => ({ params: { lang } }));
@@ -10,9 +21,17 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const normalizedLang = lang as SupportedLang;
 
-const articles = getLocalizedBlogArticles(normalizedLang);
+const categoryKeys = getBlogCategoryKeys();
+const activeCategory = getPrimaryBlogCategoryKey();
+const articles = getLocalizedBlogArticlesByCategory(normalizedLang, activeCategory);
 const blogPath = getLocalizedPath(normalizedLang, 'blog');
 const t = useTranslations(normalizedLang);
+const categoryLinks = categoryKeys.map((category) => ({
+  key: category,
+  label: getBlogCategoryLabel(normalizedLang, category),
+  href: getLocalizedBlogCategoryPath(normalizedLang, category),
+  isActive: category === activeCategory
+}));
 ---
 
 <BlogPage
@@ -20,6 +39,7 @@ const t = useTranslations(normalizedLang);
   title={t('blog.title')}
   description={t('blog.description')}
   articles={articles}
-  canonicalPath={blogPath}
+  categoryLinks={categoryLinks}
+  canonicalPath={getLocalizedBlogCategoryPath(normalizedLang, activeCategory)}
   articleHrefBuilder={(slug: string) => `${blogPath}/${slug}`}
 />

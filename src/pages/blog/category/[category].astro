@@ -1,0 +1,37 @@
+---
+import BlogPage from '../../../components/BlogPage.astro';
+import { getBlogCategoryLabel, useTranslations } from '../../../i18n/utils';
+import {
+  getBlogCategoryKeys,
+  getLocalizedBlogArticlesByCategory,
+  type BlogCategoryKey
+} from '../../../lib/blog';
+
+export function getStaticPaths() {
+  return getBlogCategoryKeys().map((category: BlogCategoryKey) => ({
+    params: { category },
+    props: { category }
+  }));
+}
+
+const { category } = Astro.props as { category: BlogCategoryKey };
+const categoryKeys = getBlogCategoryKeys();
+const articles = getLocalizedBlogArticlesByCategory('en', category);
+const t = useTranslations('en');
+const categoryLinks = categoryKeys.map((categoryKey: BlogCategoryKey) => ({
+  key: categoryKey,
+  label: getBlogCategoryLabel('en', categoryKey),
+  href: `/blog/category/${categoryKey}`,
+  isActive: categoryKey === category
+}));
+---
+
+<BlogPage
+  lang="en"
+  title={t('blog.title')}
+  description={t('blog.description')}
+  articles={articles}
+  categoryLinks={categoryLinks}
+  canonicalPath={`/blog/category/${category}`}
+  articleHrefBuilder={(slug: string) => `/blog/${slug}`}
+/>
