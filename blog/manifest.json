@@ -4,8 +4,46 @@
       "technical_articles": {},
       "other": {}
     },
+    
     "articles": [
-     {
+    {
+      "id": "agent-context-and-exchange-protocol-how-to",
+      "canonicalSlug": "agent-context-and-exchange-protocol-how-to",
+      "category": "technical_articles",
+      "languages": {
+        "en": {
+          "file": "agent-context-and-exchange-protocol-how-to.md",
+          "published": true,
+          "tldr": "This article introduces a shared agent handoff protocol that standardizes how agents exchange context, ensuring stable inputs, outputs, and failure handling across multi-agent flows. It shows how the same contract enables sequential, parallel, and hierarchical execution modes without redefining communication patterns. The key idea is simple: define one consistent envelope and return schema, and you turn prompt chaining into a composable, observable system instead of fragile prompt passing."
+        },
+        "de": {
+          "file": "de/agent-context-and-exchange-protocol-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/agent-context-and-exchange-protocol-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/agent-context-and-exchange-protocol-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/agent-context-and-exchange-protocol-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/agent-context-and-exchange-protocol-how-to.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
+    {
       "id": "agentic-oriented-programming-vs-oop",
       "canonicalSlug": "agentic-oriented-programming-vs-oop",
       "category": "technical_articles",
