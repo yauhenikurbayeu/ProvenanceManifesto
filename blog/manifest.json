@@ -7,6 +7,43 @@
     
     "articles": [
     {
+      "id": "gut-feeling-decision-provenance",
+      "canonicalSlug": "gut-feeling-decision-provenance",
+      "category": "provenance_philosophy",
+      "languages": {
+        "en": {
+          "file": "gut-feeling-decision-provenance.md",
+          "published": true,
+          "tldr": "What teams call intuition is usually not mystical talent. It is a human ability to reconstruct likely outcomes from previously seen decisions, assumptions, constraints, rejected alternatives, incidents, and trade-offs. In other words, gut feeling is a lossy local cache of decision provenance. Modern AI systems can retrieve documents, code, and tickets. But they rarely preserve the reasoning layer behind them. That is why RAG often retrieves relevant fragments yet still fails to explain why a system exists in its current form."
+        },
+        "de": {
+          "file": "de/gut-feeling-decision-provenance.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/gut-feeling-decision-provenance.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/gut-feeling-decision-provenance.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/gut-feeling-decision-provenance.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/gut-feeling-decision-provenance.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
+    {
       "id": "agent-context-and-exchange-protocol-how-to",
       "canonicalSlug": "agent-context-and-exchange-protocol-how-to",
       "category": "technical_articles",
