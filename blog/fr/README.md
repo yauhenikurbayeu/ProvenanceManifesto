@@ -1,3 +1,10 @@
+# Agentic Flow How-To Guide
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 22, 2026
+
+**TL;DR Un guide pratique des flux d’agents GitHub Copilot qui explique l’héritage agentique par couches d’instructions et compare les schémas d’orchestration séquentiels, parallèles et hiérarchiques.**
+
 # "Where Provenance Ends, Knowledge Decays" Reflections
 
 **Author:** Yauheni Kurbayeu

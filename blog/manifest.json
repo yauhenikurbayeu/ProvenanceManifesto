@@ -4,7 +4,6 @@
       "technical_articles": {},
       "other": {}
     },
-    
     "articles": [
     {
       "id": "gut-feeling-decision-provenance",
@@ -125,32 +124,32 @@
         "en": {
           "file": "agentic-flow-how-to-guide.md",
           "published": true,
-          "tldr": "In the previous article, about **Building an Automated Translation Pipeline** we designed a GitHub Copilot-based translation pipeline built around an orchestrator, language-specific subagents, reusable skills, and hooks. In this article, we go one step further and turn those ideas into a practical how-to. We walk through how this workspace models **agentic inheritance**, how instruction layering replaces native inheritance, and how the three execution approaches work: sequential, parallel, hierarchical"
+            "tldr": "A practical guide to GitHub Copilot agent flows that explains instruction-layered agentic inheritance and compares sequential, parallel, and hierarchical orchestration patterns."
         },
         "de": {
           "file": "de/agentic-flow-how-to-guide.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Ein praxisnaher Leitfaden für GitHub-Copilot-Agent-Workflows, der agentische Vererbung über geschichtete Anweisungen erklärt und sequenzielle, parallele sowie hierarchische Orchestrierungsmuster vergleicht."
         },
         "es": {
           "file": "es/agentic-flow-how-to-guide.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Una guía práctica para flujos de agentes de GitHub Copilot que explica la herencia agéntica mediante instrucciones en capas y compara patrones de orquestación secuenciales, paralelos y jerárquicos."
         },
         "fr": {
           "file": "fr/agentic-flow-how-to-guide.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Un guide pratique des flux d’agents GitHub Copilot qui explique l’héritage agentique par couches d’instructions et compare les schémas d’orchestration séquentiels, parallèles et hiérarchiques."
         },
         "pl": {
           "file": "pl/agentic-flow-how-to-guide.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Praktyczny przewodnik po przepływach agentów GitHub Copilot, który wyjaśnia agentyczne dziedziczenie poprzez warstwowe instrukcje i porównuje sekwencyjne, równoległe oraz hierarchiczne wzorce orkiestracji."
         },
         "ru": {
           "file": "ru/agentic-flow-how-to-guide.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Практическое руководство по потокам агентов GitHub Copilot, которое объясняет агентное наследование через слоистые инструкции и сравнивает последовательные, параллельные и иерархические шаблоны оркестрации."
         }
       }
     },

@@ -112,6 +112,12 @@ Create a translated article file at `/blog/<lang>/{source_filename}`.
 
 Constraints:
 - translate the article title (`# ...`) into the target language
+- keep article metadata labels unchanged when they appear near the top of the source article:
+  - do not translate `**Author:**`
+  - do not translate the author value
+  - do not translate `**Published:**`
+  - do not translate the date value
+  - do not translate `## TL;DR`
 - translate the article content fully
 - translate section headings and other human-language headings into the target language
 - preserve meaning and order
@@ -157,6 +163,7 @@ For each language, confirm:
 - localized README header block is correctly formatted
 - `Author:`, author value, `Published:`, and date value remain unchanged in localized README
 - TL;DR text is translated in localized README
+- translated article preserves `**Author:**`, author value, `**Published:**`, date value, and `## TL;DR` unchanged at the top
 - the translated article H1 title is translated into the target language
 - section headings inside the translated article are translated into the target language
 - translated article is complete and structurally consistent

@@ -1,3 +1,10 @@
+# Agentic Flow How-To Guide
+
+**Author:** Yauheni Kurbayeu
+**Published:** Mar 22, 2026
+
+**TL;DR Praktyczny przewodnik po przepływach agentów GitHub Copilot, który wyjaśnia agentyczne dziedziczenie poprzez warstwowe instrukcje i porównuje sekwencyjne, równoległe oraz hierarchiczne wzorce orkiestracji.**
+
 # "Where Provenance Ends, Knowledge Decays" Reflections
 
 **Author:** Yauheni Kurbayeu

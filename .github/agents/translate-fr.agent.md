@@ -1,8 +1,6 @@
 ---
 name: translate-fr
 description: Internal French translation subagent for article localization.
-user-invocable: false
-disable-model-invocation: true
 tools: ['read', 'search', 'edit']
 model: GPT-5.4 (copilot)
 ---
@@ -36,6 +34,11 @@ You will receive:
 
 - Do not edit `/blog/manifest.json`.
 - Preserve meaning, order, approximate size, and markdown structure.
+- In the translated article file, keep top metadata labels unchanged if present in the source:
+   - `**Author:**`
+   - `**Published:**`
+   - `## TL;DR`
+- Do not translate the author value or published date.
 - Preserve links, images, code fences, tables, blockquotes, emphasis, and lists.
 - Do not add commentary.
 

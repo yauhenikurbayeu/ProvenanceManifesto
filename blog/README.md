@@ -1,3 +1,10 @@
+# Agentic Flow How-To Guide
+
+**Author:** Yauheni Kurbayeu  
+**Published:** Mar 22, 2026  
+
+**TL;DR A practical guide to GitHub Copilot agent flows that explains instruction-layered agentic inheritance and compares sequential, parallel, and hierarchical orchestration patterns.**
+
 # The Fluency Paradox: When AI Sounds Right but Stops Being Reliable
 
 **Author:** Yauheni Kurbayeu  
