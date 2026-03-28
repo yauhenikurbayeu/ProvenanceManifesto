@@ -68,6 +68,20 @@ Many agent systems have one of two problems:
 
 Decision provenance is the middle path. It stores only major decisions, and it stores them in a form that is structured enough to reuse carefully.
 
+In Provenance Manifesto terms, this guide is one practical way to apply a few core ideas to agent workflows:
+
+- decisions should be treated as first-class artifacts
+- decisions must carry context
+- decisions must be queryable
+- decisions evolve but are never erased
+
+It also helps separate two layers that are often blurred together.
+
+- the knowledge layer tells us what artifacts, tickets, notes, or code exist
+- the provenance layer preserves why a decision was made, which assumptions shaped it, which alternatives were rejected, and how that decision later evolved
+
+This guide is about that second layer: the reasoning memory that makes agent behavior more reusable, auditable, and governable over time.
+
 Conceptually, this pattern is influenced by the First Principles Framework (FPF), especially these ideas:
 
 - decisions should be grounded in a bounded context
@@ -848,6 +862,10 @@ dec-<YYYY-MM-DD>-<agent>-<slug>
 
 decision_id: dec-YYYY-MM-DD-agent-slug
 agent: <agent-name>
+decision_owner: <person|team|agent>
+owner_role: <role or accountable function>
+approved_by: ""
+approved_by_role: ""
 date: <ISO-8601 timestamp>
 
 decision: "<what was decided>"
@@ -1020,6 +1038,8 @@ Attribution matters because it answers questions like:
 
 Accountability enables trust, governance, and responsible change.
 
+The runtime agent that produced a recommendation and the accountable owner of the decision may be the same, but they should not be assumed to be identical.
+
 ##### 3. Decisions evolve but are never erased
 
 A provenance system is not a page that gets silently rewritten.
@@ -1065,6 +1085,8 @@ provenance/
 The YAML front matter carries structured fields such as:
 
 - `decision_id`
+- `decision_owner`
+- `owner_role`
 - `bounded_context`
 - `threshold_check`
 - `decision_links`
@@ -1160,6 +1182,10 @@ Condensed example:
 ```yaml
 decision_id: dec-2026-03-28-incident-fraud-vs-growth-identity-checks
 agent: critical-tradeoff-advisor
+decision_owner: fraud-risk-policy-owner
+owner_role: risk-policy-owner
+approved_by: head-of-risk
+approved_by_role: accountable-human-approver
 decision: "Introduce stricter identity checks in a risk-targeted way, accepting some conversion loss."
 bounded_context:
   domain: risk-tradeoff
@@ -1228,10 +1254,13 @@ Why this hybrid approach matters:
 
 This scaling direction is aligned with the argument made in the following provenance-manifesto essays:
 
-- vector retrieval alone is not enough to function as memory
-- incremental graph memory is needed to preserve how decisions evolve and learn over time
+- [From RAG to Provenance: How We Realized Vector Alone Is Not Memory](/blog/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory) argues that vector retrieval is a useful entry point, but not enough to function as real memory on its own.
+- [From RAG to Provenance (Part 2): How Incremental Graph Memory Actually Learns](/blog/from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns) extends that idea by showing why incremental graph memory is needed to preserve decision evolution, validation, conflict, and lineage over time.
 
-This is an inference drawn from the article titles and the architectural direction they describe.
+In short:
+
+- vector retrieval helps you find relevant prior decisions
+- provenance structure preserves causality, evolution, and governance
 
 #### Optional scaffolding backend
 
@@ -1288,6 +1317,10 @@ Create `provenance/decisions/_template.md`:
 ---
 decision_id: dec-YYYY-MM-DD-agent-slug
 agent: <agent-name>
+decision_owner: <person|team|agent>
+owner_role: <role or accountable function>
+approved_by: ""
+approved_by_role: ""
 date: <ISO-8601 timestamp>
 decision: <what was decided>
 bounded_context:
@@ -1454,6 +1487,10 @@ threshold_check:
 
 ```yaml
 decision: "Delay the release by one week and ship only after the medium-severity bugs are addressed."
+decision_owner: release-governance-group
+owner_role: release-accountability
+approved_by: product-delivery-lead
+approved_by_role: human-approver
 bounded_context:
   domain: product
   scope: launch-risk-review

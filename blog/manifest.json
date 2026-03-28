@@ -80,6 +80,43 @@
       }
     },
     {
+      "id": "decision-provenance-how-to",
+      "canonicalSlug": "decision-provenance-how-to",
+      "category": "technical_articles",
+      "languages": {
+        "en": {
+          "file": "decision-provenance-how-to.md",
+          "published": true,
+          "tldr": "A practical guide to giving AI agents reusable decision memory through a logging threshold, a portable provenance contract, and file- or graph-backed storage so they can retrieve priors, preserve context, and update decisions as evidence changes."
+        },
+        "de": {
+          "file": "de/decision-provenance-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/decision-provenance-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/decision-provenance-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/decision-provenance-how-to.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/decision-provenance-how-to.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
+    {
       "id": "agentic-oriented-programming-vs-oop",
       "canonicalSlug": "agentic-oriented-programming-vs-oop",
       "category": "technical_articles",
