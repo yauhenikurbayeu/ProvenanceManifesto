@@ -1,3 +1,5 @@
+![Decision Provenance How-To Guide](/images/blog/decision-provenance-how-to.png)
+
 # Decision Provenance How-To Guide
 
 **Author:** Yauheni Kurbayeu  
@@ -9,24 +11,27 @@ In the previous article, [Managing Agent Context and the Exchange Protocol](/blo
 
 In this article, we move from **agent flow** to **agent memory**.
 
+Many teams are already letting AI recommend rollout strategies, architectural changes, policy interpretations, and operational choices. But when those choices need review later, the reasoning is often gone: the prior decisions are unclear, the approval boundary is missing, and the assumptions live only in chat history.
+
 The goal here is to show how to give AI agents a lightweight decision provenance layer so they can retrieve relevant prior decisions before acting, log only decisions that are worth preserving, and keep context, assumptions, alternatives, risks, and evidence in a reusable form.
 
 The result is not raw chat history and not generic observability. It is a practical **decision memory pattern** you can start with files today and later evolve into a graph-backed provenance system.
 
-## Main Idea
+## The Real Problem
 
 This guide shows how to build a lightweight decision provenance system for AI agents.
 
-The point is not to log every action. The point is to help agents:
+The point is not to log every action. The point is to give agents a reusable decision loop:
 
 - retrieve useful prior decisions before making a new one
+- compare bounded context before reusing a prior
 - log only meaningful decisions, not execution noise
 - preserve context, assumptions, alternatives, risks, and evidence
 - update old decisions when later evidence validates, invalidates, or supersedes them
 
 In short, this pattern gives your agents a reusable decision memory instead of a pile of chat history.
 
-## What This Solution Achieves
+## What You Actually Get
 
 If you implement the pattern below, you will have:
 
@@ -38,30 +43,22 @@ If you implement the pattern below, you will have:
 
 This is useful when you want agents to make decisions more consistently over time, explain themselves better, and leave an auditable trail that can be reused later.
 
-## Scope of This Reference Implementation
+## Why AI Teams Need This Now
 
-The sample implementation in this guide is intentionally shaped around GitHub Copilot conventions:
+The current AI shift is changing the failure mode.
 
-- repository-level `copilot-instructions.md`
-- `.agent.md` agent profiles
-- `SKILL.md` skill files
-- file-based workflow examples that fit Copilot-style repository customization
+Many teams now face some version of this:
 
-That makes it a reference implementation, not a universal packaging standard.
+- an agent proposes a reasonable solution, but nobody can trace which prior decisions it reused
+- a human approves or overrides a risky action, but the approval disappears into chat history
+- a team reuses an old decision in a new situation and silently imports the wrong assumptions
+- the output looks good, but the intent behind it is no longer recoverable
 
-The underlying architecture is broader than GitHub Copilot, though. The same pattern can be ported to almost any agentic framework by mapping the layers like this:
+That is why this is no longer only a documentation problem.
 
-- Copilot custom instructions -> global system or workspace instructions
-- Copilot custom agents -> specialized agent profiles or role prompts
-- Copilot skills -> reusable capability contracts or prompt modules
-- provenance backend skill -> storage adapter or persistence service
-- decision note template -> canonical record schema in JSON, YAML, Markdown, database rows, or graph nodes
+It is becoming a memory problem, a governance problem, and in some workflows an AI safety problem.
 
-So the file names and packaging here are Copilot-specific, but the decision-memory design itself is framework-agnostic.
-
-## Why This Pattern Exists
-
-Many agent systems have one of two problems:
+Many agent systems still fall into one of two extremes:
 
 1. They store nothing, so every session starts from scratch.
 2. They store too much raw conversation, so future reuse becomes noisy and unsafe.
@@ -95,6 +92,29 @@ Reference source:
 - [First Principles Framework (FPF) - Core Conceptual Specification](https://github.com/ailev/FPF/blob/main/FPF-Spec.md)
 - Author line: [Anatoly Levenchuk and assortment of LLMs](https://github.com/ailev/FPF/blob/main/FPF-Spec.md#L1-L3)
 - Edition: March 2026
+
+## Packaging Notes
+
+The operational problem is framework-independent. The file layout below is only one practical reference implementation.
+
+The sample implementation in this guide is intentionally shaped around GitHub Copilot conventions:
+
+- repository-level `copilot-instructions.md`
+- `.agent.md` agent profiles
+- `SKILL.md` skill files
+- file-based workflow examples that fit Copilot-style repository customization
+
+That makes it a reference implementation, not a universal packaging standard.
+
+The underlying architecture is broader than GitHub Copilot, though. The same pattern can be ported to almost any agentic framework by mapping the layers like this:
+
+- Copilot custom instructions -> global system or workspace instructions
+- Copilot custom agents -> specialized agent profiles or role prompts
+- Copilot skills -> reusable capability contracts or prompt modules
+- provenance backend skill -> storage adapter or persistence service
+- decision note template -> canonical record schema in JSON, YAML, Markdown, database rows, or graph nodes
+
+So the file names and packaging here are Copilot-specific, but the decision-memory design itself is framework-agnostic.
 
 ## What You Will Build
 
@@ -139,6 +159,18 @@ File backend or graph backend
   v
 Agent response notes
 ```
+
+## Fast Path
+
+If you only want the core loop, it is this:
+
+1. Retrieve prior decisions before making a major choice.
+2. Compare bounded context, ownership, and assumptions before reusing a prior.
+3. Make the new decision and state the trade-offs, risks, and caveats explicitly.
+4. Run the threshold check and persist the decision only if it deserves durable memory.
+5. Update the same decision later when evidence validates, invalidates, or supersedes it.
+
+Everything else in this guide expands one of those five steps.
 
 ## The Core Concepts
 
@@ -275,7 +307,7 @@ threshold_check:
   rationale: <short reason>
 ```
 
-### Threshold Metrics Deep Dive
+### How to Decide What Deserves Memory
 
 The threshold skill is a practical significance heuristic, not a formal industry standard.
 
