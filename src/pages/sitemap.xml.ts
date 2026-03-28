@@ -1,5 +1,5 @@
 import { languages, routeMap } from '../i18n/ui';
-import { getLocalizedBlogCategoryPath, getLocalizedPath } from '../i18n/utils';
+import { getLocalizedBlogCategoryPath, getLocalizedPath, getLocalizedRssPath } from '../i18n/utils';
 import {
 	getBlogArtifacts,
 	getBlogCategoryKeys,
@@ -47,6 +47,10 @@ export const GET: APIRoute = async () => {
 		);
 	}
 
+	urls.push(
+		`<url><loc>${sitePath}/rss.xml</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>0.5</priority></url>`
+	);
+
 	const englishBlogPath = '/blog';
 	for (const category of getBlogCategoryKeys()) {
 		urls.push(
@@ -68,6 +72,9 @@ export const GET: APIRoute = async () => {
 
 	for (const lang of getLocalizedBlogLanguages()) {
 		const blogBasePath = getLocalizedPath(lang, 'blog');
+		urls.push(
+			`<url><loc>${sitePath}${getLocalizedRssPath(lang)}</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>0.6</priority></url>`
+		);
 		urls.push(
 			`<url><loc>${sitePath}${blogBasePath}</loc><lastmod>${today}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>`
 		);

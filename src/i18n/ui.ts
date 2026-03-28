@@ -64,6 +64,7 @@ export const ui = {
   en: {
     'nav.manifesto': 'Manifesto',
     'nav.blog': 'Blog',
+    'nav.rss': 'RSS',
     'nav.principles': 'Principles',
     'nav.about': 'About',
     'nav.faq': 'FAQ',
@@ -92,6 +93,7 @@ export const ui = {
   es: {
     'nav.manifesto': 'Manifiesto',
     'nav.blog': 'Bitácora',
+    'nav.rss': 'RSS',
     'nav.principles': 'Principios',
     'nav.about': 'Acerca de',
     'nav.faq': 'Preguntas frecuentes',
@@ -120,6 +122,7 @@ export const ui = {
   fr: {
     'nav.manifesto': 'Manifeste',
     'nav.blog': 'Blog',
+    'nav.rss': 'RSS',
     'nav.principles': 'Principes',
     'nav.about': 'À propos',
     'nav.faq': 'FAQ',
@@ -148,6 +151,7 @@ export const ui = {
   ru: {
     'nav.manifesto': 'Манифест',
     'nav.blog': 'Блог',
+    'nav.rss': 'RSS',
     'nav.principles': 'Принципы',
     'nav.about': 'О нас',
     'nav.faq': 'Вопросы и ответы',
@@ -176,6 +180,7 @@ export const ui = {
   de: {
     'nav.manifesto': 'Manifest',
     'nav.blog': 'Blog',
+    'nav.rss': 'RSS',
     'nav.principles': 'Prinzipien',
     'nav.about': 'Über',
     'nav.faq': 'FAQ',
@@ -204,6 +209,7 @@ export const ui = {
   pl: {
     'nav.manifesto': 'Manifest',
     'nav.blog': 'Dziennik',
+    'nav.rss': 'RSS',
     'nav.principles': 'Zasady',
     'nav.about': 'O stronie',
     'nav.faq': 'FAQ',

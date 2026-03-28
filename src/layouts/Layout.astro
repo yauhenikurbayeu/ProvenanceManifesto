@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { getLocalizedBlogCategoryPath, getLocalizedPath, useTranslations } from '../i18n/utils';
+import { getLocalizedBlogCategoryPath, getLocalizedPath, getLocalizedRssPath, useTranslations } from '../i18n/utils';
 import type { SupportedLang } from '../i18n/utils';
 import { defaultLang } from '../i18n/ui';
 import { getPrimaryBlogCategoryKey } from '../lib/blog';
@@ -44,6 +44,7 @@ const t = useTranslations(lang);
 const baseUrl = import.meta.env.BASE_URL || '/';
 const primaryBlogCategory = getPrimaryBlogCategoryKey();
 const blogMenuPath = getLocalizedBlogCategoryPath(activeLang, primaryBlogCategory);
+const rssPath = getLocalizedRssPath(activeLang);
 ---
 
 <!doctype html>
@@ -53,6 +54,7 @@ const blogMenuPath = getLocalizedBlogCategoryPath(activeLang, primaryBlogCategor
 		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
         <link rel="icon" sizes="any" href={`${baseUrl}favicon.ico`}>
         <link rel="apple-touch-icon" href={`${baseUrl}apple-touch-icon.png`}>
+        <link rel="alternate" type="application/rss+xml" title="Provenance Manifesto RSS" href={rssPath} />
 		<meta name="generator" content={Astro.generator} />
         <SEO
             title={title}
@@ -187,6 +189,13 @@ const blogMenuPath = getLocalizedBlogCategoryPath(activeLang, primaryBlogCategor
                 class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#1152d4] transition-colors"
             >
                 GitHub
+            </a>
+
+            <a
+                href={rssPath}
+                class="text-sm text-slate-500 dark:text-slate-400 hover:text-[#1152d4] transition-colors"
+            >
+                {t('nav.rss')}
             </a>
 
             <div class="flex flex-col items-end gap-2 text-right">

@@ -44,6 +44,11 @@ export function getLocalizedBlogCategoryPath(lang: SupportedLang, category: stri
 	return `${blogPath}/category/${category}`;
 }
 
+export function getLocalizedRssPath(lang: SupportedLang) {
+	const baseUrl = getBaseUrl();
+	return `${baseUrl}/${lang}/rss.xml`;
+}
+
 export function getBlogCategoryLabel(lang: SupportedLang, category: string): string {
 	const t = useTranslations(lang);
 	const keyMap: Record<string, keyof typeof ui[typeof defaultLang]> = {
