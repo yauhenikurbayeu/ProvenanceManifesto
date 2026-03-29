@@ -8,7 +8,7 @@
 
 ---
 
-In the previous article, I described the moment we realized that **vector search alone is not memory**.
+In the [previous article](/blog/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory), I described the moment we realized that **vector search alone is not memory**.
 
 Embeddings are excellent at finding similar text. But similarity is not lineage. It does not tell you:
 - who decided what,

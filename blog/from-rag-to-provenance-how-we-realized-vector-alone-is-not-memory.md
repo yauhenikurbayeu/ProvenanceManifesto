@@ -7,7 +7,7 @@
 **Published:** Feb 22, 2026  
 **[LinkedIn](https://www.linkedin.com/pulse/from-rag-provenance-how-we-realized-vector-alone-memory-kurbayeu-z9djf/?trackingId=AES1GONRFcEuwPpL7dI7dg%3D%3D)**
 
-In the previous articles, we explored an uncomfortable observation: **SDLC does not really have memory**.
+In the [previous article](/blog/why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it), we explored an uncomfortable observation: **SDLC does not really have memory**.
 
 Not because we fail to write documentation. Not because Jira is empty. Not because meeting notes disappear.
 
