@@ -6,6 +6,43 @@
     },
     "articles": [
     {
+      "id": "ai-text-vs-human-perception",
+      "canonicalSlug": "ai-text-vs-human-perception",
+      "category": "other",
+      "languages": {
+        "en": {
+          "file": "ai-text-vs-human-perception.md",
+          "published": true,
+          "tldr": "We keep arguing about whether AI-generated text is “good” or “bad.” But that’s the wrong debate. What we’re actually seeing is a clash between different ways humans process information."
+        },
+        "de": {
+          "file": "de/ai-text-vs-human-perception.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/ai-text-vs-human-perception.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/ai-text-vs-human-perception.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/ai-text-vs-human-perception.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/ai-text-vs-human-perception.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
+    {
       "id": "gut-feeling-decision-provenance",
       "canonicalSlug": "gut-feeling-decision-provenance",
       "category": "provenance_philosophy",
