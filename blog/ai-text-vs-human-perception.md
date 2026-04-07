@@ -18,14 +18,17 @@ What we are actually seeing is a collision of different ways humans process info
 
 ---
 
-Some people naturally read in narratives.  
+Some people naturally read in **narratives**.  
+```
 They follow the flow of the text, pick up tone and nuance, and reconstruct meaning through context. For them, a good text feels “alive.” It may not be perfectly structured, but it carries intention, personality, and a sense of authorship.
+```
 
-Others read in structures.  
+Others read in **structures**.
+``` 
 They look for signals, hierarchy, and clarity. They want the point quickly, with minimal ambiguity. For them, a good text is one that can be parsed efficiently, where meaning is explicit rather than implied.
+```
 
-Neither of these approaches is better.  
-They simply optimize for different cognitive costs.
+Neither of these approaches is better, they simply optimize for different cognitive costs.
 
 ---
 
@@ -72,8 +75,7 @@ Both human-written and AI-generated texts share the same fundamental weakness. T
 A beautifully written paragraph can still obscure assumptions.  
 A perfectly structured AI response can still miss critical constraints.
 
-In both cases, we are left asking the same questions.
-
+In both cases, we are left asking the same questions:
 - Why was this decision made?  
 - What alternatives were considered?  
 - Which assumptions shaped the result?
