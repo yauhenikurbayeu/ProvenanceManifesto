@@ -12,27 +12,23 @@ Others said the exact opposite, that they are clear, structured, and much easier
 
 At first glance, it looks like a debate about AI.
 
-It isn’t.
+> It isn’t.
 
-What we are actually seeing is a collision of different ways humans process information.
+## What we are actually seeing is a collision of different ways humans process information.
 
 ---
 
 Some people naturally read in **narratives**.  
-```
-They follow the flow of the text, pick up tone and nuance, and reconstruct meaning through context. For them, a good text feels “alive.” It may not be perfectly structured, but it carries intention, personality, and a sense of authorship.
-```
+> They follow the flow of the text, pick up tone and nuance, and reconstruct meaning through context. For them, a good text feels “alive.” It may not be perfectly structured, but it carries intention, personality, and a sense of authorship.
 
 Others read in **structures**.
-``` 
-They look for signals, hierarchy, and clarity. They want the point quickly, with minimal ambiguity. For them, a good text is one that can be parsed efficiently, where meaning is explicit rather than implied.
-```
+> They look for signals, hierarchy, and clarity. They want the point quickly, with minimal ambiguity. For them, a good text is one that can be parsed efficiently, where meaning is explicit rather than implied.
 
 Neither of these approaches is better, they simply optimize for different cognitive costs.
 
 ---
 
-AI-generated text strongly aligns with the second model.
+## AI-generated text strongly aligns with the second model.
 
 It tends to be explicit, evenly structured, and predictable in how it unfolds. If you are used to reading technical specifications, product requirements, or decision logs, this feels natural. It reduces the effort needed to understand what is being said.
 
@@ -42,7 +38,7 @@ So when someone says, “AI text is bad,” they are often reacting not to the q
 
 ---
 
-This becomes more visible when we look at concrete examples.
+## This becomes more visible when we look at concrete examples.
 
 Take a product requirement.
 
@@ -52,11 +48,11 @@ Another version presents the same information as a structured breakdown. It defi
 
 Both can describe the same reality, but they require different cognitive strategies to process.
 
-AI tends to produce the second type.
+**AI tends to produce the second type.**
 
 ---
 
-Now comes the uncomfortable part.
+## Now comes the uncomfortable part.
 
 Whether we like it or not, AI is becoming an interface between humans and systems.
 
@@ -64,11 +60,11 @@ We are already starting to read machine-generated requirements, review AI-produc
 
 At some point, the question will shift.
 
-Not “do I like how this is written”, but “can I work with this efficiently?”.
+> Not “do I like how this is written”, but “can I work with this efficiently?”.
 
 ---
 
-And this is where the real issue starts to emerge.
+## And this is where the real issue starts to emerge.
 
 Both human-written and AI-generated texts share the same fundamental weakness. They present outcomes, but they often hide the reasoning behind them.
 
@@ -84,27 +80,27 @@ If we cannot answer these, the quality of the writing becomes secondary.
 
 ---
 
-This is why the discussion about “AI vs human text” feels somewhat misplaced.
+## This is why the discussion about “AI vs human text” feels somewhat misplaced.
 
 The more important shift is happening elsewhere.
 
 We are moving from a world where output was scarce and effortful, to one where output is abundant and cheap. In that world, the bottleneck is no longer producing text.
 
-The bottleneck is understanding and trusting it.
+**The bottleneck is understanding and trusting it.**
 
 ---
 
-And that brings us to something more fundamental.
+## And that brings us to something more fundamental.
 
 The real divide is not between human and AI writing, it is between opaque outputs and traceable reasoning.
 
 If we cannot reconstruct how a conclusion was formed, it doesn’t matter how natural or how structured the text looks.
 
-It remains a well-presented guess.
+**It remains a well-presented guess.**
 
 ---
 
-So perhaps the better question is not whether AI texts feel “alive” or “artificial.”
+## So perhaps the better question is not whether AI texts feel “alive” or “artificial.”
 
 It is whether we are building systems and habits, that preserve the decisions, context, and assumptions behind what we read.
 
@@ -112,6 +108,6 @@ Because that is what will ultimately determine whether we can rely on it.
 
 ---
 
-Curious how others experience this.
+## Curious how others experience this.
 
 Do you find yourself understanding narrative text more easily, or structured text?
