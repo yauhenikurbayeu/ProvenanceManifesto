@@ -131,21 +131,25 @@ Provenance is not just a nicer way to write docs. It is a memory layer for reaso
 
 ## The Principles
 
-**Suggested time:** 65 to 80 seconds
+**Suggested time:** 90 to 120 seconds
 
 The manifesto turns this idea into a small set of principles.
 
-First, decisions are first-class artifacts.
-Second, decisions must carry context.
-Third, decisions evolve, but they should never be erased.
-Fourth, they must be queryable, so teams can ask why something was designed this way.
-Fifth, they must be attributable, because ownership matters.
-Sixth, AI should operate inside decision governance, not outside it.
-And finally, institutional memory should be treated as a strategic asset.
+First, decisions are first-class artifacts. Every architecture, product behavior, operational process, and incident response originates from decisions. Organizations should treat decisions with the same rigor as source code.
 
-The short summary is this: memory compounds.
+Second, decisions must carry context. A decision without its assumptions, alternatives, risks, and reasoning is incomplete. Context transforms a decision from a statement into knowledge.
 
-Organizations that preserve reasoning do not just remember better. They learn faster and evolve with more confidence.
+Third, decisions evolve but are never erased. Decisions may be revised, superseded, or branched, but their history must remain preserved. Organizational intelligence grows through the evolution of reasoning, not through rewriting history.
+
+Fourth, decisions must be queryable. Organizations should be able to ask why a system was designed this way, what assumptions justified it, and which risks were accepted. Institutional memory must be structured so those answers can be retrieved instantly.
+
+Fifth, decisions must be attributable. Every meaningful decision must have ownership. Accountability enables trust, governance, and responsible change.
+
+Sixth, AI must operate within decision governance. Artificial intelligence can generate code, architecture, and solutions, but it must operate within a traceable decision framework where reasoning, assumptions, and approvals remain visible. AI accelerates execution. Provenance preserves accountability.
+
+And seventh, institutional memory is a strategic asset. Organizations that preserve the reasoning behind their systems move faster, avoid repeating mistakes, and make better decisions.
+
+The short summary is this: memory compounds. For modern organizations, decision provenance becomes intellectual capital.
 
 ---
 

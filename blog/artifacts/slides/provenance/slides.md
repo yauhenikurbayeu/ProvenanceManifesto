@@ -214,6 +214,6 @@ If we cannot reconstruct how a conclusion was formed, then even a polished resul
 - How should AI participate in governed organizational memory?
 
 # Slide 12
-![Thank You](/images/slides/manifesto/12-q-a-a.png)
+![Thank You](/images/slides/manifesto/13-qr-code.png)
 
 ## Thank You

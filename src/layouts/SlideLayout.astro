@@ -25,7 +25,7 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,700;1,400&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -87,6 +87,12 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
 </html>
 
 <style>
+  /* ── Design system tokens ──────────────────────────────────────────────── */
+  /* Primary (Cyan/Technical Blue): #c3f5ff / #00daf3                        */
+  /* Secondary (Amber):             #ffd799                                  */
+  /* Surface base:                  #09151a                                  */
+  /* Surface container high:        #2a363d                                  */
+
   /* ── Reset & base ──────────────────────────────────────────────────────── */
   html, body { margin: 0; padding: 0; }
 
@@ -94,8 +100,9 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
     height: 100svh;
     width: 100vw;
     overflow: hidden;
-    background: #0b0e14;
-    font-family: 'Public Sans', sans-serif;
+    background: #09151a;
+    /* Inter as the default body font; Manrope applied to headings below */
+    font-family: 'Inter', sans-serif;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -110,81 +117,147 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
     background-repeat: no-repeat;
   }
 
+  /* Scrim: deep navy tint — never pure black per DESIGN.md */
   .slide-scrim {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.52);
+    background: rgba(9, 21, 26, 0.62);
   }
 
-  /* ── Main content area ─────────────────────────────────────────────────── */
+  /* ── Main content area — left-aligned per DESIGN.md ───────────────────── */
   .slide-main {
     position: relative;
     z-index: 10;
     flex: 1 1 0;
-    min-height: 0;               /* allow flex child to shrink */
+    min-height: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: clamp(1.5rem, 4vw, 4rem) clamp(2rem, 8vw, 10rem);
+    justify-content: flex-start;
+    /* Significant left padding creates the editorial "frame" (≥64px) */
+    padding: clamp(2rem, 4vw, 4rem) clamp(4rem, 8vw, 9rem);
     overflow-y: auto;
   }
 
   .slide-content {
     width: 100%;
-    max-width: 56rem;
+    /* Left-third dominant layout — max-width keeps content left-heavy */
+    max-width: 54rem;
+    text-align: left;
   }
 
-  /* ── Prose overrides for presentation scale ─────────────────────────────── */
+  /* ── Heading: h2 — headline-lg (Manrope, 2.0rem anchor) ────────────────── */
   .slide-content :global(h2) {
-    font-size: clamp(1.6rem, 4vw, 3rem);
-    font-weight: 900;
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(1.8rem, 3.8vw, 3.5rem);
+    font-weight: 800;
     color: #ffffff;
-    line-height: 1.15;
+    line-height: 1.1;
     margin-top: 0;
-    margin-bottom: clamp(0.6rem, 1.5vw, 1.2rem);
-    letter-spacing: -0.02em;
+    margin-bottom: clamp(0.8rem, 2vw, 1.5rem);
+    letter-spacing: -0.025em;
   }
 
+  /* ── Heading: h3 — title-lg subhead, primary cyan per DESIGN.md ─────────── */
   .slide-content :global(h3) {
-    font-size: clamp(1.05rem, 2vw, 1.6rem);
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.80);
-    margin-top: clamp(0.4rem, 1vw, 0.8rem);
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(1.0rem, 1.8vw, 1.375rem);
+    font-weight: 700;
+    color: #c3f5ff;
+    margin-top: clamp(0.5rem, 1.2vw, 1rem);
     margin-bottom: clamp(0.3rem, 0.8vw, 0.6rem);
+    letter-spacing: 0.01em;
   }
 
+  /* ── Heading: h4 — label / technical caption ───────────────────────────── */
+  .slide-content :global(h4) {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: rgba(195, 245, 255, 0.60);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.4rem;
+  }
+
+  /* ── Body text — body-lg (Inter, 1.0rem) ────────────────────────────────── */
   .slide-content :global(p) {
-    font-size: clamp(0.95rem, 1.6vw, 1.3rem);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.95rem, 1.5vw, 1.2rem);
     color: rgba(255, 255, 255, 0.88);
-    line-height: 1.65;
+    line-height: 1.7;
     margin-top: 0;
     margin-bottom: clamp(0.5rem, 1vw, 0.9rem);
   }
 
+  /* strong → secondary amber per DESIGN.md (key insights / human-centric) */
   .slide-content :global(strong) {
-    color: #ffffff;
+    color: #ffd799;
     font-weight: 700;
   }
 
+  /* ── Blockquote — glassmorphism surface_variant per DESIGN.md ──────────── */
   .slide-content :global(blockquote) {
-    border-left: 3px solid rgba(255, 255, 255, 0.35);
-    padding-left: 1.1rem;
-    margin-left: 0;
+    margin: clamp(0.8rem, 1.5vw, 1.2rem) 0;
+    padding: clamp(0.6rem, 1.2vw, 1rem) clamp(0.8rem, 1.5vw, 1.4rem);
+    background: rgba(0, 218, 243, 0.08);
+    backdrop-filter: blur(12px);
+    border-left: 3px solid #00daf3;
+    border-radius: 0 0.5rem 0.5rem 0;
     font-style: italic;
-    color: rgba(255, 255, 255, 0.68);
+    color: rgba(195, 245, 255, 0.80);
   }
 
+  .slide-content :global(blockquote p) {
+    color: rgba(195, 245, 255, 0.80);
+    margin-bottom: 0;
+  }
+
+  /* ── Lists — replace bullets with cyan squares per DESIGN.md ────────────── */
   .slide-content :global(ul),
   .slide-content :global(ol) {
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-    color: rgba(255, 255, 255, 0.84);
-    padding-left: 1.4rem;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.85);
+    list-style: none;
+    padding-left: 0;
     margin: 0 0 clamp(0.4rem, 0.8vw, 0.7rem);
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   .slide-content :global(li) {
-    margin-bottom: 0.2rem;
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  /* Cyan square bullet — replaces standard disc */
+  .slide-content :global(ul li)::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    font-size: 0.4em;
+    color: #c3f5ff;
+    line-height: 1;
+  }
+
+  /* Ordered list: numbered in cyan */
+  .slide-content :global(ol) {
+    counter-reset: slide-ol;
+  }
+
+  .slide-content :global(ol li) {
+    counter-increment: slide-ol;
+  }
+
+  .slide-content :global(ol li)::before {
+    content: counter(slide-ol) '.';
+    position: absolute;
+    left: 0;
+    color: #c3f5ff;
+    font-size: 0.82em;
+    font-weight: 700;
+    top: 0.1em;
   }
 
   .slide-content :global(hr) {
@@ -210,7 +283,7 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
     width: 2.4rem;
     height: 2.4rem;
     border-radius: 50%;
-    color: rgba(255, 255, 255, 0.28);
+    color: rgba(195, 245, 255, 0.25);
     font-size: 1.1rem;
     text-decoration: none;
     transition: color 0.18s ease, background 0.18s ease;
@@ -218,8 +291,8 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
   }
 
   .slide-nav__btn:hover {
-    color: rgba(255, 255, 255, 0.75);
-    background: rgba(255, 255, 255, 0.08);
+    color: #c3f5ff;
+    background: rgba(195, 245, 255, 0.08);
   }
 
   .slide-nav__btn--ghost {
@@ -228,18 +301,19 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
   }
 
   .slide-nav__counter {
+    font-family: 'Inter', sans-serif;
     font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.30);
+    color: rgba(195, 245, 255, 0.28);
     letter-spacing: 0.06em;
     font-variant-numeric: tabular-nums;
+    text-transform: uppercase;
   }
 
-  /* ── Script panel ──────────────────────────────────────────────────────── */
+  /* ── Script panel — glassmorphism per DESIGN.md ─────────────────────────── */
   .script-panel {
     position: relative;
     z-index: 30;
     flex: none;
-    /* flex-col-reverse puts the <summary> at the bottom and content above */
     display: flex;
     flex-direction: column-reverse;
   }
@@ -251,10 +325,12 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
     justify-content: center;
     gap: 0.4rem;
     padding: 0.35rem 1rem;
-    background: rgba(0, 0, 0, 0.65);
-    backdrop-filter: blur(6px);
-    color: rgba(255, 255, 255, 0.38);
-    font-size: 0.7rem;
+    /* surface_variant 60% opacity + blur = glassmorphism */
+    background: rgba(42, 54, 61, 0.60);
+    backdrop-filter: blur(12px);
+    color: rgba(195, 245, 255, 0.35);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     cursor: pointer;
@@ -265,11 +341,11 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
   .script-panel__toggle::-webkit-details-marker { display: none; }
 
   .script-panel__toggle:hover {
-    color: rgba(255, 255, 255, 0.70);
+    color: #c3f5ff;
   }
 
   .script-panel[open] .script-panel__toggle {
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(195, 245, 255, 0.60);
   }
 
   .script-panel__arrow {
@@ -286,30 +362,34 @@ const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml 
     max-height: 14rem;
     overflow-y: auto;
     padding: 1rem 2rem;
-    background: rgba(0, 0, 0, 0.78);
-    backdrop-filter: blur(8px);
+    /* glassmorphism: surface_container_highest 60% + blur */
+    background: rgba(42, 54, 61, 0.78);
+    backdrop-filter: blur(12px);
     scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.15) transparent;
+    scrollbar-color: rgba(195, 245, 255, 0.15) transparent;
   }
 
-  /* override prose colors inside script body */
   .script-panel__body :global(h2),
   .script-panel__body :global(h3) {
-    font-size: 0.85rem;
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.65);
+    color: #c3f5ff;
     margin: 0 0 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .script-panel__body :global(p) {
+    font-family: 'Inter', sans-serif;
     font-size: 0.82rem;
-    color: rgba(255, 255, 255, 0.70);
+    color: rgba(255, 255, 255, 0.68);
     line-height: 1.6;
     margin: 0 0 0.5rem;
   }
 
   .script-panel__body :global(strong) {
-    color: rgba(255, 255, 255, 0.85);
+    color: #ffd799;
   }
 
   .script-panel__body :global(hr) {
