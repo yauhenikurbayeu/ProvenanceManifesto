@@ -1,0 +1,318 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  backgroundImage: string | null;
+  slideNumber: number;
+  totalSlides: number;
+  presentation: string;
+  prevUrl: string | null;
+  nextUrl: string | null;
+  scriptHtml: string;
+}
+
+const { backgroundImage, slideNumber, totalSlides, prevUrl, nextUrl, scriptHtml } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- No SEO: exclude from all crawlers and indexes -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <title>Slide {slideNumber} / {totalSlides}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="slide-body">
+    <!-- ── Background ─────────────────────────────────────────────────────── -->
+    <div class="slide-bg" style={backgroundImage ? `background-image:url('${backgroundImage}')` : ''} />
+    <!-- dark scrim for legibility -->
+    <div class="slide-scrim" />
+
+    <!-- ── Slide content ──────────────────────────────────────────────────── -->
+    <main class="slide-main">
+      <div class="slide-content prose prose-invert max-w-none">
+        <slot />
+      </div>
+    </main>
+
+    <!-- ── Navigation bar ────────────────────────────────────────────────── -->
+    <nav class="slide-nav" aria-label="Slide navigation">
+      {prevUrl
+        ? <a href={prevUrl} class="slide-nav__btn" aria-label="Previous slide">&#8592;</a>
+        : <span class="slide-nav__btn slide-nav__btn--ghost" aria-hidden="true">&#8592;</span>
+      }
+
+      <span class="slide-nav__counter">{slideNumber}&thinsp;/&thinsp;{totalSlides}</span>
+
+      {nextUrl
+        ? <a href={nextUrl} class="slide-nav__btn" aria-label="Next slide">&#8594;</a>
+        : <span class="slide-nav__btn slide-nav__btn--ghost" aria-hidden="true">&#8594;</span>
+      }
+    </nav>
+
+    <!-- ── Speaker script panel (expands upward) ─────────────────────────── -->
+    {scriptHtml && (
+      <details class="script-panel">
+        <!-- content before summary = renders ABOVE summary due to flex-col-reverse -->
+        <div class="script-panel__body">
+          <div class="prose prose-sm prose-invert max-w-none" set:html={scriptHtml} />
+        </div>
+        <summary class="script-panel__toggle">
+          <span class="script-panel__arrow">&#9650;</span>
+          Script
+        </summary>
+      </details>
+    )}
+
+    <!-- ── Keyboard navigation ────────────────────────────────────────────── -->
+    <script define:vars={{ prevUrl, nextUrl }}>
+      document.addEventListener('keydown', (e) => {
+        if ((e.key === 'ArrowLeft' || e.key === 'PageUp') && prevUrl) {
+          window.location.href = prevUrl;
+        } else if ((e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') && nextUrl) {
+          e.preventDefault();
+          window.location.href = nextUrl;
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  /* ── Reset & base ──────────────────────────────────────────────────────── */
+  html, body { margin: 0; padding: 0; }
+
+  .slide-body {
+    height: 100svh;
+    width: 100vw;
+    overflow: hidden;
+    background: #0b0e14;
+    font-family: 'Public Sans', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Background ────────────────────────────────────────────────────────── */
+  .slide-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .slide-scrim {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+  }
+
+  /* ── Main content area ─────────────────────────────────────────────────── */
+  .slide-main {
+    position: relative;
+    z-index: 10;
+    flex: 1 1 0;
+    min-height: 0;               /* allow flex child to shrink */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(1.5rem, 4vw, 4rem) clamp(2rem, 8vw, 10rem);
+    overflow-y: auto;
+  }
+
+  .slide-content {
+    width: 100%;
+    max-width: 56rem;
+  }
+
+  /* ── Prose overrides for presentation scale ─────────────────────────────── */
+  .slide-content :global(h2) {
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.15;
+    margin-top: 0;
+    margin-bottom: clamp(0.6rem, 1.5vw, 1.2rem);
+    letter-spacing: -0.02em;
+  }
+
+  .slide-content :global(h3) {
+    font-size: clamp(1.05rem, 2vw, 1.6rem);
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.80);
+    margin-top: clamp(0.4rem, 1vw, 0.8rem);
+    margin-bottom: clamp(0.3rem, 0.8vw, 0.6rem);
+  }
+
+  .slide-content :global(p) {
+    font-size: clamp(0.95rem, 1.6vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.65;
+    margin-top: 0;
+    margin-bottom: clamp(0.5rem, 1vw, 0.9rem);
+  }
+
+  .slide-content :global(strong) {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .slide-content :global(blockquote) {
+    border-left: 3px solid rgba(255, 255, 255, 0.35);
+    padding-left: 1.1rem;
+    margin-left: 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .slide-content :global(ul),
+  .slide-content :global(ol) {
+    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.84);
+    padding-left: 1.4rem;
+    margin: 0 0 clamp(0.4rem, 0.8vw, 0.7rem);
+    line-height: 1.7;
+  }
+
+  .slide-content :global(li) {
+    margin-bottom: 0.2rem;
+  }
+
+  .slide-content :global(hr) {
+    display: none;
+  }
+
+  /* ── Navigation bar ────────────────────────────────────────────────────── */
+  .slide-nav {
+    position: relative;
+    z-index: 20;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem 0.6rem;
+    height: 3rem;
+  }
+
+  .slide-nav__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    color: rgba(255, 255, 255, 0.28);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.18s ease, background 0.18s ease;
+    cursor: pointer;
+  }
+
+  .slide-nav__btn:hover {
+    color: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .slide-nav__btn--ghost {
+    pointer-events: none;
+    visibility: hidden;
+  }
+
+  .slide-nav__counter {
+    font-size: 0.72rem;
+    color: rgba(255, 255, 255, 0.30);
+    letter-spacing: 0.06em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Script panel ──────────────────────────────────────────────────────── */
+  .script-panel {
+    position: relative;
+    z-index: 30;
+    flex: none;
+    /* flex-col-reverse puts the <summary> at the bottom and content above */
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .script-panel__toggle {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.35rem 1rem;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    color: rgba(255, 255, 255, 0.38);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.18s ease;
+    user-select: none;
+  }
+
+  .script-panel__toggle::-webkit-details-marker { display: none; }
+
+  .script-panel__toggle:hover {
+    color: rgba(255, 255, 255, 0.70);
+  }
+
+  .script-panel[open] .script-panel__toggle {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .script-panel__arrow {
+    display: inline-block;
+    font-size: 0.55rem;
+    transition: transform 0.2s ease;
+  }
+
+  .script-panel[open] .script-panel__arrow {
+    transform: rotate(180deg);
+  }
+
+  .script-panel__body {
+    max-height: 14rem;
+    overflow-y: auto;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(8px);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.15) transparent;
+  }
+
+  /* override prose colors inside script body */
+  .script-panel__body :global(h2),
+  .script-panel__body :global(h3) {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 0.25rem;
+  }
+
+  .script-panel__body :global(p) {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.70);
+    line-height: 1.6;
+    margin: 0 0 0.5rem;
+  }
+
+  .script-panel__body :global(strong) {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .script-panel__body :global(hr) {
+    display: none;
+  }
+</style>

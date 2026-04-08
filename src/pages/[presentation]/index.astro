@@ -1,0 +1,13 @@
+---
+import { getPresentationNames } from '../../lib/slides';
+
+export function getStaticPaths() {
+  return getPresentationNames().map((name) => ({
+    params: { presentation: name },
+  }));
+}
+
+// Redirect /provenance → /provenance/1
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+return Astro.redirect(`${base}/${Astro.params.presentation}/1`);
+---

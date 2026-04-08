@@ -1,0 +1,60 @@
+---
+import SlideLayout from '../../layouts/SlideLayout.astro';
+import { getPresentationNames, getPresentation, renderMarkdown } from '../../lib/slides';
+import type { ParsedSlide } from '../../lib/slides';
+
+export async function getStaticPaths() {
+  const paths: Array<{
+    params: { presentation: string; slide: string };
+    props: {
+      slide: ParsedSlide;
+      scriptMarkdown: string;
+      total: number;
+      presentation: string;
+    };
+  }> = [];
+
+  for (const name of getPresentationNames()) {
+    const data = getPresentation(name);
+    if (!data) continue;
+
+    for (const slide of data.slides) {
+      paths.push({
+        params: { presentation: name, slide: String(slide.number) },
+        props: {
+          slide,
+          scriptMarkdown: data.scriptMap.get(slide.number) ?? '',
+          total: data.slides.length,
+          presentation: name,
+        },
+      });
+    }
+  }
+
+  return paths;
+}
+
+const { slide, scriptMarkdown, total, presentation } = Astro.props;
+const slideNum = slide.number;
+
+// Build navigation URLs (base-aware)
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const prevUrl = slideNum > 1     ? `${base}/${presentation}/${slideNum - 1}` : null;
+const nextUrl = slideNum < total  ? `${base}/${presentation}/${slideNum + 1}` : null;
+
+// Render markdown → HTML at build time
+const contentHtml = await renderMarkdown(slide.markdown);
+const scriptHtml  = scriptMarkdown ? await renderMarkdown(scriptMarkdown) : '';
+---
+
+<SlideLayout
+  backgroundImage={slide.backgroundImage}
+  slideNumber={slideNum}
+  totalSlides={total}
+  presentation={presentation}
+  prevUrl={prevUrl}
+  nextUrl={nextUrl}
+  scriptHtml={scriptHtml}
+>
+  <Fragment set:html={contentHtml} />
+</SlideLayout>
