@@ -12,7 +12,6 @@
 
 ## Opening
 
-**Suggested time:** 45 to 60 seconds
 
 Today I want to share an idea I’ve been exploring through the Provenance Manifesto.
 
@@ -28,7 +27,6 @@ That is the space where the idea of decision provenance comes from.
 
 ## About Me
 
-**Suggested time:** 35 to 50 seconds
 
 Before I go deeper into the idea, let me briefly introduce myself.
 
@@ -46,7 +44,6 @@ Provenance is really an exploration of that question.
 
 ## The Problem
 
-**Suggested time:** 55 to 70 seconds
 
 If we look at how software organizations work today, we preserve almost everything around delivery.
 
@@ -68,7 +65,6 @@ That is the core problem: we keep the artifact, but we lose the reasoning.
 
 ## Why Now
 
-**Suggested time:** 55 to 70 seconds
 
 For a long time, this was mostly a delivery problem.
 
@@ -90,7 +86,6 @@ That is why I often phrase it this way: AI accelerates execution, but provenance
 
 ## The Core Idea
 
-**Suggested time:** 60 to 75 seconds
 
 The central idea is simple: decisions should become first-class artifacts.
 
@@ -110,7 +105,6 @@ It explains why the system exists in its current form.
 
 ## What Provenance Changes
 
-**Suggested time:** 55 to 70 seconds
 
 Once you start treating decisions this way, a deeper shift happens.
 
@@ -131,7 +125,6 @@ Provenance is not just a nicer way to write docs. It is a memory layer for reaso
 
 ## The Principles
 
-**Suggested time:** 90 to 120 seconds
 
 The manifesto turns this idea into a small set of principles.
 
@@ -157,7 +150,6 @@ The short summary is this: memory compounds. For modern organizations, decision 
 
 ## The Value
 
-**Suggested time:** 55 to 70 seconds
 
 So what value does this create in practice?
 
@@ -177,7 +169,6 @@ The more AI generates, the more important this becomes.
 
 ## What This Looks Like In Practice
 
-**Suggested time:** 60 to 75 seconds
 
 This does not require waiting for a perfect platform.
 
@@ -201,7 +192,6 @@ The important change is not the tool. It is the intention to preserve reasoning 
 
 ## The Real Shift
 
-**Suggested time:** 50 to 65 seconds
 
 This is why I see provenance primarily as a cultural shift, not a tooling project.
 
@@ -221,7 +211,6 @@ It is really about how organizations remember, share responsibility, and preserv
 
 ## Closing And Discussion
 
-**Suggested time:** 60 to 75 seconds
 
 I’ll close with the distinction that matters most to me.
 
