@@ -100,3 +100,58 @@ export function getPresentation(name: string): PresentationData | null {
 export async function renderMarkdown(md: string): Promise<string> {
   return String(await marked.parse(md, { gfm: true }));
 }
+
+// ─── Blueprint types & parsers ────────────────────────────────────────────────
+
+export interface BlueprintSection {
+  /** The text of the ## heading */
+  title: string;
+  /** URL from the first ![...](url) found in the section body */
+  backgroundImage: string | null;
+  /** Full markdown body including the ## heading, with the image tag stripped */
+  markdown: string;
+}
+
+function parseBlueprint(raw: string): BlueprintSection[] {
+  // Split on ## (h2) section headers — the leading # h1 title chunk is discarded
+  const chunks = raw.split(/(?=^## )/m).filter(c => c.trim());
+  const sections: BlueprintSection[] = [];
+
+  for (const chunk of chunks) {
+    const headerMatch = chunk.match(/^## (.+)\n/);
+    if (!headerMatch) continue; // skip pre-## preamble (the # h1 title)
+
+    const title = headerMatch[1].trim();
+    let body = chunk; // keep the ## header so it renders as h2
+
+    // Extract the background image URL and strip the img tag from body
+    const imageMatch = body.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+    const backgroundImage = imageMatch ? imageMatch[2] : null;
+    if (imageMatch) body = body.replace(imageMatch[0], '');
+
+    // Remove horizontal-rule separators and trim
+    body = body.replace(/^---\s*$/gm, '').trim();
+
+    sections.push({ title, backgroundImage, markdown: body });
+  }
+
+  return sections;
+}
+
+/** Returns names of presentations that contain a blueprint.md */
+export function getBlueprintNames(): string[] {
+  const names = new Set<string>();
+  for (const path of Object.keys(slideFiles)) {
+    const match = path.match(/^\/blog\/artifacts\/slides\/([^/]+)\/blueprint\.md$/);
+    if (match) names.add(match[1]);
+  }
+  return [...names];
+}
+
+/** Returns the parsed blueprint sections for a presentation folder */
+export function getBlueprint(name: string): { name: string; sections: BlueprintSection[] } | null {
+  const key = `/blog/artifacts/slides/${name}/blueprint.md`;
+  const raw = slideFiles[key];
+  if (!raw) return null;
+  return { name, sections: parseBlueprint(raw) };
+}

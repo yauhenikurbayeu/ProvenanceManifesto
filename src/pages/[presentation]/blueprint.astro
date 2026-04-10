@@ -1,0 +1,41 @@
+---
+import BlueprintLayout from '../../layouts/BlueprintLayout.astro';
+import { getBlueprintNames, getBlueprint, renderMarkdown } from '../../lib/slides';
+
+export function getStaticPaths() {
+  return getBlueprintNames().map((name) => ({
+    params: { presentation: name },
+    props: { name },
+  }));
+}
+
+const { name } = Astro.props as { name: string };
+const data = getBlueprint(name)!;
+
+// Render all section markdown to HTML at build time
+const sections = await Promise.all(
+  data.sections.map(async (s) => ({
+    ...s,
+    html: await renderMarkdown(s.markdown),
+  }))
+);
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BlueprintLayout
+  title={`${name.charAt(0).toUpperCase() + name.slice(1)} — Blueprint`}
+  presentationName={name}
+  sectionCount={sections.length}
+  base={base}
+>
+  {sections.map((s) => (
+    <div
+      class="bp-page"
+      style={s.backgroundImage ? `background-image:url('${s.backgroundImage}')` : ''}
+    >
+      <div class="bp-scrim" />
+      <div class="bp-content" set:html={s.html} />
+    </div>
+  ))}
+</BlueprintLayout>

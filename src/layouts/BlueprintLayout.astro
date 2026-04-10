@@ -1,0 +1,342 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  presentationName: string;
+  sectionCount: number;
+  base: string;
+}
+
+const { title, presentationName, sectionCount, base } = Astro.props;
+const slidesUrl = `${base}/${presentationName}/1`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- No SEO: exclude from all crawlers and indexes -->
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:ital,wght@0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body class="bp-body">
+
+    <!-- ── Toolbar (hidden on print) ──────────────────────────────────────── -->
+    <div class="bp-toolbar no-print">
+      <a href={slidesUrl} class="bp-toolbar__link">&#8592; Slides</a>
+      <span class="bp-toolbar__meta">{presentationName} &middot; {sectionCount} sections</span>
+      <button class="bp-toolbar__print" onclick="window.print()">
+        &#x2399;&thinsp; Save as PDF
+      </button>
+    </div>
+
+    <!-- ── Slide pages (all stacked, each becomes one print page) ─────────── -->
+    <main class="bp-stack">
+      <slot />
+    </main>
+
+  </body>
+</html>
+
+<style>
+  /* ── Design system tokens ────────────────────────────────────────────────── */
+  /* Primary (cyan):    #c3f5ff / #00daf3                                      */
+  /* Secondary (amber): #ffd799                                                 */
+  /* Surface base:      #09151a                                                 */
+
+  /* ── Reset & base ───────────────────────────────────────────────────────── */
+  html, body { margin: 0; padding: 0; }
+
+  .bp-body {
+    background: #09151a;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+
+  /* ── Toolbar ─────────────────────────────────────────────────────────────── */
+  .bp-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 2rem;
+    background: rgba(42, 54, 61, 0.92);
+    backdrop-filter: blur(12px);
+  }
+
+  .bp-toolbar__link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: rgba(195, 245, 255, 0.55);
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.15s ease;
+  }
+  .bp-toolbar__link:hover { color: #c3f5ff; }
+
+  .bp-toolbar__meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    color: rgba(195, 245, 255, 0.28);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .bp-toolbar__print {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #09151a;
+    background: #c3f5ff;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background 0.15s ease;
+  }
+  .bp-toolbar__print:hover { background: #00daf3; }
+
+  /* ── Slide stack ─────────────────────────────────────────────────────────── */
+  .bp-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* no gap — visually separated by scrim edge */
+  }
+
+  /* ── Each section = one slide page ──────────────────────────────────────── */
+
+  /* Screen: A4-landscape aspect ratio so it looks right before printing */
+  :global(.bp-page) {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 297 / 210;
+    overflow: hidden;
+    background-color: #09151a;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 0 rgba(195, 245, 255, 0.06); /* subtle separator */
+  }
+
+  /* Dark scrim — deep navy tint per DESIGN.md (never pure black) */
+  :global(.bp-scrim) {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 21, 26, 0.60);
+  }
+
+  /* Content overlay — left-aligned per DESIGN.md editorial grid */
+  :global(.bp-content) {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(1.5rem, 3.5vw, 3.5rem) clamp(3rem, 7vw, 8rem);
+    overflow: hidden;
+    text-align: left;
+  }
+
+  /* ── Heading: h2 — Manrope display, headline-lg ──────────────────────────── */
+  :global(.bp-content h2) {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2.6rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+    margin: 0 0 clamp(0.6rem, 1.5vw, 1.2rem);
+    letter-spacing: -0.025em;
+  }
+
+  /* ── Heading: h3 — title-lg, primary cyan ────────────────────────────────── */
+  :global(.bp-content h3) {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(0.85rem, 1.4vw, 1.15rem);
+    font-weight: 700;
+    color: #c3f5ff;
+    margin: clamp(0.3rem, 0.8vw, 0.6rem) 0 clamp(0.2rem, 0.5vw, 0.4rem);
+    letter-spacing: 0.01em;
+  }
+
+  /* ── Heading: h4 — label-md, technical caption ──────────────────────────── */
+  :global(.bp-content h4) {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(195, 245, 255, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.3rem;
+  }
+
+  /* ── Body text — body-lg (Inter) ─────────────────────────────────────────── */
+  :global(.bp-content p) {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.72rem, 1.1vw, 0.95rem);
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.65;
+    margin: 0 0 clamp(0.3rem, 0.7vw, 0.6rem);
+  }
+
+  /* strong → secondary amber (key insights) */
+  :global(.bp-content strong) {
+    color: #ffd799;
+    font-weight: 700;
+  }
+
+  /* ── Blockquote — glassmorphism surface_variant ──────────────────────────── */
+  :global(.bp-content blockquote) {
+    margin: clamp(0.4rem, 1vw, 0.8rem) 0;
+    padding: clamp(0.4rem, 0.8vw, 0.7rem) clamp(0.6rem, 1vw, 1rem);
+    background: rgba(0, 218, 243, 0.08);
+    backdrop-filter: blur(12px);
+    border-left: 3px solid #00daf3;
+    border-radius: 0 0.4rem 0.4rem 0;
+    font-style: italic;
+    color: rgba(195, 245, 255, 0.78);
+  }
+
+  :global(.bp-content blockquote p) {
+    color: rgba(195, 245, 255, 0.78);
+    margin-bottom: 0;
+  }
+
+  /* ── Lists — cyan squares replacing bullets per DESIGN.md ───────────────── */
+  :global(.bp-content ul),
+  :global(.bp-content ol) {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.7rem, 1.05vw, 0.88rem);
+    color: rgba(255, 255, 255, 0.82);
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 clamp(0.25rem, 0.5vw, 0.5rem);
+    line-height: 1.7;
+  }
+
+  :global(.bp-content li) {
+    position: relative;
+    padding-left: 1.2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* Cyan square bullet */
+  :global(.bp-content ul li)::before {
+    content: '■';
+    position: absolute;
+    left: 0;
+    top: 0.42em;
+    font-size: 0.38em;
+    color: #c3f5ff;
+    line-height: 1;
+  }
+
+  /* Ordered: cyan counter */
+  :global(.bp-content ol) { counter-reset: bp-ol; }
+  :global(.bp-content ol li) { counter-increment: bp-ol; }
+  :global(.bp-content ol li)::before {
+    content: counter(bp-ol) '.';
+    position: absolute;
+    left: 0;
+    color: #c3f5ff;
+    font-size: 0.78em;
+    font-weight: 700;
+    top: 0.1em;
+  }
+
+  :global(.bp-content hr) { display: none; }
+
+  /* ── External links ─────────────────────────────────────────────────────── */
+  :global(.bp-content a) {
+    color: #00daf3;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color 0.15s ease;
+  }
+  :global(.bp-content a:hover) {
+    color: #c3f5ff;
+  }
+
+  /* ── Watermark ───────────────────────────────────────────────────────────── */
+  :global(.bp-page)::after {
+    content: '\00A9 2026 Provenance Manifesto. All rights reserved.';
+    position: absolute;
+    bottom: clamp(0.6rem, 1.2vw, 1rem);
+    right: clamp(1.2rem, 2.5vw, 2rem);
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.55rem, 0.7vw, 0.65rem);
+    color: rgba(195, 245, 255, 0.22);
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  /* ── Print styles ────────────────────────────────────────────────────────── */
+  @media print {
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+
+    .no-print { display: none !important; }
+
+    .bp-body { background: #09151a; }
+    .bp-stack { gap: 0; }
+
+    :global(.bp-page) {
+      /* Override aspect-ratio: use exact A4 landscape dimensions */
+      aspect-ratio: unset;
+      width: 297mm;
+      height: 210mm;
+      page-break-after: always;
+      break-after: page;
+      page-break-inside: avoid;
+      break-inside: avoid;
+      /* Critical: print background images and colors */
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+      color-adjust: exact;
+    }
+
+    /* Last page: no trailing blank page */
+    :global(.bp-page:last-child) {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    /* Scale down text slightly for print density */
+    :global(.bp-content h2) { font-size: 2rem; }
+    :global(.bp-content h3) { font-size: 1rem; }
+    :global(.bp-content p)  { font-size: 0.82rem; }
+    :global(.bp-content ul),
+    :global(.bp-content ol) { font-size: 0.78rem; }
+
+    /* Links: keep color, suppress underline animation */
+    :global(.bp-content a) {
+      color: #00daf3;
+      text-decoration: underline;
+    }
+
+    /* Watermark: fixed size for print */
+    :global(.bp-page)::after {
+      font-size: 0.55rem;
+      color: rgba(195, 245, 255, 0.30);
+      bottom: 6mm;
+      right: 10mm;
+    }
+  }
+</style>
