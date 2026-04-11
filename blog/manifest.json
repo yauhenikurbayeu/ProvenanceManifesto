@@ -6,6 +6,43 @@
     },
     "articles": [
     {
+      "id": "modern-agentic-architecture",
+      "canonicalSlug": "modern-agentic-architecture",
+      "category": "technical_articles",
+      "languages": {
+        "en": {
+          "file": "modern-agentic-architecture.md",
+          "published": true,
+          "tldr": "Why are we building large amounts of code if agents can orchestrate behavior with minimal logic?"
+        },
+        "de": {
+          "file": "de/modern-agentic-architecture.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/modern-agentic-architecture.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/modern-agentic-architecture.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/modern-agentic-architecture.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/modern-agentic-architecture.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
+    {
       "id": "ai-text-vs-human-perception",
       "canonicalSlug": "ai-text-vs-human-perception",
       "category": "other",
