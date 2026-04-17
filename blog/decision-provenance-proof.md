@@ -15,7 +15,7 @@ This is exactly where decision provenance becomes important. If decisions can be
 
 But that immediately raises a practical question:
 
-Can agents participate in that memory layer in a meaningful way?
+> Can agents participate in that memory layer in a meaningful way?
 
 When I was presenting [this earlier article on decision provenance and agent memory](https://provenancemanifesto.org/en/blog/decision-provenance-how-to/), I was asked two very fair questions:
 
@@ -44,7 +44,7 @@ The longer-term direction is broader. As I argued in [From RAG to Provenance: Ho
 
 But before discussing that larger architecture, I wanted to answer a simpler question:
 
-Does the basic decision-provenance behavior work at all when agents are asked to do real tasks?
+> Does the basic decision-provenance behavior work at all when agents are asked to do real tasks?
 
 ## The two questions I wanted to validate
 
@@ -95,7 +95,7 @@ The second scenario stayed in the same general decision family, but changed the 
 
 After the first round, the important open question was no longer "can the agent log something?" The more useful question became:
 
-Can the agent log decisions in a way that stays explicit, structured, and inspectable enough to support reuse?
+> Can the agent log decisions in a way that stays explicit, structured, and inspectable enough to support reuse?
 
 So the second round focused more on schema discipline and on making prior-review scope visible.
 
@@ -103,13 +103,13 @@ This produced a more nuanced conclusion about virtual gut feeling.
 
 What became clear is that prior decision memory does not have to force one canonical answer in order to be useful. In an ambiguous scenario, the more interesting effect is often narrower than that. Prior decisions can suppress weaker options, stabilize the viable frontier, and still leave room for legitimate disagreement inside that frontier.
 
-That distinction matters.
+**That distinction matters.**
 
 If provenance simply forced uniformity, it would be little more than consensus lock-in. But if provenance helps the agent eliminate weak options while preserving the ability to rank strong options differently depending on emphasis, then it is behaving much more like real judgment memory.
 
 After this stage, the answer to the second question became stronger:
 
-Yes, prior decision logs can act like a virtual gut feeling. But they are most useful when they narrow the space of good choices rather than pretending that one historical answer is always correct.
+> Yes, prior decision logs can act like a virtual gut feeling. But they are most useful when they narrow the space of good choices rather than pretending that one historical answer is always correct.
 
 At the same time, this round still left an important blind spot.
 
@@ -137,7 +137,7 @@ This new scenario tested:
 - whether it can keep those decisions separate
 - whether the provenance layer stays complete even when the user-facing artifact looks correct
 
-This turned out to be a crucial distinction.
+**This turned out to be a crucial distinction.**
 
 One of the clearest lessons from this stage was that correct task output and correct provenance are not the same thing.
 
@@ -145,7 +145,7 @@ An agent can complete a task convincingly and still under-log its internal decis
 
 This scenario therefore deepened the answer to the first question.
 
-Yes, agents can self-identify meaningful decisions. But multi-decision tasks reveal that identifying "there is a decision here" is easier than preserving all decision boundaries with equal discipline. Once a task contains multiple explicit choices, provenance quality becomes a stricter test than output quality.
+> Yes, agents can self-identify meaningful decisions. But multi-decision tasks reveal that identifying "there is a decision here" is easier than preserving all decision boundaries with equal discipline. Once a task contains multiple explicit choices, provenance quality becomes a stricter test than output quality.
 
 That led to the next step.
 
@@ -170,7 +170,7 @@ I also expanded the scenario suite beyond baseline decision-making. At this poin
 - what happens when escalation is the right answer
 - what happens when the task should produce no decision log at all
 
-This is where the prototype became much more convincing.
+**This is where the prototype became much more convincing.**
 
 At a high level, the split-agent flow showed the cleanest overall provenance behavior:
 
@@ -195,25 +195,25 @@ Taken together, the scenarios produced a coherent progression.
 
 The main conclusion was:
 
-Agents can recognize and log meaningful decisions, and earlier decision logs can visibly influence later decisions.
+> Agents can recognize and log meaningful decisions, and earlier decision logs can visibly influence later decisions.
 
 ### After Scenario 2
 
 The conclusion became more precise:
 
-Provenance memory works best as a soft prior. It narrows the viable decision frontier, but does not need to eliminate all legitimate disagreement to be useful.
+> Provenance memory works best as a soft prior. It narrows the viable decision frontier, but does not need to eliminate all legitimate disagreement to be useful.
 
 ### After Scenario 3
 
 The conclusion became stricter:
 
-Decision provenance is harder than correct output generation. A task can be completed successfully while still producing incomplete or merged provenance.
+> Decision provenance is harder than correct output generation. A task can be completed successfully while still producing incomplete or merged provenance.
 
 ### After Scenario 4
 
 The conclusion became architectural:
 
-The strongest observed behavior came not from one model doing everything, but from separating judgment, execution, and strict logging into different roles.
+> The strongest observed behavior came not from one model doing everything, but from separating judgment, execution, and strict logging into different roles.
 
 ## Differences across models, and why a hybrid combination makes sense
 
@@ -266,7 +266,7 @@ This made it the best fit for provenance-aware coordination.
 
 The research gradually made one thing clear:
 
-decision provenance needs at least three kinds of intelligence at once.
+**decision provenance needs at least three kinds of intelligence at once.**
 
 - judgment about what matters now
 - execution quality on the live task
@@ -313,7 +313,7 @@ The current prototype is best understood as a provenance pipeline.
 
 The workflow begins by asking a simple question:
 
-Is this task likely to contain a meaningful decision?
+> Is this task likely to contain a meaningful decision?
 
 This matters because not every task deserves provenance. If a system logs every small edit, the memory layer becomes noisy and loses value.
 
@@ -351,7 +351,7 @@ Its role is not to rethink the task from zero. Its role is to preserve:
 
 If no meaningful decision was made, the task still completes, but no provenance record is created.
 
-This is essential.
+**This is essential.**
 
 A serious provenance system must avoid over-logging just as carefully as it avoids under-logging.
 
@@ -425,7 +425,7 @@ Its strengths are clear:
 - prior reasoning is reusable without being made absolute
 - non-decision tasks can be left out of the log
 
-But it is still a prototype.
+**But it is still a prototype.**
 
 The most important caveat is not that the idea is weak. The caveat is that the memory substrate is still minimal. A flat `decision-log` file is enough to validate the core behavior, but it is not the final form of organizational memory.
 
@@ -459,13 +459,13 @@ Over time, a mature version of this should move beyond a flat log toward a prove
 
 The clearest way to understand the current prototype is this:
 
-it is not just an orchestration stack for agents.
-
-It is a provenance pipeline.
+> it is not just an orchestration stack for agents.
+>
+> It is a provenance pipeline.
 
 Its purpose is not only to solve the current task. Its purpose is also to preserve enough decision memory that the next related task can be more intelligible, more consistent, and easier to audit.
 
-That is the key shift.
+**That is the key shift.**
 
 Without provenance, an agent run ends as soon as the output is delivered.
 
@@ -486,13 +486,13 @@ The prototype was built to answer two practical questions.
 
 ### 1. Can an agent self-identify meaningful decisions and log them with context?
 
-At a high level, yes.
+**At a high level, yes.**
 
 Across the validation path, the prototype showed that agents can recognize non-trivial decisions, classify them as important, and preserve them as structured records rather than leaving them implicit inside the final output. The biggest qualification is that multi-decision tasks are a stricter test than single-decision tasks. An agent may complete a task correctly while still weakening provenance if it merges or omits decision boundaries.
 
 ### 2. Can prior decision logs act as a virtual gut feeling?
 
-Again, yes.
+**Again, yes.**
 
 Prior decision memory clearly influenced later reasoning. The most useful effect was not blind consensus, but frontier narrowing: weak options were filtered out, stronger patterns became easier to reuse, and stale or conflicting priors could still be refined or overridden when the context changed.
 
@@ -502,7 +502,7 @@ The research did not end at "agents can log decisions."
 
 It led to a stronger conclusion:
 
-decision provenance works best when the workflow is designed for it.
+> decision provenance works best when the workflow is designed for it.
 
 That means:
 
@@ -514,8 +514,8 @@ And it means treating the current file-based `decision-log` as a prototype memor
 
 So the short answer to the original audience questions is:
 
-Yes, agents can begin to build decision memory.
-Yes, prior decision logs can become a usable virtual gut feeling.
-And yes, the strongest path forward appears to be not a single all-purpose agent, but a provenance-native architecture built around explicit decision memory.
+- Yes, agents can begin to build decision memory.
+- Yes, prior decision logs can become a usable virtual gut feeling.
+- And yes, the strongest path forward appears to be not a single all-purpose agent, but a provenance-native architecture built around explicit decision memory.
 
 For readers who want to explore the prototype directly, the [DecisionLog](https://github.com/yauhenikurbayeu/DecisionLog) repository contains the working solution, a [detailed evaluation report](https://github.com/yauhenikurbayeu/DecisionLog/blob/main/DESISION_PROVENANCE_EVOLUTION.md), sample prompts, and test results.
