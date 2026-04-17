@@ -6,6 +6,43 @@
     },
     "articles": [
     {
+      "id": "decision-provenance-proof",
+      "canonicalSlug": "decision-provenance-proof",
+      "category": "technical_articles",
+      "languages": {
+        "en": {
+          "file": "decision-provenance-proof.md",
+          "published": true,
+          "tldr": "Can AI agents recognize their own decisions? And can they reuse prior decisions as a kind of virtual gut feeling?"
+        },
+        "de": {
+          "file": "de/decision-provenance-proof.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/decision-provenance-proof.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/decision-provenance-proof.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/decision-provenance-proof.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/decision-provenance-proof.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
+    {
       "id": "modern-agentic-architecture",
       "canonicalSlug": "modern-agentic-architecture",
       "category": "technical_articles",
