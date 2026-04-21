@@ -148,6 +148,73 @@ should_log =
 
 This is the whole point of the policy: when the log/no-log rule is explicit like this, it becomes testable.
 
+### What the score ranges mean (in practice)
+
+The threshold is a pragmatic significance heuristic, not an industry standard.
+
+In practice, the score bands help you build intuition for what the gate is doing:
+
+- `0–2`: almost certainly execution noise - do not log unless an override applies
+- `3–4`: near-threshold - usually still do not log; re-check candidate splitting and scoring honesty
+- `5–10`: likely durable - log *if* `usefulness_gate` is true
+
+If something *feels* important but lands at `3–4`, that is usually a signal to:
+
+- check whether multiple decisions were bundled into one candidate
+- verify that each metric score is still honest
+- use an explicit `mandatory_overrides` reason (rather than inflating metric scores) when the value is governance/accountability traceability
+
+### A consistent scoring workflow
+
+To keep scoring stable across runs (and easier to audit):
+
+1. Score each metric independently.
+2. Use the smallest number that is still honest.
+3. Write one short sentence explaining each non-zero score.
+4. Apply overrides as a separate gate (do not treat them as “extra points”).
+5. Compute `decision_score`, then apply the final `should_log` rule.
+
+### Example threshold_check outputs
+
+Example 1: high-score trade-off (log)
+
+```yaml
+impact_radius: 2
+reversibility: 1
+uncertainty: 1
+tradeoff_intensity: 2
+longevity: 2
+decision_score: 8
+mandatory_overrides: []
+override_applied: false
+usefulness_gate: true
+should_log: true
+rationale: Long-lived trade-off with broad downstream impact.
+```
+
+Example 2: low numeric score, but governance boundary (log via override)
+
+```yaml
+impact_radius: 0
+reversibility: 1
+uncertainty: 0
+tradeoff_intensity: 0
+longevity: 0
+decision_score: 1
+mandatory_overrides:
+  - privacy-boundary
+override_applied: true
+usefulness_gate: true
+should_log: true
+rationale: A privacy-governed exception was applied and must remain auditable.
+```
+
+Common mistakes this section is meant to prevent:
+
+- inflating metric scores instead of using `mandatory_overrides`
+- setting `override_applied: true` without naming the override reason
+- treating routine human-facing chatter as an override when no accountability boundary actually changed
+
 ## Why these five metrics?
 
 The threshold model is not meant to be a perfect theory of decision value. It is meant to be a **good-enough proxy** for the kinds of decisions that become valuable provenance:

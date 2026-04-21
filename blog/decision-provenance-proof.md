@@ -519,3 +519,7 @@ So the short answer to the original audience questions is:
 - And yes, the strongest path forward appears to be not a single all-purpose agent, but a provenance-native architecture built around explicit decision memory.
 
 For readers who want to explore the prototype directly, the [DecisionLog](https://github.com/yauhenikurbayeu/DecisionLog) repository contains the working solution, a [detailed evaluation report](https://github.com/yauhenikurbayeu/DecisionLog/blob/main/DESISION_PROVENANCE_EVOLUTION.md), sample prompts, and test results.
+
+## Next chapter
+
+Continue with Part 2: [From Prototype to Precision: A Decision Logging Threshold](https://provenancemanifesto.org/en/blog/decision-provenance-threshold/) - the deterministic persistence gate that decides what is meaningful enough to log, so decision provenance stays high-signal and auditable.
