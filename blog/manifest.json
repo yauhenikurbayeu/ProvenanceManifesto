@@ -6,6 +6,43 @@
     },
     "articles": [
     {
+      "id": "decision-provenance-threshold",
+      "canonicalSlug": "decision-provenance-threshold",
+      "category": "technical_articles",
+      "languages": {
+        "en": {
+          "file": "decision-provenance-threshold.md",
+          "published": true,
+          "tldr": "Everyone talks about giving AI agents memory. Far fewer ask a harder question: What should an agent be allowed to remember?"
+        },
+        "de": {
+          "file": "de/decision-provenance-threshold.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/decision-provenance-threshold.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/decision-provenance-threshold.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/decision-provenance-threshold.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/decision-provenance-threshold.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },      
+    {
       "id": "decision-provenance-proof",
       "canonicalSlug": "decision-provenance-proof",
       "category": "technical_articles",
