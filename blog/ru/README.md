@@ -1,3 +1,10 @@
+# Decision Provenance Assistant for Delivery Provenance Workspace
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 13, 2026
+
+**TL;DR Delivery Provenance Workspace может превратить разрозненные решения по поставке в повторно используемую управленческую память, фиксируя доказательства, обоснование, риски и статус валидации в Decision Provenance Assistant.**
+
 # We Are Building AI Software Factories Without Teaching Them Judgment
 
 **Author:** Yauheni Kurbayeu

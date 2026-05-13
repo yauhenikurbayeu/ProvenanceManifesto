@@ -6,6 +6,43 @@
     },
     "articles": [
     {
+      "id": "delivery-provenance-workspace",
+      "canonicalSlug": "delivery-provenance-workspace",
+      "category": "technical_articles",
+      "languages": {
+        "en": {
+          "file": "delivery-provenance-workspace.md",
+          "published": true,
+          "tldr": "Delivery Provenance Workspace can turn scattered delivery decisions into reusable management memory by capturing evidence, rationale, risks, and validation status in a Decision Provenance Assistant."
+        },
+        "de": {
+          "file": "de/delivery-provenance-workspace.md",
+          "published": true,
+          "tldr": "Delivery Provenance Workspace kann verstreute Delivery-Entscheidungen in wiederverwendbares Management-Gedächtnis verwandeln, indem Evidenz, Begründungen, Risiken und Validierungsstatus in einem Decision Provenance Assistant erfasst werden."
+        },
+        "es": {
+          "file": "es/delivery-provenance-workspace.md",
+          "published": true,
+          "tldr": "Delivery Provenance Workspace puede convertir decisiones de delivery dispersas en memoria de gestión reutilizable al capturar evidencia, justificación, riesgos y estado de validación en un Asistente de Provenance de Decisiones."
+        },
+        "fr": {
+          "file": "fr/delivery-provenance-workspace.md",
+          "published": true,
+          "tldr": "Delivery Provenance Workspace peut transformer des décisions de delivery dispersées en mémoire de management réutilisable en capturant les preuves, la justification, les risques et le statut de validation dans un assistant de provenance des décisions."
+        },
+        "pl": {
+          "file": "pl/delivery-provenance-workspace.md",
+          "published": true,
+          "tldr": "Delivery Provenance Workspace może przekształcać rozproszone decyzje delivery w pamięć zarządczą nadającą się do ponownego wykorzystania poprzez przechwytywanie dowodów, uzasadnienia, ryzyk i statusu walidacji w Asystencie Provenance Decyzji."
+        },
+        "ru": {
+          "file": "ru/delivery-provenance-workspace.md",
+          "published": true,
+          "tldr": "Delivery Provenance Workspace может превратить разрозненные решения по поставке в повторно используемую управленческую память, фиксируя доказательства, обоснование, риски и статус валидации в Decision Provenance Assistant."
+        }
+      }
+    },
+    {
       "id": "we-are-building-ai-software-factories-without-teaching-them-judgment",
       "canonicalSlug": "we-are-building-ai-software-factories-without-teaching-them-judgment",
       "category": "provenance_philosophy",

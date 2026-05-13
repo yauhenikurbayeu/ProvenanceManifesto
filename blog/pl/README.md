@@ -1,3 +1,10 @@
+# Decision Provenance Assistant for Delivery Provenance Workspace
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 13, 2026
+
+**TL;DR Delivery Provenance Workspace może przekształcać rozproszone decyzje delivery w pamięć zarządczą nadającą się do ponownego wykorzystania poprzez przechwytywanie dowodów, uzasadnienia, ryzyk i statusu walidacji w Asystencie Provenance Decyzji.**
+
 # We Are Building AI Software Factories Without Teaching Them Judgment
 
 **Author:** Yauheni Kurbayeu
