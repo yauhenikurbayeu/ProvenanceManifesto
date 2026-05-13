@@ -6,6 +6,43 @@
     },
     "articles": [
     {
+      "id": "we-are-building-ai-software-factories-without-teaching-them-judgment",
+      "canonicalSlug": "we-are-building-ai-software-factories-without-teaching-them-judgment",
+      "category": "provenance_philosophy",
+      "languages": {
+        "en": {
+          "file": "we-are-building-ai-software-factories-without-teaching-them-judgment.md",
+          "published": true,
+          "tldr": "Software factories without preserved judgment are not senior engineering at scale. They are junior engineering at scale. Fast junior engineering."
+        },
+        "de": {
+          "file": "de/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },      
+    {
       "id": "decision-provenance-threshold",
       "canonicalSlug": "decision-provenance-threshold",
       "category": "technical_articles",
