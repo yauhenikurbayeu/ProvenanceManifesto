@@ -1,3 +1,10 @@
+# We Are Building AI Software Factories Without Teaching Them Judgment
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 13, 2026
+
+**TL;DR Des usines logicielles sans jugement préservé ne sont pas de l’ingénierie senior à grande échelle. Ce sont de l’ingénierie junior à grande échelle. De l’ingénierie junior rapide.**
+
 # Agentic Flow How-To Guide
 
 **Author:** Yauheni Kurbayeu

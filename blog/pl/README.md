@@ -1,3 +1,10 @@
+# We Are Building AI Software Factories Without Teaching Them Judgment
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 13, 2026
+
+**TL;DR Fabryki oprogramowania bez zachowanego osądu nie są senior engineeringiem na skalę. To junior engineering na skalę. Szybki junior engineering.**
+
 # Agentic Flow How-To Guide
 
 **Author:** Yauheni Kurbayeu

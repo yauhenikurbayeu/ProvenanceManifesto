@@ -1,3 +1,10 @@
+# We Are Building AI Software Factories Without Teaching Them Judgment
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 13, 2026
+
+**TL;DR Программные фабрики без сохранённого инженерного суждения — это не senior-инженерия в масштабе. Это junior-инженерия в масштабе. Быстрая junior-инженерия.**
+
 # Agentic Flow How-To Guide
 
 **Author:** Yauheni Kurbayeu

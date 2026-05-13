@@ -1,3 +1,10 @@
+# We Are Building AI Software Factories Without Teaching Them Judgment
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 13, 2026
+
+**TL;DR Las fábricas de software sin criterio preservado no son ingeniería senior a escala. Son ingeniería junior a escala. Ingeniería junior rápida.**
+
 # Agentic Flow How-To Guide
 
 **Author:** Yauheni Kurbayeu

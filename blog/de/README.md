@@ -1,3 +1,10 @@
+# We Are Building AI Software Factories Without Teaching Them Judgment
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 13, 2026
+
+**TL;DR Softwarefabriken ohne bewahrtes Urteilsvermögen sind kein Senior Engineering im Maßstab. Sie sind Junior Engineering im Maßstab. Schnelles Junior Engineering.**
+
 # Agentic Flow How-To Guide
 
 **Author:** Yauheni Kurbayeu

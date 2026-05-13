@@ -17,28 +17,28 @@
         },
         "de": {
           "file": "de/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Softwarefabriken ohne bewahrtes Urteilsvermögen sind kein Senior Engineering im Maßstab. Sie sind Junior Engineering im Maßstab. Schnelles Junior Engineering."
         },
         "es": {
           "file": "es/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Las fábricas de software sin criterio preservado no son ingeniería senior a escala. Son ingeniería junior a escala. Ingeniería junior rápida."
         },
         "fr": {
           "file": "fr/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Des usines logicielles sans jugement préservé ne sont pas de l’ingénierie senior à grande échelle. Ce sont de l’ingénierie junior à grande échelle. De l’ingénierie junior rapide."
         },
         "pl": {
           "file": "pl/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Fabryki oprogramowania bez zachowanego osądu nie są senior engineeringiem na skalę. To junior engineering na skalę. Szybki junior engineering."
         },
         "ru": {
           "file": "ru/we-are-building-ai-software-factories-without-teaching-them-judgment.md",
-          "published": false,
-          "tldr": ""
+          "published": true,
+          "tldr": "Программные фабрики без сохранённого инженерного суждения — это не senior-инженерия в масштабе. Это junior-инженерия в масштабе. Быстрая junior-инженерия."
         }
       }
     },      

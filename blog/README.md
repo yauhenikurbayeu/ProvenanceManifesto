@@ -1,3 +1,10 @@
+# We Are Building AI Software Factories Without Teaching Them Judgment
+
+**Author:** Yauheni Kurbayeu  
+**Published:** May 13, 2026
+
+**TL;DR Software factories without preserved judgment are not senior engineering at scale. They are junior engineering at scale. Fast junior engineering.**
+
 # Agentic Flow How-To Guide
 
 **Author:** Yauheni Kurbayeu  
