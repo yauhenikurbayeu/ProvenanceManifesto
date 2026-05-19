@@ -2,3 +2,122 @@
 {"hook": "preToolUse", "ts": "2026-03-21T13:51:18.524579Z", "toolName": "edit", "targets": ["src/lib/blog.ts"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
 {"hook": "preToolUse", "ts": "2026-03-21T13:52:02.418907Z", "toolName": "edit", "targets": ["blog/manifest.json"], "decision": null}
 {"hook": "preToolUse", "ts": "2026-03-21T13:52:02.451355Z", "toolName": "edit", "targets": ["src/lib/blog.ts"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:13.669221Z", "toolName": "skill", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:18.672629Z", "toolName": "report_intent", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:18.703924Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:18.742341Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:18.766947Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/manifest.json"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:21.789324Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:24.725439Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:43.996860Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:47.553510Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:10:51.213784Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:12.728403Z", "toolName": "task", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:12.768790Z", "toolName": "task", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:12.794455Z", "toolName": "task", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:12.818106Z", "toolName": "task", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:12.842319Z", "toolName": "task", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:16.601295Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:16.964219Z", "toolName": "report_intent", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:16.993566Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:17.232234Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:17.315148Z", "toolName": "report_intent", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:17.345133Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:19.274560Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:20.423004Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:23.858352Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/es"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:26.566783Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/es/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:53.499770Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/fr/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:55.881708Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:11:57.731488Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/de/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:00.270146Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:02.944691Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:03.829887Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/es/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:06.907945Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/pl/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:09.548033Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:28.236106Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:34.682771Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/fr/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:37.884581Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:41.076224Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:41.837989Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/es/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:12:44.718533Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:05.441655Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/de/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:07.936234Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:16.014962Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:23.064270Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:29.373641Z", "toolName": "create", "targets": ["blog/fr/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:36.370864Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/pl/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:39.198587Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/es/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:46.959953Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/fr/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:49.490369Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:54.464979Z", "toolName": "edit", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/fr/README.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:13:58.935059Z", "toolName": "edit", "targets": ["blog/fr/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:02.821837Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/de"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:03.308294Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:05.985762Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/de/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:07.020136Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:10.345744Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:13.224227Z", "toolName": "edit", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/de/README.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:13.674988Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:16.928969Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:17.915834Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:20.647530Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:21.981682Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:23.651947Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:27.784361Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:27.964520Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:31.808814Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:34.036986Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:37.037842Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:37.276568Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:40.329173Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:40.542504Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/es/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:42.962904Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:44.408041Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:44.711230Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:47.260183Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:48.585009Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:51.541657Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:54.815324Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:58.554273Z", "toolName": "task", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:14:58.680847Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:15:02.161896Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:15:02.435146Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/testing-ai-agents-is-not-testing-software.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:15:05.987455Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:15:11.729439Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:15:42.832766Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/ru/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:15:45.240008Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:15:47.996771Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:16:30.661246Z", "toolName": "create", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/ru/testing-ai-agents-is-not-testing-software.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:16:33.644678Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:16:37.423269Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:17:20.906017Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:17:33.134133Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/ru/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:17:39.112383Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:17:52.510473Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:17:56.195034Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:00.356569Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:04.914686Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:08.378087Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:11.973055Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:15.031691Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:18.461899Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:22.076134Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:25.924550Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:29.287098Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:33.667650Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:38.992238Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:53.675500Z", "toolName": "report_intent", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:18:53.717569Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:19:18.491657Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:19:38.888547Z", "toolName": "view", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/README.md"], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:19:44.046407Z", "toolName": "edit", "targets": ["/Users/yauheni_kurbayeu1/Documents/ProvenanceManifesto/blog/README.md"], "decision": {"permissionDecision": "deny", "permissionDecisionReason": "Article translation workflow may only write files inside blog/, including blog/manifest.json, blog/README.md, blog/translation-summary.md, blog source articles, and files inside blog/de, blog/fr, blog/es, blog/pl, or blog/ru."}}
+{"hook": "preToolUse", "ts": "2026-05-19T22:19:47.022243Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:19:50.263765Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:19:55.651103Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:20:04.946875Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:20:11.118630Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:20:14.695415Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:20:18.966972Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:20:46.366757Z", "toolName": "bash", "targets": [], "decision": null}
+{"hook": "preToolUse", "ts": "2026-05-19T22:20:57.444238Z", "toolName": "bash", "targets": [], "decision": null}

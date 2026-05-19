@@ -1,10 +1,10 @@
 {
-    "categories": {
-      "provenance_philosophy": {},
-      "technical_articles": {},
-      "other": {}
-    },
-    "articles": [
+  "categories": {
+    "provenance_philosophy": {},
+    "technical_articles": {},
+    "other": {}
+  },
+  "articles": [
     {
       "id": "delivery-provenance-workspace",
       "canonicalSlug": "delivery-provenance-workspace",
@@ -78,7 +78,7 @@
           "tldr": "Программные фабрики без сохранённого инженерного суждения — это не senior-инженерия в масштабе. Это junior-инженерия в масштабе. Быстрая junior-инженерия."
         }
       }
-    },      
+    },
     {
       "id": "decision-provenance-threshold",
       "canonicalSlug": "decision-provenance-threshold",
@@ -115,7 +115,7 @@
           "tldr": ""
         }
       }
-    },      
+    },
     {
       "id": "decision-provenance-proof",
       "canonicalSlug": "decision-provenance-proof",
@@ -375,7 +375,7 @@
         }
       }
     },
-     {
+    {
       "id": "agentic-flow-how-to-guide",
       "canonicalSlug": "agentic-flow-how-to-guide",
       "category": "technical_articles",
@@ -383,7 +383,7 @@
         "en": {
           "file": "agentic-flow-how-to-guide.md",
           "published": true,
-            "tldr": "A practical guide to GitHub Copilot agent flows that explains instruction-layered agentic inheritance and compares sequential, parallel, and hierarchical orchestration patterns."
+          "tldr": "A practical guide to GitHub Copilot agent flows that explains instruction-layered agentic inheritance and compares sequential, parallel, and hierarchical orchestration patterns."
         },
         "de": {
           "file": "de/agentic-flow-how-to-guide.md",
@@ -1001,6 +1001,43 @@
           "file": "ru/why-sdlc-has-no-memory-and-why-delivery-teams-keep-paying-for-it.md",
           "published": true,
           "tldr": "Организации, занимающиеся разработкой и доставкой программного обеспечения, постоянно теряют контекст своих решений. Через несколько месяцев после внедрения команды часто не могут объяснить, почему что-то было построено, какие компромиссы были приняты или что изначально было обещано. Это происходит потому, что инструменты SDLC отслеживают артефакты — тикеты, коммиты, часы и расходы — но не намерение, обязательства и логику решений. В результате возникает «амнезия контекста»: команды заново создают решения, повторяют решения, спорят о границах задач и несут расходы на переделку, потерю маржи и выгорание. Основная проблема не в небрежности команд, а в системном пробеле — у SDLC нет встроенной памяти обоснования решений. Неудобный вопрос, который поднимает статья: почему в современном разработке программного обеспечения мы тщательно отслеживаем исполнение, но не фиксируем рассуждения, которые его сформировали?"
+        }
+      }
+    },
+    {
+      "id": "testing-ai-agents-is-not-testing-software",
+      "canonicalSlug": "testing-ai-agents-is-not-testing-software",
+      "category": "provenance_philosophy",
+      "languages": {
+        "en": {
+          "file": "testing-ai-agents-is-not-testing-software.md",
+          "published": true,
+          "tldr": "AI agents require fundamentally different testing approaches than traditional software. Unlike deterministic systems, agents can produce multiple valid outcomes for the same input. Testing must shift from validating output alone to examining the entire reasoning process—including evidence discipline, memory reuse, governance boundaries, and decision traceability—to ensure decisions remain trustworthy even when reasoning is partially automated."
+        },
+        "de": {
+          "file": "de/testing-ai-agents-is-not-testing-software.md",
+          "published": true,
+          "tldr": "KI-Agenten erfordern grundlegend andere Testansätze als traditionelle Software. Anders als deterministische Systeme können Agenten für denselben Input mehrere gültige Ergebnisse produzieren. Tests müssen von der Validierung der Ausgabe allein zu einer Untersuchung des gesamten Reasoning-Prozesses übergehen – einschließlich Evidenzdisziplin, Speicherwiederverwendung, Governance-Grenzen und Entscheidbarkeit – um sicherzustellen, dass Entscheidungen vertrauenswürdig bleiben, auch wenn das Reasoning teilweise automatisiert ist."
+        },
+        "fr": {
+          "file": "fr/testing-ai-agents-is-not-testing-software.md",
+          "published": true,
+          "tldr": "Les agents IA nécessitent des approches de test fondamentalement différentes de celles des logiciels traditionnels. Contrairement aux systèmes déterministes, les agents peuvent produire plusieurs résultats valides pour la même entrée. Les tests doivent passer de la validation seule de la sortie à l'examen de l'ensemble du processus de raisonnement – y compris la discipline des preuves, la réutilisation de la mémoire, les limites de gouvernance et la traçabilité des décisions – pour assurer que les décisions restent fiables même lorsque le raisonnement est partiellement automatisé."
+        },
+        "es": {
+          "file": "es/testing-ai-agents-is-not-testing-software.md",
+          "published": true,
+          "tldr": "Los agentes de IA requieren enfoques de prueba fundamentalmente diferentes al software tradicional. A diferencia de los sistemas deterministas, los agentes pueden producir múltiples resultados válidos para la misma entrada. Las pruebas deben pasar de validar solo la salida a examinar todo el proceso de razonamiento, incluida la disciplina de evidencia, la reutilización de memoria, los límites de gobernanza y la trazabilidad de decisiones, para garantizar que las decisiones sigan siendo confiables incluso cuando el razonamiento se automatiza parcialmente."
+        },
+        "pl": {
+          "file": "pl/testing-ai-agents-is-not-testing-software.md",
+          "published": true,
+          "tldr": "Agenci AI wymagają zasadniczo innych podejść do testowania niż tradycyjne oprogramowanie. W przeciwieństwie do systemów deterministycznych agenci mogą generować wiele ważnych wyników dla tego samego wejścia. Testowanie musi przejść od walidacji samych danych wyjściowych do badania całego procesu rozumowania – w tym dyscypliny dowodów, ponownego wykorzystania pamięci, granic zarządzania i zdolności śledzenia decyzji – aby zapewnić, że decyzje pozostają godne zaufania, nawet gdy rozumowanie jest częściowo zautomatyzowane."
+        },
+        "ru": {
+          "file": "ru/testing-ai-agents-is-not-testing-software.md",
+          "published": true,
+          "tldr": "Агенты ИИ требуют принципиально иных подходов к тестированию, чем традиционное программное обеспечение. В отличие от детерминированных систем, агенты могут производить несколько допустимых результатов для одного и того же ввода. Тестирование должно перейти от проверки только выходных данных к изучению всего процесса рассуждения – включая дисциплину доказательств, повторное использование памяти, границы управления и отслеживаемость решений – чтобы обеспечить надежность решений даже при частичной автоматизации рассуждений."
         }
       }
     }

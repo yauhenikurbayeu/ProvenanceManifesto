@@ -1,9 +1,9 @@
-# Decision Provenance Assistant for Delivery Provenance Workspace
+# Testing AI Agents Is Not Testing Software
 
-**Author:** Yauheni Kurbayeu  
-**Published:** May 13, 2026
+**Author:** Yauheni Kurbayeu
+**Published:** May 20, 2026
 
-**TL;DR Delivery Provenance Workspace can turn scattered delivery decisions into reusable management memory by capturing evidence, rationale, risks, and validation status in a Decision Provenance Assistant.**
+**TL;DR AI agents require fundamentally different testing approaches than traditional software. Unlike deterministic systems, agents can produce multiple valid outcomes for the same input. Testing must shift from validating output alone to examining the entire reasoning process—including evidence discipline, memory reuse, governance boundaries, and decision traceability—to ensure decisions remain trustworthy even when reasoning is partially automated.**
 
 # We Are Building AI Software Factories Without Teaching Them Judgment
 

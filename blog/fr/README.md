@@ -1,3 +1,10 @@
+# Les tests d'agents IA ne sont pas des tests de logiciels
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 20, 2026
+
+**TL;DR Les agents IA nécessitent des approches de test fondamentalement différentes de celles des logiciels traditionnels. Contrairement aux systèmes déterministes, les agents peuvent produire plusieurs résultats valides pour la même entrée. Les tests doivent passer de la validation de la sortie seule à l'examen de l'ensemble du processus de raisonnement - y compris la discipline des preuves, la réutilisation de la mémoire, les limites de gouvernance et la traçabilité des décisions - pour s'assurer que les décisions restent fiables même quand le raisonnement est partiellement automatisé.**
+
 # Decision Provenance Assistant for Delivery Provenance Workspace
 
 **Author:** Yauheni Kurbayeu

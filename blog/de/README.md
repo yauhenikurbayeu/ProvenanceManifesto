@@ -1,3 +1,10 @@
+# Testing AI Agents Ist Nicht Software Testen
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 20, 2026
+
+**TL;DR KI-Agenten erfordern grundlegend andere Test-Ansätze als traditionelle Software. Im Gegensatz zu deterministischen Systemen können Agenten mehrere gültige Ergebnisse für die gleiche Eingabe erzeugen. Das Testen muss sich von der bloßen Output-Validierung zu einer Untersuchung des gesamten Reasoning-Prozesses verschieben – einschließlich Evidenzdisziplin, Speicherwiederverwendung, Governance-Grenzen und Entscheidungsnachverfolgbarkeit – um sicherzustellen, dass Entscheidungen vertrauenswürdig bleiben, selbst wenn das Reasoning teilweise automatisiert ist.**
+
 # Decision Provenance Assistant for Delivery Provenance Workspace
 
 **Author:** Yauheni Kurbayeu

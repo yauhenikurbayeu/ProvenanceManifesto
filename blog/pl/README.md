@@ -1,3 +1,10 @@
+# Testing AI Agents Is Not Testing Software
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 20, 2026
+
+**TL;DR Agenty AI wymagają fundamentalnie różnych podejść do testowania niż tradycyjne oprogramowanie. W przeciwieństwie do systemów deterministycznych, agenty mogą produkować wiele ważnych wyników dla tego samego wejścia. Testowanie musi przesunąć się od samej walidacji wyjścia do badania całego procesu rozumowania—w tym dyscypliny dowodów, ponownego wykorzystania pamięci, granic zarządzania i śledzenia decyzji—aby upewnić się, że decyzje pozostają godne zaufania, nawet gdy rozumowanie jest częściowo zautomatyzowane.**
+
 # Decision Provenance Assistant for Delivery Provenance Workspace
 
 **Author:** Yauheni Kurbayeu
@@ -38,7 +45,7 @@
 **Author:** Yauheni Kurbayeu
 **Published:** Mar 20, 2026 
 
-**TL;DR Ten przewodnik wyjaśnia, jak zautomatyzować blog Markdown do wielojęzycznego pipeline’u publikacyjnego z użyciem GitHub Copilot Agents, gdzie orkiestrator koordynuje podagentów językowych, aktualizuje podsumowania README, stosuje hooks i skills jako mechanizmy ochronne oraz zapewnia powtarzalne, skalowalne wyniki.**
+**TL;DR Ten przewodnik wyjaśnia, jak zautomatyzować blog Markdown do wielojęzycznego pipeline'u publikacyjnego z użyciem GitHub Copilot Agents, gdzie orkiestrator koordynuje podagentów językowych, aktualizuje podsumowania README, stosuje hooks i skills jako mechanizmy ochronne oraz zapewnia powtarzalne, skalowalne wyniki.**
 
 # Provenance Is Not About Tools. It Is About Mindset
 
@@ -53,7 +60,7 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 14, 2026  
 
-**TL;DR Gdy decyzje stają się artefaktami pierwszej klasy, coś zmienia się fundamentalnie. Kiedy środowisko ewoluuje, nie jesteśmy już zmuszeni do ponownego odkrywania logiki systemu poprzez „archeologię” i spekulacje. Zamiast tego możemy wrócić do pierwotnej decyzji, zaktualizować założenia, które przestały być aktualne, i ponownie wygenerować implementację w sposób odzwierciedlający nowy kontekst.**
+**TL;DR Gdy decyzje stają się artefaktami pierwszej klasy, coś zmienia się fundamentalnie. Kiedy środowisko ewoluuje, nie jesteśmy już zmuszeni do ponownego odkrywania logiki systemu poprzez „archeologię" i spekulacje. Zamiast tego możemy wrócić do pierwotnej decyzji, zaktualizować założenia, które przestały być aktualne, i ponownie wygenerować implementację w sposób odzwierciedlający nowy kontekst.**
 
 
 # 2030 A Provenance-Native Company
@@ -61,7 +68,7 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 13, 2026 
 
-**TL;DR Wyobraźmy sobie „organizację native w modelu Provenance” w 2030 roku — firmę zbudowaną od samego początku wokół linii pochodzenia decyzji, pamięci SDLC oraz śledzenia wykonania AI, zamiast próbować dodać te elementy dopiero później.**
+**TL;DR Wyobraźmy sobie „organizację native w modelu Provenance" w 2030 roku — firmę zbudowaną od samego początku wokół linii pochodzenia decyzji, pamięci SDLC oraz śledzenia wykonania AI, zamiast próbować dodać te elementy dopiero później.**
 
 
 # Why Organizational Memory Is Not Just an AI Knowledge System.
@@ -93,7 +100,7 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 28, 2026  
 
-**TL;DR W „Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory” przeszliśmy od RAG do Provenance — od podobieństwa do linii pochodzenia. Ale jeśli agenci AI będą generować 50–80% przyszłej pracy, prawdziwe pytanie brzmi: jak pamięć powinna się bezpiecznie aktualizować? Jak nowe decyzje są walidowane, łączone i zarządzane, zamiast być jedynie zapisywane jako embeddingi? Ten artykuł krok po kroku pokazuje proces inkrementalnej aktualizacji grafu pamięci decyzji na rzeczywistym przykładzie. W erze AI pamięć musi ewoluować, a nie tylko odzyskiwać informacje.**
+**TL;DR W „Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory" przeszliśmy od RAG do Provenance — od podobieństwa do linii pochodzenia. Ale jeśli agenci AI będą generować 50–80% przyszłej pracy, prawdziwe pytanie brzmi: jak pamięć powinna się bezpiecznie aktualizować? Jak nowe decyzje są walidowane, łączone i zarządzane, zamiast być jedynie zapisywane jako embeddingi? Ten artykuł krok po kroku pokazuje proces inkrementalnej aktualizacji grafu pamięci decyzji na rzeczywistym przykładzie. W erze AI pamięć musi ewoluować, a nie tylko odzyskiwać informacje.**
 
 
 # From RAG to Provenance: How We Realized Vector Alone Is Not Memory.
@@ -101,10 +108,10 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 22, 2026 
 
-**TL;DR Co jeśli twój SDLC w rzeczywistości niczego nie pamięta i jedynie odzyskuje fragmenty informacji? Zbudowaliśmy potężne systemy RAG zdolne do wyszukiwania „istotnego” tekstu w milisekundach. Ale istotność to nie przyczynowość. Gdy coś psuje się na produkcji, podobieństwo nie powie ci, dlaczego tak się stało ani która decyzja, ryzyko czy zależność do tego doprowadziły. W tym artykule wyjaśniam, dlaczego sama wyszukiwarka wektorowa nie jest pamięcią, jak struktura grafowa zmienia reguły gry oraz jak połączenie wektorów z rygorystycznym modelem provenance zamienia rozproszoną dokumentację w coś bliższego poznaniu organizacyjnemu. Jeśli interesuje cię wyjaśnialność, linia pochodzenia decyzji i realna inteligencja dostarczania — ten artykuł jest dla ciebie.**
+**TL;DR Co jeśli twój SDLC w rzeczywistości niczego nie pamięta i jedynie odzyskuje fragmenty informacji? Zbudowaliśmy potężne systemy RAG zdolne do wyszukiwania „istotnego" tekstu w milisekundach. Ale istotność to nie przyczynowość. Gdy coś psuje się na produkcji, podobieństwo nie powie ci, dlaczego tak się stało ani która decyzja, ryzyko czy zależność do tego doprowadziły. W tym artykule wyjaśniam, dlaczego sama wyszukiwarka wektorowa nie jest pamięcią, jak struktura grafowa zmienia reguły gry oraz jak połączenie wektorów z rygorystycznym modelem provenance zamienia rozproszoną dokumentację w coś bliższego poznaniu organizacyjnemu. Jeśli interesuje cię wyjaśnialność, linia pochodzenia decyzji i realna inteligencja dostarczania — ten artykuł jest dla ciebie.**
 
 
-# Why Humans Think They Remember Everything, And Why SDLC Memory Proves They Don’t
+# Why Humans Think They Remember Everything, And Why SDLC Memory Proves They Don't
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 22, 2026  
@@ -120,12 +127,12 @@
 **TL;DR W poprzednich rozdziałach omawialiśmy SDLC Memory i Provenance jako sposób na redukcję chaosu, ochronę integralności dostarczania oraz zapewnienie śledzalności decyzji w organizacjach inżynieryjnych. Teraz chcę spojrzeć na to szerzej. Jeśli AI zmienia sposób budowania oprogramowania, zmienia również coś znacznie większego — sposób, w jaki wyceniany jest kapitał intelektualny. Ten artykuł nie jest odejściem od dyskusji o Provenance. To jej kolejny logiczny krok. Jeśli wykonanie staje się powszechne i tanie, wtedy pamięć, zarządzanie i architektura decyzji stają się prawdziwymi aktywami. Porozmawiajmy o tym, co dzieje się z kapitałem intelektualnym, gdy AI realnie zastępuje ludzkie role i co to oznacza dla firm, które chcą przetrwać.**
 
 
-# AI will take the “What”, but Humans must own the “Why”
+# AI will take the "What", but Humans must own the "Why"
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 10, 2026 
 
-**TL;DR AI szybko przejmuje warstwę „co” w tworzeniu oprogramowania — generując architektury, kod, optymalizacje i alternatywne rozwiązania szybciej, niż ludzie są w stanie to zrobić. W rezultacie implementacja i eksploracja rozwiązań stają się tanie, skalowalne i coraz bardziej zautomatyzowane. Jednak prawdziwa strategiczna warstwa inżynierii nigdy nie dotyczyła „co”. Kluczowe pytania dotyczą „dlaczego” — dlaczego rozwiązanie istnieje, dlaczego zaakceptowano dany kompromis, dlaczego ryzyko jest dopuszczalne i dlaczego określony wynik ma znaczenie dla biznesu. To pytania o intencję, nie o implementację.**
+**TL;DR AI szybko przejmuje warstwę „co" w tworzeniu oprogramowania — generując architektury, kod, optymalizacje i alternatywne rozwiązania szybciej, niż ludzie są w stanie to zrobić. W rezultacie implementacja i eksploracja rozwiązań stają się tanie, skalowalne i coraz bardziej zautomatyzowane. Jednak prawdziwa strategiczna warstwa inżynierii nigdy nie dotyczyła „co". Kluczowe pytania dotyczą „dlaczego" — dlaczego rozwiązanie istnieje, dlaczego zaakceptowano dany kompromis, dlaczego ryzyko jest dopuszczalne i dlaczego określony wynik ma znaczenie dla biznesu. To pytania o intencję, nie o implementację.**
 
 
 # We are teaching AI to decide. But we are forgetting how to remember.
@@ -141,4 +148,4 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Jan 1, 2026  
 
-**TL;DR Organizacje zajmujące się dostarczaniem oprogramowania wielokrotnie tracą kontekst stojący za podjętymi decyzjami. Miesiące po implementacji zespoły często nie potrafią wyjaśnić, dlaczego coś zostało zbudowane, jakie kompromisy zostały zaakceptowane ani co było pierwotnie obiecane. Dzieje się tak, ponieważ narzędzia SDLC śledzą artefakty takie jak tickety, commity, godziny pracy czy koszty — ale nie intencję, zobowiązania i uzasadnienie stojące za nimi. W rezultacie pojawia się „amnezja kontekstowa”: zespoły odtwarzają rozwiązania, powtarzają decyzje, kłócą się o zakres i ponoszą koszty poprawek, utraty marży oraz wypalenia. Sednem problemu nie są nieostrożne zespoły, lecz systemowa luka — SDLC nie posiada wbudowanej pamięci uzasadnienia decyzji. Niewygodne pytanie, które stawia artykuł, brzmi: dlaczego we współczesnym rozwoju oprogramowania tak dokładnie śledzimy wykonanie, ale nie rozumowanie, które je ukształtowało?**
+**TL;DR Organizacje zajmujące się dostarczaniem oprogramowania wielokrotnie tracą kontekst stojący za podjętymi decyzjami. Miesiące po implementacji zespoły często nie potrafią wyjaśnić, dlaczego coś zostało zbudowane, jakie kompromisy zostały zaakceptowane ani co było pierwotnie obiecane. Dzieje się tak, ponieważ narzędzia SDLC śledzą artefakty takie jak tickety, commity, godziny pracy czy koszty — ale nie intencję, zobowiązania i uzasadnienie stojące za nimi. W rezultacie pojawia się „amnezja kontekstowa": zespoły odtwarzają rozwiązania, powtarzają decyzje, kłócą się o zakres i ponoszą koszty poprawek, utraty marży oraz wypalenia. Sednem problemu nie są nieostrożne zespoły, lecz systemowa luka — SDLC nie posiada wbudowanej pamięci uzasadnienia decyzji. Niewygodne pytanie, które stawia artykuł, brzmi: dlaczego we współczesnym rozwoju oprogramowania tak dokładnie śledzimy wykonanie, ale nie rozumowanie, które je ukształtowało?**

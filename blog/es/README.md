@@ -1,3 +1,10 @@
+# Testing AI Agents Is Not Testing Software
+
+**Author:** Yauheni Kurbayeu
+**Published:** May 20, 2026
+
+**TL;DR Los agentes de IA requieren enfoques de prueba fundamentalmente diferentes a los del software tradicional. A diferencia de los sistemas deterministas, los agentes pueden producir múltiples resultados válidos para la misma entrada. Las pruebas deben cambiar de validar solo la salida a examinar todo el proceso de razonamiento —incluyendo disciplina en la evidencia, reutilización de memoria, límites de gobernanza y trazabilidad de decisiones— para garantizar que las decisiones sigan siendo confiables incluso cuando el razonamiento está parcialmente automatizado.**
+
 # Decision Provenance Assistant for Delivery Provenance Workspace
 
 **Author:** Yauheni Kurbayeu
@@ -61,7 +68,7 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Mar 13, 2026 
 
-**TL;DR Imaginemos una “empresa nativa de Provenance” en 2030: una organización construida desde el principio alrededor del linaje de decisiones, la memoria del SDLC y la trazabilidad de la ejecución de IA, en lugar de intentar incorporarlo posteriormente.**
+**TL;DR Imaginemos una "empresa nativa de Provenance" en 2030: una organización construida desde el principio alrededor del linaje de decisiones, la memoria del SDLC y la trazabilidad de la ejecución de IA, en lugar de intentar incorporarlo posteriormente.**
 
 
 # Why Organizational Memory Is Not Just an AI Knowledge System.
@@ -93,7 +100,7 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 28, 2026  
 
-**TL;DR En “Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory”, pasamos de RAG a Provenance, de la similitud al linaje. Pero si los agentes de IA generarán entre el 50 y el 80 % del trabajo futuro, la verdadera pregunta pasa a ser: ¿cómo se actualiza la memoria de forma segura? ¿Cómo se validan, enlazan y gobiernan las nuevas decisiones en lugar de simplemente incrustarlas? Este artículo muestra paso a paso el proceso incremental de actualización del grafo de memoria de decisiones con un ejemplo real. Porque en la era de la IA, la memoria debe evolucionar, no solo recuperar.**
+**TL;DR En "Part 1 - From RAG to Provenance: How We Realized Vector Alone Is Not Memory", pasamos de RAG a Provenance, de la similitud al linaje. Pero si los agentes de IA generarán entre el 50 y el 80 % del trabajo futuro, la verdadera pregunta pasa a ser: ¿cómo se actualiza la memoria de forma segura? ¿Cómo se validan, enlazan y gobiernan las nuevas decisiones en lugar de simplemente incrustarlas? Este artículo muestra paso a paso el proceso incremental de actualización del grafo de memoria de decisiones con un ejemplo real. Porque en la era de la IA, la memoria debe evolucionar, no solo recuperar.**
 
 
 # From RAG to Provenance: How We Realized Vector Alone Is Not Memory.
@@ -101,10 +108,10 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 22, 2026 
 
-**TL;DR ¿Y si tu SDLC en realidad no recuerda nada y solo recupera fragmentos? Hemos construido potentes sistemas RAG capaces de mostrar texto “relevante” en milisegundos. Pero la relevancia no es causalidad. Cuando algo falla en producción, la similitud no te dirá por qué ocurrió ni qué decisión, riesgo o dependencia condujo a ese resultado. En este artículo explico por qué la búsqueda vectorial por sí sola no es memoria, cómo la estructura de grafos cambia el juego y cómo combinar vectores con un modelo estricto de provenance transforma documentación dispersa en algo más cercano a la cognición organizacional. Si te importan la explicabilidad, el linaje de decisiones y la inteligencia real de entrega, este artículo es para ti.**
+**TL;DR ¿Y si tu SDLC en realidad no recuerda nada y solo recupera fragmentos? Hemos construido potentes sistemas RAG capaces de mostrar texto "relevante" en milisegundos. Pero la relevancia no es causalidad. Cuando algo falla en producción, la similitud no te dirá por qué ocurrió ni qué decisión, riesgo o dependencia condujo a ese resultado. En este artículo explico por qué la búsqueda vectorial por sí sola no es memoria, cómo la estructura de grafos cambia el juego y cómo combinar vectores con un modelo estricto de provenance transforma documentación dispersa en algo más cercano a la cognición organizacional. Si te importan la explicabilidad, el linaje de decisiones y la inteligencia real de entrega, este artículo es para ti.**
 
 
-# Why Humans Think They Remember Everything, And Why SDLC Memory Proves They Don’t
+# Why Humans Think They Remember Everything, And Why SDLC Memory Proves They Don't
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 22, 2026  
@@ -120,12 +127,12 @@
 **TL;DR En los capítulos anteriores hablamos de SDLC Memory y Provenance como una forma de reducir el caos, proteger la integridad de la entrega y hacer que las decisiones sean trazables dentro de las organizaciones de ingeniería. Ahora quiero ampliar la perspectiva. Porque si la IA está cambiando cómo se construye el software, también está cambiando algo mucho más grande: cómo se valora el Capital Intelectual. Este artículo no es una desviación del debate sobre Provenance; es el siguiente paso lógico. Si la ejecución se vuelve abundante, entonces la memoria, la gobernanza y la arquitectura de decisiones se convierten en los verdaderos activos. Hablemos de qué ocurre con el Capital Intelectual cuando la IA reemplaza materialmente posiciones humanas y qué significa esto para las empresas que quieren sobrevivir.**
 
 
-# AI will take the “What”, but Humans must own the “Why”
+# AI will take the "What", but Humans must own the "Why"
 
 **Author:** Yauheni Kurbayeu  
 **Published:** Feb 10, 2026 
 
-**TL;DR La IA está tomando rápidamente la capa del “Qué” en el desarrollo de software: generando arquitecturas, código, optimizaciones y soluciones alternativas más rápido de lo que los humanos podrían hacerlo. Como resultado, la implementación y la exploración de soluciones se vuelven baratas, escalables y cada vez más automatizadas. Pero la capa estratégica real de la ingeniería nunca ha sido el “Qué”. Las preguntas críticas son el “Por qué”: por qué existe una solución, por qué se aceptó un compromiso, por qué un riesgo es tolerable y por qué un resultado determinado importa para el negocio. Estas preguntas definen la intención, no la implementación.**
+**TL;DR La IA está tomando rápidamente la capa del "Qué" en el desarrollo de software: generando arquitecturas, código, optimizaciones y soluciones alternativas más rápido de lo que los humanos podrían hacerlo. Como resultado, la implementación y la exploración de soluciones se vuelven baratas, escalables y cada vez más automatizadas. Pero la capa estratégica real de la ingeniería nunca ha sido el "Qué". Las preguntas críticas son el "Por qué": por qué existe una solución, por qué se aceptó un compromiso, por qué un riesgo es tolerable y por qué un resultado determinado importa para el negocio. Estas preguntas definen la intención, no la implementación.**
 
 
 # We are teaching AI to decide. But we are forgetting how to remember.
@@ -141,4 +148,4 @@
 **Author:** Yauheni Kurbayeu  
 **Published:** Jan 1, 2026  
 
-**TL;DR Las organizaciones de entrega de software pierden repetidamente el contexto detrás de sus decisiones. Meses después de la implementación, los equipos a menudo no pueden explicar por qué se construyó algo, qué compromisos se aceptaron o qué se había prometido originalmente. Esto ocurre porque las herramientas del SDLC rastrean artefactos como tickets, commits, horas y costes, pero no la intención, los compromisos ni el razonamiento detrás de ellos. El resultado es “amnesia de contexto”: los equipos reconstruyen soluciones, repiten decisiones, discuten sobre el alcance y generan retrabajo, pérdida de margen y agotamiento. El problema central no son equipos descuidados, sino una brecha sistémica: el SDLC no tiene memoria incorporada del razonamiento de las decisiones. La pregunta incómoda que plantea el artículo es: ¿cómo es posible que en el desarrollo moderno de software rastreemos rigurosamente la ejecución pero no el razonamiento que la moldeó?**
+**TL;DR Las organizaciones de entrega de software pierden repetidamente el contexto detrás de sus decisiones. Meses después de la implementación, los equipos a menudo no pueden explicar por qué se construyó algo, qué compromisos se aceptaron o qué se había prometido originalmente. Esto ocurre porque las herramientas del SDLC rastrean artefactos como tickets, commits, horas y costes, pero no la intención, los compromisos ni el razonamiento detrás de ellos. El resultado es "amnesia de contexto": los equipos reconstruyen soluciones, repiten decisiones, discuten sobre el alcance y generan retrabajo, pérdida de margen y agotamiento. El problema central no son equipos descuidados, sino una brecha sistémica: el SDLC no tiene memoria incorporada del razonamiento de las decisiones. La pregunta incómoda que plantea el artículo es: ¿cómo es posible que en el desarrollo moderno de software rastreemos rigurosamente la ejecución pero no el razonamiento que la moldeó?**
