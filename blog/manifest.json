@@ -1040,6 +1040,43 @@
           "tldr": "Агенты ИИ требуют принципиально иных подходов к тестированию, чем традиционное программное обеспечение. В отличие от детерминированных систем, агенты могут производить несколько допустимых результатов для одного и того же ввода. Тестирование должно перейти от проверки только выходных данных к изучению всего процесса рассуждения – включая дисциплину доказательств, повторное использование памяти, границы управления и отслеживаемость решений – чтобы обеспечить надежность решений даже при частичной автоматизации рассуждений."
         }
       }
+    },
+   {
+      "id": "the-why-layer-book",
+      "canonicalSlug": "the-why-layer-book",
+      "category": "other",
+      "languages": {
+        "en": {
+          "file": "the-why-layer-book.md",
+          "published": true,
+          "tldr": "In the Realm of Delivery, the old guilds can suddenly forge software artifacts at impossible speed with the help of AI agents. Plans, code, summaries, tests, diagrams, and migration paths appear almost as soon as they are requested. The realm celebrates the new abundance until a dangerous pattern becomes visible: the artifacts remain, but the reasons behind them disappear."
+        },
+        "de": {
+          "file": "de/the-why-layer-book.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/the-why-layer-book.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/the-why-layer-book.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/the-why-layer-book.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/the-why-layer-book.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
     }
   ]
 }
