@@ -197,6 +197,7 @@ Measure deviation in model outputs over time
 ## Summary
 
 Stages:
+
 0. Baseline
 1. Safe Augmentation
 2. Assisted Execution

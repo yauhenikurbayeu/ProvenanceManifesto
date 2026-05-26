@@ -5,6 +5,43 @@
     "other": {}
   },
   "articles": [
+     {
+      "id": "what-ai-output-testing-actually-looks-like",
+      "canonicalSlug": "what-ai-output-testing-actually-looks-like",
+      "category": "technical_articles",
+      "languages": {
+        "en": {
+          "file": "what-ai-output-testing-actually-looks-like.md",
+          "published": true,
+          "tldr": "The dangerous version of the AI shift for QA is not that every tester gets replaced by a bot. The more realistic danger is quieter: QA gets reduced to checking the easy surfaces while the valuable quality questions move somewhere else."
+        },
+        "de": {
+          "file": "de/what-ai-output-testing-actually-looks-like.md",
+          "published": false,
+          "tldr": ""
+        },
+        "es": {
+          "file": "es/what-ai-output-testing-actually-looks-like.md",
+          "published": false,
+          "tldr": ""
+        },
+        "fr": {
+          "file": "fr/what-ai-output-testing-actually-looks-like.md",
+          "published": false,
+          "tldr": ""
+        },
+        "pl": {
+          "file": "pl/what-ai-output-testing-actually-looks-like.md",
+          "published": false,
+          "tldr": ""
+        },
+        "ru": {
+          "file": "ru/what-ai-output-testing-actually-looks-like.md",
+          "published": false,
+          "tldr": ""
+        }
+      }
+    },
     {
       "id": "delivery-provenance-workspace",
       "canonicalSlug": "delivery-provenance-workspace",
