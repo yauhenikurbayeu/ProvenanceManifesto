@@ -102,20 +102,20 @@
 
 ## Материалы для референса
 
-- [Дорожная карта развития Decision Provenance](provenance-evolution.md) — к вопросам 1–3: прослеживаемость запусков и участников, наблюдение за действиями, исполняемые проверки, Jira/Confluence и условия применимости решений; статус — план развития.
-- [Анализ экспериментов DecisionLog](DESISION_LOGGING_RESULTS_ANANLYSIS.md) — к вопросам 1–3: архитектурные итерации, результаты проверок, работа с историей решений и ограничения аудита.
-- [Предложение по агентным автоматизациям Delivery / Project Management](DELIVERY_PROJECT_MANAGER_AGENTIC_AUTOMATIONS_PROPOSAL.md) — к вопросам 2–3: сценарии SDLC, план пилота, метрики и дальнейшие направления R&D.
+- [Дорожная карта развития Decision Provenance](/blog/artifacts/provenance-evolution) — к вопросам 1–3: прослеживаемость запусков и участников, наблюдение за действиями, исполняемые проверки, Jira/Confluence и условия применимости решений; статус — план развития.
+- [Анализ экспериментов DecisionLog](/blog/artifacts/DESISION_LOGGING_RESULTS_ANANLYSIS) — к вопросам 1–3: архитектурные итерации, результаты проверок, работа с историей решений и ограничения аудита.
+- [Предложение по агентным автоматизациям Delivery / Project Management](/blog/artifacts/DELIVERY_PROJECT_MANAGER_AGENTIC_AUTOMATIONS_PROPOSAL) — к вопросам 2–3: сценарии SDLC, план пилота, метрики и дальнейшие направления R&D.
 
-- [From RAG to Provenance: архитектура гибридной памяти, модель данных и retrieval](../from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory.md).
-- [From RAG to Provenance, Part 2: инкрементальное обновление графа и проверка изменений](../from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns.md).
-- [Git for Decisions: сравнение агентного, детерминированного и гибридного runtime](../git-for-decisions-needs-a-brain-but-what-kind.md).
-- [Modern Software Architecture in the Age of Agents: критерии выбора архитектуры и границы автономности агентов](../modern-agentic-architecture.md).
-- [Проектирование и реализация автоматизированного пайплайна переводов на GitHub Copilot](../building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot.md).
-- [Разбор реализованного workflow публикаций](../how-the-current-github-copilot-article-translation-flow-works-in-this-repository.md).
-- [Протокол передачи контекста и результатов между агентами](../agent-context-and-exchange-protocol-how-to.md).
-- [DecisionLog: прототип, разделение ролей и сценарии оценки](../decision-provenance-proof.md).
-- [Правила отбора решений для сохранения и результаты проверок](../decision-provenance-threshold.md).
-- [Модель оценки AI adoption в SDLC](ai-adoption-maturity-model.md).
+- [From RAG to Provenance: архитектура гибридной памяти, модель данных и retrieval](/blog/from-rag-to-provenance-how-we-realized-vector-alone-is-not-memory).
+- [From RAG to Provenance, Part 2: инкрементальное обновление графа и проверка изменений](/blog/from-rag-to-provenance-part-2-how-Incremental-graph-memory-actually-learns).
+- [Git for Decisions: сравнение агентного, детерминированного и гибридного runtime](/blog/git-for-decisions-needs-a-brain-but-what-kind).
+- [Modern Software Architecture in the Age of Agents: критерии выбора архитектуры и границы автономности агентов](/blog/modern-agentic-architecture).
+- [Проектирование и реализация автоматизированного пайплайна переводов на GitHub Copilot](/blog/building-an-automated-translation-pipeline-for-a-markdown-blog-with-github-copilot).
+- [Разбор реализованного workflow публикаций](/blog/how-the-current-github-copilot-article-translation-flow-works-in-this-repository).
+- [Протокол передачи контекста и результатов между агентами](/blog/agent-context-and-exchange-protocol-how-to).
+- [DecisionLog: прототип, разделение ролей и сценарии оценки](/blog/decision-provenance-proof).
+- [Правила отбора решений для сохранения и результаты проверок](/blog/decision-provenance-threshold).
+- [Модель оценки AI adoption в SDLC](/blog/ai-adoption-maturity-model).
 - [The Provenance Manifesto](https://provenancemanifesto.org/).
 
 
