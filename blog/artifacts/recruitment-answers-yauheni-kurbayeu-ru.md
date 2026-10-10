@@ -115,7 +115,7 @@
 - [Протокол передачи контекста и результатов между агентами](/blog/agent-context-and-exchange-protocol-how-to).
 - [DecisionLog: прототип, разделение ролей и сценарии оценки](/blog/decision-provenance-proof).
 - [Правила отбора решений для сохранения и результаты проверок](/blog/decision-provenance-threshold).
-- [Модель оценки AI adoption в SDLC](/blog/ai-adoption-maturity-model).
+- [Модель оценки AI adoption в SDLC](/blog/artifacts/ai-adoption-maturity-model).
 - [The Provenance Manifesto](https://provenancemanifesto.org/).
 
 
